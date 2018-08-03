@@ -1,0 +1,13 @@
+#!$(INSTALL)/bin/$(ARCH)/BL15J-BL-IOC-01
+
+cd "$(INSTALL)"
+
+## Register all support components
+dbLoadDatabase("dbd/{{cookiecutter.domain}}-{{cookiecutter.technical_area}}-IOC-01.dbd")
+{{cookiecutter.domain}}-{{cookiecutter.technical_area}}-IOC-01_registerRecordDeviceDriver(pdbbase)
+
+## Load record instances
+dbLoadRecords("db/{{cookiecutter.domain}}-{{cookiecutter.technical_area}}-IOC-01.db")
+dbLoadRecords("db/{{cookiecutter.domain}}.db")
+
+iocInit()

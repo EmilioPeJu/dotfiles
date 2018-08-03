@@ -1,0 +1,2167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display typeId="org.csstudio.opibuilder.Display" version="1.0.0">
+  <actions hook="false" hook_all="false" />
+  <auto_scale_widgets>
+    <auto_scale_widgets>false</auto_scale_widgets>
+    <min_width>-1</min_width>
+    <min_height>-1</min_height>
+  </auto_scale_widgets>
+  <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
+  <background_color>
+    <color name="Canvas" red="200" green="200" blue="200" />
+  </background_color>
+  <boy_version>5.1.0.201710301201</boy_version>
+  <foreground_color>
+    <color red="192" green="192" blue="192" />
+  </foreground_color>
+  <grid_space>5</grid_space>
+  <height>180</height>
+  <macros>
+    <include_parent_macros>true</include_parent_macros>
+  </macros>
+  <name>Synoptic</name>
+  <rules />
+  <scripts />
+  <show_close_button>true</show_close_button>
+  <show_edit_range>true</show_edit_range>
+  <show_grid>true</show_grid>
+  <show_ruler>true</show_ruler>
+  <snap_to_geometry>false</snap_to_geometry>
+  <widget_type>Display</widget_type>
+  <width>1800</width>
+  <wuid>10115110:145d1627210:-7e7a</wuid>
+  <x>-1</x>
+  <y>-1</y>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="240" green="240" blue="240" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>12</height>
+    <image_file>../vacuumSpaceApp_opi/symbol/spacenew 0.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>FEV2</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>FE{{cookiecutter.domain[2:]}}-VA-SPACE-01:STA.SEVR</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>true</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>66</width>
+    <wuid>-242ae89e:150b2d9c9fa:-7b13</wuid>
+    <x>45</x>
+    <y>10</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>40</height>
+    <image_file>../BLGuiApp_opi/images/ring 1.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>MACH</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>=('SR-DI-DCCT-01:SIGNAL' &gt; 1.0) ? 1: 0</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>40</width>
+    <wuid>57dbea6f:149f0d3c4df:-7a65</wuid>
+    <x>0</x>
+    <y>0</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.polyline" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <arrow_length>20</arrow_length>
+    <arrows>0</arrows>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="0" green="255" blue="255" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fill_arrow>true</fill_arrow>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <height>1</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_style>0</line_style>
+    <line_width>4</line_width>
+    <name>Beam_1</name>
+    <points>
+      <point x="40" y="30" />
+      <point x="1865" y="30" />
+    </points>
+    <pv_name></pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>true</keep_wh_ratio>
+    </scale_options>
+    <scripts>
+      <path pathString="../BLGuiApp_opi/beam.py" checkConnect="true" sfe="false" seoe="false">
+        <pv trig="true">loc://shouldFlip</pv>
+        <pv trig="true">=indexOf('FE{{cookiecutter.domain[2:]}}-RS-ABSB-01:STA')==1?0:"auto(FE.Absorber)"</pv>
+        <pv trig="true">=indexOf('FE{{cookiecutter.domain[2:]}}-VA-VALVE-02:STA')==1?0:"auto(FE.V2)"</pv>
+        <pv trig="true">=indexOf('FE{{cookiecutter.domain[2:]}}-PS-SHTR-02:STA')==1?0:"auto(FE.Shutter)"</pv>
+      </path>
+    </scripts>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Polyline</widget_type>
+    <width>1826</width>
+    <wuid>-2c02436b:1462304d2d9:-6dd3</wuid>
+    <x>40</x>
+    <y>30</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_6</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>11</width>
+    <wuid>-1f126ca9:14ff00fa833:-7cdd</wuid>
+    <x>555</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_7</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>11</width>
+    <wuid>-1f126ca9:14ff00fa833:-7c9d</wuid>
+    <x>925</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_7</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>11</width>
+    <wuid>-32ed6e3f:1470fd48560:-7507</wuid>
+    <x>1150</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_5</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>10</width>
+    <wuid>-32ed6e3f:1470fd48560:-7856</wuid>
+    <x>115</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>FE.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>Open component screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>{{cookiecutter.domain}}-CS-FEND-01:DEVSTA.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>{{cookiecutter.domain}}-CS-FEND-01:DEVSTA:CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>true</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>true</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>5</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="13" style="0" pixels="true">Label Small</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>50</height>
+    <image_file>../BLGuiApp_opi/images/fm.png</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(FE)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>{{cookiecutter.domain}}-CS-FEND-01:DEVSTA</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>true</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>30</width>
+    <wuid>-35b9849d:150ada131ad:-7bd0</wuid>
+    <x>70</x>
+    <y>40</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>0</horizontal_alignment>
+    <name>Text Update</name>
+    <precision>0</precision>
+    <precision_from_pv>true</precision_from_pv>
+    <pv_name>CS-CS-MSTAT-01:SCROLLM</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>286</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718f</wuid>
+    <x>10</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="12" style="0" pixels="true">Fine Print</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_1</name>
+    <precision>0</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name>SR-DI-DCCT-01:SIGNAL</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>56</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718e</wuid>
+    <x>440</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_5</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>Ring
+Current</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>35</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718d</wuid>
+    <x>400</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_6</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>Ring
+Energy</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>36</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718c</wuid>
+    <x>300</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_2</name>
+    <precision>0</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name>CS-CS-MSTAT-01:BEAMENERGY</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>56</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718b</wuid>
+    <x>340</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_7</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>Fill</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>25</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-718a</wuid>
+    <x>500</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="12" style="0" pixels="true">Fine Print</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_3</name>
+    <precision>0</precision>
+    <precision_from_pv>true</precision_from_pv>
+    <pv_name>LI-TI-MTGEN-01:MODE</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>66</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-7189</wuid>
+    <x>530</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_8</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>Topup
+In</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>35</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-7188</wuid>
+    <x>600</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_4</name>
+    <precision>0</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name>SR-CS-FILL-01:STACOUNTDN</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>56</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-242ae89e:150b2d9c9fa:-7187</wuid>
+    <x>640</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>{{cookiecutter.domain}}-vacuum.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description></description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>{{cookiecutter.domain}}-hardware.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>1</mode>
+        <description>Hardware Status</description>
+      </action>
+      <action type="OPEN_DISPLAY">
+        <path>synoptic.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+        </macros>
+        <mode>7</mode>
+        <description>Another Top Level Synoptic</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Button: BG" red="205" green="205" blue="205" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>0</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Related Display: FG" red="128" green="64" blue="0" />
+    </foreground_color>
+    <height>21</height>
+    <label>Summary Screens</label>
+    <name>Summary Screens</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>true</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>151</width>
+    <wuid>62a577a4:150b3c1a84b:-73c6</wuid>
+    <x>1220</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../dlsPLCApp_opi/vacValve_detail.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <device>FE{{cookiecutter.domain[2:]}}-VA-VALVE-02</device>
+          <DESC>FE Valve 2</DESC>
+          <valvetype>valve</valvetype>
+          <name>FV2</name>
+        </macros>
+        <mode>3</mode>
+        <description>Open detail screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name):CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <image_file>../dlsPLCApp_opi/symbol/valve 1.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(FE.V2)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>FE{{cookiecutter.domain[2:]}}-VA-VALVE-02:STA</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>20</width>
+    <wuid>-d8b8e06:1513e438012:-7c12</wuid>
+    <x>85</x>
+    <y>5</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="EXECUTE_CMD">
+        <command>edm -x -noedit -eolc -m prefix=SR{{cookiecutter.domain[2:]}}-MO-,suff1=0,idname=Undulator IDBL_GapAndPhase4V4P.edl</command>
+        <command_directory>/dls_sw/prod/R3.14.12.3/support/insertionDevice/5-35/data</command_directory>
+        <wait_time>10</wait_time>
+        <description></description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Related Display: FG" red="128" green="64" blue="0" />
+    </foreground_color>
+    <height>21</height>
+    <image></image>
+    <name>Action Button_8</name>
+    <push_action_index>0</push_action_index>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <style>0</style>
+    <text>ID</text>
+    <toggle_button>false</toggle_button>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <visible>true</visible>
+    <widget_type>Action Button</widget_type>
+    <width>31</width>
+    <wuid>38ff752c:1516d0dee18:-7bb0</wuid>
+    <x>705</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_5</name>
+    <precision>4</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name>SR{{cookiecutter.domain[2:]}}-MO-SERVC-01:CURRGAPD</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>86</width>
+    <wrap_words>false</wrap_words>
+    <wuid>38ff752c:1516d0dee18:-7baf</wuid>
+    <x>740</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0.0">
+    <actions hook="false" hook_all="false">
+      <action type="EXECUTE_PYTHONSCRIPT">
+        <path></path>
+        <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import ScriptUtil
+from org.csstudio.opibuilder.scriptUtil import FileUtil
+import shutil
+import os
+
+filename='new.plt'
+
+source = FileUtil.workspacePathToSysPath('{{cookiecutter.domain}}/{{cookiecutter.domain}}App_opi/plots/' + filename)
+workspacepath = 'CSS/' + filename
+destination = FileUtil.workspacePathToSysPath(workspacepath)
+
+if not os.path.isfile(destination):
+    shutil.copy(source, destination)
+
+commandId="org.csstudio.trends.databrowser2.newWindow"
+ScriptUtil.executeEclipseCommand(commandId, ['plotfile', workspacepath ] )]]></scriptText>
+        <embedded>true</embedded>
+        <description>New Empty Plot</description>
+      </action>
+    </actions>
+    <actions_from_pv>false</actions_from_pv>
+    <alarm_pulsing>false</alarm_pulsing>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Button: BG" red="205" green="205" blue="205" />
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </border_color>
+    <border_style>6</border_style>
+    <border_width>0</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>true</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Related Display: FG" red="128" green="64" blue="0" />
+    </foreground_color>
+    <height>21</height>
+    <label>Plots</label>
+    <name>Plots</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_down_arrow>true</show_down_arrow>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Menu Button</widget_type>
+    <width>91</width>
+    <wuid>-28a80629:151918b1ce6:-7d3f</wuid>
+    <x>1120</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../vacuumSpaceApp_opi/space_detail.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <device>{{cookiecutter.domain}}-VA-SPACE-01</device>
+          <desc>{{cookiecutter.domain}}-VA-SPACE-01</desc>
+          <name>SP1</name>
+        </macros>
+        <mode>3</mode>
+        <description>Open detail screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name):CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="240" green="240" blue="240" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>12</height>
+    <image_file>../vacuumSpaceApp_opi/symbol/spacenew 0.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(SP1)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>{{cookiecutter.domain}}-VA-SPACE-01:STA.SEVR</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>true</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>81</width>
+    <wuid>35d7caf5:1551113bab2:-1767</wuid>
+    <x>130</x>
+    <y>10</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_10</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>11</width>
+    <wuid>49c9e8bc:156976af089:-7836</wuid>
+    <x>1365</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <border_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <foreground_color>
+      <color name="Text: FG" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Label_11</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text></text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>120</width>
+    <wrap_words>false</wrap_words>
+    <wuid>153a0ff2:1571e68eb28:-7574</wuid>
+    <x>1410</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <alpha>255</alpha>
+    <anti_alias>true</anti_alias>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Grey 50%" red="128" green="128" blue="128" />
+    </background_color>
+    <bg_gradient_color>
+      <color name="Grey 65%" red="166" green="166" blue="166" />
+    </bg_gradient_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <fill_level>0.0</fill_level>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <gradient>true</gradient>
+    <height>116</height>
+    <horizontal_fill>true</horizontal_fill>
+    <line_color>
+      <color red="169" green="165" blue="162" />
+    </line_color>
+    <line_style>0</line_style>
+    <line_width>0</line_width>
+    <name>Rectangle_11</name>
+    <pv_name></pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <visible>true</visible>
+    <widget_type>Rectangle</widget_type>
+    <width>11</width>
+    <wuid>4bd7b8c:15b385cae56:-6ef6</wuid>
+    <x>1665</x>
+    <y>25</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_13</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>PGM
+Energy</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>35</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-7c46910c:15d89b90346:-7432</wuid>
+    <x>985</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_6</name>
+    <precision>3</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name>{{cookiecutter.domain}}-OP-PGM-01:ENERGY.RBV</pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>######</text>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>86</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-7c46910c:15d89b90346:-7431</wuid>
+    <x>1025</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <fontdata fontName="Liberation Sans" height="8" style="0" pixels="true" />
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <name>Label_15</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>Polarisation</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>46</width>
+    <wrap_words>false</wrap_words>
+    <wuid>28a21e77:15ece3339bf:-3f0e</wuid>
+    <x>825</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.TextUpdate" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <alarm_pulsing>false</alarm_pulsing>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Monitor BG" red="105" green="105" blue="105" />
+    </background_color>
+    <border_alarm_sensitive>true</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Monitor: NORMAL" red="0" green="224" blue="0" />
+    </foreground_color>
+    <format_type>0</format_type>
+    <height>21</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <name>Text Update_7</name>
+    <precision>3</precision>
+    <precision_from_pv>false</precision_from_pv>
+    <pv_name></pv_name>
+    <pv_value />
+    <rotation_angle>0.0</rotation_angle>
+    <rules>
+      <rule name="PolarisationType" prop_id="text" out_exp="false">
+        <exp bool_exp="(pv0 &lt; 1) &amp;&amp; (pv1 &lt; 1) &amp;&amp; (pv2 &lt; 1) &amp;&amp; (pv3 &lt; 1)">
+          <value>Linear Horizontal</value>
+        </exp>
+        <pv trig="true">SR{{cookiecutter.domain[2:]}}-MO-SERVO-05:MOT.RBV</pv>
+        <pv trig="true">SR{{cookiecutter.domain[2:]}}-MO-SERVO-06:MOT.RBV</pv>
+        <pv trig="true">SR{{cookiecutter.domain[2:]}}-MO-SERVO-07:MOT.RBV</pv>
+        <pv trig="true">SR{{cookiecutter.domain[2:]}}-MO-SERVO-08:MOT.RBV</pv>
+      </rule>
+    </rules>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_units>true</show_units>
+    <text>Linear Vertical</text>
+    <tooltip>Polarisation from
+ID settings</tooltip>
+    <transparent>false</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Text Update</widget_type>
+    <width>111</width>
+    <wrap_words>false</wrap_words>
+    <wuid>28a21e77:15ece3339bf:-3f04</wuid>
+    <x>875</x>
+    <y>155</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <actions hook="false" hook_all="false" />
+    <auto_size>false</auto_size>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>1</border_width>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="1" pixels="true">Default Bold</opifont.name>
+    </font>
+    <foreground_color>
+      <color red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <horizontal_alignment>0</horizontal_alignment>
+    <name>Label_17</name>
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <text>FE</text>
+    <tooltip></tooltip>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+    <visible>true</visible>
+    <widget_type>Label</widget_type>
+    <width>41</width>
+    <wrap_words>false</wrap_words>
+    <wuid>-108c0d2e:163876f941b:-7858</wuid>
+    <x>10</x>
+    <y>115</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../dlsPLCApp_opi/vacValve_detail.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <device>FE{{cookiecutter.domain[2:]}}-RS-ABSB-01</device>
+          <DESC>FE Absorber</DESC>
+          <valvetype>absorber</valvetype>
+          <name>FABS</name>
+        </macros>
+        <mode>3</mode>
+        <description>Open detail screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name):CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <image_file>../dlsPLCApp_opi/symbol/absorber 1.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(FE.Absorber)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>FE{{cookiecutter.domain[2:]}}-RS-ABSB-01:STA</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>20</width>
+    <wuid>-108c0d2e:163876f941b:-7456</wuid>
+    <x>60</x>
+    <y>5</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../dlsPLCApp_opi/vacValve_detail.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <device>FE{{cookiecutter.domain[2:]}}-PS-SHTR-02</device>
+          <DESC>FE Shutter</DESC>
+          <valvetype>shutter</valvetype>
+          <name>FSHTR</name>
+        </macros>
+        <mode>3</mode>
+        <description>Open detail screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name):CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <image_file>../dlsPLCApp_opi/symbol/shutter 1.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(FE.Shutter)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>FE{{cookiecutter.domain[2:]}}-PS-SHTR-02:STA</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>20</width>
+    <wuid>-108c0d2e:163876f941b:-744b</wuid>
+    <x>110</x>
+    <y>5</y>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.symbol.multistate.MultistateMonitorWidget" version="1.0.0">
+    <actions hook="true" hook_all="false">
+      <action type="OPEN_DISPLAY">
+        <path>../dlsPLCApp_opi/vacValve_detail.opi</path>
+        <macros>
+          <include_parent_macros>true</include_parent_macros>
+          <device>BL{{cookiecutter.domain[2:]}}-VA-VALVE-01</device>
+          <DESC>BL{{cookiecutter.domain[2:]}}-VA-VALVE-01</DESC>
+          <ilk0>Air Pressure</ilk0>
+          <ilk1>Initial/Run</ilk1>
+          <ilk2>PIRG-01 &amp; Ser</ilk2>
+          <ilk3>PIRG-02 &amp; Ser</ilk3>
+          <ilk4>PIRG-03 &amp; Ser</ilk4>
+          <ilk5>unused</ilk5>
+          <ilk6>unused</ilk6>
+          <ilk7>unused</ilk7>
+          <ilk8>unused</ilk8>
+          <ilk9>unused</ilk9>
+          <ilk10>unused</ilk10>
+          <ilk11>unused</ilk11>
+          <ilk12>unused</ilk12>
+          <ilk13>unused</ilk13>
+          <ilk14>unused</ilk14>
+          <ilk15>Valve Fault</ilk15>
+          <gilk0>Gauge 1</gilk0>
+          <gilk1>Gauge 2</gilk1>
+          <gilk2>Gauge 3</gilk2>
+          <gilk3>Gauge 4</gilk3>
+          <gilk4>Gauge 5</gilk4>
+          <gilk5>Gauge 6</gilk5>
+          <gilk6>unused</gilk6>
+          <gilk7>unused</gilk7>
+          <gilk8>unused</gilk8>
+          <gilk9>unused</gilk9>
+          <gilk10>unused</gilk10>
+          <gilk11>unused</gilk11>
+          <gilk12>unused</gilk12>
+          <gilk13>unused</gilk13>
+          <gilk14>unused</gilk14>
+          <gilk15>unused</gilk15>
+          <name>V1</name>
+          <valvetype>valve</valvetype>
+        </macros>
+        <mode>3</mode>
+        <description>Open detail screen</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name).PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Clear alarm status</description>
+      </action>
+      <action type="WRITE_PV">
+        <pv_name>$(pv_name):CALC.PROC</pv_name>
+        <value>1</value>
+        <timeout>5</timeout>
+        <confirm_message></confirm_message>
+        <description>Restore alarm status</description>
+      </action>
+    </actions>
+    <alarm_pulsing>false</alarm_pulsing>
+    <align_to_nearest_second>false</align_to_nearest_second>
+    <auto_size>false</auto_size>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color name="Canvas" red="200" green="200" blue="200" />
+    </background_color>
+    <boolean_label_position>0</boolean_label_position>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <border_style>0</border_style>
+    <border_width>0</border_width>
+    <crop_bottom>0</crop_bottom>
+    <crop_left>0</crop_left>
+    <crop_right>0</crop_right>
+    <crop_top>0</crop_top>
+    <degree>0</degree>
+    <enabled>true</enabled>
+    <flip_horizontal>false</flip_horizontal>
+    <flip_vertical>false</flip_vertical>
+    <font>
+      <opifont.name fontName="Liberation Sans" height="15" style="0" pixels="true">Default</opifont.name>
+    </font>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <foreground_color>
+      <color name="Black" red="0" green="0" blue="0" />
+    </foreground_color>
+    <height>20</height>
+    <image_file>../dlsPLCApp_opi/symbol/valve 1.svg</image_file>
+    <items />
+    <items_from_pv>true</items_from_pv>
+    <name>auto(V1)</name>
+    <no_animation>false</no_animation>
+    <off_color>
+      <color red="0" green="0" blue="0" />
+    </off_color>
+    <on_color>
+      <color red="0" green="0" blue="0" />
+    </on_color>
+    <permutation_matrix>
+      <row>
+        <col>1.0</col>
+        <col>0.0</col>
+      </row>
+      <row>
+        <col>0.0</col>
+        <col>1.0</col>
+      </row>
+    </permutation_matrix>
+    <pv_name>BL{{cookiecutter.domain[2:]}}-VA-VALVE-01:STA</pv_name>
+    <pv_value />
+    <rules />
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <scripts />
+    <show_boolean_label>false</show_boolean_label>
+    <stretch_to_fit>false</stretch_to_fit>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <transparency>false</transparency>
+    <visible>true</visible>
+    <widget_type>Multistate Symbol Monitor</widget_type>
+    <width>20</width>
+    <wuid>-108c0d2e:163876f941b:-72da</wuid>
+    <x>210</x>
+    <y>5</y>
+  </widget>
+</display>

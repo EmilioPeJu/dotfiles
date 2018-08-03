@@ -1,0 +1,72 @@
+# Alarm colours
+Minor = 255, 241, 0
+Major = 255, 0, 0
+Invalid = 255, 255, 255
+Disconnected = 255, 255, 255
+
+# Widget colours
+Canvas = 200, 200, 200
+Button: BG = 205, 205, 205
+Button: On = 190, 190, 190
+Controller: FG = 0, 0, 196
+Related Display: FG = 128, 64, 0
+Text: FG = 0, 0, 0
+Exit: FG = 196, 0, 196
+Monitor: BG = 64, 64, 64
+Monitor: FG = 96, 255, 96
+
+# LED colours
+Red LED: On = 255, 0, 0
+Red LED: Off = 96, 0, 0
+Yellow LED: On = 255, 255, 0
+Yellow LED: Off = 96, 96, 0
+Green LED: On = 0, 255, 0
+Green LED: Off = 0, 96, 0
+Blue LED: On = 0, 255, 255
+Blue LED: Off = 0, 96, 96
+
+# Generic colours
+White = 255, 255, 255
+Grey 90% = 230, 230, 230
+Grey 75% = 192, 192, 192
+Grey 65% = 166, 166, 166
+Grey 50% = 128, 128, 128
+Grey 40% = 102, 102, 102
+Grey 25% = 64, 64, 64
+Black = 0, 0, 0
+Red = 255, 0, 0
+Mid Red = 196, 0, 0
+Dark Red = 128, 0, 0
+Yellow = 255, 255, 0
+Mid Yellow = 196, 196, 0
+Dark Yellow = 128, 128, 0
+Green = 0, 255, 0
+Mid Green = 0, 196, 0
+Dark Green = 0, 128, 0
+Cyan = 0, 255, 255
+Mid Cyan = 0, 196, 196
+Dark Cyan = 0, 128, 128
+Blue = 0, 0, 255
+Mid Blue = 0, 0, 196
+Dark Blue = 0, 0, 128
+Purple = 255, 0, 255
+Mid Purple = 196, 0, 196
+Dark Purple = 128, 0, 128
+Amber = 255, 196, 0
+Orange = 255, 196, 96
+Light Brown = 196, 128, 64
+Dark Brown = 128, 96, 32
+
+# Title colours
+CO title = 169, 210, 240
+EA title = 135, 216, 135
+VA title = 202, 223, 159
+MA title = 185, 198, 184
+TI title = 210, 201, 172
+MO title = 115, 212, 216
+CG title = 158, 207, 207
+RS title = 225, 193, 144
+RF title = 184, 181, 198
+MP title = 238, 205, 224
+DI title = 198, 181, 198
+PS title = 255, 150, 168

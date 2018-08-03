@@ -1,0 +1,6 @@
+file $(DEVIOCSTATS)/db/ioc.db
+{
+pattern { IOCNAME, name }
+    { "{{cookiecutter.domain}}", "IOCS.{{cookiecutter.technical_area}}" }
+}
+
