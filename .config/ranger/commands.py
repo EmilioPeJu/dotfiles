@@ -196,3 +196,19 @@ class p(dls_go):
 
 class w(dls_go):
         ROOT = "/dls_sw/work"
+
+class bulk_command(Command):
+        def execute(self):
+            import tempfile
+            from ranger.container.file import File
+            from ranger.ext.shell_escape import shell_escape as esc
+            cmdfile = tempfile.NamedTemporaryFile()
+            script_files = ["#!/bin/bash"]
+            script_files.extend(self.rest(1).format(fn=esc(f.relative_path)) for f in self.fm.thistab.get_selection())
+            script_files.append("echo FINISHED; read")
+            cmdfile.write("\n".join(script_files))
+            cmdfile.flush()
+            self.fm.execute_file([File(cmdfile.name)], app='editor')
+            self.fm.run(['/bin/sh', cmdfile.name], flags='w')
+            cmdfile.close()
+
