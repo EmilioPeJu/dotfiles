@@ -8,6 +8,8 @@
 from ranger.api.commands import *
 from ranger.container import directory
 from ranger.core.loader import CommandLoader
+from ranger.ext.shell_escape import shell_quote
+
 # A simple command for demonstration purposes follows.
 #------------------------------------------------------------------------------
 
@@ -211,4 +213,55 @@ class bulk_command(Command):
             self.fm.execute_file([File(cmdfile.name)], app='editor')
             self.fm.run(['/bin/sh', cmdfile.name], flags='w')
             cmdfile.close()
+
+
+class download(Command):
+    """
+    :download [filename]
+    Download uri in X clipboard using wget
+    """
+
+    def execute(self):
+        command = 'wget --content-disposition --trust-server-names "`xclip -o`"'
+        if self.rest(1):
+            command += ' -O ' + shell_quote(self.rest(1))
+        action = ['/bin/sh', '-c', command]
+        self.fm.execute_command(action)
+
+
+class pasta(Command):
+    """
+    :pasta <filename>
+    Paste the X selection as a new file.
+    """
+
+    def execute(self):
+        from os.path import join, expanduser
+
+        filename = join(self.fm.thisdir.path, expanduser(self.rest(1)))
+        self.fm.execute_command('xclip -o > "' + filename + '"')
+
+
+class md(Command):
+    """
+    :md <dirname>
+    Creates a directory with the name <dirname> and cd to it.
+    """
+
+    def execute(self):
+        from os.path import join, lexists
+        from os import makedirs
+
+        dirname = join(self.fm.thisdir.path, self.rest(1))
+        if not lexists(dirname):
+            makedirs(dirname)
+        self.fm.thisdir.load_content(schedule=False)
+        self.fm.select_file(dirname)
+        self.fm.cd(dirname)
+
+
+class diff(Command):
+    # vimdiff selected files
+    def execute(self):
+        self.fm.execute_console('shell vimdiff %s')
 
