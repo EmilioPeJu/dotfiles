@@ -220,12 +220,26 @@ class download(Command):
     :download [filename]
     Download uri in X clipboard using wget
     """
+    command = 'wget --content-disposition --trust-server-names "`xclip -o`"'
 
     def execute(self):
-        command = 'wget --content-disposition --trust-server-names "`xclip -o`"'
         if self.rest(1):
-            command += ' -O ' + shell_quote(self.rest(1))
-        action = ['/bin/sh', '-c', command]
+            self.command += ' -O ' + shell_quote(self.rest(1))
+        action = ['/bin/sh', '-c', self.command]
+        self.fm.execute_command(action)
+
+
+class download_video(Command):
+    """
+    :download [filename]
+    Download uri in X clipboard using youtube-dl
+    """
+    command = 'youtube-dl "`xclip -o`"'
+
+    def execute(self):
+        if self.rest(1):
+            self.command += ' -o ' + shell_quote(self.rest(1))
+        action = ['/bin/sh', '-c', self.command]
         self.fm.execute_command(action)
 
 
