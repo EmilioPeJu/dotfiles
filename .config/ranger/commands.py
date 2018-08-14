@@ -175,6 +175,7 @@ class dls_go(Command):
                 selected_folder = {
                     "b": os.path.join(self.ROOT, EPICS_VERSION, "support", "{}-BUILDER".format(bl)),
                     "bl": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl, "BL"),
+                    "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl),
                     "s": os.path.join(self.ROOT, EPICS_VERSION, "support", bl),
                     "ui": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl, "{}-UI-IOC-01".format(bl)),
                     "m": os.path.join(self.ROOT, "motion", bl),
