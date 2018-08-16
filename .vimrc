@@ -61,3 +61,7 @@ set background=dark                         " Use dark background
 " tnoremap jj <c-\><c-n>
 
 inoremap jj <ESC>
+nnoremap <C-Left> 	:tabprevious<CR>
+nnoremap <C-Right>	:tabnext<CR>
+nnoremap <C-n>	:tabnew<CR>
+nnoremap <C-x>	:tabclose<CR>
