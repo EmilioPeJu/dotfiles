@@ -10,6 +10,12 @@ launch:*.launch
 prop:*.properties
 --type-add
 eclipse:{*.prefs,.classpath,.project,build.properties}
+--type-add
+cxx:{*.c,*.h,*.cpp,*.hpp}
+--type-add
+make:{Makefile}
+--type-add
+ep:{*.c,*.h,*.cpp,*.hpp,*.db,*.template,Makefile,*.src,*.boot,*.sh,*.py}
  
 # Always search hidden ".*" files
 --hidden
