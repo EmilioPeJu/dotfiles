@@ -1,0 +1,84 @@
+#!/bin/bash
+
+[[ -f ~/norc ]] && return
+
+# load helper scripts
+[[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
+[[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
+
+# user environment variables
+export PATH="$PATH:$HOME/scripts:/code/scripts"
+export EDITOR="vim"
+
+# user alias
+
+alias unlock="rm -f /code/scripts/auth.lock"
+alias co='cookiecutter'
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
+alias cat2="cat << EOF >>"
+alias ed="$EDITOR"
+alias ve3="source ~/venv3/bin/activate"
+alias ve2="source ~/venv2/bin/activate"
+alias ve3_="source ~/venv3_/bin/activate"
+alias ve2_="source ~/venv2_/bin/activate"
+alias i2pd="/code/src/i2pd/build/i2pd"
+alias by="~/venv2/bin/by"
+alias trainer="~/venv2/bin/trainer"
+alias lemon="/code/src/lemon"
+
+# user functions
+function tb() {
+	cat "$1" | nc termbin.com 9999
+}
+
+
+function cd-from-ranger()
+{
+    ranger_pid=$(cat /tmp/ranger.pid)
+    echo "get %d" > "/tmp/ranger-ipc.in.${ranger_pid}"
+    cd -- "$(cat /tmp/ranger-ipc.out.${ranger_pid})"
+}
+
+function cd-to-ranger()
+{
+    echo "cd $PWD" > "/tmp/ranger-ipc.in.${ranger_pid}"
+}
+
+function rc() {
+	source ~/.bashrc
+}
+
+bind '"\C-o":"cd-from-ranger\C-m"'
+
+eval "$(fasd --init auto)"
+
+
+# ssh-agent autostart
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+function start_agent_if_not_present() {
+	if [ -f "${SSH_ENV}" ]; then
+	    . "${SSH_ENV}" > /dev/null
+	    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+	    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+		start_agent;
+	    }
+	else
+	    start_agent;
+	fi
+}
+
+start_agent_if_not_present;
+
