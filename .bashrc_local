@@ -27,6 +27,22 @@ alias i2pd="/code/src/i2pd/build/i2pd"
 alias by="~/venv2/bin/by"
 alias trainer="~/venv2/bin/trainer"
 alias lemon="/code/src/lemon"
+alias lo="module load"
+alias un="module unload"
+alias gf="git fetch --all"
+alias gd="git diff --color=always --ws-error-highlight=all"
+alias gc="git commit"
+alias ga="git add"
+alias gall="git add --all"
+alias gr="git rebase"
+alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gb="git blame"
+alias gg="git gui"
+
+function gpr() {
+	git fetch gh pull/$1/head:pr$1
+}
+
 
 # user functions
 function tb() {
@@ -47,7 +63,12 @@ function cd-to-ranger()
 }
 
 function rc() {
-	source ~/.bashrc
+	if [[ "$1" != "" ]]; then
+		[[ -f "${HOME}/.bashrc_${1}" ]] && . "${HOME}/.bashrc_${1}"
+		[[ -f "${HOME}/.bashrc_${1}_functions" ]] && . "${HOME}/.bashrc_${1}_functions"
+	else
+		source ~/.bashrc
+	fi
 }
 
 bind '"\C-o":"cd-from-ranger\C-m"'
@@ -58,7 +79,7 @@ eval "$(fasd --init auto)"
 # ssh-agent autostart
 SSH_ENV="$HOME/.ssh/environment"
 
-function start_agent {
+function start-agent {
     echo "Initialising new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded
@@ -68,7 +89,7 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-function start_agent_if_not_present() {
+function start-agent-if-needed() {
 	if [ -f "${SSH_ENV}" ]; then
 	    . "${SSH_ENV}" > /dev/null
 	    #ps ${SSH_AGENT_PID} doesn't work under cywgin
@@ -79,6 +100,4 @@ function start_agent_if_not_present() {
 	    start_agent;
 	fi
 }
-
-start_agent_if_not_present;
 
