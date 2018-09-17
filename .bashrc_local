@@ -2,10 +2,6 @@
 
 [[ -f ~/norc ]] && return
 
-# load helper scripts
-[[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
-[[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
-
 # user environment variables
 export PATH="$PATH:$HOME/scripts:/code/scripts"
 export EDITOR="vim"
@@ -100,4 +96,8 @@ function start-agent-if-needed() {
 	    start_agent;
 	fi
 }
+
+# load helper scripts
+[[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
+[[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
 
