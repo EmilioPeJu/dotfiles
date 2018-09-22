@@ -97,6 +97,14 @@ function start-agent-if-needed() {
 	fi
 }
 
+function pro() {
+	if [[ "$(pwd)" =~ "problems" ]]; then
+		echo "$(pwd)" > ~/current_problem.txt
+	else
+		cd $(cat ~/current_problem.txt)
+	fi
+}
+
 # load helper scripts
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
