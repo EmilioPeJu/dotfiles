@@ -1,5 +1,5 @@
 CC=g++
-FLAGS=-std=c++{{cookiecutter.cpp_version}} -ggdb -pipe -Wall
+FLAGS=-std=c++{{cookiecutter.cpp_version}} -ggdb -O0 -pipe -Wall
 LIBS=-lm -lcrypt
 
 .DEFAULT_GOAL := all
