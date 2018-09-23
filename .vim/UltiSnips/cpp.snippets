@@ -19,3 +19,59 @@ endsnippet
 snippet iii
 tuple<int, int, int>
 endsnippet
+
+snippet Uf
+class Uf {
+	private:
+		int n;
+		vector<int> count;
+		vector<int> parent;
+	public:
+		Uf(int n) : n(n) {
+			for(size_t i=0;i<n;i++) {
+				count.push_back(1);
+				parent.push_back(i);
+			}
+		}
+
+		int root(int a) {
+			int current = a;
+			while (current != parent[current])
+				current=parent[current];
+			return current;
+		}
+
+		int getMostFrequent(int a) {
+			int result = -1;
+			for(int i=0;i<count.size();i++) {
+				if (count[i] > count[result])
+					result = i;
+			}
+			return result;
+		}
+
+		void connect(int a, int b) {
+			int a_root = root(a);
+			int b_root = root(b);
+			if  (count[a_root] >= count[b_root]) {
+				parent[b_root] = a_root;
+				count[a_root] += count[b_root];
+			} else {
+				parent[a_root] = b_root;
+				count[b_root] += count[a_root];
+			}
+		}
+
+		size_t size(int a) {
+			return count[a];
+		}
+
+		bool connected(int a, int b) {
+			return root(a) == root(b);
+		}
+};
+endsnippet
+
+snippet all "from begin to end" i
+begin($1), end($1)
+endsnippet
