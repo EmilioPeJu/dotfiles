@@ -28,7 +28,7 @@ class Uf {
 		vector<int> parent;
 	public:
 		Uf(int n) : n(n) {
-			for(size_t i=0;i<n;i++) {
+			for(int i=0;i<n;i++) {
 				count.push_back(1);
 				parent.push_back(i);
 			}
@@ -41,18 +41,10 @@ class Uf {
 			return current;
 		}
 
-		int getMostFrequent(int a) {
-			int result = -1;
-			for(int i=0;i<count.size();i++) {
-				if (count[i] > count[result])
-					result = i;
-			}
-			return result;
-		}
-
 		void connect(int a, int b) {
 			int a_root = root(a);
 			int b_root = root(b);
+			if (a_root == b_root) return;
 			if  (count[a_root] >= count[b_root]) {
 				parent[b_root] = a_root;
 				count[a_root] += count[b_root];
@@ -62,7 +54,7 @@ class Uf {
 			}
 		}
 
-		size_t size(int a) {
+		int size(int a) {
 			return count[a];
 		}
 
@@ -118,4 +110,9 @@ class BITree {
 			return query(b) - (b==0?0:query(a-1));
 		}
 };
+endsnippet
+
+snippet pb "push_back" i
+push_back($1);
+$0
 endsnippet
