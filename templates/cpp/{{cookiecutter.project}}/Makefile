@@ -23,6 +23,6 @@ debug: {{cookiecutter.project}}.out
 	gdb -x debug_cmd  {{cookiecutter.project}}.out
 
 remote-debug: {{cookiecutter.project}}.out
-	gdbserver :1234 {{cookiecutter.project}}.out < in_test
+	gdbserver :1234 {{cookiecutter.project}}.out < in1
 
 all: {{cookiecutter.project}}.out
