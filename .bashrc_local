@@ -105,6 +105,8 @@ function pro() {
 	fi
 }
 
+eval $(thefuck --alias)
+
 # load helper scripts
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
