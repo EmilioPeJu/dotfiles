@@ -107,6 +107,18 @@ function pro() {
 
 eval $(thefuck --alias)
 
+function incr() {
+	mkdir -p "${HOME}/.counters"
+	local topic="${1:-default}"
+	local dst_path="${HOME}/.counters/${topic}"
+	if [[ -f "${dst_path}" ]]; then
+		let i=$(cat "${dst_path}")+1
+		echo $i > "${dst_path}"
+	else
+		echo 1 > "${dst_path}"
+	fi
+}
+
 # load helper scripts
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
