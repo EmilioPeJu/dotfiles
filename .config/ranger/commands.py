@@ -147,6 +147,15 @@ class command_filter(Command):
             directory.command_filter = self.args[1:]
         self.fm.thisdir.refilter()
 
+class tag_filter(Command):
+    def execute(self):
+        if len(self.args) < 2:
+            directory.tag_filter = False
+        else:
+            # argument is used for specifying tag, TODO: support tag selection
+            directory.tag_filter = self.args[1:] 
+        self.fm.thisdir.refilter()
+
 
 class dls_go(Command):
         ROOT = "/dls_sw/prod"
