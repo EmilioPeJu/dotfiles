@@ -168,7 +168,8 @@ class dls_go(Command):
                 section = match[0]
                 selected_folder = {
                     "s": os.path.join(self.ROOT, EPICS_VERSION, "support"),
-                    "i": os.path.join(self.ROOT, "etc", "init"),
+                    "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc"),
+                    "e": os.path.join(self.ROOT, "etc", "init"),
                     "t": os.path.join(self.ROOT, "tools", RHEL),
                     "p": os.path.join(self.ROOT, "common", "python", RHEL)
                 }.get(section, self.ROOT)
