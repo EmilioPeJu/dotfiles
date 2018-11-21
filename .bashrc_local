@@ -105,7 +105,7 @@ function pro() {
 	fi
 }
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 function incr() {
 	mkdir -p "${HOME}/.counters"
@@ -123,3 +123,18 @@ function incr() {
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
 
+function :w() {
+	pushd ~/.config/ranger/ > /dev/null
+	NEWDIR="$(python -c 'from hir12111env import dls_work_tree_helper; print(dls_work_tree_helper().get_dir("'"$1"'"))')"
+	popd > /dev/null
+	echo "Entering $NEWDIR ..."
+	cd "$NEWDIR"
+}
+
+function :p() {
+	pushd ~/.config/ranger/ > /dev/null
+	NEWDIR="$(python -c 'from hir12111env import dls_prod_tree_helper; print(dls_prod_tree_helper().get_dir("'"$1"'"))')"
+	popd > /dev/null
+	echo "Entering $NEWDIR ..."
+	cd "$NEWDIR"
+}

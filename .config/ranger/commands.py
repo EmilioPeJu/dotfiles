@@ -157,43 +157,7 @@ class tag_filter(Command):
         self.fm.thisdir.refilter()
 
 
-class dls_go(Command):
-        ROOT = "/dls_sw/prod"
-        ROOT2 = "/dls"
-
-        def get_dir(self, arg):
-            # one letter match
-            match = re.findall(r"^(.)$", arg)
-            if match:
-                section = match[0]
-                selected_folder = {
-                    "s": os.path.join(self.ROOT, EPICS_VERSION, "support"),
-                    "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc"),
-                    "e": os.path.join(self.ROOT, "etc", "init"),
-                    "t": os.path.join(self.ROOT, "tools", RHEL),
-                    "p": os.path.join(self.ROOT, "common", "python", RHEL)
-                }.get(section, self.ROOT)
-                return selected_folder
-            # try beamline module match
-            match = re.findall(r"^(.)(\d+)(..?)$", arg)
-            if match:
-                branch, bl_number, section = match[0]
-                bl = "BL{}{}".format(bl_number, branch.upper())
-                bl_dash = "{}{}".format(branch, bl_number)
-                if branch == "j":
-                    bl_dash = "i{}-1".format(bl_number)
-                selected_folder = {
-                    "b": os.path.join(self.ROOT, EPICS_VERSION, "support", "{}-BUILDER".format(bl)),
-                    "bl": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl, "BL"),
-                    "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl),
-                    "s": os.path.join(self.ROOT, EPICS_VERSION, "support", bl),
-                    "ui": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl, "{}-UI-IOC-01".format(bl)),
-                    "m": os.path.join(self.ROOT, "motion", bl),
-                    "a": os.path.join(self.ROOT, "..", bl_dash, "epics", "autosave"),
-                    "l": os.path.join(self.ROOT2, bl_dash, "epics", "logs")
-                }.get(section, self.ROOT)
-                return selected_folder
-
+class dls_go(Command, dls_tree_helper):
         def execute(self):
             if self.arg(1):
                 selected_folder = self.get_dir(self.arg(1))
@@ -203,12 +167,13 @@ class dls_go(Command):
                 self.fm.thistab.enter_dir(self.ROOT)
 
 
-class p(dls_go):
-        ROOT = "/dls_sw/prod"
+class p(dls_go, dls_prod_tree_helper):
+    pass
 
 
-class w(dls_go):
-        ROOT = "/dls_sw/work"
+class w(dls_go, dls_work_tree_helper):
+    pass
+
 
 class bulk_command(Command):
         def execute(self):
