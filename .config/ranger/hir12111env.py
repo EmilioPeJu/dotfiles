@@ -9,8 +9,7 @@ EPICS_VERSION = "R3.14.12.3"
 if os.access('/etc/redhat-release', os.R_OK):
     rhel_release_data = open("/etc/redhat-release", "r").read()
     RHEL_MAJOR = re.findall(r"\d", rhel_release_data)[0]
-    RHEL = "RHEL{}-x86_64".format(RHEL_MAJOR)
-
+    RHEL = "RHEL{0}-x86_64".format(RHEL_MAJOR)
 
 class dls_tree_helper(object):
     ROOT = "/dls_sw/prod"
@@ -33,18 +32,18 @@ class dls_tree_helper(object):
         match = re.findall(r"^(.)(\d+)(..?)$", arg)
         if match:
             branch, bl_number, section = match[0]
-            bl = "BL{}{}".format(bl_number, branch.upper())
-            bl_dash = "{}{}".format(branch, bl_number)
+            bl = "BL{0}{1}".format(bl_number, branch.upper())
+            bl_dash = "{0}{1}".format(branch, bl_number)
             if branch == "j":
-                bl_dash = "i{}-1".format(bl_number)
+                bl_dash = "i{0}-1".format(bl_number)
             selected_folder = {
                 "b": os.path.join(self.ROOT, EPICS_VERSION, "support",
-                                  "{}-BUILDER".format(bl)),
+                                  "{0}-BUILDER".format(bl)),
                 "bl": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl, "BL"),
                 "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl),
                 "s": os.path.join(self.ROOT, EPICS_VERSION, "support", bl),
                 "ui": os.path.join(self.ROOT, EPICS_VERSION, "ioc", bl,
-                                   "{}-UI-IOC-01".format(bl)),
+                                   "{0}-UI-IOC-01".format(bl)),
                 "m": os.path.join(self.ROOT, "motion", bl),
                 "a": os.path.join(self.ROOT, "..", bl_dash, "epics",
                                   "autosave"),
