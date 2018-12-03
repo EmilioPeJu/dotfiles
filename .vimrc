@@ -1,6 +1,10 @@
 set clipboard=unnamedplus
 let mapleader = ","
 
+" change backup dir
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
+
 call plug#begin()
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-sneak'
