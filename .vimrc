@@ -12,7 +12,8 @@ Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+Plug 'python-mode/python-mode'
 call plug#end()
 
 nnoremap gd :YcmCompleter GoTo<cr>
@@ -20,10 +21,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " set termguicolors
 set shell=zsh
-
-au FileType python set tabstop=4
-au FileType python set softtabstop=4
-au FileType python set expandtab
 
 set number
 set ruler
