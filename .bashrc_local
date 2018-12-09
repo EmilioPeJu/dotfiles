@@ -34,6 +34,7 @@ alias gr="git rebase"
 alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gb="git blame"
 alias gg="git gui"
+alias gp="git remote | xargs -L1 git push --all"
 
 function gpr() {
 	git fetch gh pull/$1/head:pr$1
