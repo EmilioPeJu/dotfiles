@@ -8,6 +8,7 @@ class MMRegisters(GenericCommand):
         super(MMRegisters, self).__init__()
         set_gef_setting("mmregs.type", "float", str, "Type of elements in registers")
         set_gef_setting("mmregs.enable", 0, bool, "Show on stop")
+        set_gef_setting("mmregs.n", 16, int, "Number of registers to show")
 
     @only_if_gdb_running         # not required, ensures that the debug session is started
     def do_invoke(self, argv):
@@ -18,7 +19,7 @@ class MMRegisters(GenericCommand):
         else:
             selection = arg_to_type.index(get_gef_setting("mmregs.type"))
 
-        for index in range(16):
+        for index in range(get_gef_setting("mmregs.n")):
             mm_val = gdb.execute("info registers ymm{}".format(index), to_string=True)
             mm_format_val = mm_val.strip().split('\n')[selection]
             print("ymm{}: {}".format(index, mm_format_val))
