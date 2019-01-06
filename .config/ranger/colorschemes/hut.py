@@ -2,11 +2,11 @@
 # License: GNU GPL version 3, see the file "AUTHORS" for details.
 
 from ranger.gui.color import *
-from ranger.colorschemes.default import Default
+from ranger.colorschemes.snow import Snow
 
-class Scheme(Default):
+class Scheme(Snow):
     def use(self, context):
-        fg, bg, attr = Default.use(self, context)
+        fg, bg, attr = Snow.use(self, context)
 
         if getattr(context, 'scaffold', False):
             fg = 208
