@@ -24,6 +24,7 @@ class dls_tree_helper(object):
                 "s": os.path.join(self.ROOT, EPICS_VERSION, "support"),
                 "i": os.path.join(self.ROOT, EPICS_VERSION, "ioc"),
                 "e": os.path.join(self.ROOT, "etc", "init"),
+                "b": os.path.join(self.ROOT, "etc", "build"),
                 "t": os.path.join(self.ROOT, "tools", RHEL),
                 "p": os.path.join(self.ROOT, "common", "python", RHEL)
             }.get(section, self.ROOT)

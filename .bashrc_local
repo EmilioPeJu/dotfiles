@@ -142,7 +142,7 @@ function :p() {
 
 function l() {
 	local PREFIX="/src/prefix"
-	[[ -d "/scratch/src/prefix" ]] && PREFIX="/scratch/src"
+	[[ -d "/scratch/src/prefix" ]] && PREFIX="/scratch/src/prefix"
 	PREFIX="$PREFIX/$1"
 	export PATH="$PREFIX/bin:$PATH"
 	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
