@@ -61,8 +61,46 @@ set background=dark                         " Use dark background
 " tnoremap <esc> <c-\><c-n>
 " tnoremap jj <c-\><c-n>
 
-inoremap jj <ESC>
+" Tabs
 nnoremap <C-Left> 	:tabprevious<CR>
 nnoremap <C-Right>	:tabnext<CR>
 nnoremap <C-n>	:tabnew<CR>
 nnoremap <C-x>	:tabclose<CR>
+
+" vimdiff
+nmap <leader>r :diffg RE<CR>
+nmap <leader>b :diffg BA<CR>
+nmap <leader>l :diffg LO<CR>
+
+" folding
+set foldclose=all
+
+
+" Stuff from mga83
+"
+set list listchars=tab:»¯,trail:°,extends:»,precedes:«
+" When working with wrapped lines (:set wrap) configure line wrap char:
+set showbreak=···
+
+highlight SpecialKey ctermfg=Red
+highlight Ignore     ctermfg=Grey
+highlight NonText    ctermfg=DarkRed
+
+" Tab control
+set tabstop=8           " Display hard tabs on 8 space stops
+set softtabstop=4       " Treat <Tab> key as four spaces
+set shiftwidth=4        " Amount indentation changes on indent commands
+set expandtab           " Convert tabs to spaces on insertion
+set smarttab            "
+set textwidth=80
+set colorcolumn=80
+
+" General display settings
+set hidden              " Allow switching buffers without writing to disk
+set ruler               " Always show cursor position
+set title               " Set terminal title to filename
+set laststatus=2        " Always show status line
+set incsearch           " Incremental search
+set wrap                " Show wrapped lines by default
+
+set clipboard=unnamed
