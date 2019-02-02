@@ -14,6 +14,8 @@ Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'python-mode/python-mode'
+Plug 'majutsushi/tagbar'
+Plug 'milkypostman/vim-togglelist'
 call plug#end()
 
 nnoremap gd :YcmCompleter GoTo<cr>
@@ -136,3 +138,6 @@ function! RangeChooser()
 endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+nmap <F8> :TagbarToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
