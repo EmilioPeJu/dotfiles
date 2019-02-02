@@ -212,6 +212,7 @@ bindsym $mod+p mode "programming"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    status_command i3blocks
     position top
     colors {
         statusline #ffffff
