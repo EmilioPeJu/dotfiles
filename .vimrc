@@ -20,7 +20,7 @@ nnoremap gd :YcmCompleter GoTo<cr>
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 " set termguicolors
-set shell=zsh
+set shell=bash
 
 set number
 set ruler
