@@ -25,8 +25,8 @@ output * bg ~/backgrounds/planet.jpg fill
 #
 # Example configuration:
 #
-output HDMI-A-1 resolution 1280x720 position 0,0
-output eDP-1 resolution 1366x768 position 1280,0
+# output HDMI-A-1 resolution 1280x720 position 0,0
+# output eDP-1 resolution 1366x768 position 1280,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -186,11 +186,11 @@ mode "applications" {
     bindsym f exec firefox
     bindsym a exec anki
     bindsym v exec VirtualBox
-    bindsym t exec /code/soft/Telegram/Telegram
+    bindsym t exec /prefix/Telegram/bin/Telegram
     bindsym c exec grim ~/tmp.png
     bindsym k exec keybase-gui
     bindsym d exec deluge-gtk
-    bindsym w exec wine /code/soft/winbox.exe
+    bindsym w exec wine /prefix/winbox/bin/winbox
     bindsym m exec vym
     bindsym r exec urxvt -e ranger
     bindsym Return mode "default"
