@@ -192,6 +192,7 @@ mode "applications" {
     bindsym d exec deluge-gtk
     bindsym w exec wine /code/soft/winbox.exe
     bindsym m exec vym
+    bindsym r exec urxvt -e ranger
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
