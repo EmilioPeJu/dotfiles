@@ -7,6 +7,7 @@ export PATH="$PATH:$HOME/scripts:/code/scripts"
 export EDITOR="vim"
 
 # user alias
+alias ctags="ctags -R -f ./.git/tags ."
 alias remake="make clean uninstall; make"
 alias unlock="rm -f /code/scripts/auth.lock"
 alias co='cookiecutter'
