@@ -210,6 +210,8 @@ mode "programming" {
 
 bindsym $mod+p mode "programming"
 
+bindsym $mod+x exec swaylock -c 000000
+
 #
 # Status Bar:
 #
