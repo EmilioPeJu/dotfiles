@@ -3,8 +3,7 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 # start a terminal
-bindsym $mod+Return exec konsole
-bindsym Control+1 exec /code/scripts/check-connection
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -35,7 +34,7 @@ bindsym $mod+Shift+l move right
 
 # split in vertical orientation
 bindsym $mod+v split v
-bindsym $mod+Shift+v split h
+bindsym $mod+b split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -109,14 +108,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "applications" {
-	bindsym b exec google-chrome-stable
-	bindsym a exec anki
-	bindsym v exec VirtualBox --startvm "b4f57fc8-49b9-461c-881a-b9479176f8e6"
-	bindsym t exec /code/soft/Telegram/Telegram
-	bindsym c exec maim -s ~/tmp.png
-	bindsym d exec deluge-gtk
-	bindsym r exec wine /code/soft/winbox.exe
-	bindsym m exec vym
+        bindsym f exec firefox
+        bindsym r exec $TERMINAL -e ~/scripts/ranger
+        bindsym c exec import ~/tmp.png
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -124,7 +118,8 @@ mode "applications" {
 bindsym $mod+z mode "applications"
  
 mode "config" {
-	bindsym k exec /code/scripts/change_key_lang
+        bindsym u exec setxkbmap us
+        bindsym e exec setxkbmap es
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -132,15 +127,12 @@ bindsym $mod+c mode "config"
 
 
 mode "programming" {
-	bindsym a exec sasm
-	bindsym c exec /code/soft/clion/bin/clion.sh
-	bindsym d exec zeal
-#	bindsym e exec /code/soft/eclipse_rcp/eclipse
-#	bindsym i exec /code/soft/idapro64/idaq
-	bindsym j exec /code/soft/eclipse_java/eclipse
-	bindsym p exec /code/soft/pycharm/bin/pycharm.sh
-	bindsym r exec /code/soft/idea/bin/idea.sh
-	bindsym w exec atom
+        bindsym s exec sasm
+        bindsym c exec ~/scripts/clion.sh
+        bindsym z exec zeal
+        bindsym e exec eclipse
+        bindsym p exec ~/scripts/pycharm.sh
+        bindsym a exec atom
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
@@ -155,7 +147,7 @@ bindsym $mod+minus exec amixer -c 0 -q set Master 2dB-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	status_command i3status
+        status_command i3status
 }
 
 exec --no-startup-id ~/.config/init.sh
