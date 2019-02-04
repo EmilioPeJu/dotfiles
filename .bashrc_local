@@ -5,6 +5,7 @@
 # user environment variables
 export PATH="$PATH:$HOME/scripts:/code/scripts"
 export EDITOR="vim"
+export TERMINAL="urxvt"
 
 # user alias
 alias ctags="ctags -R ."
