@@ -8,7 +8,7 @@ export EDITOR="vim"
 export TERMINAL="urxvt"
 
 # user alias
-alias ctags="ctags -R ."
+alias tags="ctags --tag-relative=yes -R -f .git/tags ."
 alias remake="make clean uninstall; make"
 alias unlock="rm -f /code/scripts/auth.lock"
 alias co='cookiecutter'
