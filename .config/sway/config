@@ -213,7 +213,9 @@ bindsym $mod+p mode "programming"
 mode "config" {
     bindsym e exec setxkbmap es
     bindsym u exec setxkbmap us
+    bindsym g exec setxkbmap gb
     bindsym s exec sudo shutdown -h now
+    bindsym w exec urxvt -e sudo wifi-menu
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
