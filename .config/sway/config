@@ -215,6 +215,7 @@ mode "config" {
     bindsym u exec setxkbmap us
     bindsym g exec setxkbmap gb
     bindsym s exec sudo shutdown -h now
+    bindsym x exec ~/scripts/suspend.sh
     bindsym w exec urxvt -e sudo wifi-menu
     bindsym Return mode "default"
     bindsym Escape mode "default"
