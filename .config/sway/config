@@ -239,4 +239,5 @@ bar {
     }
 }
 
+exec --no-startup-id ~/.config/init.sh
 include /etc/sway/config.d/*

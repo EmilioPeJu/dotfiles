@@ -5,7 +5,7 @@ echo "Testing binary $EXEC"
 for file in "in"*; do
     suffix="${file#in}"
     echo "input file: $file"
-    cat "$file" | ./${EXEC}     "current$suffix"
+    cat "$file" | ./${EXEC}  > "current$suffix"
     if [[ -f "out$suffix" ]]; then
         cmp "current$suffix" "out$suffix"
         if [[ $? -ne 0 ]]; then
