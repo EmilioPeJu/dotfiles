@@ -204,6 +204,7 @@ mode "programming" {
     bidsym z exec zeal
     bindsym p exec pycharm
     bindsym a exec atom
+    bindsym t exec ~/scripts/timer
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }

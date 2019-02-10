@@ -1,0 +1,4 @@
+#!/bin/bash
+let current=$(date +%s)-$(cat ~/.timer)
+notify-send "Timer: $current"
+echo $(date +%s) > ~/.timer
