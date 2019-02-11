@@ -1,0 +1,10 @@
+#!/bin/bash
+name="$1"
+i=1
+while true; do
+    if [[ ! -f "${name}${i}" ]]; then
+        xclip -selection clipboard -o > "${name}${i}"
+        break
+    fi
+    let i=i+1
+done
