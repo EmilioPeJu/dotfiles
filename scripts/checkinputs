@@ -2,7 +2,7 @@
 EXEC="$(find -name '*.out' -printf '%T+ %p\n' | sort -r \
     | head -n 1 | cut -d ' ' -f 2)"
 echo "Testing binary $EXEC"
-for file in "in"*; do
+for file in "in"??; do
     suffix="${file#in}"
     echo "input file: $file"
     cat "$file" | ./${EXEC}  > "current$suffix"
