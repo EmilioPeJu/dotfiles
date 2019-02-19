@@ -67,7 +67,9 @@ function rc() {
 	fi
 }
 
-bind '"\C-o":"cd-from-ranger\C-m"'
+if [[ ! -z "$PS1" ]]; then
+    bind '"\C-o":"cd-from-ranger\C-m"'
+fi
 
 eval "$(fasd --init auto)"
 
