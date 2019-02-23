@@ -226,6 +226,7 @@ bindsym $mod+c mode "config"
 
 bindsym $mod+x exec swaylock -c 000000
 
+
 #
 # Status Bar:
 #
@@ -240,5 +241,6 @@ bar {
     }
 }
 
+focus_follows_mouse no
 exec --no-startup-id ~/.config/init.sh
 include /etc/sway/config.d/*
