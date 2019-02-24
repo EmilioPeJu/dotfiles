@@ -147,3 +147,13 @@ function l() {
 	export PATH="$PREFIX/bin:$PATH"
 	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 }
+
+function activate-null-sink-a() {
+    PITCH="${1:-200}"
+    pactl load-module module-null-sink sink_name=sink-a
+    pactl load-module module-loopback sink=sink-a
+    pactl load-module module-loopback sink=sink-a
+    sox -t pulseaudio default -t pulseaudio sink-a pitch -${PITCH}
+    pactl unload-module module-loopback
+    pactl unload-module module-null-sink
+}
