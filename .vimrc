@@ -9,7 +9,6 @@ call plug#begin()
 Plug 'SirVer/ultisnips'
 Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 " Plug 'Valloric/YouCompleteMe'
