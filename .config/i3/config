@@ -150,4 +150,5 @@ bar {
         status_command i3status
 }
 
+focus_follows_mouse no
 exec --no-startup-id ~/.config/init.sh
