@@ -201,7 +201,7 @@ bindsym $mod+z mode "applications"
 
 mode "programming" {
     bindsym c exec /code/soft/clion/bin/clion.sh
-    bidsym z exec zeal
+    bindsym z exec zeal
     bindsym p exec pycharm
     bindsym a exec atom
     bindsym t exec ~/scripts/timer
