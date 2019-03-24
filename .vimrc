@@ -16,10 +16,23 @@ Plug 'python-mode/python-mode'
 Plug 'majutsushi/tagbar'
 Plug 'milkypostman/vim-togglelist'
 Plug 'rust-lang/rust.vim'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
 call plug#end()
 
 nnoremap gd :YcmCompleter GoTo<cr>
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
+if has('nvim')
+    " Completion
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    " IMPORTANT: :help Ncm2PopupOpen for more information
+    set completeopt=noinsert,menuone,noselect
+end
+
 
 " set termguicolors
 set shell=bash
