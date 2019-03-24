@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'python-mode/python-mode'
 Plug 'majutsushi/tagbar'
 Plug 'milkypostman/vim-togglelist'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 nnoremap gd :YcmCompleter GoTo<cr>
