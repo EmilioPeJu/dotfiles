@@ -56,6 +56,9 @@ map <leader>o :BufExplorer<cr>
 " buffer
 nmap <leader>d :bd!<CR>
 nnoremap <leader><leader> <c-^>
+nmap <leader>; :b<space>
+
+" window
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
