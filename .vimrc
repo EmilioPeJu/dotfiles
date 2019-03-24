@@ -139,3 +139,6 @@ nmap <F8> :TagbarToggle<CR>
 nmap <F2> :NERDTreeToggle<CR>
 
 set tags=./.git/tags,.git/tags;
+
+" Rust
+let g:rustfmt_autosave = 1
