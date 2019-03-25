@@ -22,12 +22,11 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Oh-my-zsh
 export ZSH=~"/.zsh/oh-my-zsh"
+export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 
 ZSH_THEME="tjkirch"
 
-plugins=(git tmux dirhistory)
+plugins=(git tmux dirhistory zsh-syntax-highlighting)
 
 source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
 
-# Syntax highlighting
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
