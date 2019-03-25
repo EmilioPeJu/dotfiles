@@ -17,11 +17,6 @@ PS1='[\u@\h \W]\$ '
 alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
 alias cat2="cat << EOF >>"
 alias ed="$EDITOR"
-alias ve3="source ~/venv3/bin/activate"
-alias ve2="source ~/venv2/bin/activate"
-alias ve3_="source ~/venv3_/bin/activate"
-alias ve2_="source ~/venv2_/bin/activate"
-alias ve="source /prefix/venv/bin/activate"
 alias lo="module load"
 alias un="module unload"
 alias gf="git fetch --all"
@@ -146,6 +141,12 @@ function l() {
 	PREFIX="$PREFIX/$1"
 	export PATH="$PREFIX/bin:$PATH"
 	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
+}
+
+function ve() {
+    local NAME="$1"
+    local PREFIX="${PREFIXPATH-/prefix}"
+    source "${PREFIX}/ve${NAME}/bin/activate"
 }
 
 function activate-null-sink-a() {
