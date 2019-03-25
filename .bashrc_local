@@ -4,7 +4,7 @@
 
 # user environment variables
 export PATH="$PATH:$HOME/scripts:/code/scripts"
-export TERMINAL="urxvt"
+export TERMINAL="alacritty"
 export EDITOR="vim"
 
 # user alias
