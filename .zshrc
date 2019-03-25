@@ -15,7 +15,7 @@ source ~/.zsh/setopt.sh
 source ~/.zsh/functions.sh
 source ~/.zsh/bindkeys.sh
 
-eval "$(fasd --init posix-alias zsh-hook wcomp wcomp-install)"
+eval "$(fasd --init auto)"
 
 # Plugins
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
