@@ -67,8 +67,8 @@ function rc() {
 }
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
-    bind '"\C-o":"cd-from-ranger\C-m"'
-    bind '"\C-t":"tmux\C-m"'
+    bind '"\eo":"cd-from-ranger\C-m"'
+    bind '"\et":"tmux\C-m"'
 fi
 
 eval "$(fasd --init auto)"

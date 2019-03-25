@@ -8,23 +8,6 @@ function cd-ranger()
 
 zle -N cd-ranger
 
-function ranger-cd()
-{
-    pid=$(cat /tmp/ranger.pid)
-    echo "cd $PWD" > "/tmp/ranger-ipc.in.${pid}"
-}
-
-zle -N ranger-cd
-
-function ranger-getsel()
-{
-    pid=$(cat /tmp/ranger.pid)
-    echo "get %s" > /tmp/ranger-ipc.in.${pid}
-    LBUFFER+=$(cat /tmp/ranger-ipc.out.${pid})
-}
-
-zle -N ranger-getsel
-
 function comment()
 {
     if [ "${BUFFER:0:2}" = "# " ] ;
