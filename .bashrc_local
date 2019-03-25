@@ -54,16 +54,21 @@ function cd-to-ranger()
 }
 
 function rc() {
-	if [[ "$1" != "" ]]; then
-		[[ -f "${HOME}/.bashrc_${1}" ]] && . "${HOME}/.bashrc_${1}"
-		[[ -f "${HOME}/.bashrc_${1}_functions" ]] && . "${HOME}/.bashrc_${1}_functions"
-	else
-		source ~/.bashrc
-	fi
+    if [[ "$1" != "" ]]; then
+        [[ -f "${HOME}/.bashrc_${1}" ]] && . "${HOME}/.bashrc_${1}"
+        [[ -f "${HOME}/.bashrc_${1}_functions" ]] && . "${HOME}/.bashrc_${1}_functions"
+    else
+        if [[ -n "$ZSH_VERSION" ]]; then
+            source ~/.zshrc
+        else
+            source ~/.bashrc
+        fi
+    fi
 }
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     bind '"\C-o":"cd-from-ranger\C-m"'
+    bind '"\C-t":"tmux\C-m"'
 fi
 
 eval "$(fasd --init auto)"
