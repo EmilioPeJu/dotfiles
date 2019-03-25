@@ -117,8 +117,6 @@ set laststatus=2        " Always show status line
 set incsearch           " Incremental search
 set wrap                " Show wrapped lines by default
 
-set clipboard=unnamed
-
 " ranger file chooser
 function! RangeChooser()
     let temp = tempname()
