@@ -31,7 +31,7 @@ function comment()
     then
         BUFFER="${BUFFER:2}"
     else
-        BUFFER="# ${BUFFER}"
+        LBUFFER="# ${LBUFFER}"
     fi
 }
 

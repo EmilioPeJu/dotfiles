@@ -4,7 +4,7 @@ bindkey '\e[A' history-search-backward        # up arrow
 bindkey '^Za'   cd-ranger
 bindkey '^Zs'   ranger-cd
 bindkey '^Zd'   ranger-getsel
-bindkey '^Zc' comment
+bindkey '\e#' comment
 
 autoload -U edit-command-line
 zle -N edit-command-line
