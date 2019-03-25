@@ -45,14 +45,6 @@ function dont-show()
 
 zle -N dont-show
 
-function make-target() 
-{
-    BUFFER="make $BUFFER"
-    zle accept-line
-}
-
-zle -N make-target
-
 function rc()
 {
     source ~/.zshrc

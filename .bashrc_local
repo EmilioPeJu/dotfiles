@@ -13,7 +13,7 @@ alias remake="make clean uninstall; make"
 alias unlock="rm -f /code/scripts/auth.lock"
 alias co='cookiecutter'
 alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
 alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
 alias cat2="cat << EOF >>"
 alias ed="$EDITOR"
@@ -62,7 +62,7 @@ function rc() {
 	fi
 }
 
-if [[ ! -z "$PS1" ]]; then
+if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     bind '"\C-o":"cd-from-ranger\C-m"'
 fi
 

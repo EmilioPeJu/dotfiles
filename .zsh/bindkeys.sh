@@ -5,11 +5,9 @@ bindkey '^Za'   cd-ranger
 bindkey '^Zs'   ranger-cd
 bindkey '^Zd'   ranger-getsel
 bindkey '^Zc' comment
-bindkey "${terminfo[kdch1]}" delete-char
 
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 bindkey '^[j' dont-show
-bindkey '^[m' make-target
