@@ -17,8 +17,6 @@ alias ls='ls --color=auto'
 alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
 alias cat2="cat << EOF >>"
 alias ed="$EDITOR"
-alias lo="module load"
-alias un="module unload"
 alias gf="git fetch --all"
 alias gd="git diff --color=always --ws-error-highlight=all"
 alias gc="git commit"
@@ -29,6 +27,13 @@ alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Cre
 alias gb="git blame"
 alias gg="git gui"
 alias gp="git remote | xargs -L1 git push --all"
+alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
+
+function nasmld32() {
+    local NAME="${1%.*}"
+    nasm -f elf32 -o ${NAME}.o $1
+    ld -m elf_i386 -o $NAME ${NAME}.o
+}
 
 function gpr() {
 	git fetch gh pull/$1/head:pr$1
@@ -141,7 +146,7 @@ function :p() {
 	cd "$NEWDIR"
 }
 
-function l() {
+function lo() {
 	local PREFIX="${PREFIXPATH-/prefix}"
 	PREFIX="$PREFIX/$1"
 	export PATH="$PREFIX/bin:$PATH"
