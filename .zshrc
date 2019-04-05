@@ -18,15 +18,14 @@ source ~/.zsh/bindkeys.sh
 eval "$(fasd --init auto)"
 
 # Plugins and Frameworks
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Oh-my-zsh
 export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 
-ZSH_THEME="tjkirch"
+ZSH_THEME="cypher"
 
-plugins=(git tmux dirhistory zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
 
 source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
 
