@@ -35,6 +35,18 @@ function nasmld32() {
     ld -m elf_i386 -o $NAME ${NAME}.o
 }
 
+function yasmld64() {
+    local NAME="${1%.*}"
+    yasm -f elf64 -o ${NAME}.o $1
+    ld -m elf_x86_64 -o $NAME ${NAME}.o
+}
+
+function yasm64() {
+    local NAME="${1%.*}"
+    # don't forget [BITS 64] inside
+    yasm -m amd64 -o ${NAME} $1
+}
+
 function gpr() {
 	git fetch gh pull/$1/head:pr$1
 }
@@ -155,6 +167,18 @@ function ve() {
     local NAME="$1"
     local PREFIX="${PREFIXPATH-/prefix}"
     source "${PREFIX}/ve${NAME}/bin/activate"
+}
+
+function convert-script2bash() {
+    local FILENAME="$1"
+    cat $FILENAME | sed -n -E '/^.*$/!d; s/^[^\$]+\$ (.+)$/\1/p' | sed '1i #!/bin/bash'
+}
+
+function script2bash() {
+    local FILENAME="$1"
+    script "$FILENAME"
+    convert-script2bash "$FILENAME" > "$FILENAME.sh"
+    chmod +x "$FILENAME.sh"
 }
 
 function activate-null-sink-a() {
