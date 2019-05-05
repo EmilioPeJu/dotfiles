@@ -169,6 +169,34 @@ function ve() {
     source "${PREFIX}/ve${NAME}/bin/activate"
 }
 
+function build() {
+    local CWD="$(pwd)"
+    local NAME="$1"
+    [[ -z "$NAME" ]] && return
+    local PREFIX="${PREFIXPATH-/prefix}"
+    local SRC="${SRCPATH-/code/src}"
+    cd "$SRC"
+    local SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*')"
+    if [[ -z "$SRCPROGRAM" ]]; then
+        unp "$NAME"*
+        SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*')"
+        [[ -n "$SRCPROGRAM" ]] || return
+    fi
+    cd "$SRCPROGRAM"
+    local PREFIXPROGRAM="${PREFIX}/${NAME}"
+    mkdir -p "$PREFIXPROGRAM"
+    git pull
+    [[ -f "autogen.sh" ]] && ./autogen.sh || autoreconf -i || cmake .   # just guessing build system
+    ./configure --prefix="${PREFIXPROGRAM}" && make && make install
+    cd "$CWD"
+}
+
+function run() {
+    local PROGRAM="$(command -v "$1")"
+    [[ -z "$PROGRAM" ]] && lo "$1" && local PROGRAM="$(command -v "$1")"
+    $PROGRAM
+}
+
 function convert-script2bash() {
     local FILENAME="$1"
     cat $FILENAME | sed -n -E '/^.*$/!d; s/^[^\$]+\$ (.+)$/\1/p' | sed '1i #!/bin/bash'
