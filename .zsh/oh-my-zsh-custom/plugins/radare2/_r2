@@ -1,0 +1,56 @@
+#compdef r2
+#
+# Description
+# -----------
+#
+# Completion script for radare2 command.
+#
+# -----------
+
+_r2() {
+    _arguments \
+        '-=[perform !=! command to run all comands remotely]' \
+        '-0[print \x00 after init and every command]' \
+        '-2[close stderr file descriptor]' \
+        '-A[run aaa command]' \
+        '-a[set asm.arch]:arch:($(r2 -q "-c e asm.arch=?" --))' \
+        '-B[set base address for PIE binaries]:base:()' \
+        '-b[set asm.bits]:bits:(64 32 16 8)' \
+        '-C[file is host:port]:cmd:()' \
+        '-c[execute radare command]:cmd:()' \
+        '-D[enable debug mode]' \
+        '-d[debug the executable or running process]' \
+        '-e[evaluate config var]:k=v:_values -s = options $(r2 -q -c "e~[0]" --)' \
+        '-F[force to use that rbin plugin]:binplug:($(rabin2 -L))' \
+        '-f[set block size = file size]' \
+        '-hh[show long help message]' \
+        '-h[show help message]' \
+        '-H[display variable]:var:($(r2 -q -c "e~[0]" --))' \
+        '-i[Run script file. After the file is loaded]:file:_files' \
+        '-I[Run script file. Before the file is loaded]:file:_files' \
+        '-k[Select kernel (asm.os) for syscall resolution]:kernel:($(r2 -q -c "e asm.os=?" -))' \
+        '-L[List supported IO plugins]' \
+        '-l[load plugin file]:lib:_files' \
+        '-M[disable demangling]' \
+        '-m[map file at given address]:addr:()' \
+        '-N[do not load user settings and scripts]' \
+        '-n[do not perform any analysis]' \
+        '-P[apply rapatch file and quit]:file:_files' \
+        '-p[use project, list if no arg, load if no file]:project:($(r2 -p))' \
+        '-q[silent mode, no prompt and quit after -i or -c]' \
+        '-Q[silent mode, no prompt and quit faster]' \
+        '-R[specify custom rarun2 directive]:directive:_files' \
+        '-r[specify rarun2 profile to load]:profile:_files -g "*.rr2"' \
+        '-S[start r2 in sandbox mode]' \
+        '-s[initial seek]:addr:()' \
+        '-T[do not compute file hashes]' \
+        '-u[set bin.filter=false to get raw sym/sec/cls names]' \
+        '-w[open file in write mode]' \
+        '-x[open without exec-flag]' \
+        '-X[same as -e bin.usextr=false]' \
+        '-v[show radare2 version]' \
+        '-z[do not load strings or load them even in raw]' \
+        "*: :_files" && return 0
+}
+
+_r2 "$@"

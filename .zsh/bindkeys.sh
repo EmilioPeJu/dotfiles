@@ -9,3 +9,4 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 bindkey '^[j' dont-show
+bindkey '^h' _complete_help

@@ -25,7 +25,7 @@ export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 
 ZSH_THEME="cypher"
 
-plugins=(zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
+plugins=(radare2 zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
 
 source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
 
