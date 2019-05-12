@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+set game [lindex $argv 1];
+set challenge [lindex $argv 2];
+set password [lindex $argv 3];
+set port [lindex $argv 0];
+spawn ssh -p "$port" "$game$challenge@$game.labs.overthewire.org"
+expect "password:" {send "$password\n"}
+interact
