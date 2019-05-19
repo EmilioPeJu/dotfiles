@@ -101,11 +101,15 @@ highlight Ignore     ctermfg=Grey
 highlight NonText    ctermfg=DarkRed
 
 " Tab control
-set tabstop=8           " Display hard tabs on 8 space stops
-set softtabstop=4       " Treat <Tab> key as four spaces
-set shiftwidth=4        " Amount indentation changes on indent commands
-set expandtab           " Convert tabs to spaces on insertion
-set smarttab            "
+au Filetype python setl et ts=4 sw=4
+au Filetype cpp setl et ts=2 sw=2
+au Filetype javascript setl et ts=2 sw=2
+" set tabstop=8           " Display hard tabs on 8 space stops
+" set softtabstop=4       " Treat <Tab> key as four spaces
+" set shiftwidth=4        " Amount indentation changes on indent commands
+" set expandtab           " Convert tabs to spaces on insertion
+" set smarttab
+
 set textwidth=80
 set colorcolumn=80
 
