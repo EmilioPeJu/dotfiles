@@ -38,8 +38,14 @@ function nasmld32() {
 
 function yasmld64() {
     local NAME="${1%.*}"
-    yasm -f elf64 -o ${NAME}.o $1
-    ld -m elf_x86_64 -o $NAME ${NAME}.o
+    yasm -f elf64 -o ${NAME}.o $1 && \
+        ld -m elf_x86_64 -o $NAME ${NAME}.o
+}
+
+function yasmld64debug() {
+    local NAME="${1%.*}"
+    yasm -g dwarf2 -f elf64 -o ${NAME}.o $1 && \
+        ld -g -m elf_x86_64 -o $NAME ${NAME}.o
 }
 
 function yasm64() {
