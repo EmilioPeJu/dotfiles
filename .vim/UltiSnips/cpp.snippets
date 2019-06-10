@@ -9,9 +9,9 @@ typedef vector<iii > viii;
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    $0
-    return 0;
+  ios::sync_with_stdio(false);
+  $0
+  return 0;
 }
 endsnippet
 
@@ -19,13 +19,13 @@ snippet tc
 int tc;
 cin >> tc;
 while(tc--) {
-	$0
+  $0
 }
 endsnippet
 
 snippet fori
-for(int ${1:i}=$2;$1<$3;$1++) {
-	$0
+for(int ${1:i}=$2; $1 < $3; $1++) {
+  $0
 }
 endsnippet
 
@@ -39,45 +39,46 @@ endsnippet
 
 snippet Uf
 class Uf {
-	private:
-		int n;
-		vector<int> count;
-		vector<int> parent;
-	public:
-		Uf(int n) : n(n) {
-			for(int i=0;i<n;i++) {
-				count.push_back(1);
-				parent.push_back(i);
-			}
-		}
+private:
+  int n;
+  vector<int> count;
+  vector<int> parent;
+public:
+  Uf(int n) : n(n) {
+    for(int i=0; i < n; i++) {
+      count.push_back(1);
+      parent.push_back(i);
+    }
+  }
 
-		int root(int a) {
-			int current = a;
-			while (current != parent[current])
-				current=parent[current];
-			return current;
-		}
+  int root(int a) {
+    int current = a;
+    while (current != parent[current])
+      current=parent[current];
+    return current;
+  }
 
-		void connect(int a, int b) {
-			int a_root = root(a);
-			int b_root = root(b);
-			if (a_root == b_root) return;
-			if  (count[a_root] >= count[b_root]) {
-				parent[b_root] = a_root;
-				count[a_root] += count[b_root];
-			} else {
-				parent[a_root] = b_root;
-				count[b_root] += count[a_root];
-			}
-		}
+  void connect(int a, int b) {
+    int a_root = root(a);
+    int b_root = root(b);
+    if (a_root == b_root) return;
+    if  (count[a_root] >= count[b_root]) {
+      parent[b_root] = a_root;
+      count[a_root] += count[b_root];
+    } else {
+      parent[a_root] = b_root;
+      count[b_root] += count[a_root];
+    }
+  }
 
-		int size(int a) {
-			return count[a];
-		}
+  int size(int a) {
+    return count[a];
+  }
 
-		bool connected(int a, int b) {
-			return root(a) == root(b);
-		}
+  bool connected(int a, int b) {
+    return root(a) == root(b);
+  }
+
 };
 endsnippet
 
@@ -88,44 +89,45 @@ endsnippet
 snippet BITree
 class BITree {
 #define ls1(x) (x&-x)
-	private:
-		vector<int> freq;
-		vector<int> sum;
-	public:
-		BITree(int n) {
-			freq.assign(n, 0);
-			sum.assign(n+1, 0);
-		}
+private:
+  vector<int> freq;
+  vector<int> sum;
+public:
+  BITree(int n) {
+    freq.assign(n, 0);
+    sum.assign(n+1, 0);
+  }
 
-		void adjust(int index, int val) {
-			freq[index] += val;
-			// index used in freq and sum differs 1
-			// because of the dummy root/first element
-			index++;
-			while (index < (int) sum.size()) {
-				sum[index]+=val;
-				index+=ls1(index);
-			}
-		}
+  void adjust(int index, int val) {
+    freq[index] += val;
+    // index used in freq and sum differs 1
+    // because of the dummy root/first element
+    index++;
+    while (index < (int) sum.size()) {
+      sum[index] += val;
+      index += ls1(index);
+    }
+  }
 
-		void set(int index, int val) {
-			adjust(index, val - freq[index]);
-		}
+  void set(int index, int val) {
+    adjust(index, val - freq[index]);
+  }
 
-		int query(int index) {
-			// query interval [0, index]
-			int result=0;
-			index++;
-			while (index > 0) {
-				result+=sum[index];
-				index-=ls1(index);
-			}
-			return result;
-		}
+  int query(int index) {
+    // query interval [0, index]
+    int result=0;
+    index++;
+    while (index > 0) {
+      result += sum[index];
+      index -= ls1(index);
+    }
+    return result;
+  }
 
-		int query(int a, int b) {
-			return query(b) - (b==0?0:query(a-1));
-		}
+  int query(int a, int b) {
+    return query(b) - (b==0?0:query(a-1));
+  }
+
 };
 endsnippet
 
