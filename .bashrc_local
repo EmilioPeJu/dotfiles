@@ -179,22 +179,26 @@ function ve() {
 function build() {
     local CWD="$(pwd)"
     local NAME="$1"
+    shift
     [[ -z "$NAME" ]] && return
-    local PREFIX="${PREFIXPATH-/prefix}"
+    local PREFIX="${PREFIXPATH-/code/prefix}"
     local SRC="${SRCPATH-/code/src}"
     cd "$SRC"
-    local SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*')"
+    local SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*' | head -n 1)"
     if [[ -z "$SRCPROGRAM" ]]; then
         unp "$NAME"*
         SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*')"
-        [[ -n "$SRCPROGRAM" ]] || return
+        [[ -n "$SRCPROGRAM" ]] || cd "$CWD" && return
     fi
     cd "$SRCPROGRAM"
     local PREFIXPROGRAM="${PREFIX}/${NAME}"
     mkdir -p "$PREFIXPROGRAM"
     git pull
-    [[ -f "autogen.sh" ]] && ./autogen.sh || autoreconf -i || cmake .   # just guessing build system
-    ./configure --prefix="${PREFIXPROGRAM}" && make && make install
+    # just guessing build system
+    [[ -f "configure" ]] ||  ./autogen.sh || autoreconf -i || cmake \
+        -DCMAKE_INSTALL_PREFIX="${PREFIXPROGRAM}" "$@" .
+    ./configure --prefix="${PREFIXPROGRAM}" "$@"
+    make && make install  # try even if last steps fails
     cd "$CWD"
 }
 

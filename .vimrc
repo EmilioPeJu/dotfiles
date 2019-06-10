@@ -102,6 +102,7 @@ highlight NonText    ctermfg=DarkRed
 
 " Tab control
 au Filetype python setl et ts=4 sw=4
+au Filetype sh setl et ts=4 sw=4
 au Filetype cpp setl et ts=2 sw=2
 au Filetype javascript setl et ts=2 sw=2
 " set tabstop=8           " Display hard tabs on 8 space stops
