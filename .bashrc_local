@@ -164,7 +164,7 @@ function :p() {
 }
 
 function lo() {
-	local PREFIX="${PREFIXPATH-/prefix}"
+	local PREFIX="${PREFIXPATH-/code/prefix}"
 	PREFIX="$PREFIX/$1"
 	export PATH="$PREFIX/bin:$PATH"
 	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
@@ -172,7 +172,7 @@ function lo() {
 
 function ve() {
     local NAME="$1"
-    local PREFIX="${PREFIXPATH-/prefix}"
+    local PREFIX="${PREFIXPATH-/code/prefix}"
     source "${PREFIX}/ve${NAME}/bin/activate"
 }
 
