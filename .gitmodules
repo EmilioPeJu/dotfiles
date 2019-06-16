@@ -7,3 +7,6 @@
 [submodule ".zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions"]
 	path = .zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "problems"]
+	path = problems
+	url = git@github.com:hir12111/problems.git
