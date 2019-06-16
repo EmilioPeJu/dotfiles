@@ -1,0 +1,3 @@
+#!/bin/bash
+sleep "${1:-3000}"
+vlc "$(find "${HOME}/music/" |sort -R | tail -1)"

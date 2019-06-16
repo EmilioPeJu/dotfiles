@@ -1,0 +1,8 @@
+#!/bin/bash
+timerfile="${HOME}/.timer${1}"
+[[ ! -f "${timerfile}" ]] && echo 0 > "${timerfile}"
+oldtime="$( tail -1 "${timerfile}" )"
+currenttime="$(date +%s)"
+let current="${currenttime}-${oldtime}"
+notify-send "Timer: $current"
+echo "${currenttime}" >> "${timerfile}"
