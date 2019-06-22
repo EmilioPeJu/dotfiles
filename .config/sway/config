@@ -206,12 +206,18 @@ mode "programming" {
     bindsym z exec zeal
     bindsym p exec pycharm
     bindsym a exec atom
-    bindsym t exec ~/scripts/timer
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
 bindsym $mod+p mode "programming"
+
+mode "Timing" {
+    bindsym t exec ~/scripts/tm
+    bindsym p exec ~/scripts/pd
+}
+
+bindsym $mod+t mode "timing"
 
 mode "config" {
     bindsym e exec setxkbmap es
