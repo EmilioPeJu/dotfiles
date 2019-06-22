@@ -215,6 +215,8 @@ bindsym $mod+p mode "programming"
 mode "Timing" {
     bindsym t exec ~/scripts/tm
     bindsym p exec ~/scripts/pd
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+t mode "timing"
