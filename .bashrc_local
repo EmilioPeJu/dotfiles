@@ -231,6 +231,10 @@ function activate-null-sink-a() {
     pactl unload-module module-null-sink
 }
 
+function pacman-remove-all() {
+    sudo pacman -dd -R $(pacman -Qq | grep -ve "$(pacman -Qqg base)")
+}
+
 if [[ -x /usr/bin/nvim ]]; then
     alias vim=nvim
     export EDITOR=nvim
