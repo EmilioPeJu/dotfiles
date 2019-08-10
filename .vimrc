@@ -112,7 +112,7 @@ au Filetype javascript setl et ts=2 sw=2
 " set expandtab           " Convert tabs to spaces on insertion
 " set smarttab
 
-set textwidth=80
+" set textwidth=80
 set colorcolumn=80
 
 " General display settings
