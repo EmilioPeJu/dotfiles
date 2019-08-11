@@ -10,3 +10,6 @@
 [submodule "problems"]
 	path = problems
 	url = git@github.com:hir12111/problems.git
+[submodule ".local/share/gnome-shell/extensions/timepp@zagortenay333"]
+	path = .local/share/gnome-shell/extensions/timepp@zagortenay333
+	url = git@github.com:zagortenay333/timepp__gnome.git
