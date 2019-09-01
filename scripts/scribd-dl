@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+import re
+import subprocess
+import time
+from os import path
+from selenium import webdriver
+# you'll need package geckodriver, selenium python module
+# and selenium-ide extension for firefox
+DELAY = 4
+
+
+def get_page_counter(driver):
+    return driver.find_element_by_class_name('page_counter').text
+
+
+def is_last_page(page_counter):
+    nums = re.findall(r'\d+', page_counter)
+    if len(nums) != 2:
+        raise Exception("Bad page counter")
+    return nums[0] == nums[1]
+
+
+def main():
+    page_counter = 1
+    driver = webdriver.Firefox()
+    driver.get("https://www.scribd.com")
+    print("Authenticate, insert the link and press enter to continue")
+    url = input('link: ')
+    driver.get(url)
+    time.sleep(DELAY*2)
+    simple_page_counter = 1
+    while True:
+        try:
+            page_counter = get_page_counter(driver)
+            driver.save_screenshot(f"{simple_page_counter}.png")
+            print(f"{simple_page_counter} -> {page_counter}")
+            simple_page_counter += 1
+            if is_last_page(page_counter):
+                print('Detected last page')
+                break
+            last_page_counter = page_counter
+            driver.find_element_by_class_name("next_btn").click()
+            time.sleep(DELAY)
+        except Exception as e:
+            print(f"Exiting: {str(e)}")
+            break
+    driver.quit()
+
+
+if __name__ == "__main__":
+    main()
