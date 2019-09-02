@@ -3,7 +3,7 @@
 [[ -f ~/norc ]] && return
 
 # user environment variables
-export PATH="$PATH:$HOME/scripts:/code/scripts:$HOME/.node/bin"
+export PATH="$PATH:$HOME/scripts:$HOME/.node/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export TERMINAL="alacritty"
 export EDITOR="vim"
@@ -11,8 +11,6 @@ export EDITOR="vim"
 # user alias
 alias tags="ctags --tag-relative=yes -R -f .git/tags ."
 alias remake="make clean uninstall; make"
-alias unlock="rm -f /code/scripts/auth.lock"
-alias co='cookiecutter'
 alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
 alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
