@@ -105,7 +105,7 @@ highlight NonText    ctermfg=DarkRed
 au Filetype python setl et ts=4 sw=4
 au Filetype sh setl et ts=4 sw=4
 au Filetype cpp setl et ts=2 sw=2
-au Filetype javascript setl et ts=2 sw=2
+au Filetype javascript setl et ts=4 sw=4
 " set tabstop=8           " Display hard tabs on 8 space stops
 " set softtabstop=4       " Treat <Tab> key as four spaces
 " set shiftwidth=4        " Amount indentation changes on indent commands
