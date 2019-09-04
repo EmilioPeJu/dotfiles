@@ -160,5 +160,7 @@ nmap <F2> :NERDTreeToggle<CR>
 
 set tags=./.git/tags,.git/tags;
 
+nmap <leader>m :make<CR>
+
 " Rust
 let g:rustfmt_autosave = 1
