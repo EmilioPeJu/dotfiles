@@ -13,3 +13,6 @@
 [submodule ".local/share/gnome-shell/extensions/timepp@zagortenay333"]
 	path = .local/share/gnome-shell/extensions/timepp@zagortenay333
 	url = git@github.com:zagortenay333/timepp__gnome.git
+[submodule ".local/share/gnome-shell/extensions/drawOnYourScreen@abakkk.framagit.org"]
+	path = .local/share/gnome-shell/extensions/drawOnYourScreen@abakkk.framagit.org
+	url = https://framagit.org/abakkk/DrawOnYourScreen
