@@ -1,8 +1,8 @@
 set disassembly-flavor intel
 # Workaround tui problem
-define hook-next
-	refresh
-end
+# define hook-next
+# 	refresh
+# end
 # program output in another tty
 # tty /dev/pts/1
 # attach to child processes too
