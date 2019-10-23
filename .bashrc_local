@@ -239,3 +239,6 @@ if [[ -x /usr/bin/nvim ]]; then
     alias vim=nvim
     export EDITOR=nvim
 fi
+
+[[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
