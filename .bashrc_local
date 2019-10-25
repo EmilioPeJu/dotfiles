@@ -28,6 +28,7 @@ alias gg="git gui"
 alias gp="git remote | xargs -L1 git push --all"
 alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
 alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
+alias r2help="r2 -q -c '?*~...' -"
 
 function nasmld32() {
     local NAME="${1%.*}"
@@ -242,3 +243,4 @@ fi
 
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
+
