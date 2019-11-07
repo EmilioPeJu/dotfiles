@@ -7,25 +7,14 @@ set backupdir^=~/tmp,/tmp
 
 call plug#begin()
 Plug 'SirVer/ultisnips'
-Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'python-mode/python-mode'
 Plug 'majutsushi/tagbar'
 Plug 'milkypostman/vim-togglelist'
 Plug 'rust-lang/rust.vim'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2-tmux'
-Plug 'ncm2/ncm2-path'
 Plug 'tpope/vim-fugitive'
 call plug#end()
-
-nnoremap gd :YcmCompleter GoTo<cr>
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 
 if has('nvim')
     " Completion
@@ -48,11 +37,6 @@ nnoremap <silent> <M-p> :Buffers<cr>
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-
-
-" Sneak
-let g:sneak#label = 1
-map <leader>o :BufExplorer<cr>
 
 " buffer
 nmap <leader>d :bd!<CR>
@@ -89,7 +73,6 @@ nmap <leader>l :diffg LO<CR>
 
 " folding
 set foldclose=all
-
 
 " Stuff from mga83
 "
