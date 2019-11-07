@@ -5,7 +5,6 @@
 # user environment variables
 export PATH="$PATH:$HOME/scripts:$HOME/.node/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
-export TERMINAL="alacritty"
 export EDITOR="vim"
 
 # user alias
@@ -58,12 +57,7 @@ function gpr() {
 	git fetch gh pull/$1/head:pr$1
 }
 
-
 # user functions
-function tb() {
-	cat "$1" | nc termbin.com 9999
-}
-
 
 function cd-from-ranger()
 {
@@ -149,22 +143,6 @@ function incr() {
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
 
-function :w() {
-	pushd ~/.config/ranger/ > /dev/null
-	NEWDIR="$(python -c 'from hir12111env import dls_work_tree_helper; print(dls_work_tree_helper().get_dir("'"$1"'"))')"
-	popd > /dev/null
-	echo "Entering $NEWDIR ..."
-	cd "$NEWDIR"
-}
-
-function :p() {
-	pushd ~/.config/ranger/ > /dev/null
-	NEWDIR="$(python -c 'from hir12111env import dls_prod_tree_helper; print(dls_prod_tree_helper().get_dir("'"$1"'"))')"
-	popd > /dev/null
-	echo "Entering $NEWDIR ..."
-	cd "$NEWDIR"
-}
-
 function lo() {
 	local PREFIX="${PREFIXPATH-/code/prefix}"
 	PREFIX="$PREFIX/$1"
@@ -235,11 +213,6 @@ function activate-null-sink-a() {
 function pacman-remove-all() {
     sudo pacman -dd -R $(pacman -Qq | grep -ve "$(pacman -Qqg base)")
 }
-
-if [[ -x /usr/bin/nvim ]]; then
-    alias vim=nvim
-    export EDITOR=nvim
-fi
 
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
