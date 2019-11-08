@@ -27,6 +27,9 @@ alias gg="git gui"
 alias gp="git remote | xargs -L1 git push --all"
 alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
 alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
+# create a folder called include-freestanding-c99 with the following headers:
+# float.h, iso646.h, limits.h, stdarg.h, stddef.h, stdbool.h and stdint.h
+alias gcc-freestanding-c99="gcc -std=c99 -nostdinc -nostdlib -ffreestanding -I include-freestanding-c99"
 alias r2help="r2 -q -c '?*~...' -"
 
 function nasmld32() {
