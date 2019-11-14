@@ -76,6 +76,8 @@ set foldclose=all
 
 " Stuff from mga83
 "
+" Work relative to current file
+autocmd BufEnter * :lcd %:p:h
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
 set showbreak=···
