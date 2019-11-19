@@ -32,8 +32,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " buffer
 nmap <leader>d :bd!<CR>
 nmap <leader>; :ls<CR>:b<space>
-
-" quickfix
 nmap <leader>n :bn<CR>
 nmap <leader>p :bp<CR>
 
@@ -50,15 +48,15 @@ nmap <leader><Esc> :q!<CR>
 
 set background=dark                         " Use dark background
 
-" Terminal
-" tnoremap <esc> <c-\><c-n>
-" tnoremap jj <c-\><c-n>
-
 " Tabs
 nnoremap <C-Left> 	:tabprevious<CR>
 nnoremap <C-Right>	:tabnext<CR>
 nnoremap <C-n>	:tabnew<CR>
 nnoremap <C-x>	:tabclose<CR>
+
+" Quickfix
+nnoremap <C-Up> :cp<CR>
+nnoremap <C-Down> :cn<CR>
 
 " vimdiff
 nmap <leader>r :diffg RE<CR>
