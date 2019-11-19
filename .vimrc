@@ -134,8 +134,21 @@ endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
 
-nmap <F8> :TagbarToggle<CR>
+function! QuickFix_toggle()
+    for i in range(1, winnr('$'))
+            let bnum = winbufnr(i)
+            if getbufvar(bnum, '&buftype') == 'quickfix'
+                cclose
+            return
+            endif
+        endfor
+
+    copen
+endfunction
+nnoremap <F5> :call QuickFix_toggle()<cr>
+
 nmap <F2> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 set tags=./.git/tags,.git/tags;
 
