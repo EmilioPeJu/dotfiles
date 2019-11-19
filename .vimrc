@@ -16,14 +16,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
-if has('nvim')
-    " Completion
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-    " IMPORTANT: :help Ncm2PopupOpen for more information
-    set completeopt=noinsert,menuone,noselect
-end
-
-
 " set termguicolors
 set shell=bash
 
@@ -31,7 +23,6 @@ set number
 set ruler
 
 let mapleader = ","
-nnoremap <silent> <M-p> :Buffers<cr>
 
 "=====[ ultisnips ]===========================================================
 let g:UltiSnipsExpandTrigger="<c-l>"
@@ -40,8 +31,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " buffer
 nmap <leader>d :bd!<CR>
-nnoremap <leader><leader> <c-^>
-nmap <leader>; :b<space>
+nmap <leader>; :ls<CR>:b<space>
+
+" quickfix
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR>
 
 " window
 nnoremap <C-j> <C-W>j
