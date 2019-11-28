@@ -6,6 +6,8 @@
 export PATH="$PATH:$HOME/scripts:$HOME/.node/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export EDITOR="vim"
+export PREFIXPATH="$HOME/storage/prefix"
+export SRCPATH="$HOME/storage/src"
 
 # user alias
 alias tags="ctags --tag-relative=yes -R -f .git/tags ."
@@ -30,6 +32,8 @@ alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
 # include-freestanding-c99 contains relevant headers
 alias gcc-freestanding-c99="gcc -std=c99 -nostdinc -nostdlib -ffreestanding -I $HOME/include-freestanding-c99"
 alias r2help="r2 -q -c '?*~...' -"
+
+exe() { echo "\$ $@" ; "$@" ; }
 
 function nasmld32() {
     local NAME="${1%.*}"
@@ -143,10 +147,11 @@ function incr() {
 
 # load helper scripts
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
+[[ -f ~/.bashrc_build ]] && . ~/.bashrc_build
 [[ -f ~/.bashrc_epics ]] && . ~/.bashrc_epics
 
 function lo() {
-	local PREFIX="${PREFIXPATH-/code/prefix}"
+	local PREFIX="${PREFIXPATH}"
 	PREFIX="$PREFIX/$1"
 	export PATH="$PREFIX/bin:$PATH"
 	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
@@ -154,34 +159,8 @@ function lo() {
 
 function ve() {
     local NAME="$1"
-    local PREFIX="${PREFIXPATH-/code/prefix}"
+    local PREFIX="${PREFIXPATH}"
     source "${PREFIX}/ve${NAME}/bin/activate"
-}
-
-function build() {
-    local CWD="$(pwd)"
-    local NAME="$1"
-    shift
-    [[ -z "$NAME" ]] && return
-    local PREFIX="${PREFIXPATH-/code/prefix}"
-    local SRC="${SRCPATH-/code/src}"
-    cd "$SRC"
-    local SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*' | head -n 1)"
-    if [[ -z "$SRCPROGRAM" ]]; then
-        unp "$NAME"*
-        SRCPROGRAM="$(find . -maxdepth 1 -type d -name "$NAME"'*')"
-        [[ -n "$SRCPROGRAM" ]] || cd "$CWD" && return
-    fi
-    cd "$SRCPROGRAM"
-    local PREFIXPROGRAM="${PREFIX}/${NAME}"
-    mkdir -p "$PREFIXPROGRAM"
-    git pull
-    # just guessing build system
-    [[ -f "configure" ]] ||  ./autogen.sh || autoreconf -i || cmake \
-        -DCMAKE_INSTALL_PREFIX="${PREFIXPROGRAM}" "$@" .
-    ./configure --prefix="${PREFIXPROGRAM}" "$@"
-    make && make install  # try even if last steps fails
-    cd "$CWD"
 }
 
 function run() {
