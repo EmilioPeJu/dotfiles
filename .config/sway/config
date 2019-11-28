@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term gnome-terminal
 # Your preferred application launcher
 set $menu dmenu_run
 
@@ -109,6 +109,9 @@ output "Samsung Electric Company C24F390 HTQJ900365"  resolution 1920x1080 posit
     bindsym $mod+8 workspace 8
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
+    # Worspace back and forth
+    workspace back_and_forth yes
+    bindsym $mod+u workspace back_and_forth
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -159,6 +162,7 @@ output "Samsung Electric Company C24F390 HTQJ900365"  resolution 1920x1080 posit
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
@@ -185,16 +189,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "applications" {
+    bindsym 1 exec ~/scripts/random8bit.py
     bindsym f exec firefox
     bindsym a exec anki
-    bindsym v exec VirtualBox
-    bindsym t exec /prefix/Telegram/bin/Telegram
+    bindsym v exec vym
+    bindsym t exec telegram-desktop
     bindsym c exec grim ~/tmp.png
     bindsym k exec keybase-gui
     bindsym d exec deluge-gtk
-    bindsym w exec wine /prefix/winbox/bin/winbox
-    bindsym m exec vym
-    bindsym r exec urxvt -e ranger
+    bindsym r exec $term -e ranger
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -202,7 +205,6 @@ mode "applications" {
 bindsym $mod+z mode "applications"
 
 mode "programming" {
-    bindsym c exec /code/soft/clion/bin/clion.sh
     bindsym z exec zeal
     bindsym p exec pycharm
     bindsym a exec atom
@@ -212,38 +214,32 @@ mode "programming" {
 
 bindsym $mod+p mode "programming"
 
-mode "Timing" {
-    bindsym t exec ~/scripts/tm
-    bindsym p exec ~/scripts/pd
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+# Change keyboard layouts
+bindsym --to-code {
+    Ctrl+Mod1+1 exec setxkbmap us
+    Ctrl+Mod1+2 exec setxkbmap es
+    Ctrl+Mod1+3 exec setxkbmap ru -variant phonetic
 }
-
-bindsym $mod+t mode "timing"
-
 mode "config" {
-    bindsym e exec setxkbmap es
-    bindsym u exec setxkbmap us
-    bindsym g exec setxkbmap gb
-    bindsym r exec setxkbmap ru -variant phonetic
-    bindsym s exec sudo shutdown -h now
-    bindsym x exec ~/scripts/suspend.sh
-    bindsym w exec urxvt -e sudo wifi-menu
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym --to-code {
+        s exec sudo shutdown -h now
+        x exec ~/scripts/suspend.sh
+        w exec $term -e sudo wifi-menu
+        Return mode "default"
+        Escape mode "default"
+    }
 }
 
 bindsym $mod+c mode "config"
 
 bindsym $mod+x exec swaylock -c 000000
 
-
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    status_command i3blocks
+    status_command i3status
     position top
     colors {
         statusline #ffffff
