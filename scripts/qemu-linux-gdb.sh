@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /code/src/linux
+cd $SRCPATH/linux
 export PYTHONPATH="$(pwd)/scripts/gdb"
 
 ESCRIPT="$(mktemp)"

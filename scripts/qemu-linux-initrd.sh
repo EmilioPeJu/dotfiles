@@ -1,6 +1,6 @@
 #!/bin/bash
 # make sure to have built linux and busybox
-cd /code/src
+cd $SRCPATH
 qemu-system-x86_64 \
     -kernel linux/arch/x86_64/boot/bzImage \
     -initrd busybox/initramfs.img \
