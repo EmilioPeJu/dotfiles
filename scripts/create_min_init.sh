@@ -13,8 +13,9 @@ _start:
     .equ message_len, . - message
 EOF
 
-mkdir d &&
+mkdir -p d &&
 as --64 -o init.o init.S &&
 ld -o d/init init.o &&
 cd d &&
-find . | cpio -o -H newc | gzip > ../rootfs.cpio.gz
+chmod +x init &&
+find . | cpio -o -H newc | gzip > $SRCPATH/minrootfs.cpio.gz
