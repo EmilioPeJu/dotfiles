@@ -14,3 +14,4 @@ set breakpoint pending on
 # source ~/.gdbinit-gef-user.py
 # gef config mmregs.enable False
 # gef config mmregs.n 3
+set auto-load safe-path ~/storage/src/linux
