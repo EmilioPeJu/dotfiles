@@ -212,6 +212,7 @@ mode "music" {
     bindsym s exec /usr/bin/mocp --stop
     bindsym Shift+p exec /usr/bin/mocp --toggle-pause
     bindsym Space exec /usr/bin/mocp --play
+    bindsym a exec $term -e alsamixer
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
