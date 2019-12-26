@@ -204,6 +204,20 @@ mode "applications" {
 
 bindsym $mod+z mode "applications"
 
+mode "music" {
+    bindsym m exec $term -e mocp
+    bindsym c exec /usr/bin/mocp --clear
+    bindsym n exec /usr/bin/mocp --next
+    bindsym p exec /usr/bin/mocp --previous
+    bindsym s exec /usr/bin/mocp --stop
+    bindsym Shift+p exec /usr/bin/mocp --toggle-pause
+    bindsym Space exec /usr/bin/mocp --play
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "music"
+
 mode "programming" {
     bindsym z exec zeal
     bindsym p exec pycharm
