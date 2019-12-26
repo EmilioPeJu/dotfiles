@@ -198,6 +198,7 @@ mode "applications" {
     bindsym k exec keybase-gui
     bindsym d exec deluge-gtk
     bindsym r exec $term -e ranger
+    bindsym h exec $term -e htop
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -205,13 +206,11 @@ mode "applications" {
 bindsym $mod+z mode "applications"
 
 mode "music" {
-    bindsym m exec $term -e mocp
-    bindsym c exec /usr/bin/mocp --clear
-    bindsym n exec /usr/bin/mocp --next
-    bindsym p exec /usr/bin/mocp --previous
-    bindsym s exec /usr/bin/mocp --stop
-    bindsym Shift+p exec /usr/bin/mocp --toggle-pause
-    bindsym Space exec /usr/bin/mocp --play
+    bindsym c exec /usr/bin/mpc clear
+    bindsym n exec /usr/bin/mpc next
+    bindsym p exec /usr/bin/mpc prev
+    bindsym s exec /usr/bin/mpc stop
+    bindsym Space exec /usr/bin/mpc toggle
     bindsym a exec $term -e alsamixer
     bindsym Return mode "default"
     bindsym Escape mode "default"
