@@ -213,7 +213,7 @@ mode "music" {
     bindsym s exec ~/scripts/notify-cmd.sh /usr/bin/mpc stop
     bindsym f exec ~/scripts/notify-cmd.sh /usr/bin/mpc seek +5%
     bindsym b exec ~/scripts/notify-cmd.sh /usr/bin/mpc seek -5%
-    bindsym Space ~/scripts/notify-cmd.sh exec /usr/bin/mpc toggle
+    bindsym Space exec ~/scripts/notify-cmd.sh /usr/bin/mpc toggle
     bindsym a exec $term -e alsamixer
     bindsym Return mode "default"
     bindsym Escape mode "default"
