@@ -206,11 +206,14 @@ mode "applications" {
 bindsym $mod+z mode "applications"
 
 mode "music" {
-    bindsym c exec /usr/bin/mpc clear
-    bindsym n exec /usr/bin/mpc next
-    bindsym p exec /usr/bin/mpc prev
-    bindsym s exec /usr/bin/mpc stop
-    bindsym Space exec /usr/bin/mpc toggle
+    bindsym m exec $term -e ncmpc
+    bindsym c exec ~/scripts/notify-cmd.sh mpc clear
+    bindsym n exec ~/scripts/notify-cmd.sh /usr/bin/mpc next
+    bindsym p exec ~/scripts/notify-cmd.sh /usr/bin/mpc prev
+    bindsym s exec ~/scripts/notify-cmd.sh /usr/bin/mpc stop
+    bindsym f exec ~/scripts/notify-cmd.sh /usr/bin/mpc seek +5%
+    bindsym b exec ~/scripts/notify-cmd.sh /usr/bin/mpc seek -5%
+    bindsym Space ~/scripts/notify-cmd.sh exec /usr/bin/mpc toggle
     bindsym a exec $term -e alsamixer
     bindsym Return mode "default"
     bindsym Escape mode "default"
