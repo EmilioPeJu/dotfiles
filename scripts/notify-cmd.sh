@@ -1,4 +1,4 @@
 #!/bin/bash
 set -x
 result="$($@)"
-notify-send "$result"
+notify-send -a $1 "$result"
