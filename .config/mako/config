@@ -1,0 +1,9 @@
+width=400
+sort=-priority
+anchor=top-center
+font=Roboto 10
+background-color=#212121
+text-color=#ffffff
+margin=20
+default-timeout=5000
+format=%a\n<b>%s</b>\n%b\n
