@@ -199,6 +199,7 @@ mode "applications" {
     bindsym d exec deluge-gtk
     bindsym r exec $term -e ranger
     bindsym h exec $term -e htop
+    bindsym j exec $term -e jupyter-notebook ~/notes
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
