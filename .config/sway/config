@@ -239,6 +239,7 @@ bindsym --to-code {
 }
 mode "config" {
     bindsym --to-code {
+        d exec gnome-disks
         s exec sudo shutdown -h now
         x exec ~/scripts/suspend.sh
         w exec $term -e sudo wifi-menu
