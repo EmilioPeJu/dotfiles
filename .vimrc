@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'milkypostman/vim-togglelist'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -70,6 +69,7 @@ set foldclose=all
 "
 " Work relative to current file
 autocmd BufEnter * :lcd %:p:h
+
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
 set showbreak=···
@@ -145,7 +145,45 @@ nnoremap <F5> :call QuickFix_toggle()<cr>
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 
+" ctags
+"
+" useful shortcuts: C-] to find C-x ] to autocomplete
 set tags=./.git/tags,.git/tags;
+" cscope
+" Extracted from cscope_maps.vim
+" Symbols
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+" Globals
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+" Calls
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+" Text
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+" egrep
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+" file
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+" include file
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+" called
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>s :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>g :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>t :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>e :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
+nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+
 
 nmap <leader>m :make<CR>
 
