@@ -197,7 +197,7 @@ function pacman-remove-all() {
 }
 
 function csc {
-    find $PWD -name '*.c' -o -name '*.cpp' -o -name '*.h' > $PWD/cscope.files
+    find $PWD/ -name '*.c' -o -name '*.cpp' -o -name '*.h' > $PWD/cscope.files
     cscope -b
     export CSCOPE_DB="$PWD/cscope.files"
 }
