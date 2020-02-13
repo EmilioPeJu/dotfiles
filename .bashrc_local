@@ -209,6 +209,18 @@ function tags {
     csc
 }
 
+function ebpfprog() {
+    bpftool prog show
+    echo -n "Id: "
+    read PROG_ID
+    bpftool prog dump xlated id $PROG_ID
+}
+
+function ebpfcc() {
+     clang -O2 -emit-llvm -c $1 -o - | \
+        llc -march=bpf -filetype=obj -o "`basename $1 .c`.o"
+}
+
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
