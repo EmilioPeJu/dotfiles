@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'python-mode/python-mode'
 call plug#end()
 
 " set termguicolors
