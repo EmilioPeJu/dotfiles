@@ -189,3 +189,7 @@ nmap <leader>m :make<CR>
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" kind of a hack but +clipboard is not usually set
+vnoremap <leader>y :w !xclip -i<CR><CR>
+nnoremap <leader>p :r !xclip -o<CR>
