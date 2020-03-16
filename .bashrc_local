@@ -8,6 +8,7 @@ export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export EDITOR="vim"
 export PREFIXPATH="$HOME/storage/prefix"
 export SRCPATH="$HOME/storage/src"
+export TERMINAL="gnome-terminal"
 
 # user alias
 alias cta="ctags --tag-relative=yes -R -f .git/tags ."
