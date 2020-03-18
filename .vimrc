@@ -192,5 +192,5 @@ nmap <leader>m :make<CR>
 let g:rustfmt_autosave = 1
 
 " kind of a hack but +clipboard is not usually set
-vnoremap <leader>y :w !xclip -i<CR><CR>
-nnoremap <leader>p :r !xclip -o<CR>
+vnoremap <leader>y :w !xclip -in -selection clipboard<CR><CR>
+nnoremap <leader>p :r !xclip -out -selection clipboard<CR>
