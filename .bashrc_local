@@ -36,6 +36,7 @@ alias r2help="r2 -q -c '?*~...' -"
 alias t="trans -speak -d en:es"
 # useful for simulating a serial port
 alias socat-pty="socat -d -d pty,rawer pty,rawer"
+alias tmp="pushd && cd /run/user/$(id -u)"
 
 # user functions
 
