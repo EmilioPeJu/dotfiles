@@ -1,3 +1,3 @@
 #!/bin/bash
 xmodmap ${HOME}/.Xmodmap
-mako &
+conky -d
