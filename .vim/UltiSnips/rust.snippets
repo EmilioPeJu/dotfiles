@@ -31,18 +31,20 @@ impl Scan {
     }
 }
 
-fn _main() {
+fn _main() -> std::io::Result<()> {
     let mut scan = Scan::new();
     $0
+    Ok(())
 }
 
-fn main() {
+fn main() -> std::io::Result<()> {
     std::thread::Builder::new()
         .stack_size(1 << 23)
         .spawn(_main)
         .unwrap()
         .join()
-        .unwrap();
+        .unwrap()?;
+    Ok(())
 }
 endsnippet
 
@@ -85,6 +87,9 @@ impl Uf {
     fn connect(&mut self, a: usize, b: usize) {
         let ra = self.root(a);
         let rb = self.root(b);
+        if ra == rb {
+            return;
+        }
         if self.count[ra] > self.count[rb] {
             self.parent[rb] = ra;
             self.count[ra] += self.count[rb];
@@ -93,5 +98,12 @@ impl Uf {
             self.count[rb] += self.count[ra];
         }
     }
+}
+endsnippet
+
+snippet ts
+let ts: usize = scan.next();
+for _ in 0..ts {
+    $0
 }
 endsnippet
