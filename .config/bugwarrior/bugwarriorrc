@@ -103,7 +103,7 @@ github.username = hir12111
 # - 'github.username' is the github entity you want to pull
 #   issues for.  It could be you, or some other user entirely.
 github.login = hir12111
-github.password = @oracle:eval:pass github
+github.token = @oracle:eval:pass github.token
 github.interactive=True
 
 
