@@ -3,7 +3,7 @@
 [[ -f ~/norc ]] && return
 
 # user environment variables
-export PATH="$PATH:$HOME/scripts:$HOME/.node/bin"
+export PATH="$PATH:$HOME/scripts:$HOME/.node/bin:$HOME/.cargo/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export EDITOR="vim"
 export PREFIXPATH="$HOME/storage/prefix"
