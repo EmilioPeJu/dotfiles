@@ -1,6 +1,11 @@
 #!/bin/bash
+
+[[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
+    . $HOME/.nix-profile/etc/profile.d/nix.sh
+
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    export XKB_DEFAULT_OPTIONS=ctrl:nocaps
-    /usr/bin/sway
+    # export XKB_DEFAULT_OPTIONS=ctrl:nocaps
+    # /usr/bin/sway
+    startx
     exit 0
 fi
