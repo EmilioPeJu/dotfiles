@@ -11,9 +11,9 @@ fi
 
 # prompt zefram
 
-source ~/.zsh/setopt.sh
-source ~/.zsh/functions.sh
-source ~/.zsh/bindkeys.sh
+source ~/.zsh/setopt.zsh
+source ~/.zsh/functions.zsh
+source ~/.zsh/bindkeys.zsh
 
 eval "$(fasd --init auto)"
 
