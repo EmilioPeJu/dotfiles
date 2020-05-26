@@ -13,10 +13,7 @@ export SRCPATH="$HOME/storage/src"
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     # only for bash
-    bind '"\e[1;5D" backward-word'
-    bind '"\e[1;5C" forward-word'
-    bind '"\eo":"cd-from-ranger\C-m"'
-    bind '"\et":"tmux\C-m"'
+    source ~/.bash/bindkeys.sh
     eval "$(fasd --init auto)"
 fi
 
