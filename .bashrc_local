@@ -4,7 +4,9 @@
 [[ -f ~/norc ]] && return
 
 # user environment variables
-export PATH="$PATH:$HOME/scripts:$HOME/.node/bin:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.user/scripts:$HOME/.user/bin"
+export PATH="$PATH:$HOME/.node/bin:$HOME/.cargo/bin"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.user/lib"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export EDITOR="vim"
 export TERMINAL="$HOME/st/st"
