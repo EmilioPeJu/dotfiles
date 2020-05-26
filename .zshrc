@@ -23,7 +23,7 @@ eval "$(fasd --init auto)"
 export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 
-ZSH_THEME="cypher"
+ZSH_THEME="lukerandall"
 
 plugins=(radare2 zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
 
