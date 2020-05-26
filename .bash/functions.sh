@@ -45,7 +45,7 @@ function cd-to-ranger()
 
 function rc() {
     if [[ "$1" != "" ]]; then
-        [[ -f "${HOME}/.bashrc_${1}" ]] && . "${HOME}/.bashrc_${1}"
+        [[ -f "${HOME}/.bash/${1}.sh" ]] && . "${HOME}/.bash/${1}.sh"
     else
         if [[ -n "$ZSH_VERSION" ]]; then
             source ~/.zshrc

@@ -21,6 +21,6 @@ if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
 fi
 
 # load helper scripts
-[[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
-[[ -f ~/.bashrc_aliases ]] && . ~/.bashrc_aliases
-[[ -f ~/.bashrc_stage ]] && . ~/.bashrc_stage
+[[ -f ~/.bash/functions.sh ]] && . ~/.bash/functions.sh
+[[ -f ~/.bash/aliases.sh ]] && . ~/.bash/aliases.sh
+[[ -f ~/.bash/stage.sh ]] && . ~/.bash/stage.sh
