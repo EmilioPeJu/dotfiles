@@ -7,9 +7,9 @@
 export PATH="$PATH:$HOME/scripts:$HOME/.node/bin:$HOME/.cargo/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export EDITOR="vim"
+export TERMINAL="$HOME/st/st"
 export PREFIXPATH="$HOME/storage/prefix"
 export SRCPATH="$HOME/storage/src"
-export TERMINAL="gnome-terminal"
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     # only for bash
@@ -23,3 +23,4 @@ fi
 # load helper scripts
 [[ -f ~/.bashrc_functions ]] && . ~/.bashrc_functions
 [[ -f ~/.bashrc_aliases ]] && . ~/.bashrc_aliases
+[[ -f ~/.bashrc_stage ]] && . ~/.bashrc_stage
