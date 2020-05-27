@@ -1,13 +1,19 @@
 import os
 import re
 
-EPICS_BASE = os.environ["EPICS_BASE"]
-EPICS_VERSION = EPICS_BASE.split('/')[3]
+try:
+    EPICS_BASE = os.environ["EPICS_BASE"]
+    # by convention
+    EPICS_VERSION = EPICS_BASE.split('/')[3]
+except:
+    EPICS_BASE = ""
+    EPICS_VERSION = ""
 
 if os.access('/etc/redhat-release', os.R_OK):
     rhel_release_data = open("/etc/redhat-release", "r").read()
     RHEL_MAJOR = re.findall(r"\d", rhel_release_data)[0]
     RHEL = "RHEL{0}-x86_64".format(RHEL_MAJOR)
+
 
 class dls_tree_helper(object):
     ROOT = "/dls_sw/prod"
