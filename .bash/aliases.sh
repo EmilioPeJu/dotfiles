@@ -28,4 +28,4 @@ alias socat-pty="socat -d -d pty,rawer pty,rawer"
 alias tmp="pushd && cd /run/user/$(id -u)"
 alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
 alias mc="make clean-tests"
-
+alias java-bytecodes="javap -c -p ";
