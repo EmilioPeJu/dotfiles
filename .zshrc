@@ -22,6 +22,7 @@ eval "$(fasd --init auto)"
 # Oh-my-zsh
 export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
+export ZSH_TMUX_AUTOSTART=true
 
 ZSH_THEME="lukerandall"
 
