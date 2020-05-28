@@ -161,3 +161,16 @@ function remote-dd() {
     ssh $host "dd if=$IF | gzip -1 -" | dd of=$OF
 }
 
+function tp {
+    local TARGET="$1"
+    local COMMAND="$2"
+    tplink_smartplug.py -t $TARGET -c $COMMAND
+}
+
+function tp-wifi {
+    local TARGET="192.168.0.1"
+    local SSID="$1"
+    local PASS="$2"
+    # key_type 3 is WPA2
+    tplink_smartplug.py -t $TARGET -j '{"netif":{"set_stainfo":{"ssid":"'"$SSID"'","password":"'"$PASS"'","key_type":3}}}'
+}
