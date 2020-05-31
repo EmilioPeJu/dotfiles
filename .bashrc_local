@@ -14,6 +14,7 @@ export EDITOR="vim"
 export TERMINAL="$HOME/st/st"
 export PREFIXPATH="$HOME/storage/prefix"
 export SRCPATH="$HOME/storage/src"
+export NIX_PATH="$NIX_PATH:$HOME/.nix-defexpr-user"
 # Fix misbehaving java applications in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
