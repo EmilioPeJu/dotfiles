@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+import argparse
+import os
+import sys
+import subprocess
+import re
+
+
+def parse_args():
+
+    def _check_path_valid(path):
+        if not os.access(path, os.R_OK):
+            raise argparse.ArgumentError("File does not exist")
+        return path
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", type=_check_path_valid,
+                        default="./configure/RELEASE")
+    parser.add_argument("-i", action="store_true")
+    return parser.parse_args()
+
+
+def extract_epics_module_name(path):
+    if path.endswith('epics'):
+        return "EPICS_BASE"
+    return re.findall('epics-(.*)', path)[0].upper()
+
+
+def is_epics_related(path):
+    return "epics" in path
+
+
+def get_epics_deps(use_build_inputs):
+    if use_build_inputs:
+        output = os.environ.get('buildInputs')
+    else:
+        output = subprocess.check_output(['nix-env', '-q', '--installed',
+                                          '--no-name', '--out-path']).decode()
+    result = {}
+    for i in output.split():
+        if is_epics_related(i):
+            result[extract_epics_module_name(i)] = i
+    return result
+
+
+def main():
+    args = parse_args()
+    use_build_inputs = bool(os.environ.get('buildInputs', '').strip())
+    deps = get_epics_deps(use_build_inputs)
+    output_content = []
+    with open(args.path, 'r') as infile:
+        for line in infile:
+            sline = line.strip().split('=')
+            module_name = sline[0]
+            if len(sline) == 2 and not module_name.startswith('#') and \
+                    module_name in deps:
+                module_path = deps[module_name]
+                output_content.append(f"{module_name}={module_path}\n")
+            else:
+                output_content.append(line)
+    output_content = "".join(output_content)
+    if args.i: # in place modification
+        with open(args.path, 'w') as outfile:
+            outfile.write(output_content)
+    else:
+        print(output_content)
+
+
+if __name__ == "__main__":
+    main()

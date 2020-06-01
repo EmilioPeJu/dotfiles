@@ -1,4 +1,4 @@
-{ stdenv, coreutils, readline, perl }:
+{ stdenv, gcc, perl }:
 
 stdenv.mkDerivation rec {
   name = "dls-epics";
@@ -8,12 +8,13 @@ stdenv.mkDerivation rec {
     ref = "dls-7.0";
   };
 
-  phases = [ "unpackPhase" "patchPhase" "buildPhase" "installPhase" "fixupPhase" ];
+  phases = [ "unpackPhase" "patchPhase" "installPhase" "fixupPhase" ];
 
   patches = [ ./no_abs_path_to_cc.patch ];
 
-  buildInputs = [ perl ];
+  propagatedBuildInputs = [ perl ];
 
+  configurePhase = "# nothing to do";
   buildPhase = ''
     # Dummy build phase, as it is done as part of installPhase
   '';
@@ -25,4 +26,8 @@ stdenv.mkDerivation rec {
         ln -s "$i"
     done
   '';
+
+  meta = {
+    priority = 3;
+  };
 }
