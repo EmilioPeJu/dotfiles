@@ -1,8 +1,7 @@
-{ stdenv, gcc, perl }:
+{ stdenv, perl }:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   name = "dls-epics";
-  version = "7.0";
   src = builtins.fetchGit {
     url = "https://github.com/hir12111/epics-base";
     ref = "dls-7.0";
@@ -13,6 +12,10 @@ stdenv.mkDerivation rec {
   patches = [ ./no_abs_path_to_cc.patch ];
 
   propagatedBuildInputs = [ perl ];
+
+  setupHook = builtins.toFile "setupHook.sh" ''
+    export EPICS_BASE='@out@'
+  '';
 
   configurePhase = "# nothing to do";
   buildPhase = ''

@@ -50,8 +50,8 @@ def main():
     output_content = []
     with open(args.path, 'r') as infile:
         for line in infile:
-            sline = line.strip().split('=')
-            module_name = sline[0]
+            sline = line.split('=')
+            module_name = sline[0].strip()
             if len(sline) == 2 and not module_name.startswith('#') and \
                     module_name in deps:
                 module_path = deps[module_name]
