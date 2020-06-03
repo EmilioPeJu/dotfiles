@@ -24,7 +24,7 @@ export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 export ZSH_TMUX_AUTOSTART=true
 
-ZSH_THEME="lukerandall"
+# ZSH_THEME="lukerandall"
 
 plugins=(radare2 zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
 
