@@ -4,6 +4,7 @@ import os
 import sys
 import subprocess
 import re
+PREFIX = 'dls-epics'
 
 
 def parse_args():
@@ -21,13 +22,13 @@ def parse_args():
 
 
 def extract_epics_module_name(path):
-    if path.endswith('epics'):
+    if path.endswith(f'{PREFIX}-base'):
         return "EPICS_BASE"
-    return re.findall('epics-(.*)', path)[0].upper()
+    return re.findall(f'{PREFIX}-(.*)', path)[0].upper()
 
 
 def is_epics_related(path):
-    return "epics" in path
+    return PREFIX in path
 
 
 def get_epics_deps(use_build_inputs):
@@ -52,9 +53,19 @@ def main():
         for line in infile:
             sline = line.split('=')
             module_name = sline[0].strip()
-            if len(sline) == 2 and not module_name.startswith('#') and \
-                    module_name in deps:
-                module_path = deps[module_name]
+            if len(sline) == 2 and not module_name.startswith('#'):
+                if module_name in deps:
+                    module_path = deps[module_name]
+                else:
+                    try:
+                        if module_name == "EPICS_BASE":
+                            find_cmd = f"find-{PREFIX}-base"
+                        else:
+                            find_cmd = f"find-{PREFIX}-{module_name.lower()}"
+                        module_path = subprocess.check_output([find_cmd]).decode()
+                    except:
+                        continue
+
                 output_content.append(f"{module_name}={module_path}\n")
             else:
                 output_content.append(line)
