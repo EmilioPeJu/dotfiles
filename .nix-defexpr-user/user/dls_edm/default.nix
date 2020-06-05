@@ -6,4 +6,7 @@ buildPythonPackage rec {
     url = "https://github.com/hir12111/dls_edm";
     ref = "python3";
   };
+  postInstall = ''
+    cp -rf dls_edm/*.pkl $(toPythonPath $out)/dls_edm
+  '';
 }

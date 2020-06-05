@@ -1,0 +1,10 @@
+--- a/iocbuilder/defaults/EPICS_BASE.py	1980-01-02 00:00:00.000000000 +0000
++++ b/iocbuilder/defaults/EPICS_BASE.py	2020-06-04 18:47:08.358553489 +0100
+@@ -8,6 +8,7 @@
+ 
+ class epicsBase(Device):
+     DbdFileList = ['base']
++    SysLibFileList = [ 'pthread', 'rt' ]
+ 
+     InitialisationPhase = Device.FIRST
+ 

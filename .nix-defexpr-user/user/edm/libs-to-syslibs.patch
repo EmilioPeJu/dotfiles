@@ -1,0 +1,1046 @@
+diff --git a/src/edm/baselib/Makefile b/src/edm/baselib/Makefile
+index 9274d3c..08c7a9f 100644
+--- a/src/edm/baselib/Makefile
++++ b/src/edm/baselib/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/calcPv/Makefile b/src/edm/calcPv/Makefile
+index c9caac8..7ad611c 100644
+--- a/src/edm/calcPv/Makefile
++++ b/src/edm/calcPv/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/calcPvOld/Makefile b/src/edm/calcPvOld/Makefile
+index a76c709..72d0c38 100644
+--- a/src/edm/calcPvOld/Makefile
++++ b/src/edm/calcPvOld/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/choiceButton/Makefile b/src/edm/choiceButton/Makefile
+index 853cd9e..ca9acaf 100644
+--- a/src/edm/choiceButton/Makefile
++++ b/src/edm/choiceButton/Makefile
+@@ -8,8 +8,7 @@ ifdef EPICS_HOST_ARCH
+    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+ 
+    USR_CXXFLAGS_Linux += -DSINGLE_THREADED=1 -D__epics__=1
+-   USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-   USR_SYS_LIBS_Linux += pthread dl
++   USR_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+    
+    USR_CXXFLAGS_Darwin += -DSINGLE_THREADED=1 -D__epics__=1 -Wno-long-long
+    USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+diff --git a/src/edm/diamondlib/Makefile b/src/edm/diamondlib/Makefile
+index 9647e19..8bd3a6e 100644
+--- a/src/edm/diamondlib/Makefile
++++ b/src/edm/diamondlib/Makefile
+@@ -13,8 +13,7 @@ ifdef EPICS_HOST_ARCH
+    EdmDiamond_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+    EdmDiamond_LIBS += Com
+ 
+-   EdmDiamond_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmDiamond_SYS_LIBS_Linux += pthread dl
++   EdmDiamond_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmDiamond_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmDiamond_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/edmMain/Makefile b/src/edm/edmMain/Makefile
+index c8bbe8a..9fd2e0e 100644
+--- a/src/edm/edmMain/Makefile
++++ b/src/edm/edmMain/Makefile
+@@ -13,8 +13,7 @@ ifdef EPICS_HOST_ARCH
+    edmMain_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df 
+    edmMain_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+ 
+-   edmMain_LIBS_Linux += Xm Xmu Xt Xp Xtst X11
+-   edmMain_SYS_LIBS_Linux += pthread dl
++   edmMain_SYS_LIBS_Linux += Xm Xmu Xt Xp Xtst X11 pthread dl
+    
+    edmMain_LIBS_Darwin += Xm Xmu Xt Xp Xtst X11
+    edmMain_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/giflib/Makefile b/src/edm/giflib/Makefile
+index 356358c..25bb887 100644
+--- a/src/edm/giflib/Makefile
++++ b/src/edm/giflib/Makefile
+@@ -20,8 +20,7 @@ GIF_INC ?= /usr/include
+    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+    USR_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+ 
+-   USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-   USR_SYS_LIBS_Linux += pthread dl gif
++   USR_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl gif
+ 
+    USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+    USR_SYS_LIBS_Darwin += pthread dl gif
+@@ -37,7 +36,7 @@ GIF_INC ?= /usr/include
+    INSTALL_INCLUDE = $(INSTALL_LOCATION)/include/edm
+    USR_INCLUDES += -I../../util -I../../lib
+ 
+-   USR_INCLUDES += -I$(MOTIF_INC) -I$(X11_INC)
++   USR_INCLUDES += -I$(MOTIF_INC) -I$(X11_INC) 
+    USR_INCLUDES_solaris += -I$(GIF_INC)
+    USR_LDFLAGS_solaris += -L$(GIF_LIB)
+ 
+diff --git a/src/edm/giflib/gif.cc b/src/edm/giflib/gif.cc
+index 01e1870..766a945 100644
+--- a/src/edm/giflib/gif.cc
++++ b/src/edm/giflib/gif.cc
+@@ -431,7 +431,7 @@ struct sigaction sa, oldsa, dummysa;
+   do {
+     this->actWin->appCtx->expandFileName( i, name, expStr.getExpanded(),
+      ".gif", 127 );
+-    gif = DGifOpenFileName( name );
++    gif = DGifOpenFileName( name, NULL );
+     i++;
+   } while ( ( i < actWin->appCtx->numPaths ) && !gif );
+   if ( !gif ) {
+@@ -887,7 +887,7 @@ struct sigaction sa, oldsa, dummysa;
+ 
+   }
+ 
+-  status = DGifCloseFile( gif );
++  status = DGifCloseFile( gif, NULL );
+ 
+   noFile = 0;
+ 
+@@ -899,7 +899,7 @@ struct sigaction sa, oldsa, dummysa;
+ 
+ error_return:
+ 
+-  if ( fileOpened ) status = DGifCloseFile( gif );
++  if ( fileOpened ) status = DGifCloseFile( gif, NULL );
+ 
+ sig_error_return:
+ 
+diff --git a/src/edm/httpPv/Makefile b/src/edm/httpPv/Makefile
+index ca1d309..e1c2d4e 100644
+--- a/src/edm/httpPv/Makefile
++++ b/src/edm/httpPv/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/imagelib/gif.cc b/src/edm/imagelib/gif.cc
+index 01e1870..766a945 100644
+--- a/src/edm/imagelib/gif.cc
++++ b/src/edm/imagelib/gif.cc
+@@ -431,7 +431,7 @@ struct sigaction sa, oldsa, dummysa;
+   do {
+     this->actWin->appCtx->expandFileName( i, name, expStr.getExpanded(),
+      ".gif", 127 );
+-    gif = DGifOpenFileName( name );
++    gif = DGifOpenFileName( name, NULL );
+     i++;
+   } while ( ( i < actWin->appCtx->numPaths ) && !gif );
+   if ( !gif ) {
+@@ -887,7 +887,7 @@ struct sigaction sa, oldsa, dummysa;
+ 
+   }
+ 
+-  status = DGifCloseFile( gif );
++  status = DGifCloseFile( gif, NULL );
+ 
+   noFile = 0;
+ 
+@@ -899,7 +899,7 @@ struct sigaction sa, oldsa, dummysa;
+ 
+ error_return:
+ 
+-  if ( fileOpened ) status = DGifCloseFile( gif );
++  if ( fileOpened ) status = DGifCloseFile( gif, NULL );
+ 
+ sig_error_return:
+ 
+diff --git a/src/edm/indicator/Makefile b/src/edm/indicator/Makefile
+index f5b6dd2..37c51e8 100644
+--- a/src/edm/indicator/Makefile
++++ b/src/edm/indicator/Makefile
+@@ -8,8 +8,7 @@ ifdef EPICS_HOST_ARCH
+    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+ 
+    USR_CXXFLAGS_Linux += -DSINGLE_THREADED=1 -D__epics__=1
+-   USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-   USR_SYS_LIBS_Linux += pthread dl
++   USR_SYS_LIBS_Linux +=  Xm Xt Xp Xtst X11 pthread dl
+    
+    USR_CXXFLAGS_Darwin += -DSINGLE_THREADED=1 -D__epics__=1 -Wno-long-long
+    USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+diff --git a/src/edm/lib/Makefile b/src/edm/lib/Makefile
+index 389b82b..e0f1b8e 100644
+--- a/src/edm/lib/Makefile
++++ b/src/edm/lib/Makefile
+@@ -24,8 +24,7 @@ ifdef EPICS_HOST_ARCH
+   USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+   USR_SYS_LIBS_Darwin += pthread dl
+ 
+-  USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-  USR_SYS_LIBS_Linux += pthread dl
++  USR_SYS_LIBS_Linux +=  Xm Xt Xp Xtst X11 pthread dl
+ 
+   USR_LIBS_solaris += Xm Xt Xmu X11 Xext
+   USR_SYS_LIBS_solaris += pthread dl rt
+diff --git a/src/edm/lib/app_pkg.cc b/src/edm/lib/app_pkg.cc
+index 1a731a2..236d332 100644
+--- a/src/edm/lib/app_pkg.cc
++++ b/src/edm/lib/app_pkg.cc
+@@ -6311,9 +6311,9 @@ void appContextClass::postMessage (
+ 
+   if ( useStdErrFlag ) {
+     if ( errMsgPrefix ) {
+-      fprintf( stderr, errMsgPrefix );
++      fprintf( stderr, "%s", errMsgPrefix );
+     }
+-    fprintf( stderr, msg );
++    fprintf( stderr, "%s", msg );
+     int l = strlen( msg );
+     if ( !l || ( msg[l-1] != '\n' ) ) {
+       fprintf( stderr, "\n" );
+diff --git a/src/edm/lib/color_pkg.cc b/src/edm/lib/color_pkg.cc
+index 8eecebf..924cd36 100644
+--- a/src/edm/lib/color_pkg.cc
++++ b/src/edm/lib/color_pkg.cc
+@@ -3110,7 +3110,7 @@ term:
+    False );
+ 
+   XmAddWMProtocolCallback( shell, wm_delete_window, file_cb,
+-    (int) 0 );
++    NULL );
+ 
+   XtVaSetValues( shell, XmNdeleteResponse, XmDO_NOTHING, NULL );
+ 
+@@ -4969,7 +4969,7 @@ term:
+    False );
+ 
+   XmAddWMProtocolCallback( shell, wm_delete_window, file_cb,
+-    (int) 0 );
++    NULL );
+ 
+   XtVaSetValues( shell, XmNdeleteResponse, XmDO_NOTHING, NULL );
+ 
+@@ -5762,7 +5762,7 @@ firstTry:
+    False );
+ 
+   XmAddWMProtocolCallback( shell, wm_delete_window, file_cb,
+-    (int) 0 );
++    NULL );
+ 
+   XtVaSetValues( shell, XmNdeleteResponse, XmDO_NOTHING, NULL );
+ 
+diff --git a/src/edm/lib/cursor.cc b/src/edm/lib/cursor.cc
+index 5713b93..ccf530c 100644
+--- a/src/edm/lib/cursor.cc
++++ b/src/edm/lib/cursor.cc
+@@ -69,30 +69,30 @@ void cursorClass::create (
+ #define pntrWithHelp_y_hot 3
+ 
+ static char pntrWithHelp_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3c, 0x00, 0x00, 0x00, 0x42,
+-   0x20, 0x00, 0x00, 0x40, 0x60, 0x00, 0x00, 0x40, 0xe0, 0x00, 0x00, 0x60,
+-   0xe0, 0x01, 0x00, 0x30, 0xe0, 0x03, 0x00, 0x08, 0xe0, 0x07, 0x00, 0x08,
+-   0xe0, 0x0f, 0x00, 0x08, 0xe0, 0x1f, 0x00, 0x00, 0xe0, 0x3f, 0x00, 0x08,
+-   0xe0, 0x03, 0x00, 0x00, 0xe0, 0x06, 0x00, 0x00, 0x60, 0x06, 0x00, 0x00,
+-   0x20, 0x0c, 0x00, 0x00, 0x00, 0x0c, 0x00, 0x00, 0x00, 0x18, 0x00, 0x00,
+-   0x00, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x3c', '\x00', '\x00', '\x00', '\x42',
++   '\x20', '\x00', '\x00', '\x40', '\x60', '\x00', '\x00', '\x40', '\xe0', '\x00', '\x00', '\x60',
++   '\xe0', '\x01', '\x00', '\x30', '\xe0', '\x03', '\x00', '\x08', '\xe0', '\x07', '\x00', '\x08',
++   '\xe0', '\x0f', '\x00', '\x08', '\xe0', '\x1f', '\x00', '\x00', '\xe0', '\x3f', '\x00', '\x08',
++   '\xe0', '\x03', '\x00', '\x00', '\xe0', '\x06', '\x00', '\x00', '\x60', '\x06', '\x00', '\x00',
++   '\x20', '\x0c', '\x00', '\x00', '\x00', '\x0c', '\x00', '\x00', '\x00', '\x18', '\x00', '\x00',
++   '\x00', '\x18', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char pntrWithHelp_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x7e, 0x00, 0x00, 0x00, 0xff, 0x30, 0x00, 0x00, 0xff,
+-   0x70, 0x00, 0x00, 0xe7, 0xf0, 0x00, 0x00, 0xf0, 0xf0, 0x01, 0x00, 0xf0,
+-   0xf0, 0x03, 0x00, 0xfc, 0xf0, 0x07, 0x00, 0x7c, 0xf0, 0x0f, 0x00, 0x1c,
+-   0xf0, 0x1f, 0x00, 0x1c, 0xf0, 0x3f, 0x00, 0x1c, 0xf0, 0x7f, 0x00, 0x1c,
+-   0xf0, 0x7f, 0x00, 0x1c, 0xf0, 0x0f, 0x00, 0x00, 0xf0, 0x0f, 0x00, 0x00,
+-   0x70, 0x1e, 0x00, 0x00, 0x30, 0x1e, 0x00, 0x00, 0x00, 0x3c, 0x00, 0x00,
+-   0x00, 0x3c, 0x00, 0x00, 0x00, 0x38, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x7e', '\x00', '\x00', '\x00', '\xff', '\x30', '\x00', '\x00', '\xff',
++   '\x70', '\x00', '\x00', '\xe7', '\xf0', '\x00', '\x00', '\xf0', '\xf0', '\x01', '\x00', '\xf0',
++   '\xf0', '\x03', '\x00', '\xfc', '\xf0', '\x07', '\x00', '\x7c', '\xf0', '\x0f', '\x00', '\x1c',
++   '\xf0', '\x1f', '\x00', '\x1c', '\xf0', '\x3f', '\x00', '\x1c', '\xf0', '\x7f', '\x00', '\x1c',
++   '\xf0', '\x7f', '\x00', '\x1c', '\xf0', '\x0f', '\x00', '\x00', '\xf0', '\x0f', '\x00', '\x00',
++   '\x70', '\x1e', '\x00', '\x00', '\x30', '\x1e', '\x00', '\x00', '\x00', '\x3c', '\x00', '\x00',
++   '\x00', '\x3c', '\x00', '\x00', '\x00', '\x38', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #define cross_width 16
+ #define cross_height 16
+@@ -100,14 +100,14 @@ static char pntrWithHelp_mask_bits[] = {
+ #define cross_y_hot 8
+ 
+ static char cross_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x80, 0x00, 0x80, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x9e, 0x3c, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00,
+-   0x80, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x80', '\x00', '\x80', '\x00', '\x80', '\x00', '\x80', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x9e', '\x3c', '\x00', '\x00', '\x00', '\x00', '\x80', '\x00',
++   '\x80', '\x00', '\x80', '\x00', '\x80', '\x00', '\x00', '\x00'};
+ 
+ static char cross_mask_bits[] = {
+-   0x00, 0x00, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01,
+-   0xc0, 0x01, 0xff, 0x7f, 0xff, 0x7f, 0xff, 0x7f, 0xc0, 0x01, 0xc0, 0x01,
+-   0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01};
++   '\x00', '\x00', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01',
++   '\xc0', '\x01', '\xff', '\x7f', '\xff', '\x7f', '\xff', '\x7f', '\xc0', '\x01', '\xc0', '\x01',
++   '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01'};
+ 
+ #define tinyCross_width 16
+ #define tinyCross_height 16
+@@ -115,14 +115,14 @@ static char cross_mask_bits[] = {
+ #define tinyCross_y_hot 8
+ 
+ static char tinyCross_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x86, 0x30, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x80, 0x00, 0x80, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x80', '\x00', '\x80', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x86', '\x30', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x80', '\x00', '\x80', '\x00', '\x00', '\x00'};
+ 
+ static char tinyCross_mask_bits[] = {
+-   0x00, 0x00, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0x00, 0x00,
+-   0x00, 0x00, 0x0f, 0x78, 0x8f, 0x78, 0x0f, 0x78, 0x00, 0x00, 0x00, 0x00,
+-   0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01, 0xc0, 0x01};
++   '\x00', '\x00', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\x00', '\x00',
++   '\x00', '\x00', '\x0f', '\x78', '\x8f', '\x78', '\x0f', '\x78', '\x00', '\x00', '\x00', '\x00',
++   '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01', '\xc0', '\x01'};
+ 
+ #define wait_width 16
+ #define wait_height 16
+@@ -130,248 +130,248 @@ static char tinyCross_mask_bits[] = {
+ #define wait_y_hot 6
+ 
+ static char wait_bits[] = {
+-   0xc0, 0x01, 0x30, 0x06, 0x0c, 0x18, 0x04, 0x10, 0x02, 0x24, 0x02, 0x23,
+-   0x81, 0x41, 0xc1, 0x40, 0x81, 0x41, 0x02, 0x23, 0x02, 0x24, 0x04, 0x10,
+-   0x0c, 0x18, 0x30, 0x06, 0xc0, 0x01, 0x00, 0x00};
++   '\xc0', '\x01', '\x30', '\x06', '\x0c', '\x18', '\x04', '\x10', '\x02', '\x24', '\x02', '\x23',
++   '\x81', '\x41', '\xc1', '\x40', '\x81', '\x41', '\x02', '\x23', '\x02', '\x24', '\x04', '\x10',
++   '\x0c', '\x18', '\x30', '\x06', '\xc0', '\x01', '\x00', '\x00'};
+ 
+-//     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xc0, 0x01, 0x20, 0x02, 0x10, 0x04,
+-//     0x10, 0x04, 0x00, 0x02, 0x80, 0x01, 0x80, 0x00, 0x80, 0x00, 0x00, 0x00,
+-//     0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++//     '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xc0', '\x01', '\x20', '\x02', '\x10', '\x04',
++//     '\x10', '\x04', '\x00', '\x02', '\x80', '\x01', '\x80', '\x00', '\x80', '\x00', '\x00', '\x00',
++//     '\x80', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char wait_mask_bits[] = {
+-   0xf0, 0x07, 0xf8, 0x0f, 0xfc, 0x1f, 0xfe, 0x3f, 0xff, 0x7f, 0xff, 0x7f,
+-   0xff, 0x7f, 0xff, 0x7f, 0xff, 0x7f, 0xff, 0x7f, 0xff, 0x7f, 0xfe, 0x3f,
+-   0xfc, 0x1f, 0xf8, 0x0f, 0xf0, 0x07, 0x00, 0x00};
++   '\xf0', '\x07', '\xf8', '\x0f', '\xfc', '\x1f', '\xfe', '\x3f', '\xff', '\x7f', '\xff', '\x7f',
++   '\xff', '\x7f', '\xff', '\x7f', '\xff', '\x7f', '\xff', '\x7f', '\xff', '\x7f', '\xfe', '\x3f',
++   '\xfc', '\x1f', '\xf8', '\x0f', '\xf0', '\x07', '\x00', '\x00'};
+ 
+-//     0x00, 0x00, 0x00, 0x00, 0xe0, 0x03, 0xf0, 0x07, 0xf8, 0x0f, 0xf8, 0x0f,
+-//     0xf8, 0x0f, 0xf8, 0x0f, 0xc0, 0x07, 0xc0, 0x03, 0xc0, 0x01, 0xc0, 0x01,
+-//     0xc0, 0x01, 0xc0, 0x01, 0x00, 0x00, 0x00, 0x00};
++//     '\x00', '\x00', '\x00', '\x00', '\xe0', '\x03', '\xf0', '\x07', '\xf8', '\x0f', '\xf8', '\x0f',
++//     '\xf8', '\x0f', '\xf8', '\x0f', '\xc0', '\x07', '\xc0', '\x03', '\xc0', '\x01', '\xc0', '\x01',
++//     '\xc0', '\x01', '\xc0', '\x01', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #define willSet_width 16
+ #define willSet_height 16
+ #define willSet_x_hot 8
+ #define willSet_y_hot 1
+ static char willSet_bits[] = {
+-   0x00, 0x00, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03,
+-   0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03, 0x80, 0x01, 0x80, 0x01, 0x80, 0x01,
+-   0x00, 0x00, 0x80, 0x01, 0x80, 0x01, 0x00, 0x00};
++   '\x00', '\x00', '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03',
++   '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03', '\x80', '\x01', '\x80', '\x01', '\x80', '\x01',
++   '\x00', '\x00', '\x80', '\x01', '\x80', '\x01', '\x00', '\x00'};
+ 
+ static char willSet_mask_bits[] = {
+-   0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07,
+-   0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07, 0xe0, 0x07, 0xc0, 0x03, 0xc0, 0x03,
+-   0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03, 0xc0, 0x03};
++   '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07',
++   '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07', '\xe0', '\x07', '\xc0', '\x03', '\xc0', '\x03',
++   '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03', '\xc0', '\x03'};
+ 
+ #define willOpen_width 16
+ #define willOpen_height 16
+ #define willOpen_x_hot 10
+ #define willOpen_y_hot 1
+ static char willOpen_bits[] = {
+-   0x00, 0x00, 0xe0, 0x7f, 0x20, 0x40, 0xfe, 0x47, 0x02, 0x44, 0x02, 0x44,
+-   0x02, 0x44, 0x02, 0x44, 0x02, 0x44, 0x02, 0x44, 0x02, 0x44, 0x02, 0x44,
+-   0x02, 0x7c, 0x02, 0x04, 0xfe, 0x07, 0x00, 0x00};
++   '\x00', '\x00', '\xe0', '\x7f', '\x20', '\x40', '\xfe', '\x47', '\x02', '\x44', '\x02', '\x44',
++   '\x02', '\x44', '\x02', '\x44', '\x02', '\x44', '\x02', '\x44', '\x02', '\x44', '\x02', '\x44',
++   '\x02', '\x7c', '\x02', '\x04', '\xfe', '\x07', '\x00', '\x00'};
+ 
+ static char willOpen_mask_bits[] = {
+-   0xf0, 0xff, 0xf0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+-   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
+-   0xff, 0xff, 0xff, 0xff, 0xff, 0x0f, 0xff, 0x0f};
++   '\xf0', '\xff', '\xf0', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff',
++   '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff', '\xff',
++   '\xff', '\xff', '\xff', '\xff', '\xff', '\x0f', '\xff', '\x0f'};
+ 
+ #define willOpenWithHelp_width 32
+ #define willOpenWithHelp_height 32
+ #define willOpenWithHelp_x_hot 10
+ #define willOpenWithHelp_y_hot 17
+ static char willOpenWithHelp_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x01, 0x00, 0x00, 0x10, 0x02,
+-   0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x03,
+-   0x00, 0x00, 0x80, 0x01, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00,
+-   0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x7f, 0x00, 0x00,
+-   0x20, 0x40, 0x00, 0x00, 0xfe, 0x47, 0x00, 0x00, 0x02, 0x44, 0x00, 0x00,
+-   0x02, 0x44, 0x00, 0x00, 0x02, 0x44, 0x00, 0x00, 0x02, 0x44, 0x00, 0x00,
+-   0x02, 0x44, 0x00, 0x00, 0x02, 0x44, 0x00, 0x00, 0x02, 0x44, 0x00, 0x00,
+-   0x02, 0x44, 0x00, 0x00, 0x02, 0x7c, 0x00, 0x00, 0x02, 0x04, 0x00, 0x00,
+-   0xfe, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0', '\x01', '\x00', '\x00', '\x10', '\x02',
++   '\x00', '\x00', '\x00', '\x02', '\x00', '\x00', '\x00', '\x02', '\x00', '\x00', '\x00', '\x03',
++   '\x00', '\x00', '\x80', '\x01', '\x00', '\x00', '\x40', '\x00', '\x00', '\x00', '\x40', '\x00',
++   '\x00', '\x00', '\x40', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x40', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0', '\x7f', '\x00', '\x00',
++   '\x20', '\x40', '\x00', '\x00', '\xfe', '\x47', '\x00', '\x00', '\x02', '\x44', '\x00', '\x00',
++   '\x02', '\x44', '\x00', '\x00', '\x02', '\x44', '\x00', '\x00', '\x02', '\x44', '\x00', '\x00',
++   '\x02', '\x44', '\x00', '\x00', '\x02', '\x44', '\x00', '\x00', '\x02', '\x44', '\x00', '\x00',
++   '\x02', '\x44', '\x00', '\x00', '\x02', '\x7c', '\x00', '\x00', '\x02', '\x04', '\x00', '\x00',
++   '\xfe', '\x07', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char willOpenWithHelp_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0xf0, 0x03, 0x00, 0x00, 0xf8, 0x07, 0x00, 0x00, 0xf8, 0x07,
+-   0x00, 0x00, 0x38, 0x07, 0x00, 0x00, 0x80, 0x07, 0x00, 0x00, 0xc0, 0x07,
+-   0x00, 0x00, 0xe0, 0x07, 0x00, 0x00, 0xe0, 0x03, 0x00, 0x00, 0xe0, 0x00,
+-   0x00, 0x00, 0xe0, 0x00, 0x00, 0x00, 0xe0, 0x00, 0x00, 0x00, 0xe0, 0x00,
+-   0x00, 0x00, 0xe0, 0x00, 0xf0, 0xff, 0x00, 0x00, 0xf0, 0xff, 0x00, 0x00,
+-   0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00,
+-   0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00,
+-   0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00,
+-   0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00,
+-   0xff, 0x0f, 0x00, 0x00, 0xff, 0x0f, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\xf0', '\x03', '\x00', '\x00', '\xf8', '\x07', '\x00', '\x00', '\xf8', '\x07',
++   '\x00', '\x00', '\x38', '\x07', '\x00', '\x00', '\x80', '\x07', '\x00', '\x00', '\xc0', '\x07',
++   '\x00', '\x00', '\xe0', '\x07', '\x00', '\x00', '\xe0', '\x03', '\x00', '\x00', '\xe0', '\x00',
++   '\x00', '\x00', '\xe0', '\x00', '\x00', '\x00', '\xe0', '\x00', '\x00', '\x00', '\xe0', '\x00',
++   '\x00', '\x00', '\xe0', '\x00', '\xf0', '\xff', '\x00', '\x00', '\xf0', '\xff', '\x00', '\x00',
++   '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00',
++   '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00',
++   '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00',
++   '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00', '\xff', '\xff', '\x00', '\x00',
++   '\xff', '\x0f', '\x00', '\x00', '\xff', '\x0f', '\x00', '\x00'};
+ 
+ #define run_width 32
+ #define run_height 32
+ #define run_x_hot 16
+ #define run_y_hot 9
+ static char run_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0xf8, 0x01, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00,
+-   0x08, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0xf8, 0x00, 0x00, 0x00,
+-   0x08, 0x88, 0x38, 0x1c, 0x08, 0x50, 0x44, 0x02, 0x08, 0x20, 0x7c, 0x02,
+-   0x08, 0x20, 0x04, 0x02, 0x08, 0x50, 0x04, 0x02, 0xf8, 0x89, 0x78, 0x1c,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\xf8', '\x01', '\x00', '\x00', '\x08', '\x00', '\x00', '\x00', '\x08', '\x00', '\x00', '\x00',
++   '\x08', '\x00', '\x00', '\x00', '\x08', '\x00', '\x00', '\x00', '\xf8', '\x00', '\x00', '\x00',
++   '\x08', '\x88', '\x38', '\x1c', '\x08', '\x50', '\x44', '\x02', '\x08', '\x20', '\x7c', '\x02',
++   '\x08', '\x20', '\x04', '\x02', '\x08', '\x50', '\x04', '\x02', '\xf8', '\x89', '\x78', '\x1c',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char run_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xfc, 0x03, 0x00, 0x00,
+-   0xfc, 0x03, 0x00, 0x00, 0xfc, 0x03, 0x00, 0x00, 0x1c, 0x00, 0x00, 0x00,
+-   0x1c, 0x00, 0x00, 0x00, 0xfc, 0x01, 0x00, 0x00, 0xfc, 0x89, 0x38, 0x3e,
+-   0xfc, 0xdd, 0x7d, 0x3e, 0x1c, 0xf8, 0x7e, 0x3f, 0x1c, 0x70, 0x7e, 0x07,
+-   0x1c, 0x70, 0x7e, 0x07, 0xfc, 0xfb, 0x7e, 0x3f, 0xfc, 0xdf, 0x7d, 0x3e,
+-   0xfc, 0x8b, 0x78, 0x3c, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xfc', '\x03', '\x00', '\x00',
++   '\xfc', '\x03', '\x00', '\x00', '\xfc', '\x03', '\x00', '\x00', '\x1c', '\x00', '\x00', '\x00',
++   '\x1c', '\x00', '\x00', '\x00', '\xfc', '\x01', '\x00', '\x00', '\xfc', '\x89', '\x38', '\x3e',
++   '\xfc', '\xdd', '\x7d', '\x3e', '\x1c', '\xf8', '\x7e', '\x3f', '\x1c', '\x70', '\x7e', '\x07',
++   '\x1c', '\x70', '\x7e', '\x07', '\xfc', '\xfb', '\x7e', '\x3f', '\xfc', '\xdf', '\x7d', '\x3e',
++   '\xfc', '\x8b', '\x78', '\x3c', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #define runWithHelp_width 32
+ #define runWithHelp_height 32
+ #define runWithHelp_x_hot 16
+ #define runWithHelp_y_hot 9
+ static char runWithHelp_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x3c, 0x00, 0x00, 0x00, 0x42,
+-   0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x40, 0x00, 0x00, 0x00, 0x60,
+-   0x00, 0x00, 0x00, 0x30, 0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x08,
+-   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00, 0x7e, 0x00, 0x00, 0x08,
+-   0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00,
+-   0x02, 0x00, 0x00, 0x00, 0x3e, 0x00, 0x00, 0x00, 0x02, 0x22, 0x0e, 0x07,
+-   0x02, 0x14, 0x91, 0x00, 0x02, 0x08, 0x9f, 0x00, 0x02, 0x08, 0x81, 0x00,
+-   0x02, 0x14, 0x81, 0x00, 0x7e, 0x22, 0x1e, 0x07, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x3c', '\x00', '\x00', '\x00', '\x42',
++   '\x00', '\x00', '\x00', '\x40', '\x00', '\x00', '\x00', '\x40', '\x00', '\x00', '\x00', '\x60',
++   '\x00', '\x00', '\x00', '\x30', '\x00', '\x00', '\x00', '\x08', '\x00', '\x00', '\x00', '\x08',
++   '\x00', '\x00', '\x00', '\x08', '\x00', '\x00', '\x00', '\x00', '\x7e', '\x00', '\x00', '\x08',
++   '\x02', '\x00', '\x00', '\x00', '\x02', '\x00', '\x00', '\x00', '\x02', '\x00', '\x00', '\x00',
++   '\x02', '\x00', '\x00', '\x00', '\x3e', '\x00', '\x00', '\x00', '\x02', '\x22', '\x0e', '\x07',
++   '\x02', '\x14', '\x91', '\x00', '\x02', '\x08', '\x9f', '\x00', '\x02', '\x08', '\x81', '\x00',
++   '\x02', '\x14', '\x81', '\x00', '\x7e', '\x22', '\x1e', '\x07', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char runWithHelp_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x7e, 0x00, 0x00, 0x00, 0xff, 0x00, 0x00, 0x00, 0xff,
+-   0x00, 0x00, 0x00, 0xe7, 0x00, 0x00, 0x00, 0xf0, 0x00, 0x00, 0x00, 0xf0,
+-   0x00, 0x00, 0x00, 0xfc, 0x00, 0x00, 0x00, 0x7c, 0x00, 0x00, 0x00, 0x1c,
+-   0x00, 0x00, 0x00, 0x1c, 0xff, 0x00, 0x00, 0x1c, 0xff, 0x00, 0x00, 0x1c,
+-   0xff, 0x00, 0x00, 0x1c, 0x07, 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00,
+-   0x7f, 0x00, 0x00, 0x00, 0x7f, 0x22, 0x8e, 0x0f, 0x7f, 0x77, 0x9f, 0x0f,
+-   0x07, 0xbe, 0xdf, 0x0f, 0x07, 0x9c, 0xdf, 0x01, 0x07, 0x9c, 0xdf, 0x01,
+-   0xff, 0xbe, 0xdf, 0x0f, 0xff, 0x77, 0x9f, 0x0f, 0xff, 0x22, 0x1e, 0x0f,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x7e', '\x00', '\x00', '\x00', '\xff', '\x00', '\x00', '\x00', '\xff',
++   '\x00', '\x00', '\x00', '\xe7', '\x00', '\x00', '\x00', '\xf0', '\x00', '\x00', '\x00', '\xf0',
++   '\x00', '\x00', '\x00', '\xfc', '\x00', '\x00', '\x00', '\x7c', '\x00', '\x00', '\x00', '\x1c',
++   '\x00', '\x00', '\x00', '\x1c', '\xff', '\x00', '\x00', '\x1c', '\xff', '\x00', '\x00', '\x1c',
++   '\xff', '\x00', '\x00', '\x1c', '\x07', '\x00', '\x00', '\x00', '\x07', '\x00', '\x00', '\x00',
++   '\x7f', '\x00', '\x00', '\x00', '\x7f', '\x22', '\x8e', '\x0f', '\x7f', '\x77', '\x9f', '\x0f',
++   '\x07', '\xbe', '\xdf', '\x0f', '\x07', '\x9c', '\xdf', '\x01', '\x07', '\x9c', '\xdf', '\x01',
++   '\xff', '\xbe', '\xdf', '\x0f', '\xff', '\x77', '\x9f', '\x0f', '\xff', '\x22', '\x1e', '\x0f',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #define upDown_width 16
+ #define upDown_height 16
+ #define upDown_x_hot 8
+ #define upDown_y_hot 1
+ static char upDown_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x20, 0x04, 0x30, 0x0c, 0x38, 0x1c,
+-   0x3c, 0x3c, 0x3e, 0x7c, 0x3c, 0x3c, 0x38, 0x1c, 0x30, 0x0c, 0x20, 0x04,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x20', '\x04', '\x30', '\x0c', '\x38', '\x1c',
++   '\x3c', '\x3c', '\x3e', '\x7c', '\x3c', '\x3c', '\x38', '\x1c', '\x30', '\x0c', '\x20', '\x04',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char upDown_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x60, 0x06, 0x70, 0x0e, 0x78, 0x1e, 0x7c, 0x3e,
+-   0x7e, 0x7e, 0x7f, 0xfe, 0x7e, 0x7e, 0x7c, 0x3e, 0x78, 0x1e, 0x70, 0x0e,
+-   0x60, 0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x60', '\x06', '\x70', '\x0e', '\x78', '\x1e', '\x7c', '\x3e',
++   '\x7e', '\x7e', '\x7f', '\xfe', '\x7e', '\x7e', '\x7c', '\x3e', '\x78', '\x1e', '\x70', '\x0e',
++   '\x60', '\x06', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #define no_width 64
+ #define no_height 64
+ #define no_x_hot 31
+ #define no_y_hot 31
+ static char no_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0,
+-   0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xff, 0xff, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0xf0, 0xff, 0xff, 0x07, 0x00, 0x00, 0x00, 0x00, 0xfc, 0xff,
+-   0xff, 0x1f, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x7f, 0x00, 0x00,
+-   0x00, 0xc0, 0xff, 0xff, 0xff, 0xff, 0x01, 0x00, 0x00, 0xe0, 0xff, 0xff,
+-   0xff, 0xff, 0x03, 0x00, 0x00, 0xf0, 0xff, 0xff, 0xff, 0xff, 0x07, 0x00,
+-   0x00, 0xf8, 0xff, 0xff, 0xff, 0xff, 0x0f, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x1f, 0x00, 0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfe, 0x3f, 0x00,
+-   0x00, 0xff, 0x0f, 0x00, 0x00, 0xf8, 0x7f, 0x00, 0x80, 0xff, 0x07, 0x00,
+-   0x00, 0xf0, 0xff, 0x00, 0xc0, 0xff, 0x07, 0x00, 0x00, 0xc0, 0xff, 0x01,
+-   0xc0, 0xff, 0x0f, 0x00, 0x00, 0x80, 0xff, 0x01, 0xe0, 0xff, 0x1f, 0x00,
+-   0x00, 0x00, 0xff, 0x03, 0xe0, 0xff, 0x3f, 0x00, 0x00, 0x00, 0xfe, 0x03,
+-   0xf0, 0xff, 0x7f, 0x00, 0x00, 0x00, 0xfe, 0x07, 0xf0, 0xdf, 0xff, 0x00,
+-   0x00, 0x00, 0xfc, 0x07, 0xf8, 0x8f, 0xff, 0x01, 0x00, 0x00, 0xf8, 0x0f,
+-   0xf8, 0x0f, 0xff, 0x03, 0x00, 0x00, 0xf8, 0x0f, 0xf8, 0x07, 0xfe, 0x07,
+-   0x00, 0x00, 0xf0, 0x0f, 0xfc, 0x07, 0xfc, 0x0f, 0x00, 0x00, 0xf0, 0x1f,
+-   0xfc, 0x07, 0xf8, 0x1f, 0x00, 0x00, 0xf0, 0x1f, 0xfc, 0x03, 0xf0, 0x3f,
+-   0x00, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0xe0, 0x7f, 0x00, 0x00, 0xe0, 0x1f,
+-   0xfc, 0x03, 0xc0, 0xff, 0x00, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0x80, 0xff,
+-   0x01, 0x00, 0xe0, 0x1f, 0xfe, 0x03, 0x00, 0xff, 0x03, 0x00, 0xe0, 0x3f,
+-   0xfe, 0x03, 0x00, 0xfe, 0x07, 0x00, 0xe0, 0x3f, 0xfe, 0x03, 0x00, 0xfc,
+-   0x0f, 0x00, 0xe0, 0x3f, 0xfe, 0x03, 0x00, 0xf8, 0x1f, 0x00, 0xe0, 0x3f,
+-   0xfe, 0x03, 0x00, 0xf0, 0x3f, 0x00, 0xe0, 0x3f, 0xfc, 0x03, 0x00, 0xe0,
+-   0x7f, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0x00, 0xc0, 0xff, 0x00, 0xe0, 0x1f,
+-   0xfc, 0x03, 0x00, 0x80, 0xff, 0x01, 0xe0, 0x1f, 0xfc, 0x03, 0x00, 0x00,
+-   0xff, 0x03, 0xe0, 0x1f, 0xfc, 0x07, 0x00, 0x00, 0xfe, 0x07, 0xf0, 0x1f,
+-   0xfc, 0x07, 0x00, 0x00, 0xfc, 0x0f, 0xf0, 0x1f, 0xf8, 0x07, 0x00, 0x00,
+-   0xf8, 0x1f, 0xf0, 0x0f, 0xf8, 0x0f, 0x00, 0x00, 0xf0, 0x3f, 0xf8, 0x0f,
+-   0xf8, 0x0f, 0x00, 0x00, 0xe0, 0x7f, 0xf8, 0x0f, 0xf0, 0x1f, 0x00, 0x00,
+-   0xc0, 0xff, 0xfc, 0x07, 0xf0, 0x3f, 0x00, 0x00, 0x80, 0xff, 0xff, 0x07,
+-   0xe0, 0x3f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x03, 0xe0, 0x7f, 0x00, 0x00,
+-   0x00, 0xfe, 0xff, 0x03, 0xc0, 0xff, 0x00, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x01, 0x00, 0x00, 0xf8, 0xff, 0x01, 0x80, 0xff, 0x07, 0x00,
+-   0x00, 0xf0, 0xff, 0x00, 0x00, 0xff, 0x0f, 0x00, 0x00, 0xf8, 0x7f, 0x00,
+-   0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x1f, 0x00, 0x00, 0xf8, 0xff, 0xff, 0xff, 0xff, 0x0f, 0x00,
+-   0x00, 0xf0, 0xff, 0xff, 0xff, 0xff, 0x07, 0x00, 0x00, 0xe0, 0xff, 0xff,
+-   0xff, 0xff, 0x03, 0x00, 0x00, 0xc0, 0xff, 0xff, 0xff, 0xff, 0x01, 0x00,
+-   0x00, 0x00, 0xff, 0xff, 0xff, 0x7f, 0x00, 0x00, 0x00, 0x00, 0xfc, 0xff,
+-   0xff, 0x1f, 0x00, 0x00, 0x00, 0x00, 0xf0, 0xff, 0xff, 0x07, 0x00, 0x00,
+-   0x00, 0x00, 0x80, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0,
+-   0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0',
++   '\x03', '\x00', '\x00', '\x00', '\x00', '\x00', '\x80', '\xff', '\xff', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\xf0', '\xff', '\xff', '\x07', '\x00', '\x00', '\x00', '\x00', '\xfc', '\xff',
++   '\xff', '\x1f', '\x00', '\x00', '\x00', '\x00', '\xff', '\xff', '\xff', '\x7f', '\x00', '\x00',
++   '\x00', '\xc0', '\xff', '\xff', '\xff', '\xff', '\x01', '\x00', '\x00', '\xe0', '\xff', '\xff',
++   '\xff', '\xff', '\x03', '\x00', '\x00', '\xf0', '\xff', '\xff', '\xff', '\xff', '\x07', '\x00',
++   '\x00', '\xf8', '\xff', '\xff', '\xff', '\xff', '\x0f', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x1f', '\x00', '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfe', '\x3f', '\x00',
++   '\x00', '\xff', '\x0f', '\x00', '\x00', '\xf8', '\x7f', '\x00', '\x80', '\xff', '\x07', '\x00',
++   '\x00', '\xf0', '\xff', '\x00', '\xc0', '\xff', '\x07', '\x00', '\x00', '\xc0', '\xff', '\x01',
++   '\xc0', '\xff', '\x0f', '\x00', '\x00', '\x80', '\xff', '\x01', '\xe0', '\xff', '\x1f', '\x00',
++   '\x00', '\x00', '\xff', '\x03', '\xe0', '\xff', '\x3f', '\x00', '\x00', '\x00', '\xfe', '\x03',
++   '\xf0', '\xff', '\x7f', '\x00', '\x00', '\x00', '\xfe', '\x07', '\xf0', '\xdf', '\xff', '\x00',
++   '\x00', '\x00', '\xfc', '\x07', '\xf8', '\x8f', '\xff', '\x01', '\x00', '\x00', '\xf8', '\x0f',
++   '\xf8', '\x0f', '\xff', '\x03', '\x00', '\x00', '\xf8', '\x0f', '\xf8', '\x07', '\xfe', '\x07',
++   '\x00', '\x00', '\xf0', '\x0f', '\xfc', '\x07', '\xfc', '\x0f', '\x00', '\x00', '\xf0', '\x1f',
++   '\xfc', '\x07', '\xf8', '\x1f', '\x00', '\x00', '\xf0', '\x1f', '\xfc', '\x03', '\xf0', '\x3f',
++   '\x00', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\xe0', '\x7f', '\x00', '\x00', '\xe0', '\x1f',
++   '\xfc', '\x03', '\xc0', '\xff', '\x00', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\x80', '\xff',
++   '\x01', '\x00', '\xe0', '\x1f', '\xfe', '\x03', '\x00', '\xff', '\x03', '\x00', '\xe0', '\x3f',
++   '\xfe', '\x03', '\x00', '\xfe', '\x07', '\x00', '\xe0', '\x3f', '\xfe', '\x03', '\x00', '\xfc',
++   '\x0f', '\x00', '\xe0', '\x3f', '\xfe', '\x03', '\x00', '\xf8', '\x1f', '\x00', '\xe0', '\x3f',
++   '\xfe', '\x03', '\x00', '\xf0', '\x3f', '\x00', '\xe0', '\x3f', '\xfc', '\x03', '\x00', '\xe0',
++   '\x7f', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\x00', '\xc0', '\xff', '\x00', '\xe0', '\x1f',
++   '\xfc', '\x03', '\x00', '\x80', '\xff', '\x01', '\xe0', '\x1f', '\xfc', '\x03', '\x00', '\x00',
++   '\xff', '\x03', '\xe0', '\x1f', '\xfc', '\x07', '\x00', '\x00', '\xfe', '\x07', '\xf0', '\x1f',
++   '\xfc', '\x07', '\x00', '\x00', '\xfc', '\x0f', '\xf0', '\x1f', '\xf8', '\x07', '\x00', '\x00',
++   '\xf8', '\x1f', '\xf0', '\x0f', '\xf8', '\x0f', '\x00', '\x00', '\xf0', '\x3f', '\xf8', '\x0f',
++   '\xf8', '\x0f', '\x00', '\x00', '\xe0', '\x7f', '\xf8', '\x0f', '\xf0', '\x1f', '\x00', '\x00',
++   '\xc0', '\xff', '\xfc', '\x07', '\xf0', '\x3f', '\x00', '\x00', '\x80', '\xff', '\xff', '\x07',
++   '\xe0', '\x3f', '\x00', '\x00', '\x00', '\xff', '\xff', '\x03', '\xe0', '\x7f', '\x00', '\x00',
++   '\x00', '\xfe', '\xff', '\x03', '\xc0', '\xff', '\x00', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x01', '\x00', '\x00', '\xf8', '\xff', '\x01', '\x80', '\xff', '\x07', '\x00',
++   '\x00', '\xf0', '\xff', '\x00', '\x00', '\xff', '\x0f', '\x00', '\x00', '\xf8', '\x7f', '\x00',
++   '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x1f', '\x00', '\x00', '\xf8', '\xff', '\xff', '\xff', '\xff', '\x0f', '\x00',
++   '\x00', '\xf0', '\xff', '\xff', '\xff', '\xff', '\x07', '\x00', '\x00', '\xe0', '\xff', '\xff',
++   '\xff', '\xff', '\x03', '\x00', '\x00', '\xc0', '\xff', '\xff', '\xff', '\xff', '\x01', '\x00',
++   '\x00', '\x00', '\xff', '\xff', '\xff', '\x7f', '\x00', '\x00', '\x00', '\x00', '\xfc', '\xff',
++   '\xff', '\x1f', '\x00', '\x00', '\x00', '\x00', '\xf0', '\xff', '\xff', '\x07', '\x00', '\x00',
++   '\x00', '\x00', '\x80', '\xff', '\xff', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0',
++   '\x03', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char no_mask_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0,
+-   0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0xff, 0xff, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0xf0, 0xff, 0xff, 0x07, 0x00, 0x00, 0x00, 0x00, 0xfc, 0xff,
+-   0xff, 0x1f, 0x00, 0x00, 0x00, 0x00, 0xff, 0xff, 0xff, 0x7f, 0x00, 0x00,
+-   0x00, 0xc0, 0xff, 0xff, 0xff, 0xff, 0x01, 0x00, 0x00, 0xe0, 0xff, 0xff,
+-   0xff, 0xff, 0x03, 0x00, 0x00, 0xf0, 0xff, 0xff, 0xff, 0xff, 0x07, 0x00,
+-   0x00, 0xf8, 0xff, 0xff, 0xff, 0xff, 0x0f, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x1f, 0x00, 0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfe, 0x3f, 0x00,
+-   0x00, 0xff, 0x0f, 0x00, 0x00, 0xf8, 0x7f, 0x00, 0x80, 0xff, 0x07, 0x00,
+-   0x00, 0xf0, 0xff, 0x00, 0xc0, 0xff, 0x07, 0x00, 0x00, 0xc0, 0xff, 0x01,
+-   0xc0, 0xff, 0x0f, 0x00, 0x00, 0x80, 0xff, 0x01, 0xe0, 0xff, 0x1f, 0x00,
+-   0x00, 0x00, 0xff, 0x03, 0xe0, 0xff, 0x3f, 0x00, 0x00, 0x00, 0xfe, 0x03,
+-   0xf0, 0xff, 0x7f, 0x00, 0x00, 0x00, 0xfe, 0x07, 0xf0, 0xdf, 0xff, 0x00,
+-   0x00, 0x00, 0xfc, 0x07, 0xf8, 0x8f, 0xff, 0x01, 0x00, 0x00, 0xf8, 0x0f,
+-   0xf8, 0x0f, 0xff, 0x03, 0x00, 0x00, 0xf8, 0x0f, 0xf8, 0x07, 0xfe, 0x07,
+-   0x00, 0x00, 0xf0, 0x0f, 0xfc, 0x07, 0xfc, 0x0f, 0x00, 0x00, 0xf0, 0x1f,
+-   0xfc, 0x07, 0xf8, 0x1f, 0x00, 0x00, 0xf0, 0x1f, 0xfc, 0x03, 0xf0, 0x3f,
+-   0x00, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0xe0, 0x7f, 0x00, 0x00, 0xe0, 0x1f,
+-   0xfc, 0x03, 0xc0, 0xff, 0x00, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0x80, 0xff,
+-   0x01, 0x00, 0xe0, 0x1f, 0xfe, 0x03, 0x00, 0xff, 0x03, 0x00, 0xe0, 0x3f,
+-   0xfe, 0x03, 0x00, 0xfe, 0x07, 0x00, 0xe0, 0x3f, 0xfe, 0x03, 0x00, 0xfc,
+-   0x0f, 0x00, 0xe0, 0x3f, 0xfe, 0x03, 0x00, 0xf8, 0x1f, 0x00, 0xe0, 0x3f,
+-   0xfe, 0x03, 0x00, 0xf0, 0x3f, 0x00, 0xe0, 0x3f, 0xfc, 0x03, 0x00, 0xe0,
+-   0x7f, 0x00, 0xe0, 0x1f, 0xfc, 0x03, 0x00, 0xc0, 0xff, 0x00, 0xe0, 0x1f,
+-   0xfc, 0x03, 0x00, 0x80, 0xff, 0x01, 0xe0, 0x1f, 0xfc, 0x03, 0x00, 0x00,
+-   0xff, 0x03, 0xe0, 0x1f, 0xfc, 0x07, 0x00, 0x00, 0xfe, 0x07, 0xf0, 0x1f,
+-   0xfc, 0x07, 0x00, 0x00, 0xfc, 0x0f, 0xf0, 0x1f, 0xf8, 0x07, 0x00, 0x00,
+-   0xf8, 0x1f, 0xf0, 0x0f, 0xf8, 0x0f, 0x00, 0x00, 0xf0, 0x3f, 0xf8, 0x0f,
+-   0xf8, 0x0f, 0x00, 0x00, 0xe0, 0x7f, 0xf8, 0x0f, 0xf0, 0x1f, 0x00, 0x00,
+-   0xc0, 0xff, 0xfc, 0x07, 0xf0, 0x3f, 0x00, 0x00, 0x80, 0xff, 0xff, 0x07,
+-   0xe0, 0x3f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x03, 0xe0, 0x7f, 0x00, 0x00,
+-   0x00, 0xfe, 0xff, 0x03, 0xc0, 0xff, 0x00, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x01, 0x00, 0x00, 0xf8, 0xff, 0x01, 0x80, 0xff, 0x07, 0x00,
+-   0x00, 0xf0, 0xff, 0x00, 0x00, 0xff, 0x0f, 0x00, 0x00, 0xf8, 0x7f, 0x00,
+-   0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfe, 0x3f, 0x00, 0x00, 0xfc, 0xff, 0x01,
+-   0xc0, 0xff, 0x1f, 0x00, 0x00, 0xf8, 0xff, 0xff, 0xff, 0xff, 0x0f, 0x00,
+-   0x00, 0xf0, 0xff, 0xff, 0xff, 0xff, 0x07, 0x00, 0x00, 0xe0, 0xff, 0xff,
+-   0xff, 0xff, 0x03, 0x00, 0x00, 0xc0, 0xff, 0xff, 0xff, 0xff, 0x01, 0x00,
+-   0x00, 0x00, 0xff, 0xff, 0xff, 0x7f, 0x00, 0x00, 0x00, 0x00, 0xfc, 0xff,
+-   0xff, 0x1f, 0x00, 0x00, 0x00, 0x00, 0xf0, 0xff, 0xff, 0x07, 0x00, 0x00,
+-   0x00, 0x00, 0x80, 0xff, 0xff, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xe0,
+-   0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0',
++   '\x03', '\x00', '\x00', '\x00', '\x00', '\x00', '\x80', '\xff', '\xff', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\xf0', '\xff', '\xff', '\x07', '\x00', '\x00', '\x00', '\x00', '\xfc', '\xff',
++   '\xff', '\x1f', '\x00', '\x00', '\x00', '\x00', '\xff', '\xff', '\xff', '\x7f', '\x00', '\x00',
++   '\x00', '\xc0', '\xff', '\xff', '\xff', '\xff', '\x01', '\x00', '\x00', '\xe0', '\xff', '\xff',
++   '\xff', '\xff', '\x03', '\x00', '\x00', '\xf0', '\xff', '\xff', '\xff', '\xff', '\x07', '\x00',
++   '\x00', '\xf8', '\xff', '\xff', '\xff', '\xff', '\x0f', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x1f', '\x00', '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfe', '\x3f', '\x00',
++   '\x00', '\xff', '\x0f', '\x00', '\x00', '\xf8', '\x7f', '\x00', '\x80', '\xff', '\x07', '\x00',
++   '\x00', '\xf0', '\xff', '\x00', '\xc0', '\xff', '\x07', '\x00', '\x00', '\xc0', '\xff', '\x01',
++   '\xc0', '\xff', '\x0f', '\x00', '\x00', '\x80', '\xff', '\x01', '\xe0', '\xff', '\x1f', '\x00',
++   '\x00', '\x00', '\xff', '\x03', '\xe0', '\xff', '\x3f', '\x00', '\x00', '\x00', '\xfe', '\x03',
++   '\xf0', '\xff', '\x7f', '\x00', '\x00', '\x00', '\xfe', '\x07', '\xf0', '\xdf', '\xff', '\x00',
++   '\x00', '\x00', '\xfc', '\x07', '\xf8', '\x8f', '\xff', '\x01', '\x00', '\x00', '\xf8', '\x0f',
++   '\xf8', '\x0f', '\xff', '\x03', '\x00', '\x00', '\xf8', '\x0f', '\xf8', '\x07', '\xfe', '\x07',
++   '\x00', '\x00', '\xf0', '\x0f', '\xfc', '\x07', '\xfc', '\x0f', '\x00', '\x00', '\xf0', '\x1f',
++   '\xfc', '\x07', '\xf8', '\x1f', '\x00', '\x00', '\xf0', '\x1f', '\xfc', '\x03', '\xf0', '\x3f',
++   '\x00', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\xe0', '\x7f', '\x00', '\x00', '\xe0', '\x1f',
++   '\xfc', '\x03', '\xc0', '\xff', '\x00', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\x80', '\xff',
++   '\x01', '\x00', '\xe0', '\x1f', '\xfe', '\x03', '\x00', '\xff', '\x03', '\x00', '\xe0', '\x3f',
++   '\xfe', '\x03', '\x00', '\xfe', '\x07', '\x00', '\xe0', '\x3f', '\xfe', '\x03', '\x00', '\xfc',
++   '\x0f', '\x00', '\xe0', '\x3f', '\xfe', '\x03', '\x00', '\xf8', '\x1f', '\x00', '\xe0', '\x3f',
++   '\xfe', '\x03', '\x00', '\xf0', '\x3f', '\x00', '\xe0', '\x3f', '\xfc', '\x03', '\x00', '\xe0',
++   '\x7f', '\x00', '\xe0', '\x1f', '\xfc', '\x03', '\x00', '\xc0', '\xff', '\x00', '\xe0', '\x1f',
++   '\xfc', '\x03', '\x00', '\x80', '\xff', '\x01', '\xe0', '\x1f', '\xfc', '\x03', '\x00', '\x00',
++   '\xff', '\x03', '\xe0', '\x1f', '\xfc', '\x07', '\x00', '\x00', '\xfe', '\x07', '\xf0', '\x1f',
++   '\xfc', '\x07', '\x00', '\x00', '\xfc', '\x0f', '\xf0', '\x1f', '\xf8', '\x07', '\x00', '\x00',
++   '\xf8', '\x1f', '\xf0', '\x0f', '\xf8', '\x0f', '\x00', '\x00', '\xf0', '\x3f', '\xf8', '\x0f',
++   '\xf8', '\x0f', '\x00', '\x00', '\xe0', '\x7f', '\xf8', '\x0f', '\xf0', '\x1f', '\x00', '\x00',
++   '\xc0', '\xff', '\xfc', '\x07', '\xf0', '\x3f', '\x00', '\x00', '\x80', '\xff', '\xff', '\x07',
++   '\xe0', '\x3f', '\x00', '\x00', '\x00', '\xff', '\xff', '\x03', '\xe0', '\x7f', '\x00', '\x00',
++   '\x00', '\xfe', '\xff', '\x03', '\xc0', '\xff', '\x00', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x01', '\x00', '\x00', '\xf8', '\xff', '\x01', '\x80', '\xff', '\x07', '\x00',
++   '\x00', '\xf0', '\xff', '\x00', '\x00', '\xff', '\x0f', '\x00', '\x00', '\xf8', '\x7f', '\x00',
++   '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfe', '\x3f', '\x00', '\x00', '\xfc', '\xff', '\x01',
++   '\xc0', '\xff', '\x1f', '\x00', '\x00', '\xf8', '\xff', '\xff', '\xff', '\xff', '\x0f', '\x00',
++   '\x00', '\xf0', '\xff', '\xff', '\xff', '\xff', '\x07', '\x00', '\x00', '\xe0', '\xff', '\xff',
++   '\xff', '\xff', '\x03', '\x00', '\x00', '\xc0', '\xff', '\xff', '\xff', '\xff', '\x01', '\x00',
++   '\x00', '\x00', '\xff', '\xff', '\xff', '\x7f', '\x00', '\x00', '\x00', '\x00', '\xfc', '\xff',
++   '\xff', '\x1f', '\x00', '\x00', '\x00', '\x00', '\xf0', '\xff', '\xff', '\x07', '\x00', '\x00',
++   '\x00', '\x00', '\x80', '\xff', '\xff', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0',
++   '\x03', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ #if 0
+ #define no_width 32
+@@ -379,30 +379,30 @@ static char no_mask_bits[] = {
+ #define no_x_hot 15
+ #define no_y_hot 15
+ static char no_bits[] = {
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0xe0, 0x03, 0x00, 0x00, 0xfc, 0x1f, 0x00,
+-   0x00, 0x0f, 0x78, 0x00, 0x80, 0x01, 0xc0, 0x00, 0xe0, 0x00, 0x80, 0x03,
+-   0x20, 0x00, 0x00, 0x03, 0x30, 0x00, 0x80, 0x07, 0x18, 0x00, 0xc0, 0x0c,
+-   0x08, 0x00, 0x60, 0x08, 0x0c, 0x00, 0x30, 0x18, 0x0c, 0x00, 0x18, 0x18,
+-   0x04, 0x00, 0x0c, 0x10, 0x06, 0x00, 0x06, 0x30, 0x06, 0x00, 0x03, 0x30,
+-   0x06, 0x80, 0x01, 0x30, 0x06, 0xc0, 0x00, 0x30, 0x06, 0x60, 0x00, 0x30,
+-   0x04, 0x30, 0x00, 0x10, 0x0c, 0x18, 0x00, 0x18, 0x0c, 0x0c, 0x00, 0x18,
+-   0x08, 0x06, 0x00, 0x08, 0x18, 0x03, 0x00, 0x0c, 0xb0, 0x01, 0x00, 0x06,
+-   0xe0, 0x00, 0x00, 0x02, 0xe0, 0x00, 0x80, 0x03, 0x80, 0x01, 0xc0, 0x00,
+-   0x00, 0x0f, 0x78, 0x00, 0x00, 0xfc, 0x1f, 0x00, 0x00, 0xe0, 0x03, 0x00,
+-   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\xe0', '\x03', '\x00', '\x00', '\xfc', '\x1f', '\x00',
++   '\x00', '\x0f', '\x78', '\x00', '\x80', '\x01', '\xc0', '\x00', '\xe0', '\x00', '\x80', '\x03',
++   '\x20', '\x00', '\x00', '\x03', '\x30', '\x00', '\x80', '\x07', '\x18', '\x00', '\xc0', '\x0c',
++   '\x08', '\x00', '\x60', '\x08', '\x0c', '\x00', '\x30', '\x18', '\x0c', '\x00', '\x18', '\x18',
++   '\x04', '\x00', '\x0c', '\x10', '\x06', '\x00', '\x06', '\x30', '\x06', '\x00', '\x03', '\x30',
++   '\x06', '\x80', '\x01', '\x30', '\x06', '\xc0', '\x00', '\x30', '\x06', '\x60', '\x00', '\x30',
++   '\x04', '\x30', '\x00', '\x10', '\x0c', '\x18', '\x00', '\x18', '\x0c', '\x0c', '\x00', '\x18',
++   '\x08', '\x06', '\x00', '\x08', '\x18', '\x03', '\x00', '\x0c', '\xb0', '\x01', '\x00', '\x06',
++   '\xe0', '\x00', '\x00', '\x02', '\xe0', '\x00', '\x80', '\x03', '\x80', '\x01', '\xc0', '\x00',
++   '\x00', '\x0f', '\x78', '\x00', '\x00', '\xfc', '\x1f', '\x00', '\x00', '\xe0', '\x03', '\x00',
++   '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ 
+ static char no_mask_bits[] = {
+-   0x00, 0xe0, 0x03, 0x00, 0x00, 0xfc, 0x1f, 0x00, 0x00, 0xff, 0x7f, 0x00,
+-   0x80, 0xff, 0xff, 0x00, 0xe0, 0x0f, 0xf8, 0x03, 0xf0, 0x01, 0xc0, 0x07,
+-   0xf0, 0x00, 0x80, 0x07, 0x78, 0x00, 0xc0, 0x0f, 0x3c, 0x00, 0xe0, 0x1f,
+-   0x1c, 0x00, 0xf0, 0x1c, 0x1e, 0x00, 0x78, 0x3c, 0x1e, 0x00, 0x3c, 0x3c,
+-   0x0e, 0x00, 0x1e, 0x38, 0x0f, 0x00, 0x0f, 0x78, 0x0f, 0x80, 0x07, 0x78,
+-   0x0f, 0xc0, 0x03, 0x78, 0x0f, 0xe0, 0x01, 0x78, 0x0f, 0xf0, 0x00, 0x78,
+-   0x0e, 0x78, 0x00, 0x38, 0x1e, 0x3c, 0x00, 0x3c, 0x1e, 0x1e, 0x00, 0x3c,
+-   0x1c, 0x0f, 0x00, 0x1c, 0xbc, 0x07, 0x00, 0x1e, 0xf8, 0x03, 0x00, 0x0f,
+-   0xf0, 0x01, 0x80, 0x07, 0xf0, 0x01, 0xc0, 0x07, 0xe0, 0x0f, 0xf8, 0x03,
+-   0x80, 0xff, 0xff, 0x00, 0x00, 0xff, 0x7f, 0x00, 0x00, 0xfc, 0x1f, 0x00,
+-   0x00, 0xe0, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00};
++   '\x00', '\xe0', '\x03', '\x00', '\x00', '\xfc', '\x1f', '\x00', '\x00', '\xff', '\x7f', '\x00',
++   '\x80', '\xff', '\xff', '\x00', '\xe0', '\x0f', '\xf8', '\x03', '\xf0', '\x01', '\xc0', '\x07',
++   '\xf0', '\x00', '\x80', '\x07', '\x78', '\x00', '\xc0', '\x0f', '\x3c', '\x00', '\xe0', '\x1f',
++   '\x1c', '\x00', '\xf0', '\x1c', '\x1e', '\x00', '\x78', '\x3c', '\x1e', '\x00', '\x3c', '\x3c',
++   '\x0e', '\x00', '\x1e', '\x38', '\x0f', '\x00', '\x0f', '\x78', '\x0f', '\x80', '\x07', '\x78',
++   '\x0f', '\xc0', '\x03', '\x78', '\x0f', '\xe0', '\x01', '\x78', '\x0f', '\xf0', '\x00', '\x78',
++   '\x0e', '\x78', '\x00', '\x38', '\x1e', '\x3c', '\x00', '\x3c', '\x1e', '\x1e', '\x00', '\x3c',
++   '\x1c', '\x0f', '\x00', '\x1c', '\xbc', '\x07', '\x00', '\x1e', '\xf8', '\x03', '\x00', '\x0f',
++   '\xf0', '\x01', '\x80', '\x07', '\xf0', '\x01', '\xc0', '\x07', '\xe0', '\x0f', '\xf8', '\x03',
++   '\x80', '\xff', '\xff', '\x00', '\x00', '\xff', '\x7f', '\x00', '\x00', '\xfc', '\x1f', '\x00',
++   '\x00', '\xe0', '\x03', '\x00', '\x00', '\x00', '\x00', '\x00'};
+ #endif
+ 
+   display = dsp;
+diff --git a/src/edm/lib/hashtable.h b/src/edm/lib/hashtable.h
+index d81979f..6669990 100644
+--- a/src/edm/lib/hashtable.h
++++ b/src/edm/lib/hashtable.h
+@@ -19,30 +19,6 @@
+ //#include <iostream.h>
+ #include <iostream>
+ 
+-// the following was introduced to get edm
+-// to compile under gcc 3.4.1
+-#if (__GNUC__==3)&&(__GNUC_MINOR__==4)
+-using namespace std;
+-#endif
+-
+-// the following was introduced to get edm
+-// to compile under gcc 4.0.X and higher
+-#if (__GNUC__>=4)
+-using namespace std;
+-#endif
+-
+-// the following was introduced to get edm
+-// to compile under gcc 4.1.X and higher
+-#if (__GNUC__==4)&&(__GNUC_MINOR__==1)
+-using namespace std;
+-#endif
+-
+-// the following was introduced to get edm
+-// to compile under aCC on HP_UX
+-#ifdef HP_UX
+-using namespace std;
+-#endif
+-
+ template <class T, size_t o, size_t N=5>
+ class Hashtable
+ {
+@@ -174,10 +150,10 @@ inline void Hashtable<T,o,N>::erase(typename Hashtable<T,o,N>::iterator& it)
+ template <class T, size_t o, size_t N>
+ inline void Hashtable<T,o,N>::info()
+ {
+-    cout << "Hashtable info: " << N << " buckets\n";
++    std::cout << "Hashtable info: " << N << " buckets\n";
+     for (size_t n=0; n<N; ++n)
+     {
+-        cout << n << ":  "
++        std::cout << n << ":  "
+                   << bucket[n].size() << " elements\n";
+     }
+ }
+diff --git a/src/edm/lib/utility.cc b/src/edm/lib/utility.cc
+index f208dd6..72b49cb 100644
+--- a/src/edm/lib/utility.cc
++++ b/src/edm/lib/utility.cc
+@@ -647,11 +647,11 @@ mode_t curMode;
+     curMode = umask( 0 );
+     fd = open( g_diagFileName, O_CREAT|O_WRONLY, 0777 );
+     umask( curMode );
+-    fprintf( stderr, time_string );
++    fprintf( stderr, "%s", time_string );
+     fprintf( stderr, "host %s, pid %-d - ", hostName, procPid );
+     fprintf( stderr, "first diagnostic message\n" );
+-    fprintf( stderr, time_string );
+-    fprintf( stderr, text );
++    fprintf( stderr, "%s", time_string );
++    fprintf( stderr, "%s", text );
+ 
+     envPtr = getenv( environment_str8 );
+     if ( envPtr ) {
+@@ -674,11 +674,11 @@ mode_t curMode;
+ 
+     if ( diagFile ) {
+ 
+-      fprintf( diagFile, time_string );
++      fprintf( diagFile, "%s", time_string );
+       fprintf( diagFile, "host %s, pid %-d - ", hostName, procPid );
+       fprintf( diagFile, "first diagnostic message\n" );
+-      fprintf( diagFile, time_string );
+-      fprintf( diagFile, text );
++      fprintf( diagFile, "%s", time_string );
++      fprintf( diagFile, "%s", text );
+ 
+     }
+     else {
+@@ -699,8 +699,8 @@ mode_t curMode;
+       sys_get_datetime_string( 31, time_string );
+       time_string[31] = 0;
+       Strncat( time_string, " : ", 34 );
+-      fprintf( diagFile, time_string );
+-      fprintf( diagFile, text );
++      fprintf( diagFile, "%s", time_string );
++      fprintf( diagFile, "%s", text );
+ 
+     }
+     else {
+diff --git a/src/edm/locPv/Makefile b/src/edm/locPv/Makefile
+index bc00436..5598120 100644
+--- a/src/edm/locPv/Makefile
++++ b/src/edm/locPv/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/locPvOld/Makefile b/src/edm/locPvOld/Makefile
+index fd11710..d983cf1 100644
+--- a/src/edm/locPvOld/Makefile
++++ b/src/edm/locPvOld/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/logPv/Makefile b/src/edm/logPv/Makefile
+index 195d06f..b7fd814 100644
+--- a/src/edm/logPv/Makefile
++++ b/src/edm/logPv/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/multiSegRampButton/Makefile b/src/edm/multiSegRampButton/Makefile
+index c9ffa0d..2713e03 100644
+--- a/src/edm/multiSegRampButton/Makefile
++++ b/src/edm/multiSegRampButton/Makefile
+@@ -8,8 +8,7 @@ ifdef EPICS_HOST_ARCH
+    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+ 
+    USR_CXXFLAGS_Linux += -DSINGLE_THREADED=1 -D__epics__=1
+-   USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-   USR_SYS_LIBS_Linux += pthread dl
++   USR_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+    
+    USR_CXXFLAGS_Darwin += -DSINGLE_THREADED=1 -D__epics__=1 -Wno-long-long
+    USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+diff --git a/src/edm/pnglib/Makefile b/src/edm/pnglib/Makefile
+index b386b0a..72d66b6 100644
+--- a/src/edm/pnglib/Makefile
++++ b/src/edm/pnglib/Makefile
+@@ -21,8 +21,7 @@ PNG_INC=/usr/include
+    USR_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+    USR_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+ 
+-   USR_LIBS_Linux += Xm Xt Xp Xtst X11
+-   USR_SYS_LIBS_Linux += pthread dl png z
++   USR_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl png z
+ 
+    USR_LIBS_Darwin += Xm Xt Xp Xtst X11
+    USR_SYS_LIBS_Darwin += pthread dl png z
+diff --git a/src/edm/slaclib/Makefile b/src/edm/slaclib/Makefile
+index 03f99a0..3cc803c 100644
+--- a/src/edm/slaclib/Makefile
++++ b/src/edm/slaclib/Makefile
+@@ -13,8 +13,7 @@ ifdef EPICS_HOST_ARCH
+    EdmSlac_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+    EdmSlac_LIBS += Com
+ 
+-   EdmSlac_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmSlac_SYS_LIBS_Linux += pthread dl
++   EdmSlac_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmSlac_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmSlac_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/userLib/Makefile b/src/edm/userLib/Makefile
+index 9f50db3..42f6c43 100644
+--- a/src/edm/userLib/Makefile
++++ b/src/edm/userLib/Makefile
+@@ -12,8 +12,7 @@ ifdef EPICS_HOST_ARCH
+ 
+    USR_CXXFLAGS_hpux11_11_mt += +W652 -DHP_UX=1111 -DSINGLE_THREADED=1 -D__epics__=1
+ 
+-   EdmBase_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmBase_SYS_LIBS_Linux += pthread dl
++   EdmBase_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+ 
+    EdmBase_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmBase_SYS_LIBS_Darwin += pthread dl
+diff --git a/src/edm/widgets/triumflib/Makefile b/src/edm/widgets/triumflib/Makefile
+index 88541c5..0f5fedb 100644
+--- a/src/edm/widgets/triumflib/Makefile
++++ b/src/edm/widgets/triumflib/Makefile
+@@ -13,8 +13,7 @@ ifdef EPICS_HOST_ARCH
+    EdmTriumf_LIBS += EdmBase cfcaa62e-8199-11d3-a77f-00104b8742df
+    EdmTriumf_LIBS += 114135a4-6f6c-11d3-95bc-00104b8742df
+ 
+-   EdmTriumf_LIBS_Linux += Xm Xt Xp Xtst X11
+-   EdmTriumf_SYS_LIBS_Linux += pthread dl
++   EdmTriumf_SYS_LIBS_Linux += Xm Xt Xp Xtst X11 pthread dl
+    
+    EdmTriumf_LIBS_Darwin += Xm Xt Xp Xtst X11
+    EdmTriumf_SYS_LIBS_Darwin += pthread dl

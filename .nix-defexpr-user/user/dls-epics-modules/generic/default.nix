@@ -33,6 +33,9 @@ let newargs =
       mkdir -p $out/bin
       substituteAll $findSrc $out/bin/find-$name
       chmod +x $out/bin/find-$name
+      if [ -d etc ]; then
+        cp -rf etc $out
+      fi
       runHook postInstall
     '';
 

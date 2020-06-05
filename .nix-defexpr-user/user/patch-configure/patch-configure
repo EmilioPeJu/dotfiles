@@ -40,7 +40,7 @@ def get_epics_deps(use_build_inputs):
     result = {}
     for i in output.split():
         if is_epics_related(i):
-            result[extract_epics_module_name(i)] = i
+            result[extract_epics_module_name(i)] = i.strip()
     return result
 
 
@@ -62,7 +62,7 @@ def main():
                             find_cmd = f"find-{PREFIX}-base"
                         else:
                             find_cmd = f"find-{PREFIX}-{module_name.lower()}"
-                        module_path = subprocess.check_output([find_cmd]).decode()
+                        module_path = subprocess.check_output([find_cmd]).decode().strip()
                     except:
                         continue
 

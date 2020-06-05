@@ -4,6 +4,8 @@ rec {
   buildEpicsModule = callPackage ./dls-epics-modules/generic { inherit dls-epics-base patch-configure; };
   dls-epics-base = callPackage ./dls-epics-base {};
   patch-configure = callPackage ./patch-configure {};
+  hdf5_filters = callPackage ./hdf5_filters {};
+  edm = callPackage ./edm { inherit dls-epics-base patch-configure; };
   dls-epics-sscan = callPackage ./dls-epics-sscan { inherit buildEpicsModule; };
   dls-epics-calc = callPackage ./dls-epics-calc { inherit buildEpicsModule; };
   dls-epics-asyn = callPackage ./dls-epics-asyn { inherit buildEpicsModule; };
@@ -15,7 +17,7 @@ rec {
   dls-epics-pvaccess = callPackage ./dls-epics-pvaccess { inherit buildEpicsModule dls-epics-pvcommon dls-epics-pvdata; };
   dls-epics-pvdatabase = callPackage ./dls-epics-pvdatabase { inherit buildEpicsModule dls-epics-pvcommon dls-epics-pvdata dls-epics-pvaccess; };
   dls-epics-pvaclient = callPackage ./dls-epics-pvaclient { inherit buildEpicsModule dls-epics-pvdata dls-epics-normativetypes dls-epics-pvaccess; };
-  dls-epics-adcore = callPackage ./dls-epics-adcore { inherit buildEpicsModule dls-epics-asyn dls-epics-busy dls-epics-sscan dls-epics-calc dls-epics-adsupport dls-epics-pvdata dls-epics-normativetypes dls-epics-pvaccess dls-epics-pvdatabase; };
+  dls-epics-adcore = callPackage ./dls-epics-adcore { inherit buildEpicsModule dls-epics-asyn dls-epics-busy dls-epics-sscan dls-epics-calc dls-epics-adsupport dls-epics-pvdata dls-epics-normativetypes dls-epics-pvaccess dls-epics-pvdatabase hdf5_filters; };
   dls-epics-adsimdetector = callPackage ./dls-epics-adsimdetector { inherit buildEpicsModule dls-epics-asyn dls-epics-adcore; };
   dls-epics-ffmpegserver = callPackage ./dls-epics-ffmpegserver { inherit buildEpicsModule dls-epics-asyn dls-epics-adcore dls-epics-adsimdetector; };
   dls_ade = python3Packages.callPackage ./dls_ade { inherit pygelf; };
@@ -26,6 +28,6 @@ rec {
   dls = buildEnv {
     name = "dls";
     ignoreCollisions = true;
-    paths = [ dls-epics-base patch-configure dls-epics-sscan dls-epics-asyn dls-epics-busy dls-epics-busy dls-epics-adsupport dls-epics-adcore dls-epics-adsimdetector dls-epics-pvcommon dls-epics-pvdata dls-epics-pvaccess dls-epics-normativetypes dls-epics-pvaclient dls_ade dls_dependency_tree dls_edm iocbuilder dls-epics-ffmpegserver ];
+    paths = [ perl dls-epics-base patch-configure dls-epics-sscan dls-epics-asyn dls-epics-busy dls-epics-busy dls-epics-adsupport dls-epics-adcore dls-epics-adsimdetector dls-epics-pvcommon dls-epics-pvdata dls-epics-pvaccess dls-epics-normativetypes dls-epics-pvaclient dls_ade dls_dependency_tree dls_edm iocbuilder dls-epics-ffmpegserver edm ];
   };
 }
