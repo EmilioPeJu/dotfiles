@@ -1,0 +1,26 @@
+diff --git a/aravisGigEApp/src/Makefile b/aravisGigEApp/src/Makefile
+index 1237509..de12865 100644
+--- a/aravisGigEApp/src/Makefile
++++ b/aravisGigEApp/src/Makefile
+@@ -28,7 +28,7 @@ else ifeq (linux-x86, $(findstring linux-x86, $(T_A)))
+ 	USR_INCLUDES_Linux += -I$(TOP)/vendor/aravis-linux-x86/include/aravis-0.6
+ endif
+ 
+-USR_LIBS += glib-2.0
++USR_SYS_LIBS += glib-2.0
+ 
+ # TODO: should pick this up from the vendor directory
+ USR_LIBS += aravis-0.6
+diff --git a/configure/CONFIG_SITE b/configure/CONFIG_SITE
+index 6b89b4c..284f9f2 100644
+--- a/configure/CONFIG_SITE
++++ b/configure/CONFIG_SITE
+@@ -44,7 +44,7 @@ endif
+ GLIBPREFIX=/usr
+ 
+ USR_INCLUDES += -I$(GLIBPREFIX)/include/glib-2.0
+-USR_INCLUDES += -I$(GLIBPREFIX)/lib64/glib-2.0/include	
++USR_INCLUDES += -I$(GLIBPREFIX)/lib/glib-2.0/include
+ glib-2.0_DIR = $(GLIBPREFIX)/lib64
+ 
+ 

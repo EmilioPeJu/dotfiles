@@ -1,0 +1,13 @@
+diff --git a/configure/CONFIG b/configure/CONFIG
+index 80f3d14c..9b7ade9a 100644
+--- a/configure/CONFIG
++++ b/configure/CONFIG
+@@ -2,7 +2,7 @@
+ include $(TOP)/configure/CONFIG_APP
+ # Add any changes to make definitions here
+ 
+-CROSS_COMPILER_TARGET_ARCHS = vxWorks-ppc604_long
++CROSS_COMPILER_TARGET_ARCHS=
+ 
+ # Use this when your IOC and the host use different paths
+ # to access the application. Typically this will be 

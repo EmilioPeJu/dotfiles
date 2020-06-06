@@ -16,7 +16,7 @@ stdenv.mkDerivation {
 
   configurePhase = ''
     runHook preConfigure
-    patch-configure -i configure/RELEASE
+    patch-configure configure/RELEASE
     cat << EOF > configure/os/CONFIG_SITE.linux-x86_64.linux-x86_64
     -include \$(TOP)/configure/os/CONFIG_SITE.linux-x86.linux-x86
     X11_LIB=${xorg.libX11}/lib
@@ -40,7 +40,7 @@ stdenv.mkDerivation {
     export EPICS_EXTENSIONS=$out
     make
     ln -s $out/bin/linux-x86_64/edm $out/bin
-    find . \( -name '*.c' -or -name '*.cc' -or -name '*.o' \) -exec rm {} \;
+    find . \( -name '*.c' -or -name '*.cc' -or -name '*.cpp' -or -name '*.o' \) -exec rm {} \;
     runHook postInstall
   '';
 }

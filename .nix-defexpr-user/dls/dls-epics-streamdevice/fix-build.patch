@@ -1,0 +1,13 @@
+diff --git a/StreamDevice/streamApp/Makefile b/StreamDevice/streamApp/Makefile
+index 4a0cfec..83883f8 100644
+--- a/StreamDevice/streamApp/Makefile
++++ b/StreamDevice/streamApp/Makefile
+@@ -68,7 +68,7 @@ CPPFLAGS += -DDEBUGFILE=StreamDebug.log
+ 
+ include $(TOP)/configure/RULES
+ 
+-clean:: myclean
++clean: myclean
+ 
+ myclean:
+ 	$(RM) core* StreamDebug.log

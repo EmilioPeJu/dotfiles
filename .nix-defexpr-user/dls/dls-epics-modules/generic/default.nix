@@ -1,5 +1,5 @@
 { stdenv, dls-epics-base, patch-configure}:
-{ buildInputs ? [], ...} @args:
+{ buildInputs ? [], installPhase ? "", ...} @args:
 let newargs =
   args // {
     buildInputs = [ dls-epics-base patch-configure ] ++ buildInputs;
@@ -7,9 +7,9 @@ let newargs =
     configurePhase = ''
       runHook preConfigure
       # patch release files to point to dependencies
-      for path in "configure/RELEASE" "configure/RELEASE.linux-x86_64.Common" "configure/RELEASE.local"; do
+      for path in "configure/RELEASE" "configure/RELEASE.linux-x86_64.Common" "configure/RELEASE.linux-x86_64" "configure/RELEASE.local"; do
         if [ -f "$path" ]; then
-          patch-configure -i "$path"
+          patch-configure "$path"
          fi
       done
       # don't make examples or docs
@@ -27,7 +27,7 @@ let newargs =
 
     buildPhase = "# Dummy, it is done as part of installPhase";
 
-    installPhase = ''
+    installPhase = if installPhase == "" then ''
       runHook preInstall
       make INSTALL_LOCATION=$out
       mkdir -p $out/bin
@@ -37,7 +37,7 @@ let newargs =
         cp -rf etc $out
       fi
       runHook postInstall
-    '';
+    '' else installPhase;
 
     meta.priority = 6;
   };

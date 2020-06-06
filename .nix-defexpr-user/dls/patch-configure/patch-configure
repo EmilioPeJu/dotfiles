@@ -1,0 +1,88 @@
+#!/usr/bin/env python
+import argparse
+import os
+import sys
+import subprocess
+import re
+PREFIX = 'dls-epics'
+
+
+class PatchConfigure(object):
+
+    def __init__(self, use_build_inputs):
+        self._deps = self.get_epics_deps(use_build_inputs)
+
+    def extract_epics_module_name(self, path):
+        if path.endswith(f'{PREFIX}-base'):
+            return "EPICS_BASE"
+        return re.findall(f'{PREFIX}-(.*)', path)[0].upper()
+
+    def is_epics_related(self, path):
+        return PREFIX in path
+
+    def get_epics_deps(self, use_build_inputs):
+        if use_build_inputs:
+            output = os.environ.get('buildInputs')
+        else:
+            output = subprocess.check_output(['nix-env', '-q', '--installed',
+                                              '--no-name', '--out-path']).decode()
+        result = {}
+        for i in output.split():
+            if self.is_epics_related(i):
+                result[self.extract_epics_module_name(i)] = i.strip()
+        return result
+
+
+    def resolve_path(self, module_name):
+        if module_name in self._deps:
+            module_path = self._deps[module_name]
+        else:
+            try:
+                if module_name == "EPICS_BASE":
+                    find_cmd = f"find-{PREFIX}-base"
+                else:
+                    find_cmd = f"find-{PREFIX}-{module_name.lower()}"
+                module_path = subprocess.check_output([find_cmd]).decode().strip()
+            except:
+                module_path = ""
+        return module_path
+
+
+    def patch(self, path):
+        output_content = []
+        with open(path, 'r') as infile:
+            for line in infile:
+                sline = line.split('=')
+                module_name = sline[0].strip()
+                if len(sline) == 2 and not module_name.startswith('#'):
+                    module_path = self.resolve_path(module_name)
+                    output_content.append(f"{module_name}={module_path}\n")
+                else:
+                    output_content.append(line)
+        output_content = "".join(output_content)
+        with open(path, 'w') as outfile:
+            outfile.write(output_content)
+
+
+def parse_args():
+
+    def _check_path_valid(path):
+        if not os.access(path, os.R_OK):
+            raise argparse.ArgumentError("File does not exist")
+        return path
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("path", type=_check_path_valid,
+                        default="./configure/RELEASE")
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+    use_build_inputs = bool(os.environ.get('buildInputs', '').strip())
+    pc = PatchConfigure(use_build_inputs)
+    pc.patch(args.path)
+
+
+if __name__ == "__main__":
+    main()

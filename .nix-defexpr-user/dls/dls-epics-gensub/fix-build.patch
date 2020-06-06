@@ -1,0 +1,392 @@
+diff --git a/configure/CONFIG b/configure/CONFIG
+index 2973401..1f0fcae 100644
+--- a/configure/CONFIG
++++ b/configure/CONFIG
+@@ -2,7 +2,7 @@
+ include $(TOP)/configure/CONFIG_APP
+ # Add any changes to make definitions here
+ 
+-CROSS_COMPILER_TARGET_ARCHS += linux-ppc linux-arm_el
++CROSS_COMPILER_TARGET_ARCHS=
+ 
+ # Use this when your IOC and the host use different paths
+ # to access the application. Typically this will be 
+diff --git a/src/Makefile b/src/Makefile
+index e76a9a0..050b3a3 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -4,7 +4,7 @@ include $(TOP)/configure/CONFIG
+ USR_CFLAGS_Linux += -Wno-address
+ 
+ LIBRARY_IOC        += genSub
+-geminiRecords_LIBS += $(EPICS_BASE_IOC_LIBS)
++genSub_LIBS += $(EPICS_BASE_IOC_LIBS)
+ 
+ DBDINC      += genSubRecord.h
+ DBD         += genSubRecord.dbd
+diff --git a/src/genSubRecord.c b/src/genSubRecord.c
+index 001cd11..613cd1c 100644
+--- a/src/genSubRecord.c
++++ b/src/genSubRecord.c
+@@ -70,7 +70,6 @@ typedef long (*SUBFUNCPTR)(genSubRecord *);
+ 
+ static long init_record();
+ static long process();
+-static long get_value();
+ static long get_precision();
+ static long cvt_dbaddr();
+ static long get_array_info();
+@@ -93,7 +92,6 @@ rset genSubRSET={
+ 	init_record,
+ 	process,
+ 	special,
+-	get_value,
+ 	cvt_dbaddr,
+ 	get_array_info,
+ 	put_array_info,
+@@ -111,7 +109,7 @@ static void monitor( genSubRecord *, int );
+ static long do_sub( genSubRecord * );
+ static long findField( int, struct dbAddr *, long *, long );
+ 
+-#define ARG_MAX        21
++#define ARG_MAX        19
+ #define MAX_ARRAY_SIZE 10000000
+ #ifndef FLDNAME_SZ
+ # define FLDNAME_SZ 4
+@@ -120,13 +118,13 @@ static long findField( int, struct dbAddr *, long *, long );
+ /* These are the names of the Input fields */
+ static char Ifldnames[ARG_MAX][FLDNAME_SZ+1] =
+   { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+-    "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U" };
++    "L", "M", "N", "O", "P", "Q", "R", "S" };
+ 
+ /* These are the names of the Output fields */
+ static char Ofldnames[ARG_MAX][FLDNAME_SZ+1] =
+   { "VALA", "VALB", "VALC", "VALD", "VALE", "VALF", "VALG", 
+     "VALH", "VALI", "VALJ", "VALK", "VALL", "VALM", "VALN",
+-    "VALO", "VALP", "VALQ", "VALR", "VALS", "VALT", "VALU" };
++    "VALO", "VALP", "VALQ", "VALR", "VALS" };
+ 
+ /* Sizes of field types */
+ static int sizeofTypes[] = {0, 1, 1, 2, 2, 4, 4, 4, 8, 2};
+@@ -603,19 +601,6 @@ static long get_precision( struct dbAddr *paddr, long *precision )
+     return(0);
+ }
+ 
+-
+-static long get_value( genSubRecord *pgsub, struct valueDes *pvdes )
+-{
+-#if DEBUG
+-    printf("Calling get_value...\n");
+-#endif
+-    pvdes->no_elements = 1;
+-    pvdes->pvalue      = (void *)(&pgsub->val);
+-    pvdes->field_type  = DBF_LONG;
+-    return(0);
+-}
+-
+-
+ static void monitor( genSubRecord *pgsub, int reset )
+ {
+   int            i;
+@@ -1069,32 +1054,6 @@ static long findField( int flag, struct dbAddr *paddr, long *no_elements, long n
+         pgsub->nos = nNew;
+       break;
+ 
+-    case genSubRecordT:
+-      if( flag == 1 )
+-      {
+-        paddr->pfield      = pgsub->t;
+-        paddr->no_elements = pgsub->not;
+-        paddr->field_type  = pgsub->ftt;
+-      }
+-      else if( flag == 2 )
+-        *no_elements = pgsub->not;
+-      else if( flag == 3 )
+-        pgsub->not = nNew;
+-      break;
+-
+-    case genSubRecordU:
+-      if( flag == 1 )
+-      {
+-        paddr->pfield      = pgsub->u;
+-        paddr->no_elements = pgsub->nou;
+-        paddr->field_type  = pgsub->ftu;
+-      }
+-      else if( flag == 2 )
+-        *no_elements = pgsub->nou;
+-      else if( flag == 3 )
+-        pgsub->nou = nNew;
+-      break;
+-
+     case genSubRecordVALA:
+       if( flag == 1 )
+       {
+@@ -1342,32 +1301,6 @@ static long findField( int flag, struct dbAddr *paddr, long *no_elements, long n
+         pgsub->novs = nNew;
+       break;
+ 
+-    case genSubRecordVALT:
+-      if( flag == 1 )
+-      {
+-        paddr->pfield      = pgsub->valt;
+-        paddr->no_elements = pgsub->novt;
+-        paddr->field_type  = pgsub->ftvt;
+-      }
+-      else if( flag == 2 )
+-        *no_elements = pgsub->novt;
+-      else if( flag == 3 )
+-        pgsub->novt = nNew;
+-      break;
+-
+-    case genSubRecordVALU:
+-      if( flag == 1 )
+-      {
+-        paddr->pfield      = pgsub->valu;
+-        paddr->no_elements = pgsub->novu;
+-        paddr->field_type  = pgsub->ftvu;
+-      }
+-      else if( flag == 2 )
+-        *no_elements = pgsub->novu;
+-      else if( flag == 3 )
+-        pgsub->novu = nNew;
+-      break;
+-
+     default:
+       error = 1;
+       break;
+diff --git a/src/genSubRecord.dbd b/src/genSubRecord.dbd
+index d54f308..6b5e32f 100644
+--- a/src/genSubRecord.dbd
++++ b/src/genSubRecord.dbd
+@@ -203,18 +203,6 @@ recordtype(genSub) {
+ 		special(SPC_NOMOD)
+ 		interest(1)
+ 	}
+-	field(INPT,DBF_INLINK) {
+-		prompt("Input Link T")
+-		promptgroup(GUI_INPUTS)
+-		special(SPC_NOMOD)
+-		interest(1)
+-	}
+-	field(INPU,DBF_INLINK) {
+-		prompt("Input Link U")
+-		promptgroup(GUI_INPUTS)
+-		special(SPC_NOMOD)
+-		interest(1)
+-	}
+ 	field(UFA,DBF_STRING) {
+ 		prompt("Input Structure A")
+ 		promptgroup(GUI_SUB)
+@@ -348,20 +336,6 @@ recordtype(genSub) {
+ 		interest(1)
+ 		size(40)
+ 	}
+-	field(UFT,DBF_STRING) {
+-		prompt("Input Structure T")
+-		promptgroup(GUI_SUB)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		size(40)
+-	}
+-	field(UFU,DBF_STRING) {
+-		prompt("Input Structure U")
+-		promptgroup(GUI_SUB)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		size(40)
+-	}
+ 	field(A,DBF_NOACCESS) {
+ 		prompt("Value of Input A")
+ 		asl(ASL0)
+@@ -515,22 +489,6 @@ recordtype(genSub) {
+ 		size(4)
+ 		extra("void *s")
+ 	}
+-	field(T,DBF_NOACCESS) {
+-		prompt("Value of Input T")
+-		asl(ASL0)
+-		special(SPC_DBADDR)
+-		interest(1)
+-		size(4)
+-		extra("void *t")
+-	}
+-	field(U,DBF_NOACCESS) {
+-		prompt("Value of Input U")
+-		asl(ASL0)
+-		special(SPC_DBADDR)
+-		interest(1)
+-		size(4)
+-		extra("void *u")
+-	}
+ 	field(FTA,DBF_MENU) {
+ 		prompt("Type of A")
+ 		promptgroup(GUI_WAVE)
+@@ -664,20 +622,6 @@ recordtype(genSub) {
+ 		interest(1)
+ 		menu(menuFtype)
+ 	}
+-	field(FTT,DBF_MENU) {
+-		prompt("Type of T")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		menu(menuFtype)
+-	}
+-	field(FTU,DBF_MENU) {
+-		prompt("Type of U")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		menu(menuFtype)
+-	}
+ 	field(NOA,DBF_ULONG) {
+ 		prompt("No. in A")
+ 		promptgroup(GUI_WAVE)
+@@ -811,20 +755,6 @@ recordtype(genSub) {
+ 		interest(1)
+ 		initial("1")
+ 	}
+-	field(NOT,DBF_ULONG) {
+-		prompt("No. in T")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+-	field(NOU,DBF_ULONG) {
+-		prompt("No. in U")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+ 	field(OUTA,DBF_OUTLINK) {
+ 		prompt("Output Link A")
+ 		promptgroup(GUI_OUTPUT)
+@@ -939,18 +869,6 @@ recordtype(genSub) {
+ 		special(SPC_NOMOD)
+ 		interest(1)
+ 	}
+-	field(OUTT,DBF_OUTLINK) {
+-		prompt("Output Link T")
+-		promptgroup(GUI_OUTPUT)
+-		special(SPC_NOMOD)
+-		interest(1)
+-	}
+-	field(OUTU,DBF_OUTLINK) {
+-		prompt("Output Link U")
+-		promptgroup(GUI_OUTPUT)
+-		special(SPC_NOMOD)
+-		interest(1)
+-	}
+ 	field(UFVA,DBF_STRING) {
+ 		prompt("Output Structure A")
+ 		promptgroup(GUI_SUB)
+@@ -1250,22 +1168,6 @@ recordtype(genSub) {
+ 		size(4)
+ 		extra("void *vals")
+ 	}
+-	field(VALT,DBF_NOACCESS) {
+-		prompt("Value of Output T")
+-		asl(ASL0)
+-		special(SPC_DBADDR)
+-		interest(1)
+-		size(4)
+-		extra("void *valt")
+-	}
+-	field(VALU,DBF_NOACCESS) {
+-		prompt("Value of Output U")
+-		asl(ASL0)
+-		special(SPC_DBADDR)
+-		interest(1)
+-		size(4)
+-		extra("void *valu")
+-	}
+ 	field(OVLA,DBF_NOACCESS) {
+ 		prompt("Old Output A")
+ 		asl(ASL0)
+@@ -1418,22 +1320,6 @@ recordtype(genSub) {
+ 		size(4)
+ 		extra("void *ovls")
+ 	}
+-	field(OVLT,DBF_NOACCESS) {
+-		prompt("Old Output T")
+-		asl(ASL0)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		size(4)
+-		extra("void *ovlt")
+-	}
+-	field(OVLU,DBF_NOACCESS) {
+-		prompt("Old Output U")
+-		asl(ASL0)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		size(4)
+-		extra("void *ovlu")
+-	}
+ 	field(FTVA,DBF_MENU) {
+ 		prompt("Type of VALA")
+ 		promptgroup(GUI_WAVE)
+@@ -1567,20 +1453,6 @@ recordtype(genSub) {
+ 		interest(1)
+ 		menu(menuFtype)
+ 	}
+-	field(FTVT,DBF_MENU) {
+-		prompt("Type of VALT")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		menu(menuFtype)
+-	}
+-	field(FTVU,DBF_MENU) {
+-		prompt("Type of VALU")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		menu(menuFtype)
+-	}
+ 	field(NOVA,DBF_ULONG) {
+ 		prompt("No. in VALA")
+ 		promptgroup(GUI_WAVE)
+@@ -1714,20 +1586,6 @@ recordtype(genSub) {
+ 		interest(1)
+ 		initial("1")
+ 	}
+-	field(NOVT,DBF_ULONG) {
+-		prompt("No. in VALT")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+-	field(NOVU,DBF_ULONG) {
+-		prompt("No. in VALU")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+ 	field(TOVA,DBF_ULONG) {
+ 		prompt("Total bytes for VALA")
+ 		promptgroup(GUI_WAVE)
+@@ -1861,18 +1719,4 @@ recordtype(genSub) {
+ 		interest(1)
+ 		initial("1")
+ 	}
+-	field(TOVT,DBF_ULONG) {
+-		prompt("Total bytes for VALT")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+-	field(TOVU,DBF_ULONG) {
+-		prompt("Total bytes for VALU")
+-		promptgroup(GUI_WAVE)
+-		special(SPC_NOMOD)
+-		interest(1)
+-		initial("1")
+-	}
+ }
