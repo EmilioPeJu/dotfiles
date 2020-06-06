@@ -33,9 +33,15 @@ rec {
   dls_dependency_tree = python3Packages.callPackage ./dls_dependency_tree { inherit dls_ade; };
   dls_edm = python3Packages.callPackage ./dls_edm {};
   iocbuilder = python3Packages.callPackage ./iocbuilder { inherit dls-epics-base dls_dependency_tree dls_edm; };
+  dls-python = python3.withPackages(pp: with pp; [ dls_ade dls_dependency_tree dls_edm iocbuilder ]);
   dls = buildEnv {
     name = "dls";
     ignoreCollisions = true;
-    paths = [ perl dls-epics-base patch-configure dls-epics-sscan dls-epics-asyn dls-epics-busy dls-epics-busy dls-epics-adsupport dls-epics-adcore dls-epics-adsimdetector dls-epics-pvcommon dls-epics-pvdata dls-epics-pvaccess dls-epics-normativetypes dls-epics-pvaclient dls_ade dls_dependency_tree dls_edm iocbuilder dls-epics-ffmpegserver dls-epics-aravisgige dls-epics-streamdevice dls-epics-pvlogging dls-epics-adpython dls-epics-gensub dls-epics-seq dls-epics-motor dls-epics-pmac edm ];
+    pathsToLink = [ "/bin" ];
+    paths = [ perl dls-epics-base patch-configure dls-epics-sscan dls-epics-asyn dls-epics-busy dls-epics-busy dls-epics-adsupport dls-epics-adcore dls-epics-adsimdetector dls-epics-pvcommon dls-epics-pvdata dls-epics-pvaccess dls-epics-normativetypes dls-epics-pvaclient dls-epics-ffmpegserver dls-epics-aravisgige dls-epics-streamdevice dls-epics-pvlogging dls-epics-adpython dls-epics-gensub dls-epics-seq dls-epics-motor dls-epics-pmac edm dls-python ];
+    postBuild = ''
+      mv $out/bin/python $out/bin/dls-python
+      rm $out/bin/py*
+    '';
   };
 }
