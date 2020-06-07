@@ -1,8 +1,27 @@
-{ libpng, zlib, freetype, fontconfig, patch-configure, giflib, motif, xorg, readline, dls-epics-base, stdenv }:
+{ libpng, zlib, freetype, fontconfig, patch-configure, giflib, motif, xorg
+, readline, dls-epics-base, stdenv }:
 
 stdenv.mkDerivation {
   name = "edm";
-  buildInputs = [ libpng zlib.dev patch-configure giflib xorg.libX11 xorg.libXt xorg.libXpm xorg.libXext xorg.libXmu xorg.libXp xorg.libXt xorg.libXtst freetype fontconfig motif readline dls-epics-base ];
+  buildInputs = [
+    libpng
+    zlib.dev
+    patch-configure
+    giflib
+    xorg.libX11
+    xorg.libXt
+    xorg.libXpm
+    xorg.libXext
+    xorg.libXmu
+    xorg.libXp
+    xorg.libXt
+    xorg.libXtst
+    freetype
+    fontconfig
+    motif
+    readline
+    dls-epics-base
+  ];
   patches = [ ./libs-to-syslibs.patch ];
   src = builtins.fetchGit {
     url = "https://github.com/hir12111/edm";

@@ -1,7 +1,7 @@
-{ stdenv, dls-epics-base, patch-configure}:
-{ buildInputs ? [], installPhase ? "", ...} @args:
-let newargs =
-  args // {
+{ stdenv, dls-epics-base, patch-configure }:
+{ buildInputs ? [ ], installPhase ? "", ... }@args:
+let
+  newargs = args // {
     buildInputs = [ dls-epics-base patch-configure ] ++ buildInputs;
 
     configurePhase = ''
@@ -37,9 +37,9 @@ let newargs =
         cp -rf etc $out
       fi
       runHook postInstall
-    '' else installPhase;
+    '' else
+      installPhase;
 
     meta.priority = 6;
   };
-in
-stdenv.mkDerivation newargs
+in stdenv.mkDerivation newargs

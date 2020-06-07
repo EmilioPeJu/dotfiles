@@ -1,8 +1,25 @@
-{ libxml2, buildEpicsModule, dls-epics-asyn, dls-epics-busy, dls-epics-sscan, dls-epics-calc, dls-epics-adsupport, dls-epics-pvdata, dls-epics-normativetypes, dls-epics-pvaccess, dls-epics-pvdatabase, hdf5_filters, hdf5, boost }:
+{ libxml2, buildEpicsModule, dls-epics-asyn, dls-epics-busy, dls-epics-sscan
+, dls-epics-calc, dls-epics-adsupport, dls-epics-pvdata
+, dls-epics-normativetypes, dls-epics-pvaccess, dls-epics-pvdatabase
+, hdf5_filters, hdf5, boost }:
 
 buildEpicsModule rec {
   name = "dls-epics-adcore";
-  buildInputs = [ libxml2.dev dls-epics-asyn dls-epics-busy dls-epics-sscan dls-epics-calc dls-epics-adsupport dls-epics-pvdata dls-epics-normativetypes dls-epics-pvaccess dls-epics-pvdatabase hdf5 hdf5_filters boost ];
+  buildInputs = [
+    libxml2.dev
+    dls-epics-asyn
+    dls-epics-busy
+    dls-epics-sscan
+    dls-epics-calc
+    dls-epics-adsupport
+    dls-epics-pvdata
+    dls-epics-normativetypes
+    dls-epics-pvaccess
+    dls-epics-pvdatabase
+    hdf5
+    hdf5_filters
+    boost
+  ];
   preConfigure = ''
     # temporal fix to non standard variable names in release file
     sed -i 's/CPP//g' configure/RELEASE.local

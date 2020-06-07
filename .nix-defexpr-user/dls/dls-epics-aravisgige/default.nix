@@ -1,8 +1,18 @@
-{ glib, libxml2, zlib, pkg-config, intltool, buildEpicsModule, dls-epics-asyn, dls-epics-adcore }:
+{ glib, libxml2, zlib, pkg-config, intltool, buildEpicsModule, dls-epics-asyn
+, dls-epics-adcore }:
 
 buildEpicsModule {
   name = "dls-epics-aravisgige";
-  buildInputs = [ pkg-config glib.out glib.dev libxml2.dev zlib intltool dls-epics-asyn dls-epics-adcore ];
+  buildInputs = [
+    pkg-config
+    glib.out
+    glib.dev
+    libxml2.dev
+    zlib
+    intltool
+    dls-epics-asyn
+    dls-epics-adcore
+  ];
   src = builtins.fetchGit {
     url = "https://github.com/hir12111/aravisGigE";
     ref = "dls-master";

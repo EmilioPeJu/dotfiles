@@ -1,4 +1,5 @@
-{ buildPythonPackage, dls-epics-base, qt5, pyqt5, dls_dependency_tree, dls_edm }:
+{ buildPythonPackage, dls-epics-base, qt5, pyqt5, dls_dependency_tree, dls_edm
+}:
 buildPythonPackage rec {
   pname = "iocbuilder";
   version = "3";
@@ -11,5 +12,6 @@ buildPythonPackage rec {
     cp -rf iocbuilder/defaults $(toPythonPath $out)/iocbuilder
   '';
   buildInputs = [ dls-epics-base ];
-  propagatedBuildInputs = [ qt5.full pyqt5 dls-epics-base dls_dependency_tree dls_edm ];
+  propagatedBuildInputs =
+    [ qt5.full pyqt5 dls-epics-base dls_dependency_tree dls_edm ];
 }

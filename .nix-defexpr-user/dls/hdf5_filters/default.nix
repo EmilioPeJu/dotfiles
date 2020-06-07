@@ -14,11 +14,11 @@ stdenv.mkDerivation {
     runHook postConfigure
   '';
 
-  buildPhase = "
+  buildPhase = ''
     runHook preBuild
     make
     runHook postBuild
-  ";
+  '';
 
   findSrc = builtins.toFile "find-epics" ''
     #!/usr/bin/env bash

@@ -1,4 +1,5 @@
-{ buildPythonPackage, pytestrunner, six, packaging, distro, python-gitlab, cookiecutter, pygelf, ldap, GitPython }:
+{ buildPythonPackage, pytestrunner, six, packaging, distro, python-gitlab
+, cookiecutter, pygelf, ldap, GitPython }:
 buildPythonPackage rec {
   pname = "dls_ade";
   version = "4";
@@ -18,5 +19,6 @@ buildPythonPackage rec {
   # bin/* is patched even with this option
   dontPatchShebangs = 1;
   buildInputs = [ pytestrunner ];
-  propagatedBuildInputs = [ six packaging distro python-gitlab cookiecutter pygelf ldap GitPython ];
+  propagatedBuildInputs =
+    [ six packaging distro python-gitlab cookiecutter pygelf ldap GitPython ];
 }
