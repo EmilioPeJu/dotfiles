@@ -1,4 +1,4 @@
-{pkgs ? import <nixpkgs> {}}:
+{ pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs-channels/archive/nixos-20.03.tar.gz) {} }:
 with pkgs;
 rec {
   buildEpicsModule = callPackage ./dls-epics-modules/generic { inherit dls-epics-base patch-configure; };
