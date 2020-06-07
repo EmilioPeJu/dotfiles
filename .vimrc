@@ -6,6 +6,9 @@ set backupdir-=.
 set backupdir^=~/tmp,/tmp
 
 call plug#begin()
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -13,7 +16,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'python-mode/python-mode'
+" Plug 'python-mode/python-mode'
 call plug#end()
 
 " set termguicolors
