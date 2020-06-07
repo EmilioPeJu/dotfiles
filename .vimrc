@@ -26,8 +26,15 @@ set number
 set ruler
 
 let mapleader = ","
+" coc
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
 
-"=====[ ultisnips ]===========================================================
+" fzf
+nnoremap <C-p> :GFiles<CR>
+nnoremap <leader>p :Files<CR>
+
+" ultisnips
 let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
@@ -35,8 +42,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 " buffer
 nmap <leader>d :bd!<CR>
 nmap <leader>; :ls<CR>:b<space>
-nmap <leader>n :bn<CR>
-nmap <leader>p :bp<CR>
 
 " window
 nnoremap <C-j> <C-W>j
@@ -72,7 +77,7 @@ set foldclose=all
 " Stuff from mga83
 "
 " Work relative to current file
-autocmd BufEnter * :lcd %:p:h
+" autocmd BufEnter * :lcd %:p:h
 
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
@@ -101,38 +106,6 @@ set laststatus=2        " Always show status line
 set incsearch           " Incremental search
 set wrap                " Show wrapped lines by default
 
-" ranger file chooser
-function! RangeChooser()
-    let temp = tempname()
-    " The option "--choosefiles" was added in ranger 1.5.1. Use the next line
-    " with ranger 1.4.2 through 1.5.0 instead.
-    let ranger = $RANGER
-    if ranger == ""
-        let ranger = "ranger"
-    endif
-    exec 'silent !' . ranger . ' --choosefiles=' . shellescape(temp)
-    if !filereadable(temp)
-        redraw!
-        " Nothing to read.
-        return
-    endif
-    let names = readfile(temp)
-    if empty(names)
-        redraw!
-        " Nothing to open.
-        return
-    endif
-    " Edit the first item.
-    exec 'edit ' . fnameescape(names[0])
-    " Add any remaning items to the arg list/buffer list.
-    for name in names[1:]
-        exec 'argadd ' . fnameescape(name)
-    endfor
-    redraw!
-endfunction
-command! -bar RangerChooser call RangeChooser()
-nnoremap <leader>r :<C-U>RangerChooser<CR>
-
 function! QuickFix_toggle()
     for i in range(1, winnr('$'))
             let bnum = winbufnr(i)
@@ -141,7 +114,6 @@ function! QuickFix_toggle()
             return
             endif
         endfor
-
     copen
 endfunction
 nnoremap <F5> :call QuickFix_toggle()<cr>
@@ -188,12 +160,11 @@ nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
-
 nmap <leader>m :make<CR>
 
 " Rust
 let g:rustfmt_autosave = 1
 
 " kind of a hack but +clipboard is not usually set
-vnoremap <leader>y :w !xclip -in -selection clipboard<CR><CR>
-nnoremap <leader>p :r !xclip -out -selection clipboard<CR>
+vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
+nnoremap <leader>v :r !xclip -out -selection clipboard<CR>
