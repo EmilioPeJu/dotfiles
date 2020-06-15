@@ -16,7 +16,7 @@ export TERMINAL="$HOME/st/st"
 export PREFIXPATH="$HOME/storage/prefix"
 export SRCPATH="$HOME/storage/src"
 export NIX_PATH="$HOME/.nix-defexpr-user:$NIX_PATH"
-export EPICS_BASE=$(find-dls-epics-base)
+export EPICS_BASE=$(find-epics-base)
 # Fix misbehaving java applications in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
