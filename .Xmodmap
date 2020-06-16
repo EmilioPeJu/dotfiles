@@ -9,4 +9,3 @@ keysym i = i I iacute Iacute
 keysym o = o O oacute Oacute
 keysym u = u U uacute Uacute
 keycode 108 = Mode_switch
-keycode  49 = Escape asciitilde grave asciitilde
