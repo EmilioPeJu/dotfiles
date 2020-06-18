@@ -10,12 +10,9 @@
 [submodule "problems"]
 	path = problems
 	url = git@github.com:hir12111/problems.git
-[submodule ".local/share/gnome-shell/extensions/timepp@zagortenay333"]
-	path = .local/share/gnome-shell/extensions/timepp@zagortenay333
-	url = git@github.com:zagortenay333/timepp__gnome.git
-[submodule ".local/share/gnome-shell/extensions/drawOnYourScreen@abakkk.framagit.org"]
-	path = .local/share/gnome-shell/extensions/drawOnYourScreen@abakkk.framagit.org
-	url = https://framagit.org/abakkk/DrawOnYourScreen
 [submodule ".nix-defexpr-user/dlspkgs"]
 	path = .nix-defexpr-user/dlspkgs
 	url = git@github.com:hir12111/dlspkgs.git
+[submodule ".nix-defexpr-user/epicspkgs"]
+	path = .nix-defexpr-user/epicspkgs
+	url = git@github.com:hir12111/epicspkgs.git
