@@ -174,12 +174,3 @@ function tp-wifi {
     # key_type 3 is WPA2
     tplink_smartplug.py -t $TARGET -j '{"netif":{"set_stainfo":{"ssid":"'"$SSID"'","password":"'"$PASS"'","key_type":3}}}'
 }
-
-function  xkbcomp-edit {
-    # get input device ID using xinput
-    local id="$1"
-    local fname="$(date +%s).xkb"
-    xkbcomp -i $id -xkb $DISPLAY $fname &&
-        vim $fname &&
-        xkbcomp -i $id $fname $DISPLAY
-}

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# the translation logic is as follows,
+# the device sends a scancode(HW dependant) which is translated in the driver to 
+# a keycode (this is a device independant representation of a key) using a table
+# if the driver emits key events we don't need to worry about the scan codes, if not
+# the usual way of loading to the kernel the mapping of scancodes to keycodes is via 
+# keyboard hwdb udev files which would be loaded automatically when detected a certain
+# evdev modalias (another way is setkeycodes command)
+# keycodes are event codes type EV_KEY, you can find those in header linux/input-event-codes.h
+# you might also get the scancode as an event type  EV_MSC code MSC_SCAN
+# then some tables are looked up:
+# keycode, [group] -> type (usually how many different levels are allowed e.g TWO_LEVEL)
+# type, state -> level
+# keycode, level -> KEYMAP[keycode][level] -> keysym
+# they keysym is translated to a character/string in the X11 lookup function
+# have a look at the keysym definitions in 'keysymdef.h'
+# ometimes there is an action: keysym, state -> action
+#
+# get input device ID using xinput
+id="$1"
+fname="/tmp/$(date +%s).xkb"
+xkbcomp -i $id -xkb $DISPLAY $fname &&
+    vim $fname &&
+    xkbcomp -i $id $fname $DISPLAY
