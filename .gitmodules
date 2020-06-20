@@ -16,3 +16,6 @@
 [submodule ".nix-defexpr-user/epicspkgs"]
 	path = .nix-defexpr-user/epicspkgs
 	url = git@github.com:hir12111/epicspkgs.git
+[submodule ".nix-defexpr-user/gh"]
+	path = .nix-defexpr-user/gh
+	url = https://github.com/NixOS/nixpkgs.git
