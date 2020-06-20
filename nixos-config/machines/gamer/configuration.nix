@@ -30,6 +30,9 @@
   #    '';
   #  } ];
 
+  # Power management
+  powerManagement.cpuFreqGovernor = "performance";
+
   # Networking
   networking = {
     hostName = "gamer"; # Define your hostname.
