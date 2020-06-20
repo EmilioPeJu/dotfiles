@@ -19,6 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel
+  boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
   # Modified Linux
   #  boot.kernelPatches = [ {
   #    name = "debug-on";
@@ -157,6 +158,7 @@
 
   # Services
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "intel" ];
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.libinput.enable = true;
 
