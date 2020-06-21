@@ -141,10 +141,15 @@
     rustup
     trace-cmd
     valgrind
+    zeal
     # Python
     jupyter
     python3
     python38Packages.ipykernel
+    python38Packages.pip
+    python38Packages.pycodestyle
+    python38Packages.setuptools
+    python38Packages.virtualenv
     # Video
     vlc
     # VM
