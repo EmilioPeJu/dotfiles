@@ -64,7 +64,7 @@
     pass
     ranger
     tmux
-    vim
+    (vimHugeX.override { python = python3; })
     vym
     watch
     wget
