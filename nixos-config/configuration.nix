@@ -85,11 +85,13 @@
     openssl
     pinentry
     # Desktop
+    dwm
     i3lock
     gnome3.gnome-terminal
     gnome3.gnome-tweaks
     gnome3.gnome-notes
     pavucontrol
+    st
     xclip
     # Docs
     fbreader
@@ -170,6 +172,10 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.desktopManager.gnome3.enable = true;
   services.xserver.libinput.enable = true;
+  services.gnome3.tracker.enable = false;
+  services.gnome3.tracker-miners.enable = false;
+  services.gnome3.gnome-remote-desktop.enable = false;
+  services.avahi.enable = false;
 
   # Users
   users.users.user = {
