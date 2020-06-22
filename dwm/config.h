@@ -59,7 +59,6 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *lockcmd[]  = { "i3lock", "-c", "000000", NULL };
 static const char *ranger[]  = { "st", "-e", "ranger", NULL };
-static const char *screenshot[]  = { "st", "-e", "scrot", "-s", NULL };
 static const char *shutdowncmd[]  = { "shutdown", "now", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *volctl[]  = {"pavucontrol", NULL};
@@ -73,8 +72,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ 0,                            XK_Print,  spawn,          SHCMD("maim $(date +%y%m%d-%H%M-%S).png") },
+	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
 	{ MODKEY,                       XK_r,      spawn,          {.v = ranger } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = screenshot } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = volctl } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
