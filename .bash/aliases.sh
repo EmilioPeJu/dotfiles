@@ -1,6 +1,6 @@
 #!/bin/bash
 # user alias
-alias se='vim $(fzf)'
+alias se='rifle $(fzf)'
 alias cta="ctags --tag-relative=yes -R -f .git/tags ."
 alias remake="make clean uninstall; make"
 alias ls='ls --color=auto'
