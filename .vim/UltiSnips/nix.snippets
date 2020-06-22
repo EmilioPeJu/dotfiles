@@ -18,12 +18,22 @@ mkShell {
 }
 endsnippet
 
-snippet override
+snippet overlay
 self: super:
 
 {
   $1 = super.$1.override {
     $2
   };
+}
+endsnippet
+
+snippet shell
+with import <nixpkgs> {};
+
+mkShell {
+  buildInputs = [
+    $0
+  ];
 }
 endsnippet
