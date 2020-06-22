@@ -5,7 +5,7 @@ let mapleader = ","
 set backupdir-=.
 set backupdir^=~/tmp,/tmp
 
-call plug#begin()
+call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
