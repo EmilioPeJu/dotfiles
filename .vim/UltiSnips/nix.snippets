@@ -17,3 +17,13 @@ mkShell {
   '';
 }
 endsnippet
+
+snippet override
+self: super:
+
+{
+  $1 = super.$1.override {
+    $2
+  };
+}
+endsnippet
