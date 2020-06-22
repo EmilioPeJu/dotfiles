@@ -1,8 +1,6 @@
-*
 __pycache__/
 *.py[cod]
-
-.so
+*.so
 .Python
 env/
 build/
@@ -12,9 +10,22 @@ lib64/
 sdist/
 *.egg
 *.egg-info/
-.tox/
-.coverage
 venv/
-.svn*
-.idea
 *~
+eclipse-workspace/
+*notes*
+dwm/
+read
+slock/
+src
+st/
+steam/
+storage
+Desktop/
+Downloads/
+Music/
+Videos/
+VirtualBox VMs/
+NoMachine/
+.*
+*test/
