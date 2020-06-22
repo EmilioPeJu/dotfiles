@@ -1,3 +1,8 @@
 systemctl --user import-environment DISPLAY
-$HOME/.config/init.sh
-exec $HOME/dwm/dwm
+
+# taken from Luke
+[ -f ~/.xprofile ] && . ~/.xprofile
+
+while true; do
+    ssh-agent dwm || break
+done
