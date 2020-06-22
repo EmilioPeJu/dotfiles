@@ -2,7 +2,7 @@ self: super:
 
 {
   st = (super.st.override {
-    conf = (builtins.readFile ~/st/config.h);
+    conf = (builtins.readFile ./st/config.h);
   }).overrideAttrs (oldAttrs: {
     src = super.fetchgit {
       url = " https://git.suckless.org/st";
