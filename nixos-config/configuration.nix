@@ -67,6 +67,7 @@
     ncdu
     pass
     ranger
+    taskwarrior
     tmux
     (vimHugeX.override { python = python3; })
     vym
@@ -86,12 +87,18 @@
     pinentry
     # Desktop
     bluez-tools
+    conky
     dmenu
+    dunst
+    feh
     i3lock
+    joplin-desktop
     gnome3.gnome-terminal
     gnome3.gnome-tweaks
     gnome3.gnome-notes
+    maim
     pavucontrol
+    scrot
     xclip
     # Docs
     fbreader
