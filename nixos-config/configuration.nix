@@ -85,6 +85,7 @@
     openssl
     pinentry
     # Desktop
+    bluez-tools
     dmenu
     i3lock
     gnome3.gnome-terminal
@@ -175,8 +176,10 @@
   #services.gnome3.tracker-miners.enable = false;
   #services.gnome3.gnome-remote-desktop.enable = false;
   #services.avahi.enable = false;
+  services.dbus.socketActivated = true;
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.bluetooth.enable = true;
   services.xserver.displayManager.startx.enable = true;
 
   # Users
