@@ -37,3 +37,12 @@ mkShell {
   ];
 }
 endsnippet
+
+snippet docker
+with import <nixpkgs> {};
+
+dockerTools.buildLayeredImage {
+  name = "$1";
+  contents = [ $2 ];
+}
+endsnippet
