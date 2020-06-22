@@ -17,7 +17,7 @@ static int borderpx = 2;
  * 5: value of shell in config.h
  */
 static char *shell = "/bin/sh";
-char *utmp = "zsh";
+char *utmp = "/run/current-system/sw/bin/zsh";
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
 char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
@@ -42,6 +42,10 @@ static unsigned int tripleclicktimeout = 600;
 
 /* alt screens */
 int allowaltscreen = 1;
+
+/* allow certain non-interactive (insecure) window operations such as:
+   setting the clipboard text */
+int allowwindowops = 0;
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
