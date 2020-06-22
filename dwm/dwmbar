@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function status()
+{
+    date '+%Y %b %d (%a) %H:%M'
+}
+
+while true; do
+    xsetroot -name "$(status)" | tr '\n' ' '
+    sleep 1m
+done
+

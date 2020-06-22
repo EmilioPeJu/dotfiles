@@ -2,4 +2,5 @@
 xmodmap ${HOME}/.Xmodmap
 xrandr --output HDMI1 --auto --left-of eDP1
 dunst &
+$HOME/dwm/dwmbar &
 # conky -d
