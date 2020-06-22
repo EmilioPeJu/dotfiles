@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 xmodmap ${HOME}/.Xmodmap
-dunst &
-conky -d
+#dunst &
+#conky -d
