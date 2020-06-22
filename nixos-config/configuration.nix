@@ -91,7 +91,6 @@
     dmenu
     dunst
     feh
-    i3lock
     joplin-desktop
     gnome3.gnome-terminal
     gnome3.gnome-tweaks
@@ -99,6 +98,7 @@
     maim
     pavucontrol
     scrot
+    slock
     xclip
     # Docs
     fbreader
@@ -201,6 +201,8 @@
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/mount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
   '';
+
+  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 
   # mount points
   fileSystems = { 
