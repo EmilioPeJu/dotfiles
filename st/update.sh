@@ -1,10 +1,13 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p bash -p git -p stdenv -p xorg.libX11 -p xorg.libXft -p xorg.libXinerama -p ncurses -p pkgconfig -p fontconfig -p freetype
-if [ ! -d .git ]; then
-    git init
-    git remote add origin https://git.suckless.org/st
+#!/usr/bin/env bash
+if [ ! -d src ]; then
+    git clone https://git.suckless.org/st src
+    pushd src
     git fetch --all
     git checkout origin/master
+    popd
+    ln -sf src/st
 fi
+cp -f config.h src
+pushd src
 git pull
 make
