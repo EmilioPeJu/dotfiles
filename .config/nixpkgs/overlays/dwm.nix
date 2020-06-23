@@ -8,8 +8,8 @@ self: super:
       super.xorg.libXft
       super.xorg.libXinerama
     ];
-    configFile=~/dwm/config.h;
-    src=~/dwm/src;
+    configFile=~/suckless/dwm/config.h;
+    src=~/suckless/dwm/src;
     postPatch=''
       cp -f ${configFile} config.h
     '';

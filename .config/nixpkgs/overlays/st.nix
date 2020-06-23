@@ -12,8 +12,8 @@ self: super:
       super.ncurses
       super.fontconfig
     ];
-    configFile=~/st/config.h;
-    src=~/st/src;
+    configFile=~/suckless/st/config.h;
+    src=~/suckless/st/src;
     postPatch=''
       cp -f ${configFile} config.h
     '';

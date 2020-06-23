@@ -12,8 +12,8 @@ self: super:
       super.xorg.libX11
       super.xorg.libXft
     ];
-    configFile=~/sxiv/config.h;
-    src=~/sxiv/src;
+    configFile=~/suckless/sxiv/config.h;
+    src=~/suckless/sxiv/src;
     postPatch=''
       cp -f ${configFile} config.h
     '';
