@@ -15,6 +15,7 @@ venv/
 eclipse-workspace/
 *notes*
 dwm/
+ext/
 read
 slock/
 src

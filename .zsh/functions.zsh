@@ -20,6 +20,27 @@ function comment()
 
 zle -N comment
 
+# delete autosource file associated to
+# current directory
+function da()
+{
+    local sourcefile="${HOME}/.zsh/autosource${PWD}.sh"
+    rm -rf "$sourcefile"
+    # trigger chpwd hook
+    cd "$PWD"
+}
+
+# edit autosource file associated to
+# current directory
+function ea()
+{
+    local sourcefile="${HOME}/.zsh/autosource${PWD}.sh"
+    mkdir -p "${sourcefile%/*}"
+    $EDITOR "$sourcefile"
+    # trigger chpwd hook
+    cd "$PWD"
+}
+
 function dont-show()
 {
     BUFFER+=" &> /dev/null &"

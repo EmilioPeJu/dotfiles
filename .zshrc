@@ -12,6 +12,7 @@ fi
 # prompt zefram
 
 source ~/.zsh/setopt.zsh
+source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/bindkeys.zsh
 
@@ -25,7 +26,7 @@ export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 export SHELL="$(which zsh)"
 export ZSH_TMUX_AUTOSTART=true
 
-# ZSH_THEME="lukerandall"
+ZSH_THEME="lukerandall-mod"
 
 plugins=(zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
 
