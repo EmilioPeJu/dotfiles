@@ -164,7 +164,8 @@
     python38Packages.pycodestyle
     python38Packages.setuptools
     python38Packages.virtualenv
-    # Video
+    # Media
+    playerctl
     vlc
     # VM
     qemu
