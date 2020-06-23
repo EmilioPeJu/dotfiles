@@ -181,16 +181,15 @@
   services.xserver.videoDrivers = [ "intel" ];
   services.xserver.libinput.enable = true;
   services.xserver.wacom.enable = true;
-  #services.xserver.desktopManager.gnome3.enable = true;
-  #services.gnome3.tracker.enable = false;
-  #services.gnome3.tracker-miners.enable = false;
-  #services.gnome3.gnome-remote-desktop.enable = false;
-  #services.avahi.enable = false;
-  services.dbus.socketActivated = true;
+  #services.xserver.displayManager.startx.enable = true;
+  services.xserver.desktopManager.gnome3.enable = true;
+  services.gnome3.tracker.enable = false;
+  services.gnome3.tracker-miners.enable = false;
+  services.gnome3.gnome-remote-desktop.enable = false;
+  services.avahi.enable = false;
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
-  services.xserver.displayManager.startx.enable = true;
 
   # Users
   users.users.user = {
