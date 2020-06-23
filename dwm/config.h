@@ -66,6 +66,7 @@ static const char *volup[]    = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "
 static const char *voldown[]  = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL};
 static const char *webcmd[]  = { "firefox", NULL };
 
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
@@ -79,6 +80,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          {.v = volctl } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = webcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e nmtui") },
+	{ 0, XF86XK_AudioPrev,                     spawn,          SHCMD("playerctl prev") },
+	{ 0, XF86XK_AudioNext,                     spawn,          SHCMD("playerctl next") },
+	{ 0, XF86XK_AudioPause,                    spawn,          SHCMD("playerctl play-pause") },
+	{ 0, XF86XK_AudioPlay,                     spawn,          SHCMD("playerctl play") },
+	{ 0, XF86XK_AudioStop,                     spawn,          SHCMD("playerctl stop") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

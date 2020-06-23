@@ -4,8 +4,6 @@ xmodmap ${HOME}/.Xmodmap
 systemctl start --user pulseaudio
 # my beautiful headphones
 echo connect EB:06:EF:1D:A2:F5 | bluetoothctl
-# forward blutooth headphone keys to dbus MPRIS interface
-mpris-proxy &
 # my beautiful monitor
 xrandr --output HDMI1 --auto --left-of eDP1
 # notification daemon
