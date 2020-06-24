@@ -25,6 +25,7 @@ export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 export SHELL="$(which zsh)"
 export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOCONNECT=false
 
 ZSH_THEME="lukerandall-mod"
 
