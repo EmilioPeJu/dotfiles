@@ -9,6 +9,6 @@ xrandr --output HDMI1 --auto --left-of eDP1
 # notification daemon
 dunst &
 # top bar
-$HOME/dwm/dwmbar &
+$HOME/suckless/dwm/dwmbar &
 # system monitor
 # conky -d
