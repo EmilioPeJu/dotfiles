@@ -8,5 +8,6 @@ keysym e = e E eacute Eacute
 keysym i = i I iacute Iacute
 keysym o = o O oacute Oacute
 keysym u = u U uacute Uacute
+keysym 3 = 3 numbersign sterling EuroSign
 keysym p = p P questiondown exclamdown
 keycode 108 = Mode_switch
