@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+xclip -o -selection clipboard | espeak -v es -s 300

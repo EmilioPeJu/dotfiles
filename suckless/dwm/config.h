@@ -107,6 +107,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F1,     spawn,          {.v = volmute } },
 	{ MODKEY,                       XK_F2,     spawn,          {.v = voldown } },
 	{ MODKEY,                       XK_F3,     spawn,          {.v = volup } },
+	{ MODKEY,                       XK_F4,     spawn,          SHCMD("espeak-en") },
+	{ MODKEY,                       XK_F5,     spawn,          SHCMD("espeak-es") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
