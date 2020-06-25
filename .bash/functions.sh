@@ -137,6 +137,10 @@ function csc {
     export CSCOPE_DB="$PWD/cscope.files"
 }
 
+function cta {
+    ctags --tag-relative=yes -R -f .git/tags .
+}
+
 function tags {
     cta
     csc
