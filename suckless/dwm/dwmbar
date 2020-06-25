@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
-function status()
+function taskpart()
 {
-    date '+%Y %b %d (%a) %H:%M'
+    echo "⚒ $(task-next-name.py)"
+}
+
+function datepart()
+{
+    local hour=$(date +%I)
+    let hour=hour-1
+    local syms="🕐🕑🕒🕒🕒🕕🕖🕗🕘🕙🕙🕛"
+    echo "${syms:$hour:1} $(date '+%Y %b %d (%a) %H:%M')"
 }
 
 while true; do
-    xsetroot -name "$(status)" | tr '\n' ' '
+    xsetroot -name "$(taskpart) $(datepart)" | tr '\n' ' '
     sleep 1m
 done
 
