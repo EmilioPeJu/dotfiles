@@ -69,6 +69,7 @@ static Key keys[] = {
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpcpp") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("joplin-desktop") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("telegram-desktop") },
