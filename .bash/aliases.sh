@@ -1,7 +1,7 @@
 #!/bin/bash
 # user alias
 alias se='rifle $(fzf)'
-alias cta="ctags --tag-relative=yes -R -f .git/tags ."
+alias see='$EDITOR $(fzf)'
 alias remake="make clean uninstall; make"
 alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
