@@ -14,6 +14,7 @@ self: super:
     ];
     configFile=~/suckless/st/config.h;
     src=~/suckless/st/src;
+    patches = [ ~/suckless/st/st-alpha-0.8.2.diff ];
     postPatch=''
       cp -f ${configFile} config.h
     '';

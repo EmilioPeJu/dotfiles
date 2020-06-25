@@ -8,6 +8,10 @@ echo connect EB:06:EF:1D:A2:F5 | bluetoothctl
 xrandr --output HDMI1 --auto --left-of eDP1
 # notification daemon
 dunst &
+# player server
+mpd
+# compositor
+xcompmgr &
 # top bar
 $HOME/suckless/dwm/dwmbar &
 # system monitor

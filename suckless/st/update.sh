@@ -7,7 +7,5 @@ if [ ! -d src ]; then
     popd
     ln -sf src/st
 fi
-cp -f config.h src
-pushd src
+cd src
 git pull
-make
