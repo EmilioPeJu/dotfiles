@@ -133,7 +133,8 @@ class z(Command):
             yield "z " + dir_item
 
     def get_dirs(self):
-        dir_list = subprocess.check_output(["/usr/bin/fasd", "-l -d", self.rest(1)]).decode("utf-8")
+        dir_list = subprocess.check_output(["/usr/bin/env", "fasd", "-l -d",
+                                            self.rest(1)]).decode("utf-8")
         if not dir_list:
             return []
         return dir_list.split("\n")
