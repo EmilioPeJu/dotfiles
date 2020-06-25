@@ -67,7 +67,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("st") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("joplin-desktop") },
@@ -90,7 +90,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
