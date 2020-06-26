@@ -9,7 +9,7 @@ function datepart()
 {
     local hour=$(date +%I)
     let hour=hour-1
-    local syms="🕐🕑🕒🕒🕒🕕🕖🕗🕘🕙🕙🕛"
+    local syms="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
     echo "${syms:$hour:1} $(date '+%Y %b %d (%a) %H:%M')"
 }
 
