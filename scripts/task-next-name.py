@@ -1,9 +1,19 @@
 #!/usr/bin/env python3
 import json
+import re
 import subprocess
 
+
 def main():
-    task_output = subprocess.check_output(["task", "export"])
+    task_context = subprocess.check_output(["task", "context", "show"])
+    task_cmd = ["task"]
+    context_match = re.match("Context '([^']*)' with filter '([^']+)'",
+                             task_context.decode())
+    if context_match:
+        context_filter = context_match.group(2)
+        task_cmd.append(context_filter)
+    task_cmd.append("export")
+    task_output = subprocess.check_output(task_cmd)
     data = json.loads(task_output)
     data.sort(key=lambda x: x["urgency"], reverse=True)
     print(data[0]["description"])
