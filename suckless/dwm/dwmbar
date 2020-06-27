@@ -8,6 +8,7 @@ function taskpart()
 function datepart()
 {
     local hour=$(date +%I)
+    hour="${hour#0}"
     let hour=hour-1
     local syms="🕐🕑🕒🕓🕔🕕🕖🕗🕘🕙🕚🕛"
     echo "${syms:$hour:1} $(date '+%Y %b %d (%a) %H:%M')"
