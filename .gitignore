@@ -18,7 +18,7 @@ dwm/
 ext/
 read
 slock/
-src
+src/
 st/
 steam/
 storage
@@ -30,3 +30,10 @@ VirtualBox VMs/
 NoMachine/
 .*
 *test/
+uned/
+prj/
+maps/
+notes/
+prefix/
+lang/
+dry/
