@@ -13,8 +13,8 @@ export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export GOPATH="$HOME/.go"
 export EDITOR="vim"
 export TERMINAL="st"
-export PREFIXPATH="$HOME/storage/prefix"
-export SRCPATH="$HOME/storage/src"
+export PREFIXPATH="$HOME/prefix"
+export SRCPATH="$HOME/src"
 export NIX_PATH="$HOME/.nix-defexpr-user:$NIX_PATH"
 export EPICS_BASE=$(find-epics-base)
 # Fix misbehaving java applications in dwm
