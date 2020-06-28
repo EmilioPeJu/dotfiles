@@ -23,13 +23,10 @@ eval "$(fasd --init auto)"
 # Oh-my-zsh
 export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
-export SHELL="$(which zsh)"
-export ZSH_TMUX_AUTOSTART=true
-export ZSH_TMUX_AUTOCONNECT=false
 
 ZSH_THEME="lukerandall-mod"
 
-plugins=(zsh-autosuggestions git tmux dirhistory zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions git dirhistory zsh-syntax-highlighting)
 
 source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
 
