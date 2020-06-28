@@ -79,6 +79,9 @@ set foldclose=all
 " Work relative to current file
 " autocmd BufEnter * :lcd %:p:h
 
+" Auto generate pdf when saving tex files
+autocmd BufWritePost *.tex !pdflatex -synctex=1 -interaction=nonstopmode %
+
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
 set showbreak=···
