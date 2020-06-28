@@ -79,6 +79,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e nmtui") },
+	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
 	{ 0, XF86XK_AudioPrev,                     spawn,          SHCMD("mpc prev") },
 	{ 0, XF86XK_AudioNext,                     spawn,          SHCMD("mpc next") },
 	{ 0, XF86XK_AudioPause,                    spawn,          SHCMD("mpc toggle") },

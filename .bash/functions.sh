@@ -3,6 +3,13 @@
 
 exe() { echo "\$ $@" ; "$@" ; }
 
+function cht() {
+    local language="$1"
+    shift 1
+    local question="$*"
+    curl "cht.sh/${language}/${question}"
+}
+
 function nasmld32() {
     local NAME="${1%.*}"
     nasm -f elf32 -o ${NAME}.o $1
