@@ -57,6 +57,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", "-e", "zsh",  NULL };
 static const char *shutdowncmd[]  = { "shutdown", "now", NULL };
 static const char *volmute[]  = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 static const char *volup[]    = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
@@ -74,6 +76,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("joplin-desktop") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("st -e python3") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("st -e ranger") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
@@ -81,6 +84,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e nmtui") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ 0, XF86XK_AudioPrev,                     spawn,          SHCMD("mpc prev") },
 	{ 0, XF86XK_AudioNext,                     spawn,          SHCMD("mpc next") },
 	{ 0, XF86XK_AudioPause,                    spawn,          SHCMD("mpc toggle") },

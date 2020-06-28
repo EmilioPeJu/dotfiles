@@ -8,6 +8,7 @@ self: super:
       super.xorg.libXft
       super.xorg.libXinerama
     ];
+    patches= [ ~/suckless/dwm/dwm-scratchpad-6.2.diff ];
     configFile=~/suckless/dwm/config.h;
     src=~/suckless/dwm/src;
     postPatch=''
