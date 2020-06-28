@@ -67,7 +67,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("st -e zsh") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpcpp") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
