@@ -77,6 +77,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("st -e ranger") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("st -e tmux attach") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e nmtui") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
