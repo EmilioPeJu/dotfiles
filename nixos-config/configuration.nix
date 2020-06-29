@@ -206,14 +206,6 @@
 
   security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 
-  # mount points
-  fileSystems = { 
-    "/code" = {
-        device = "/dev/disk/by-uuid/f75db471-f548-4695-8bc1-2e5e808fee39";
-        fsType = "ext4";
-      };
-  };
-
   # VM
   # virtualisation = {
   #   virtualbox.host.enable = true;
