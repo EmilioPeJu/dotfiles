@@ -54,7 +54,6 @@
   # Some packages like coreutils, glibc or openssh are
   # already pulled in system-path
   environment.systemPackages = with pkgs; [
-    pulsemixer
     anki
     ansible
     atool
@@ -68,6 +67,7 @@
     lsof
     ncdu
     pass
+    pulsemixer
     ranger
     taskwarrior
     tmux
@@ -92,6 +92,7 @@
     conky
     dmenu
     dunst
+    dwm
     feh
     joplin-desktop
     gnome3.gnome-terminal
@@ -101,6 +102,7 @@
     pavucontrol
     scrot
     slock
+    st
     xclip
     # Docs
     fbreader
