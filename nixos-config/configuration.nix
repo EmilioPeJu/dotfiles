@@ -86,7 +86,7 @@
     # Encryption
     gnupg
     openssl
-    pinentry
+    pinentry-curses
     # Desktop
     bluez-tools
     conky
@@ -175,10 +175,6 @@
     qemu
     virtualbox
   ];
-
-  programs.gnupg.agent = {
-    enable = true;
-  };
 
   # Services
   services.xserver.enable = true;
