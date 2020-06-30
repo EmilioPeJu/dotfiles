@@ -72,6 +72,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("st -e tmux") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpcpp") },
+	{ MODKEY,                       XK_g,      spawn,          SHCMD("select-greek-letter.sh") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("joplin-desktop") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("telegram-desktop") },
