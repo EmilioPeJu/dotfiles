@@ -25,6 +25,7 @@
     minicom
     ncdu
     pass
+    psmisc
     pulsemixer
     ranger
     taskwarrior
@@ -84,7 +85,10 @@
     nfs-utils
     xfsprogs
     # HW
+    dmidecode
+    lshw
     pciutils
+    smartmontools
     udev
     usbutils
     # Images
@@ -115,6 +119,7 @@
     dnsutils
     filezilla
     iperf
+    netcat
     nmap
     proxychains
     sshfs
@@ -131,6 +136,7 @@
     nix-prefetch-git
     patchelf
     # Programming/Debugging/Tracing
+    automake
     binutils
     cscope
     ctags
