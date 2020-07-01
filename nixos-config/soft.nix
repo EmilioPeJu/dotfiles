@@ -9,10 +9,12 @@
     atool
     ddrescue
     direnv
+    direvent
     dmidecode
     espeak
     file
     firefox
+    freerdp
     fzf
     htop
     iftop
@@ -31,6 +33,7 @@
     vym
     watch
     wget
+    wine
     youtube-dl
     zsh
     # Compression
@@ -59,12 +62,17 @@
     scrot
     slock
     st
+    sxiv
+    xorg.transset
     xclip
+    xcompmgr
     # Docs
     fbreader
     mupdf
+    sent
     texlive.combined.scheme-basic
     texstudio
+    zathura
     # Electronics
     ngspice
     pulseview
@@ -95,7 +103,10 @@
     # Music
     audacity
     lmms
+    mpd
+    mpc_cli
     musescore
+    ncmpcpp
     pianobooster
     solfege
     sox
@@ -105,6 +116,8 @@
     filezilla
     iperf
     nmap
+    proxychains
+    sshfs
     socat
     traceroute
     weechat
@@ -119,6 +132,8 @@
     patchelf
     # Programming/Debugging/Tracing
     binutils
+    cscope
+    ctags
     flex
     yacc
     gcc
@@ -147,7 +162,7 @@
     python38Packages.setuptools
     python38Packages.virtualenv
     # Media
-    mpv
+    mpv-with-scripts
     playerctl
     vlc
     # VM
