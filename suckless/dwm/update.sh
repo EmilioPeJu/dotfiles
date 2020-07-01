@@ -10,5 +10,3 @@ fi
 cp -rf config.h src/config.h
 pushd src
 git pull
-make
-popd

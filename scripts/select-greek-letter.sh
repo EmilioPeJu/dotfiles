@@ -48,6 +48,9 @@ psi ψ
 Psi Ψ
 omega ω
 Omega Ω
+emptyset ∅
+int ∫
+to →
 EOF
 )
 printf "$select" | cut -d ' ' -f 2 | tr -d '\n' | xclip -i -selection clipboard

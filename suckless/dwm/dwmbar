@@ -16,16 +16,19 @@ function datepart()
 
 function batterypart()
 {
-    local level="$(cat /sys/class/power_supply/BAT1/capacity)"
-    if [ $level -le 9 ]; then
-        local index=0;
-    elif [ $level -eq 100 ]; then
-        local index=10
-    else
-        local index="${level:0:1}"
-    fi
-    local syms="▁▁▂▂▃▃▄▅▆▇█"
-    echo "${syms:$index:1} ${level}%"
+    for bat in /sys/class/power_supply/BAT*/capacity;
+    do
+        local level="$(cat $bat)"
+        if [ $level -le 9 ]; then
+            local index=0;
+        elif [ $level -eq 100 ]; then
+            local index=9
+        else
+            local index="${level:0:1}"
+        fi
+        local syms="▁▁▂▂▃▄▅▆▇█"
+        echo "${syms:$index:1} ${level}%"
+    done
 }
 
 while true; do
