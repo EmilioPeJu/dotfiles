@@ -2,6 +2,7 @@
 import argparse
 import sys
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def is_number(s):
@@ -24,6 +25,8 @@ def main():
     data = sys.stdin.read()
     data_arr = [float(item) for item in data.split() if is_number(item)]
     data_arr = data_arr[args.skipn:]
+    print(f"average: {np.average(data_arr)}")
+    print(f"std: {np.std(data_arr)}")
     plt.plot(data_arr)
     plt.show()
 
