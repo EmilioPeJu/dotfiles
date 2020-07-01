@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../soft.nix
     ];
 
   hardware.opengl.driSupport32Bit = true;
@@ -31,9 +32,6 @@
   #    '';
   #  } ];
 
-  # Power management
-  powerManagement.cpuFreqGovernor = "performance";
-
   # Networking
   networking = {
     hostName = "gamer"; # Define your hostname.
@@ -50,131 +48,6 @@
     interfaces.enp3s0.useDHCP = true;
     interfaces.wlp2s0.useDHCP = true;
   };
-
-  # Some packages like coreutils, glibc or openssh are
-  # already pulled in system-path
-  environment.systemPackages = with pkgs; [
-    anki
-    ansible
-    atool
-    direnv
-    espeak
-    file
-    firefox
-    fzf
-    htop
-    killall
-    lsof
-    ncdu
-    pass
-    pulsemixer
-    ranger
-    taskwarrior
-    tmux
-    (vimHugeX.override { python = python3; })
-    vym
-    watch
-    wget
-    youtube-dl
-    zsh
-    # Compression
-    gzip
-    unzip
-    zip
-    # Email
-    thunderbird
-    # Encryption
-    gnupg
-    openssl
-    pinentry-curses
-    # Desktop
-    bluez-tools
-    conky
-    dmenu
-    dunst
-    dwm
-    feh
-    joplin-desktop
-    gnome3.gnome-terminal
-    gnome3.gnome-tweaks
-    gnome3.gnome-notes
-    maim
-    pavucontrol
-    scrot
-    slock
-    st
-    xclip
-    # Docs
-    fbreader
-    mupdf
-    texlive.combined.scheme-basic
-    texstudio
-    # FS
-    gparted
-    inotify-tools
-    nfs-utils
-    xfsprogs
-    # HW
-    pciutils
-    udev
-    usbutils
-    # Images
-    gimp
-    gphoto2
-    imagemagick
-    # Keyboard
-    xorg.setxkbmap
-    xorg.xev
-    xorg.xkbcomp
-    xorg.xmodmap
-    # Messaging
-    qtox
-    tdesktop
-    # Net
-    deluge
-    dnsutils
-    iperf
-    nmap
-    wireguard
-    wireshark
-    # NIX related
-    cachix
-    nix-prefetch-git
-    patchelf
-    # Programming/Debugging/Tracing
-    binutils
-    flex
-    yacc
-    gcc
-    gdb
-    git
-    gnumake
-    jdk
-    kernelshark
-    nodejs
-    oprofile
-    perf-tools
-    pkgconfig
-    radare2
-    rustup
-    trace-cmd
-    valgrind
-    zeal
-    # Python
-    jupyter
-    python3
-    python38Packages.ipykernel
-    python38Packages.pip
-    python38Packages.pycodestyle
-    python38Packages.setuptools
-    python38Packages.virtualenv
-    # Media
-    playerctl
-    vlc
-    # VM
-    qemu
-    virtualbox
-  ];
 
   # Services
   services.xserver.enable = true;
