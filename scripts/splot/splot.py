@@ -25,6 +25,7 @@ def main():
     data = sys.stdin.read()
     data_arr = [float(item) for item in data.split() if is_number(item)]
     data_arr = data_arr[args.skipn:]
+    print(f"len: {len(data_arr)}")
     print(f"average: {np.average(data_arr)}")
     print(f"std: {np.std(data_arr)}")
     plt.plot(data_arr)
