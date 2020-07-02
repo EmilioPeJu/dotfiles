@@ -71,8 +71,6 @@
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
   '';
 
-  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
-
   # VM
   # virtualisation = {
   #   virtualbox.host.enable = true;
