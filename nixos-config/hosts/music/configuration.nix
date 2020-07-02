@@ -15,6 +15,8 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
+  # this laptop has coreboot with grub2 as payload and
+  # it loads the configuration file at /boot/loader.cfg
   system.activationScripts = {
     loader = {
       text = ''
