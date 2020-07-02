@@ -37,14 +37,7 @@
   networking = {
     hostName = "gamer"; # Define your hostname.
     networkmanager.enable = true;
-    extraHosts = ''
-      fd00:1111::1 router1.lan
-      fd00:1111::7285:c2ff:fe75:b3c5 server.lan
-      fd00:1111::3e97:eff:feab:3092 music.lan
-      192.168.1.254 router2.lan
-      192.168.1.226 tamagochi1.lan
-      192.168.1.228 tp1.lan
-    '';
+    extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
     interfaces.enp3s0.useDHCP = true;
     interfaces.wlp2s0.useDHCP = true;
