@@ -10,7 +10,8 @@
       ./hardware-configuration.nix
       ../../soft.nix
     ];
-
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user" ];
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
@@ -61,7 +62,7 @@
   # Users
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "audio" ];
+    extraGroups = [ "audio" "libvirtd" "kvm" "vboxusers" ];
     uid = 1001;
   };
 
@@ -70,12 +71,6 @@
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/mount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
   '';
-
-  # VM
-  # virtualisation = {
-  #   virtualbox.host.enable = true;
-  #   virtualbox.guest.enable = true;
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
