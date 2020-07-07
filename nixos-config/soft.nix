@@ -173,6 +173,11 @@
     vlc
     # VM
     qemu
+    # VOIP
+    asterisk
+    linphone
+    sipp
+    sipsak
   ];
 
   security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
