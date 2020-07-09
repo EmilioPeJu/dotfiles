@@ -11,7 +11,7 @@
       ../../soft.nix
     ];
   virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "user" ];
+  virtualisation.docker.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
   hardware.pulseaudio.support32Bit = true;
@@ -60,7 +60,7 @@
   # Users
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "audio" "libvirtd" "kvm" "vboxusers" ];
+    extraGroups = [ "audio" "libvirtd" "kvm" "vboxusers" "docker" ];
     uid = 1001;
   };
 
