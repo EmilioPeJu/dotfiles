@@ -45,15 +45,13 @@
   };
 
   # Services
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "intel" ];
-  services.xserver.libinput.enable = true;
-  services.xserver.wacom.enable = true;
-  #services.xserver.displayManager.startx.enable = true;
-  services.xserver.desktopManager.gnome3.enable = true;
-  services.gnome3.tracker.enable = false;
-  services.gnome3.tracker-miners.enable = false;
-  services.gnome3.gnome-remote-desktop.enable = false;
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "intel" ];
+    libinput.enable = true;
+    wacom.enable = true;
+    displayManager.startx.enable = true;
+  };
   services.avahi.enable = false;
   sound.enable = true;
   hardware.pulseaudio.enable = true;
