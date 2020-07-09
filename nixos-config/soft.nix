@@ -118,6 +118,7 @@
     deluge
     dnsutils
     filezilla
+    inetutils
     iperf
     netcat
     nmap
@@ -174,7 +175,6 @@
     # VM
     qemu
     # VOIP
-    asterisk
     linphone
     sipp
     sipsak
