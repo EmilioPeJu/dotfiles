@@ -4,8 +4,9 @@
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    # export XKB_DEFAULT_OPTIONS=ctrl:nocaps
-    # /usr/bin/sway
+    /usr/bin/env sway
+    exit 0
+elif [[ "$(tty)" = "/dev/tty2" ]]; then
     startx
     exit 0
 fi
