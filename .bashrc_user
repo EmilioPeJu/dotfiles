@@ -3,10 +3,12 @@
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
+systemctl --user import-environment DISPLAY
+
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    /usr/bin/env sway
+    ssh-agent /usr/bin/env sway
     exit 0
 elif [[ "$(tty)" = "/dev/tty2" ]]; then
-    startx
+    ssh-agent startx
     exit 0
 fi

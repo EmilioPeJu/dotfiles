@@ -1,8 +1,3 @@
-systemctl --user import-environment DISPLAY
+$HOME/.config/init-x.sh
 
-# taken from Luke
-[ -f ~/.xprofile ] && . ~/.xprofile
-
-while true; do
-    ssh-agent dwm || break
-done
+dwm
