@@ -22,7 +22,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel
-  boot.blacklistedKernelModules = [ "nvidia" "nouveau" ];
+  boot.blacklistedKernelModules = [ "nvidia" "nouveau" "dvb_usb_rtl28xxu" ];
   # Modified Linux
   #  boot.kernelPatches = [ {
   #    name = "debug-on";
@@ -33,6 +33,9 @@
   #      GDB_SCRIPTS y
   #    '';
   #  } ];
+
+  # udev
+  services.udev.packages = [ pkgs.rtl-sdr ];
 
   # Networking
   networking = {
