@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../soft.nix
     ];
+  documentation.dev.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.docker.enable = true;
   hardware.opengl.driSupport32Bit = true;
