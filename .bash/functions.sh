@@ -50,7 +50,7 @@ function cd-to-ranger()
     echo "cd $PWD" > "/tmp/ranger-ipc.in.${ranger_pid}"
 }
 
-function rc() {
+function _rc() {
     if [[ "$1" != "" ]]; then
         [[ -f "${HOME}/.bash/${1}.sh" ]] && . "${HOME}/.bash/${1}.sh"
     else
