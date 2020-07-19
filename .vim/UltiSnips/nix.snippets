@@ -1,3 +1,13 @@
+snippet der
+with import <nixpkgs> {};
+
+stdenv.mkDerivation rec {
+  name = "$1";
+  src = $2;
+  buildInputs = [ $3 ];
+}
+endsnippet
+
 snippet venv
 with import <nixpkgs> {};
 
