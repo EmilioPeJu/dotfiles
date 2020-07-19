@@ -18,7 +18,9 @@ export TERMINAL="st"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
 export NIX_PATH="$HOME/.nix-defexpr-user:$NIX_PATH"
-export EPICS_BASE=$(find-epics-base)
+if command -v find-epics-base &> /dev/null; then
+    export EPICS_BASE=$(find-epics-base)
+fi
 export EPICS_CA_MAX_ARRAY_BYTES=15000000
 # Fix misbehaving java applications in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
