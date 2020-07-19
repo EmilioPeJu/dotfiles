@@ -73,7 +73,7 @@
   security.sudo.configFile = ''
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/mount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
-    user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/nmtui
+    user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/nmtui-connect
   '';
 
   # This value determines the NixOS release from which the default
