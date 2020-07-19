@@ -48,6 +48,7 @@
   };
 
   # Services
+  services.avahi.enable = false;
   services.xserver = {
     enable = true;
     videoDrivers = [ "intel" ];
@@ -55,10 +56,10 @@
     wacom.enable = true;
     displayManager.startx.enable = true;
   };
-  services.avahi.enable = false;
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
+  programs.sway.enable = true;
 
   # Users
   users.users.user = {
