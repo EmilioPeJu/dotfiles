@@ -3,6 +3,15 @@
 {
   # Some packages like coreutils, glibc or openssh are
   # already pulled in system-path
+  nixpkgs.overlays = [
+    (self: super:
+      {
+        gnuradio = (super.gnuradio.override {
+          python = (super.python2.withPackages (pp: [ pp.pygtk ]));
+        });
+      }
+    )
+  ];
   environment.systemPackages = with pkgs; [
     anki
     ansible
@@ -11,25 +20,39 @@
     direnv
     direvent
     dmidecode
+    entr
     espeak
     file
     firefox
+    fontforge
     freerdp
     fzf
+    grim
+    gtk3
     htop
     iftop
     iotop
+    i3status
+    jq
     killall
     libreoffice
     lsof
+    mako
+    manpages
     minicom
+    mutt-with-sidebar
     ncdu
     pass
+    plan9port
     psmisc
     pulsemixer
+    qt5.full
     ranger
+    sway
     taskwarrior
     tmux
+    ts
+    ums
     (vimHugeX.override { python = python3; })
     vym
     watch
@@ -55,6 +78,7 @@
     dwm
     feh
     joplin-desktop
+    gnome3.gnome-disk-utility
     gnome3.gnome-terminal
     gnome3.gnome-tweaks
     gnome3.gnome-notes
@@ -96,6 +120,7 @@
     gphoto2
     graphviz
     imagemagick
+    krita
     # Keyboard
     xorg.setxkbmap
     xorg.xev
@@ -110,7 +135,7 @@
     mpd
     mpc_cli
     musescore
-    ncmpcpp
+    ncmpc
     pianobooster
     solfege
     sox
@@ -160,18 +185,25 @@
     trace-cmd
     valgrind
     zeal
+    # Radio
+    #(gnuradio-with-packages.override { python = python2; })
+    gnuradio-with-packages
+    gr-osmosdr
+    gqrx
+    rtl-sdr
     # Python
     jupyter
-    python3
-    python38Packages.ipykernel
-    python38Packages.pip
-    python38Packages.pycodestyle
-    python38Packages.setuptools
-    python38Packages.virtualenv
+    (python3Full.withPackages (pp: [
+      pp.ipykernel
+      pp.pip
+      pp.pycodestyle
+      pp.setuptools
+      pp.virtualenv
+    ]))
     # Media
     mpv-with-scripts
+    olive-editor
     playerctl
-    vlc
     # VM
     qemu
     # VOIP
