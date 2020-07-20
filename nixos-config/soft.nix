@@ -49,7 +49,6 @@
     qt5.full
     ranger
     sway
-    taskwarrior
     tmux
     ts
     ums
@@ -126,6 +125,10 @@
     xorg.xev
     xorg.xkbcomp
     xorg.xmodmap
+    # Management
+    python38Packages.bugwarrior
+    tasknc
+    taskwarrior
     # Messaging
     qtox
     tdesktop
