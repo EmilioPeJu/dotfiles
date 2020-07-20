@@ -22,6 +22,7 @@ alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
 alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
 # include-freestanding-c99 contains relevant headers
 alias gcc-freestanding-c99="gcc -std=c99 -nostdinc -nostdlib -ffreestanding -I $HOME/include-freestanding-c99"
+alias r="ranger"
 alias r2help="r2 -q -c '?*~...' -"
 alias t="trans -speak -d en:es"
 # useful for simulating a serial port
