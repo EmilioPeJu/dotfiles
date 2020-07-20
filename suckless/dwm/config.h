@@ -83,7 +83,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("st -e tmux attach") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e nmtui") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e sudo nmtui-connect") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ 0, XF86XK_AudioPrev,                     spawn,          SHCMD("mpc prev") },
