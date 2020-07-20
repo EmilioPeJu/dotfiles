@@ -65,7 +65,7 @@
   # Users
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "audio" "libvirtd" "kvm" "vboxusers" "docker" ];
+    extraGroups = [ "systemd-journal" "audio" "libvirtd" "kvm" "vboxusers" "docker" ];
     uid = 1001;
   };
 
