@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat | shsplit | dmenu -i -p 'Copy which string?' -l 10 | xclip -selection clipboard

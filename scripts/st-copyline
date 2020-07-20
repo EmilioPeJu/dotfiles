@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+cat | dmenu -i -p 'Copy which line?' -l 10 | xclip -selection clipboard

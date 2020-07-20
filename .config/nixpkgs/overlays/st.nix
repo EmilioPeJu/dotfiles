@@ -14,7 +14,10 @@ self: super:
     ];
     configFile=~/suckless/st/config.h;
     src=~/suckless/st/src;
-    patches = [ ~/suckless/st/st-alpha-0.8.2.diff ];
+    patches = [ ~/suckless/st/st-alpha-0.8.2.diff
+                ~/suckless/st/st-scrollback-20200419-72e3f6c.diff
+                ~/suckless/st/st-externalpipe-0.8.4.diff ];
+
     postPatch=''
       cp -f ${configFile} config.h
     '';
