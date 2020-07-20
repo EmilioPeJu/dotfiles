@@ -219,6 +219,8 @@ mode "applications" {
     bindsym d exec dmenumount.sh,mode "default"
     bindsym Shift+d exec dmenuumount.sh,mode "default"
     bindsym h exec $term -e htop,mode "default"
+    bindsym k exec $term -e tasknc,mode "default"
+    bindsym m exec thunderbird,mode "default"
     bindsym n exec joplin-desktop,mode "default"
     bindsym r exec $term -e ranger,mode "default"
     bindsym t exec telegram-desktop,mode "default"
