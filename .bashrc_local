@@ -5,7 +5,7 @@ fortune
 [[ -f ~/norc ]] && return
 
 # user environment variables
-export SHELL="$(which zsh)"
+#export SHELL="$(which zsh)"
 export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:$HOME/.local/bin"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"
