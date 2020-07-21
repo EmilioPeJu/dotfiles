@@ -181,3 +181,8 @@ function tp-wifi {
     # key_type 3 is WPA2
     tplink_smartplug.py -t $TARGET -j '{"netif":{"set_stainfo":{"ssid":"'"$SSID"'","password":"'"$PASS"'","key_type":3}}}'
 }
+
+function tar-cwd {
+    local dirname=$(basename $PWD)
+    tar cvfz /tmp/${dirname}-$(date +%y-%m-%d-%H-%M-%S).tar.gz .
+}
