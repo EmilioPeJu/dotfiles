@@ -40,14 +40,10 @@ function gpr() {
 
 function cd-from-ranger()
 {
-    ranger_pid=$(cat /tmp/ranger.pid)
-    echo "get %d" > "/tmp/ranger-ipc.in.${ranger_pid}"
-    cd -- "$(cat /tmp/ranger-ipc.out.${ranger_pid})"
-}
-
-function cd-to-ranger()
-{
-    echo "cd $PWD" > "/tmp/ranger-ipc.in.${ranger_pid}"
+    local ranger_pid=$(pgrep ranger | sed 1q)
+    [[ -z "$ranger_pid" ]] && return
+    local ranger_dir=$(readlink -f /proc/$ranger_pid/cwd)
+    cd -- "$ranger_dir"
 }
 
 function _rc() {
