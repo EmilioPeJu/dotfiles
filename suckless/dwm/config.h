@@ -69,19 +69,23 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("st -e tmux") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
+	{ ControlMask,                  XK_Return, spawn,          SHCMD("st -e tmux") },
+	{ ControlMask|ShiftMask,        XK_Return, spawn,          SHCMD("st -e tmux attach") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
-	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpcpp") },
+	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpc") },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_g,      spawn,          SHCMD("select-greek-letter.sh") },
+	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("xkill") },
+	{ ControlMask|ShiftMask,        XK_k,      spawn,          SHCMD("st -e vit") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("slock") },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("thunderbird") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("joplin-desktop") },
-	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("telegram-desktop") },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("st -e python3") },
 	{ MODKEY,                       XK_r,      spawn,          SHCMD("st -e ranger") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
-	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("st -e tmux attach") },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e sudo nmtui-connect") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
@@ -94,13 +98,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -112,11 +116,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_F1,     spawn,          {.v = volmute } },
-	{ MODKEY,                       XK_F2,     spawn,          {.v = voldown } },
-	{ MODKEY,                       XK_F3,     spawn,          {.v = volup } },
-	{ MODKEY,                       XK_F4,     spawn,          SHCMD("espeak-en") },
-	{ MODKEY,                       XK_F5,     spawn,          SHCMD("espeak-es") },
+	{ ControlMask|ShiftMask,        XK_Down,   spawn,          {.v = volmute } },
+	{ ControlMask,                  XK_Down,   spawn,          {.v = voldown } },
+	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -126,7 +128,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
 };
 
 /* button definitions */
