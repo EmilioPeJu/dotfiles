@@ -56,8 +56,9 @@ input type:keyboard {
 # Basics:
 #
     # start a terminal
-    bindsym $mod+Return exec $term -e tmux
-    bindsym $mod+shift+Return exec $term -e tmux attach
+    bindsym $mod+Return exec $term
+    bindsym Control+Return exec $term -e tmux
+    bindsym Control+shift+Return exec $term -e tmux attach
 
     # kill focused window
     bindsym $mod+Shift+q kill
