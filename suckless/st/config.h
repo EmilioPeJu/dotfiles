@@ -193,6 +193,8 @@ static char *copystringcmd[] = { "/bin/sh", "-c", "st-copystring",
                                  "externalpipe", NULL };
 static char *copylinecmd[] = { "/bin/sh", "-c", "st-copyline",
                                "externalpipe", NULL };
+static char *copyoutcmd[] = { "/bin/sh", "-c", "st-copyout",
+                              "externalpipe", NULL };
 
 /* Internal keyboard shortcuts. */
 static Shortcut shortcuts[] = {
@@ -214,6 +216,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_j,           kscrolldown,    {.i = 1} },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copystringcmd } },
 	{ TERMMOD,              XK_Y,           externalpipe,   {.v = copylinecmd } },
+	{ TERMMOD,              XK_O,           externalpipe,   {.v = copyoutcmd } },
 };
 
 /*
