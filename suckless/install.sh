@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -e
 name="$(basename $PWD)"
 cp -rf src build
 pushd build
