@@ -6,9 +6,12 @@ pushd build
 for patch in ../*.diff; do
     patch -p1 < $patch
 done
-[[ -x configure ]] && ./configure --prefix=$PREFIXPATH/$name
 if command -v musl-gcc &>/dev/null; then
+    [[ -x configure ]] && ./configure --prefix=$PREFIXPATH/$name --cc=musl-gcc
+    make &&
     make install PREFIX=$PREFIXPATH/$name CC=musl-gcc && popd && rm -rf build
 else
+    [[ -x configure ]] && ./configure --prefix=$PREFIXPATH/$name
+    make &&
     make install PREFIX=$PREFIXPATH/$name && popd && rm -rf build
 fi
