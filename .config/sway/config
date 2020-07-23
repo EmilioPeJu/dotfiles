@@ -226,6 +226,7 @@ mode "applications" {
     bindsym m exec thunderbird,mode "default"
     bindsym n exec joplin-desktop,mode "default"
     bindsym p exec $term -e python3,mode "default"
+    bindsym Shift+p exec passmenu,mode "default"
     bindsym r exec $term -e ranger,mode "default"
     bindsym Shift+r exec $term -e htop,mode "default"
     bindsym t exec telegram-desktop,mode "default"
