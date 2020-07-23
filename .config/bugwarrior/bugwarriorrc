@@ -5,7 +5,7 @@
 # Here you define a comma separated list of targets.  Each of them must have a
 # section below determining their properties, how to query them, etc.  The name
 # is just a symbol, and doesn't have any functional importance.
-targets = my_github
+targets = my_github,jira_project
 
 # If unspecified, the default taskwarrior config will be used.
 #taskrc = /path/to/.taskrc
@@ -107,16 +107,15 @@ github.token = @oracle:eval:pass github.token
 github.interactive=True
 
 
-# [jira_project]
-# service = jira
-# jira.base_uri = https://jira.example.org
-# jira.username = ralph
-# jira.password = OMG_LULZ
-# jira.query = assignee = ralph and status != closed and status != resolved
+[jira_project]
+service = jira
+jira.base_uri = https://jira.diamond.ac.uk
+jira.username = hir12111
+jira.password = @oracle:eval:pass hir12111
+jira.query = assignee = hir12111 and status != closed and status != resolved
 # # Set this to your jira major version. We currently support only jira version
 # # 4 and 5(the default). You can find your particular version in the footer at
 # # the dashboard.
 # jira.version = 5
-# jira.add_tags = enterprisey,work
-
+jira.add_tags = w
 
