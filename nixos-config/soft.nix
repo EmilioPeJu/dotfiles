@@ -27,6 +27,7 @@
     fontforge
     freerdp
     fzf
+    glances
     grim
     gtk3
     htop
@@ -39,17 +40,19 @@
     lsof
     mako
     manpages
-    minicom
     mutt-with-sidebar
     ncdu
     pass
     plan9port
+    progress
     psmisc
     pulsemixer
     qt5.full
+    python38Packages.pyserial
     ranger
     sway
     tmux
+    tree
     ts
     ums
     (vimHugeX.override { python = python3; })
@@ -60,6 +63,7 @@
     youtube-dl
     zsh
     # Compression
+    archivemount
     gzip
     unzip
     zip
@@ -77,10 +81,6 @@
     dwm
     feh
     joplin-desktop
-    gnome3.gnome-disk-utility
-    gnome3.gnome-terminal
-    gnome3.gnome-tweaks
-    gnome3.gnome-notes
     maim
     pavucontrol
     scrot
@@ -88,6 +88,7 @@
     st
     sxiv
     xorg.transset
+    xorg.xkill
     xclip
     xcompmgr
     # Docs
@@ -127,8 +128,8 @@
     xorg.xmodmap
     # Management
     python38Packages.bugwarrior
-    tasknc
     taskwarrior
+    vit
     # Messaging
     qtox
     tdesktop
@@ -148,12 +149,13 @@
     filezilla
     inetutils
     iperf
-    netcat
+    netcat-gnu
     nmap
     proxychains
     sshfs
     socat
     traceroute
+    websocat
     weechat
     wireguard
     wireshark

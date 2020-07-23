@@ -67,8 +67,21 @@
     isNormalUser = true;
     extraGroups = [ "systemd-journal" "audio" "libvirtd" "kvm" "vboxusers" "docker" ];
     uid = 1001;
+    packages = with pkgs; [
+      discord
+      nomachine-client
+      skypeforlinux
+      slack
+      steam
+      teams
+      vscode
+      zoom-us
+    ];
   };
+  # discord, vscode ... requires it
+  nixpkgs.config.allowUnfree = true;
 
+  # security
   security.sudo.enable = true;
   security.sudo.configFile = ''
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/mount
