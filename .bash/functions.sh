@@ -161,7 +161,7 @@ function ebpfcc() {
         llc -march=bpf -filetype=obj -o "`basename $1 .c`.o"
 }
 
-function remote-dd() {
+function remote-dd-gzip() {
     local host="$1"
     local IF="$2"
     local OF="$3"
