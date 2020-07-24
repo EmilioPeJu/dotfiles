@@ -87,10 +87,11 @@
     slock
     st
     sxiv
-    xorg.transset
-    xorg.xkill
     xclip
     xcompmgr
+    xdotool
+    xorg.transset
+    xorg.xkill
     # Docs
     fbreader
     mupdf
