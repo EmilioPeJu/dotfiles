@@ -1,6 +1,8 @@
 #!/bin/bash
 [[ -f ~/norc ]] && return
 
+[[ -f ~/.bash/variables.sh ]] && . ~/.bash/variables.sh
+
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     # only for interactive bash sessions
     command -v fortune &> /dev/null && fortune
@@ -9,6 +11,6 @@ if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
 fi
 
 # load helper scripts
-for script in "variables" "functions" "aliases" "stage"; do
+for script in "functions" "aliases" "stage"; do
     [[ -f ~/.bash/${script}.sh ]] && . ~/.bash/${script}.sh
 done
