@@ -73,7 +73,7 @@
     };
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "/run/current-system/sw/bin/zpool import -aN";
+      ExecStart = "${pkgs.zfs}/bin/zpool import -aN";
     };
     wantedBy = [  "zfs-import.target" ];
   };
