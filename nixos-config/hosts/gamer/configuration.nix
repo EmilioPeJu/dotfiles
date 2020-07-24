@@ -21,6 +21,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor = false;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "zfs" ];
 
   # Kernel
   boot.blacklistedKernelModules = [ "nvidia" "nouveau" "dvb_usb_rtl28xxu" ];
@@ -41,6 +42,7 @@
   # Networking
   networking = {
     hostName = "gamer"; # Define your hostname.
+    hostId = "4e28bfae";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
@@ -61,6 +63,20 @@
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
   programs.sway.enable = true;
+  # workaround to import zpools at boot time
+  # ( I don't want to use mountpoint=legacy )
+  systemd.services."custom-zfs-import-cache" = {
+    enable = true;
+    unitConfig = {
+      Requires = "systemd-udev-settle.service";
+      After = "systemd-udev-settle.service";
+    };
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/zpool import -aN";
+    };
+    wantedBy = [  "zfs-import.target" ];
+  };
 
   # Users
   users.users.user = {
