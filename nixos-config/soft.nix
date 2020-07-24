@@ -187,6 +187,7 @@
     radare2
     rustup
     sloccount
+    tig
     trace-cmd
     valgrind
     zeal
