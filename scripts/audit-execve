@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+auditctl -a exit,always -F arch=b64 -S execve -k syscall-exit-execve
