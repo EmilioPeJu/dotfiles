@@ -104,6 +104,12 @@
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/nmtui-connect
   '';
+  security.audit = {
+    backlogLimit = 8192;
+    enable = true;
+    failureMode = "printk";
+  };
+  #security.auditd.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
