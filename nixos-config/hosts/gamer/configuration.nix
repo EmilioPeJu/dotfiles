@@ -70,9 +70,11 @@
     unitConfig = {
       Requires = "systemd-udev-settle.service";
       After = "systemd-udev-settle.service";
+      Before = "zfs-import.target";
     };
     serviceConfig = {
       Type = "oneshot";
+      RemainAfterExit = "yes";
       ExecStart = "${pkgs.zfs}/bin/zpool import -aN";
     };
     wantedBy = [  "zfs-import.target" ];
