@@ -68,6 +68,7 @@
   systemd.services."custom-zfs-import-cache" = {
     enable = true;
     unitConfig = {
+      DefaultDependencies = "no";
       Requires = "systemd-udev-settle.service";
       After = "systemd-udev-settle.service";
       Before = "zfs-import.target";
