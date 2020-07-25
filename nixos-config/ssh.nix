@@ -11,5 +11,5 @@
     MaxAuthTries 2
   '';
 
-  users.extraUsers.user.openssh.authorizedKeys.keyFiles = [ ../../keys/xy.pub ];
+  users.extraUsers.user.openssh.authorizedKeys.keyFiles = [ ./keys/xy.pub ];
 }
