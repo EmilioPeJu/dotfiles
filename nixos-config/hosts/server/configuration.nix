@@ -42,6 +42,7 @@
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
     /extra 192.168.89.0/24(rw,sync,no_subtree_check)
+    /stage 192.168.89.0/24(rw,sync,no_subtree_check)
   '';
 
   # Set your time zone.
