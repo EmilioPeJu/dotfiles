@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../base.nix
+      ../../security.nix
       ../../ssh.nix
       ../../zfs.nix
     ];
