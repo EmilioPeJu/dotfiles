@@ -14,7 +14,6 @@
     espeak
     file
     fzf
-    glances
     gtk3
     htop
     iftop
@@ -85,6 +84,7 @@
     weechat
     wireguard
     wireshark
+    wol
     wpa_supplicant
     # NIX related
     cachix

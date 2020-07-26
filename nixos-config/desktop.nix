@@ -34,6 +34,7 @@
     fontforge
     freerdp
     grim
+    i3status
     joplin-desktop
     libreoffice
     maim

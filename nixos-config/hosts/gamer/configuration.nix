@@ -11,7 +11,7 @@
       ../../base.nix
       ../../coms.nix
       ../../desktop.nix
-      ../../music.nix
+      # ../../music.nix
       ../../security.nix
       ../../virt.nix
       ../../zfs.nix
