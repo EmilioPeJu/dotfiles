@@ -7,6 +7,8 @@
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/mount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/umount
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/nmtui-connect
+    user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/systemctl
+    user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/zfs
   '';
   security.audit = {
     backlogLimit = 8192;
