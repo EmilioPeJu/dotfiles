@@ -34,7 +34,15 @@
     interfaces.enp3s0f0.useDHCP = true;
     interfaces.enp3s0f1.useDHCP = true;
     interfaces.wlp0s20f0u1.useDHCP = true;
+    firewall.allowedTCPPorts = [ 1026 111 2049 4045 ];
+    firewall.allowedUDPPorts = [ 111 2049 4045 ];
   };
+
+  # NFS server
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /extra 192.168.89.0/24(rw,sync,no_subtree_check)
+  '';
 
   # Set your time zone.
   time.timeZone = "Europe/Londom";
