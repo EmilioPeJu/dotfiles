@@ -34,8 +34,8 @@
     interfaces.enp3s0f0.useDHCP = true;
     interfaces.enp3s0f1.useDHCP = true;
     interfaces.wlp0s20f0u1.useDHCP = true;
-    firewall.allowedTCPPorts = [ 1026 111 2049 4045 ];
-    firewall.allowedUDPPorts = [ 111 2049 4045 ];
+    firewall.allowedTCPPorts = [ 1026 111 2049 4045 20048 ];
+    firewall.allowedUDPPorts = [ 111 2049 4045 20048 ];
   };
 
   # NFS server
