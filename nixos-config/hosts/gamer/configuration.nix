@@ -46,6 +46,12 @@
     interfaces.wlp2s0.useDHCP = true;
   };
 
+  # gnupg agent
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "gnome3";
+  };
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 

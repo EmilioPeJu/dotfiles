@@ -36,6 +36,7 @@
     grim
     i3status
     joplin-desktop
+    libnotify
     libreoffice
     maim
     pavucontrol
