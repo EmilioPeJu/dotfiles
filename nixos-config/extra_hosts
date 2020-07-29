@@ -1,7 +1,9 @@
-fd00:1111::1 router1.lan
-fd00:1111::4ecc:6aff:fee2:2e56 gamer.lan
-fd00:1111::7285:c2ff:fe75:b3c5 server.lan
-fd00:1111::3e97:eff:feab:3092 music.lan
+192.168.89.2 router1.lan
+192.168.89.250 cryptkeeper.lan
+192.168.89.251 server.lan
+192.168.89.253 music.lan
+192.168.89.254 gamer.lan
 192.168.1.254 router2.lan
 192.168.1.226 tamagochi1.lan
 192.168.1.228 tp1.lan
+192.168.1.227 tp2.lan
