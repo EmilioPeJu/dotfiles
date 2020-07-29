@@ -19,33 +19,50 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking = {
     hostName = "cryptkeeper";
     hostId = "974460af";
     networkmanager.enable = true;
+    extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
     interfaces.eno1.useDHCP = true;
     interfaces.wlp3s0.useDHCP = true;
   };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Wireguard
+  # this line is only used to easily enable/disable wireguard
+  networking.wireguard.enable = true;
+  networking.firewall = {
+      allowedUDPPorts = [ 51820 ];
+  } ;
 
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "192.168.90.1/24" ];
+      listenPort = 51820;
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -A FORWARD -i wlp3s0 -o eno1 -j DROP
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.90.0/24 -o eno1 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 192.168.90.0/24 -o wlp3s0 -j MASQUERADE
+        ${pkgs.procps}/bin/sysctl net.ipv4.ip_forward=1
+      '';
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -D FORWARD -i wlp3s0 -o eno1 -j DROP
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.90.0/24 -o eno1 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 192.168.90.0/24 -o wlp2s0 -j MASQUERADE
+        ${pkgs.procps}/bin/sysctl net.ipv4.ip_forward=0
+      '';
+      privateKeyFile = "/home/user/.wireguard/private";
+      peers = [
+        {
+          publicKey = builtins.replaceStrings ["\n"] [""] (builtins.readFile /home/user/.wireguard/peerpublic);
+          presharedKeyFile = "/home/user/.wireguard/psk";
+          allowedIPs = [ "192.168.90.2/32" ];
+        }
+      ];
+    };
+  };
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   users.users.user = {
