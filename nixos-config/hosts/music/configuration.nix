@@ -13,6 +13,7 @@
       ../../music.nix
       ../../security.nix
       ../../ssh.nix
+     ../../zfs.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -36,6 +37,7 @@
 
   networking = {
     hostName = "music";
+    hostId = "f36d99d7";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
