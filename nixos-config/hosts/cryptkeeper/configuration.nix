@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../../base.nix
       ../../desktop.nix
+      ../../motion.nix
       ../../ssh.nix
       ../../security.nix
       ../../zfs.nix
@@ -67,7 +68,7 @@
 
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "audio" ];
+    extraGroups = [ "audio" "video"];
   };
 
   # This value determines the NixOS release from which the default
