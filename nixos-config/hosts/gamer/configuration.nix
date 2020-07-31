@@ -77,7 +77,9 @@
   # User
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "systemd-journal" "audio" "libvirtd" "kvm" "vboxusers" "docker" "dialout" ];
+    extraGroups = [
+      "systemd-journal" "audio" "libvirtd" "kvm" "vboxusers" "docker" "dialout" "video"
+    ];
     uid = 1001;
     packages = with pkgs; [
       discord
