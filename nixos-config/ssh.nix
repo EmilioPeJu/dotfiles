@@ -3,6 +3,7 @@
 {
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.forwardX11 = true;
   services.openssh.ports = [ 1026 ];
   services.openssh.passwordAuthentication = false;
   services.openssh.extraConfig = ''
