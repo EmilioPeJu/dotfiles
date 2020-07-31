@@ -128,6 +128,7 @@
       pp.ipykernel
       pp.pip
       pp.pycodestyle
+      pp.pyzmq
       pp.setuptools
       pp.virtualenv
     ]))
