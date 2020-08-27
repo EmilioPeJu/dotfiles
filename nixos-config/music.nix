@@ -8,6 +8,7 @@
     musescore
     pianobooster
     solfege
+    soundfont-fluid
     sox
   ];
 }
