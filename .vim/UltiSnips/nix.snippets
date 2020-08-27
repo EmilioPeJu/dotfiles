@@ -8,6 +8,17 @@ stdenv.mkDerivation rec {
 }
 endsnippet
 
+snippet py
+with import <nixpkgs> {};
+with python3.pkgs;
+buildPythonPackage  rec {
+  name = "$1";
+  version = "0.1";
+  src = ./src;
+  propagatedBuildInputs = [ $2 ];
+}
+endsnippet
+
 snippet venv
 with import <nixpkgs> {};
 
