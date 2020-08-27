@@ -1,7 +1,9 @@
 #!/bin/bash
 # user alias
 alias se='rifle $(fzf)'
+alias sec='rifle $(file-by-content | cut -d ":" -f 1)'
 alias see='$EDITOR $(fzf)'
+alias seec='$EDITOR $(file-by-content | cut -d ":" -f 1-2 | sed "s/:/ +/")'
 alias remake="make clean uninstall; make"
 alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
