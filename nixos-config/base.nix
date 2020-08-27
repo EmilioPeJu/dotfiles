@@ -30,6 +30,7 @@
     pulsemixer
     python38Packages.pyserial
     ranger
+    ripgrep
     tmux
     tree
     ts
@@ -41,6 +42,7 @@
     # Compression
     archivemount
     gzip
+    p7zip
     unzip
     zip
     # Encryption
@@ -65,6 +67,7 @@
     udev
     usbutils
     # Management
+    calcurse
     python38Packages.bugwarrior
     taskwarrior
     vit
@@ -93,6 +96,7 @@
     nix-prefetch-git
     patchelf
     # Players
+    ffmpeg-full
     mpd
     mpc_cli
     mpv-with-scripts
@@ -125,6 +129,8 @@
     # Python
     jupyter
     (python3Full.withPackages (pp: [
+      pp.numpy
+      pp.matplotlib
       pp.ipykernel
       pp.pip
       pp.pycodestyle
