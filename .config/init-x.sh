@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+. ~/.config/init-common.sh
 # socket activation would not allow to connect immediately
 systemctl start --user pulseaudio
 # my beautiful monitor
