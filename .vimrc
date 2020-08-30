@@ -31,8 +31,8 @@ nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 
 " fzf
-nnoremap <C-p> :GFiles<CR>
-nnoremap <leader>p :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>p :GFiles<CR>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-l>"
@@ -81,6 +81,7 @@ set foldclose=all
 
 " Auto generate pdf when saving tex files
 autocmd BufWritePost *.tex !pdflatex -synctex=1 -interaction=nonstopmode %
+
 
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
