@@ -1,7 +1,41 @@
 #!/bin/bash
 # user functions
 
-exe() { echo "\$ $@" ; "$@" ; }
+function c {
+    local query=$(find .  -maxdepth 1 -type d | fzf -1 --query "$1")
+    cd "$query"
+}
+
+function ranger-cd {
+    local tmp=$(mktemp)
+    ranger --choosedir="$tmp"
+    local dir=$(cat "$tmp")
+    rm -f "$tmp"
+    cd "$dir"
+}
+
+function search {
+    local query=$(find . 2>/dev/null | fzf -1 --query "$1")
+    if [[ -d "$query" ]]; then
+        cd "$query"
+    else
+        rifle "$query"
+    fi
+}
+
+function search-content {
+    local query=$(file-by-content | cut -d ':' -f 1)
+    if [[ -d "$query" ]]; then
+        cd "$query"
+    else
+        rifle "$query"
+    fi
+}
+
+function exe() {
+    echo "\$ $@"
+    "$@"
+}
 
 function cht() {
     local language="$1"
@@ -186,3 +220,4 @@ function tar-cwd {
     local dirname=$(basename $PWD)
     tar cvfz /tmp/${dirname}-$(date +%y-%m-%d-%H-%M-%S).tar.gz .
 }
+
