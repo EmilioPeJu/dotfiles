@@ -6,7 +6,7 @@
 systemctl --user import-environment DISPLAY
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    ssh-agent /usr/bin/env sway
+    tmux new-session -s sway ssh-agent /usr/bin/env sway
     exit 0
 elif [[ "$(tty)" = "/dev/tty2" ]]; then
     ssh-agent startx
