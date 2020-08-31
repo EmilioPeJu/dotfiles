@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=16:antialias=true:autohint=true";
+static char *font = "OpenDyslexicMono:size=12";
 static int borderpx = 2;
 float alpha = 0.8;
 

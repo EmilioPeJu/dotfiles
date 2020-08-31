@@ -53,6 +53,9 @@ input type:keyboard {
 input "1386:891:Wacom_One_by_Wacom_M_Pen" map_to_output HDMI-A-1
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#
+# Fonts
+font pango: OpenDyslexicMono Regular 10
 
 ### Key bindings
 #
