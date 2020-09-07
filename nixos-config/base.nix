@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     ansible
     atool
+    bashmount
     ddrescue
     direnv
     direvent
@@ -23,6 +24,7 @@
     lsof
     mako
     manpages
+    matrix-synapse
     ncdu
     pass
     progress
@@ -31,6 +33,7 @@
     python38Packages.pyserial
     ranger
     ripgrep
+    rsync
     tmux
     tree
     ts
@@ -58,6 +61,7 @@
     hdparm
     inotify-tools
     nfs-utils
+    udisks
     xfsprogs
     # HW
     dmidecode
@@ -71,6 +75,8 @@
     python38Packages.bugwarrior
     taskwarrior
     vit
+    # Monitor
+    atop
     # Net
     deluge
     dnsutils
@@ -122,6 +128,7 @@
     radare2
     rustup
     sloccount
+    strace
     tig
     trace-cmd
     valgrind
@@ -138,5 +145,8 @@
       pp.setuptools
       pp.virtualenv
     ]))
+    # Security
+    metasploit
+    python3Packages.binwalk-full
   ];
 }
