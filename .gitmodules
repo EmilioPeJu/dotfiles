@@ -10,14 +10,6 @@
 	path = .zsh/oh-my-zsh-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 	ignore = dirty
-[submodule "problems"]
-	path = problems
-	url = git@github.com:hir12111/problems.git
-	ignore = dirty
-[submodule ".nix-defexpr-user/dlspkgs"]
-	path = .nix-defexpr-user/dlspkgs
-	url = git@github.com:hir12111/dlspkgs.git
-	ignore = dirty
 [submodule ".nix-defexpr-user/epicspkgs"]
 	path = .nix-defexpr-user/epicspkgs
 	url = git@github.com:hir12111/epicspkgs.git
