@@ -7,7 +7,7 @@ xrandr --output HDMI1 --auto --left-of eDP1
 # my beautiful headphones
 echo connect EB:06:EF:1D:A2:F5 | bluetoothctl
 # player server
-mpd
+one-instance mpd
 # notification daemon
 dunst &
 # compositor

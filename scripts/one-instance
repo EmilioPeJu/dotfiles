@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+if ! pgrep "$1" &> /dev/null; then
+    $@
+fi
