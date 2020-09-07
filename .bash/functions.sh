@@ -16,10 +16,42 @@ function ranger-cd {
 
 function search {
     local query=$(find . 2>/dev/null | fzf -1 --query "$1")
-    if [[ -d "$query" ]]; then
+    if [[ -n "$query" ]]; then
+        if [[ -d "$query" ]]; then
+            cd "$query"
+        else
+            rifle "$query"
+        fi
+    fi
+}
+
+function search-cd {
+    local query=$(find . -type d 2>/dev/null | fzf -1 --query "$1")
+    if [[ -n "$query" ]]; then
         cd "$query"
-    else
-        rifle "$query"
+    fi
+}
+
+function search-edit {
+    local query=$(fzf)
+    if [[ -n "$query" ]]; then
+        $EDITOR "$query"
+    fi
+}
+
+function file-by-content {
+    # $1 initial query
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    INITIAL_QUERY="$1"
+    FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
+    fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+        --ansi --phony --query "$INITIAL_QUERY"
+}
+
+function search-edit-content() {
+    local query=$(file-by-content | cut -d ":" -f 1-2 | sed "s/:/ +/")
+    if [[ -n "$query" ]]; then
+        $EDITOR $query
     fi
 }
 

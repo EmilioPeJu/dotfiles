@@ -1,7 +1,11 @@
 #!/bin/bash
 # user alias
-alias se='$EDITOR $(fzf)'
-alias sec='$EDITOR $(file-by-content | cut -d ":" -f 1-2 | sed "s/:/ +/")'
+alias re2pr='cp -d result $PREFIXPATH/$(basename $PWD)'
+alias se='search'
+alias see='search-edit'
+alias sec='search-content'
+alias seec='search-edit-content'
+alias secd='search-cd'
 alias remake="make clean uninstall; make"
 alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
