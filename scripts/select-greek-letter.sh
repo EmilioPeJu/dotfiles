@@ -54,3 +54,4 @@ to →
 EOF
 )
 printf "$select" | cut -d ' ' -f 2 | tr -d '\n' | xclip -i -selection clipboard
+printf "$select" | cut -d ' ' -f 2 | tr -d '\n' | xclip -i -selection primary
