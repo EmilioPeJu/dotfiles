@@ -1,5 +1,6 @@
 #!/bin/bash
 # user alias
+alias gch="git checkout HEAD"
 alias re2pr='cp -d result $PREFIXPATH/$(basename $PWD)'
 alias se='search'
 alias see='search-edit'
