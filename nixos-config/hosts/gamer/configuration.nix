@@ -76,6 +76,7 @@
 
   # User
   users.users.user = {
+    uid = 1001;
     isNormalUser = true;
     extraGroups = [
       "systemd-journal"
