@@ -28,9 +28,9 @@ output * bg ~/backgrounds/sunset.jpg fill
 #
 # output HDMI-A-1 resolution 1280x720 position 0,0
 # Monitor config 1
-output HDMI-A-1  resolution 1920x1080 position 0,0
-#output HDMI-A-2  resolution 1920x1080 position 0,0
-output eDP-1 resolution 1920x1080 position 1920,0
+#output HDMI-A-1  resolution 1920x1080 position 0,0
+output HDMI-A-2  resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -50,12 +50,18 @@ input type:keyboard {
     xkb_layout us-mymod
 }
 
-input "1386:891:Wacom_One_by_Wacom_M_Pen" map_to_output HDMI-A-1
+input "1386:891:Wacom_One_by_Wacom_M_Pen" map_to_output HDMI-A-2
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-#
+
+seat * hide_cursor 8000
+
 # Fonts
 font pango: OpenDyslexicMono Regular 10
+
+# Window borders
+default_border pixel 1
+hide_edge_borders smart
 
 ### Key bindings
 #
@@ -172,6 +178,7 @@ font pango: OpenDyslexicMono Regular 10
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
+
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
@@ -192,6 +199,23 @@ bindsym --locked XF86AudioPause exec mpc pause
 bindsym --locked XF86AudioNext exec mpc next
 bindsym --locked XF86AudioPrev exec mpc prev
 
+bindsym --locked Control+up exec amixer sset Master 5%+ | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $XDG_RUNTIME_DIR/wobpipe
+bindsym --locked Control+down exec amixer sset Master 5%- | sed -En 's/.*\[([0-9]+)%\].*/\1/p' | head -1 > $XDG_RUNTIME_DIR/wobpipe
+bindsym --locked Control+Shift+down exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $XDG_RUNTIME_DIR/wobpipe
+
+# Screenshots
+bindsym $mod+Print exec grim  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
+bindsym $mod+Shift+Print exec slurp | grim -g -  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
+bindsym Control+Print exec ~/scripts/capture-for-vim
+
+# Main programs
+bindsym $mod+c exec clipman pick -t dmenu
+bindsym $mod+Shift+a exec $term -e pulsemixer,mode "default"
+bindsym $mod+Shift+p exec $term -e python3,mode "default"
+bindsym $mod+Shift+r exec $term -e ranger-open,mode "default"
+bindsym $mod+Shift+t exec $term,mode "default"
+bindsym $mod+Shift+w exec firefox,mode "default"
+
 # Resizing containers:
 #
 mode "resize" {
@@ -211,6 +235,7 @@ mode "resize" {
     bindsym Right resize grow width 10 px or 10 ppt
 
     # return to default mode
+    bindsym q mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -222,27 +247,20 @@ mode "applications" {
     bindsym 3 exec $term -e vit,mode "default"
     bindsym 4 exec $term -e $EDITOR ~/process/notes.snt,mode "default"
     bindsym 5 exec $term -e $EDITOR ~/process/dry/$(date +%y-%m-%d).snt,mode "default"
-    bindsym a exec $term -e pulsemixer,mode "default"
-    bindsym Shift+a exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
-    bindsym c exec grim ~/tmp.png,mode "default"
-    bindsym d exec dmenumount.sh,mode "default"
-    bindsym Shift+d exec dmenuumount.sh,mode "default"
+    bindsym a exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
+    bindsym d exec $term -e bashmount,mode "default"
     bindsym g exec select-greek-letter.sh,mode "default"
-    bindsym Shift+k exec xkill,mode "default"
+    bindsym k exec xkill,mode "default"
     bindsym m exec thunderbird,mode "default"
-    bindsym n exec joplin-desktop,mode "default"
-    bindsym p exec $term -e python3,mode "default"
-    bindsym Shift+p exec passmenu,mode "default"
-    bindsym r exec $term -e ranger,mode "default"
-    bindsym Shift+r exec $term -e htop,mode "default"
+    bindsym p exec passmenu,mode "default"
+    bindsym r exec $term -e atop,mode "default"
+    bindsym s exec select-symbol.sh,mode "default"
     bindsym t exec telegram-desktop,mode "default"
     bindsym Shift+t exec deluge-gtk,mode "default"
-    bindsym w exec firefox,mode "default"
-    bindsym Shift+w exec $term -e sudo nmtui-connect,mode "default"
+    bindsym w exec $term -e nmtui-connect,mode "default"
     bindsym z exec zeal,mode "default"
-    bindsym Up exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym Down exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym Control+Down exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+    bindsym q mode "default"
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -260,10 +278,10 @@ set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shut
 mode "$mode_system" {
     bindsym l exec $lock, mode "default"
     bindsym e exit
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-    bindsym Shift+r exec --no-startup-id systemctl reboot --firmware-setup, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym Shift+s exec systemctl poweroff -i, mode "default"
+    bindsym Shift+r exec systemctl reboot --firmware-setup, mode "default"
 
     # return to default mode
     bindsym Return mode "default"
@@ -278,15 +296,9 @@ bindsym $mod+x exec swaylock -c 000000
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    status_command i3status
-    position top
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
+    swaybar_command waybar
 }
 
 focus_follows_mouse yes
-exec --no-startup-id ~/.config/init-wayland.sh
+exec ~/.config/init-wayland.sh
 include /etc/sway/config.d/*
