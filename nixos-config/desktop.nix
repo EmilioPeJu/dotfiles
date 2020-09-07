@@ -19,6 +19,51 @@
   hardware.bluetooth.enable = true;
   programs.sway.enable = true;
 
+  # Fonts
+  fonts = {
+    fontDir.enable = true;
+    enableDefaultFonts = false;
+    fonts = with pkgs; [
+      (nerdfonts.override {
+        fonts = [
+          "BigBlueTerminal"
+          "BitstreamVeraSansMono"
+          "DroidSansMono"
+          "FiraCode"
+          "SourceCodePro"
+          "Ubuntu"
+        ];
+      })
+      corefonts
+      dejavu_fonts
+      emojione
+      freefont_ttf
+      gyre-fonts
+      hack-font
+      liberation_ttf
+      noto-fonts
+      noto-fonts-emoji
+      open-dyslexic
+      redhat-official-fonts
+      terminus_font_ttf
+      ttf_bitstream_vera
+      unifont
+      xkcd-font
+      xorg.fontadobe75dpi
+      xorg.fontcursormisc
+      xorg.fontmiscmisc
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "DejaVu Serif" ];
+        sansSerif = [ "DejaVu Sans" ];
+        monospace = [ "DejaVu Sans Mono" ];
+        emoji = [ "Noto Color Emoji" ];
+      };
+      allowType1 = true;
+      allowBitmaps = true;
+    };
+  };
   environment.systemPackages = with pkgs; [
     # Email
     thunderbird
@@ -32,6 +77,7 @@
     feh
     firefox
     fontforge
+    font-manager
     freerdp
     grim
     i3status
@@ -44,7 +90,6 @@
     scrot
     slock
     st
-    sway
     sxiv
     xclip
     xcompmgr
@@ -52,7 +97,10 @@
     xorg.transset
     xorg.xkill
     vym
-    wine
+    # wine
+    xfontsel
+    xlsfonts
+    xorg.xhost
     # Docs
     fbreader
     mupdf
@@ -77,6 +125,12 @@
     # Media
     olive-editor
     playerctl
+    # Wayland
+    clipman
+    gammastep
+    wl-clipboard
+    waybar
+    wob
   ];
 
   security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
