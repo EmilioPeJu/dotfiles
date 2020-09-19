@@ -207,7 +207,7 @@ function csc {
 }
 
 function cta {
-    ctags --tag-relative=yes -R -f .git/tags .
+    ctags --tag-relative=yes -R -f ctags.out .
 }
 
 function tags {

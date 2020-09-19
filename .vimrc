@@ -128,7 +128,7 @@ nmap <F8> :TagbarToggle<CR>
 " ctags
 "
 " useful shortcuts: C-] to find C-x ] to autocomplete
-set tags=./.git/tags,.git/tags;
+set tags=./ctags.out,ctags.out;
 " cscope
 " Extracted from cscope_maps.vim
 " Symbols
