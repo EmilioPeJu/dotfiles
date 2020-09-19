@@ -1,6 +1,7 @@
 snippet der
-with import <nixpkgs> {};
+{pkgs ? import <nixpkgs> {}}:
 
+with pkgs;
 stdenv.mkDerivation rec {
   name = "$1";
   src = $2;
@@ -24,10 +25,11 @@ with import <nixpkgs> {};
 
 mkShell {
   buildInputs = [
-    python38
-    python38Packages.setuptools
-    python38Packages.pip
-    $0
+    (python38.withPackages (pp: [
+      pp.setuptools
+      pp.pip
+      $1
+    ]))
   ];
   shellHook = ''
     alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
@@ -35,6 +37,7 @@ mkShell {
     # export PYTHONPATH="$PYTHONPATH:$(pwd)"
     unset SOURCE_DATE_EPOCH
     # pip install -e .
+    $0
   '';
 }
 endsnippet
