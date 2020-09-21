@@ -26,12 +26,15 @@ ssh_only = true
 disabled = true
 
 [nix_shell]
-disabled = true
+disabled = false
 
 [package]
 disabled = true
 
 [python]
+disabled = true
+
+[java]
 disabled = true
 
 [ruby]
