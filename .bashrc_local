@@ -7,8 +7,12 @@ if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     # only for interactive bash sessions
     command -v fortune &> /dev/null && fortune
     source ~/.bash/bindkeys.sh
-    eval "$(fasd --init auto)"
-    eval "$(starship init bash)"
+    if command -v fasd &> /dev/null; then
+        eval "$(fasd --init auto)"
+    fi
+    if command -v starship &> /dev/null; then
+        eval "$(starship init bash)"
+    fi
 fi
 
 # load helper scripts
