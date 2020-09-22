@@ -70,3 +70,26 @@ dockerTools.buildLayeredImage {
   contents = [ $2 ];
 }
 endsnippet
+
+snippet  fhsenv
+{pkgs ? import <nixpkgs> {}}:
+
+with pkgs;
+let fhs = buildFHSUserEnv rec {
+  name = "$1";
+  targetPkgs = pkgs: with pkgs; [
+    gcc
+    binutils
+    gnumake
+    which
+    git
+    glibc
+    $2
+  ];
+  extraOutputsToInstall = ["dev"];
+  profile = ''
+    $3
+  '';
+};
+in fhs.env
+endsnippet

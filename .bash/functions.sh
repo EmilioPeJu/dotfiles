@@ -169,9 +169,28 @@ function lo() {
 }
 
 function ve() {
-    local NAME="$1"
+    local NAME="${1:-default}"
     local PREFIX="${PREFIXPATH}"
-    source "${PREFIX}/ve${NAME}/bin/activate"
+    source "${PREFIX}/ve-${NAME}/bin/activate"
+}
+
+function create-ve() {
+    local NAME="${1:-default}"
+    local PREFIX="${PREFIXPATH}"
+    virtualenv "${PREFIX}/ve-${NAME}"
+}
+
+function ns() {
+    local NAME="${1:-default}"
+    pushd "$HOME/nix/shell/${NAME}"
+    nix-shell
+    popd
+}
+
+function create-ns() {
+    local NAME="${1:-default}"
+    mkdir -p "$HOME/nix/shell/${NAME}"
+    $EDITOR "$HOME/nix/shell/${NAME}/default.nix"
 }
 
 function convert-script2bash() {
