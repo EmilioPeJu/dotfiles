@@ -9,7 +9,7 @@ local hassource=''
 # ~/.zsh/autosource/home/user.sh
 # note: it is not possible to use it for the root directory
 function autosource_chpwd {
-    local sourcefile="${HOME}/.zsh/autosource${PWD}.sh"
+    local sourcefile="${HOME}/autosource${PWD}.sh"
     if [ -f "$sourcefile" ]; then
         . "$sourcefile"
         hassource="(${PWD##*/}) "

@@ -266,3 +266,8 @@ function tar-cwd {
     tar cvfz /tmp/${dirname}-$(date +%y-%m-%d-%H-%M-%S).tar.gz .
 }
 
+function edit-autosource {
+    local path="${HOME}/autosource${PWD}.sh"
+    mkdir -p "$(dirname $path)"
+    vim "$path"
+}
