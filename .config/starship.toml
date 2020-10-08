@@ -1,44 +1,42 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$python\
+$rust\
+$nix_shell\
+$env_var\
+$cmd_duration\
+$custom\
+$time\
+$line_break\
+$jobs\
+$status\
+$character"""
 
 [character]
 # Keep it simple
 symbol = "❯"
 
-[directory]
-truncation_length = 5
-prefix = ""
-
 [cmd_duration]
 min_time = 3
 
-[battery]
-disabled = true
-
-[golang]
-disabled = true
+[directory]
+truncation_length = 5
+format = "[$path]($style) [$read_only]($read_only_style) "
 
 [hostname]
 # Hide hostname unless accessing via SSH
 ssh_only = true
 
-[jobs]
-disabled = true
-
-[nix_shell]
+[status]
 disabled = false
 
-[package]
-disabled = true
-
-[python]
-disabled = true
-
-[java]
-disabled = true
-
-[ruby]
-disabled = true
-
-[rust]
-disabled = true
+[time]
+disabled = false
