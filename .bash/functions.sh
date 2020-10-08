@@ -101,7 +101,7 @@ function yasm64() {
 }
 
 function gpr() {
-	git fetch gh pull/$1/head:pr$1
+    git fetch gh pull/$1/head:pr$1
 }
 
 function cd-from-ranger()
@@ -138,34 +138,34 @@ function start-agent {
 
 # Source SSH settings, if applicable
 function start-agent-if-needed() {
-	if [ -f "${SSH_ENV}" ]; then
-	    . "${SSH_ENV}" > /dev/null
-	    #ps ${SSH_AGENT_PID} doesn't work under cywgin
-	    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-		start-agent;
-	    }
-	else
-	    start_agent;
-	fi
+    if [ -f "${SSH_ENV}" ]; then
+        . "${SSH_ENV}" > /dev/null
+        #ps ${SSH_AGENT_PID} doesn't work under cywgin
+        ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start-agent;
+        }
+    else
+        start_agent;
+    fi
 }
 
 function incr() {
-	mkdir -p "${HOME}/.counters"
-	local topic="${1:-default}"
-	local dst_path="${HOME}/.counters/${topic}"
-	if [[ -f "${dst_path}" ]]; then
-		let i=$(cat "${dst_path}")+1
-		echo $i > "${dst_path}"
-	else
-		echo 1 > "${dst_path}"
-	fi
+    mkdir -p "${HOME}/.counters"
+    local topic="${1:-default}"
+    local dst_path="${HOME}/.counters/${topic}"
+    if [[ -f "${dst_path}" ]]; then
+        let i=$(cat "${dst_path}")+1
+        echo $i > "${dst_path}"
+    else
+        echo 1 > "${dst_path}"
+    fi
 }
 
 function lo() {
-	local PREFIX="${PREFIXPATH}"
-	PREFIX="$PREFIX/$1"
-	export PATH="$PREFIX/bin:$PATH"
-	export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
+    local PREFIX="${PREFIXPATH}"
+    PREFIX="$PREFIX/$1"
+    export PATH="$PREFIX/bin:$PATH"
+    export LD_LIBRARY_PATH="$PREFIX/lib:$LD_LIBRARY_PATH"
 }
 
 function ve() {
@@ -182,9 +182,7 @@ function create-ve() {
 
 function ns() {
     local NAME="${1:-default}"
-    pushd "$HOME/nix/shell/${NAME}"
-    nix-shell
-    popd
+    nix-shell "$HOME/nix/shell/${NAME}"
 }
 
 function create-ns() {
@@ -213,10 +211,6 @@ function activate-null-sink-a() {
     sox -t pulseaudio default -t pulseaudio sink-a pitch -${PITCH}
     pactl unload-module module-loopback
     pactl unload-module module-null-sink
-}
-
-function pacman-remove-all() {
-    sudo pacman -dd -R $(pacman -Qq | grep -ve "$(pacman -Qqg base)")
 }
 
 function csc {
