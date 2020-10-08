@@ -34,6 +34,7 @@
     ranger
     ripgrep
     rsync
+    starship
     tmux
     tree
     ts
@@ -85,9 +86,11 @@
     iperf
     netcat-gnu
     nmap
+    openvswitch
     proxychains
     sshfs
     socat
+    step-cli
     traceroute
     websocat
     weechat
@@ -97,9 +100,10 @@
     wpa_supplicant
     # NIX related
     cachix
+    nixfmt
     nixpkgs-fmt
     nixpkgs-lint
-    nix-prefetch-git
+    nix-universal-prefetch
     patchelf
     # Players
     ffmpeg-full
@@ -118,9 +122,9 @@
     gdb
     gitAndTools.gitFull
     gnumake
-    jdk
     kernelshark
     nodejs
+    openjdk
     openocd
     oprofile
     perf-tools
@@ -129,9 +133,11 @@
     rustup
     sloccount
     strace
+    swt
     tig
     trace-cmd
     valgrind
+    yara
     zeal
     # Python
     jupyter

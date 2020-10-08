@@ -41,7 +41,6 @@
       gyre-fonts
       hack-font
       liberation_ttf
-      noto-fonts
       noto-fonts-emoji
       open-dyslexic
       redhat-official-fonts
@@ -86,21 +85,26 @@
     libreoffice
     maim
     pavucontrol
-    qt5.full
+    qt5.qmake
+    qt5.qtbase
+    qt5.qtwayland
+    qt5.qtwebsockets
     scrot
     slock
+    slurp
     st
     sxiv
+    vym
+    wob
+    xchm
     xclip
     xcompmgr
     xdotool
-    xorg.transset
-    xorg.xkill
-    vym
-    # wine
     xfontsel
     xlsfonts
     xorg.xhost
+    xorg.xkill
+    xorg.transset
     # Docs
     fbreader
     mupdf
