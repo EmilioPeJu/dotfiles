@@ -6,7 +6,7 @@ function c {
     cd "$query"
 }
 
-function ranger-cd {
+function ranger_cd {
     local tmp=$(mktemp)
     ranger --choosedir="$tmp"
     local dir=$(cat "$tmp")
@@ -25,21 +25,21 @@ function search {
     fi
 }
 
-function search-cd {
+function search_cd {
     local query=$(find . -type d 2>/dev/null | fzf -1 --query "$1")
     if [[ -n "$query" ]]; then
         cd "$query"
     fi
 }
 
-function search-edit {
+function search_edit {
     local query=$(fzf)
     if [[ -n "$query" ]]; then
         $EDITOR "$query"
     fi
 }
 
-function file-by-content {
+function file_by_content {
     # $1 initial query
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
     INITIAL_QUERY="$1"
@@ -48,15 +48,15 @@ function file-by-content {
         --ansi --phony --query "$INITIAL_QUERY"
 }
 
-function search-edit-content() {
-    local query=$(file-by-content | cut -d ":" -f 1-2 | sed "s/:/ +/")
+function search_edit_content() {
+    local query=$(file_by_content | cut -d ":" -f 1-2 | sed "s/:/ +/")
     if [[ -n "$query" ]]; then
         $EDITOR $query
     fi
 }
 
-function search-content {
-    local query=$(file-by-content | cut -d ':' -f 1)
+function search_content {
+    local query=$(file_by_content | cut -d ':' -f 1)
     if [[ -d "$query" ]]; then
         cd "$query"
     else
@@ -104,7 +104,7 @@ function gpr() {
     git fetch gh pull/$1/head:pr$1
 }
 
-function cd-from-ranger()
+function cd_from_ranger()
 {
     local ranger_pid=$(pgrep ranger | sed 1q)
     [[ -z "$ranger_pid" ]] && return
@@ -127,7 +127,7 @@ function _rc() {
 # ssh-agent autostart
 SSH_ENV="$HOME/.ssh/environment"
 
-function start-agent {
+function start_agent {
     echo "Initialising new SSH agent..."
     /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
     echo succeeded
@@ -137,12 +137,12 @@ function start-agent {
 }
 
 # Source SSH settings, if applicable
-function start-agent-if-needed() {
+function start_agent_if_needed() {
     if [ -f "${SSH_ENV}" ]; then
         . "${SSH_ENV}" > /dev/null
         #ps ${SSH_AGENT_PID} doesn't work under cywgin
         ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start-agent;
+        start_agent;
         }
     else
         start_agent;
@@ -174,7 +174,7 @@ function ve() {
     source "${PREFIX}/ve-${NAME}/bin/activate"
 }
 
-function create-ve() {
+function create_ve() {
     local NAME="${1:-default}"
     local PREFIX="${PREFIXPATH}"
     virtualenv "${PREFIX}/ve-${NAME}"
@@ -185,25 +185,13 @@ function ns() {
     nix-shell "$HOME/nix/shell/${NAME}"
 }
 
-function create-ns() {
+function create_ns() {
     local NAME="${1:-default}"
     mkdir -p "$HOME/nix/shell/${NAME}"
     $EDITOR "$HOME/nix/shell/${NAME}/default.nix"
 }
 
-function convert-script2bash() {
-    local FILENAME="$1"
-    cat $FILENAME | sed -n -E '/^.*$/!d; s/^[^\$]+\$ (.+)$/\1/p' | sed '1i #!/bin/bash'
-}
-
-function script2bash() {
-    local FILENAME="$1"
-    script "$FILENAME"
-    convert-script2bash "$FILENAME" > "$FILENAME.sh"
-    chmod +x "$FILENAME.sh"
-}
-
-function activate-null-sink-a() {
+function activate_null_sink_a() {
     PITCH="${1:-200}"
     pactl load-module module-null-sink sink_name=sink-a
     pactl load-module module-loopback sink=sink-a
@@ -240,7 +228,7 @@ function ebpfcc() {
         llc -march=bpf -filetype=obj -o "`basename $1 .c`.o"
 }
 
-function remote-dd-gzip() {
+function remote_dd_gzip() {
     local host="$1"
     local IF="$2"
     local OF="$3"
@@ -253,7 +241,7 @@ function tp {
     tplink_smartplug.py -t $TARGET -c $COMMAND
 }
 
-function tp-wifi {
+function tp_wifi {
     local TARGET="192.168.0.1"
     local SSID="$1"
     local PASS="$2"
@@ -261,12 +249,12 @@ function tp-wifi {
     tplink_smartplug.py -t $TARGET -j '{"netif":{"set_stainfo":{"ssid":"'"$SSID"'","password":"'"$PASS"'","key_type":3}}}'
 }
 
-function tar-cwd {
+function tar_cwd {
     local dirname=$(basename $PWD)
     tar cvfz /tmp/${dirname}-$(date +%y-%m-%d-%H-%M-%S).tar.gz .
 }
 
-function edit-autosource {
+function edit_autosource {
     local path="${HOME}/autosource${PWD}.sh"
     mkdir -p "$(dirname $path)"
     vim "$path"

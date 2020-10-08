@@ -3,10 +3,10 @@
 alias gch="git checkout HEAD"
 alias re2pr='cp -d result $PREFIXPATH/$(basename $PWD)'
 alias se='search'
-alias see='search-edit'
-alias sec='search-content'
-alias seec='search-edit-content'
-alias secd='search-cd'
+alias see='search_edit'
+alias sec='search_content'
+alias seec='search_edit_content'
+alias secd='search_cd'
 alias remake="make clean uninstall; make"
 alias ls='ls --color=auto'
 # PS1='[\u@\h \W]\$ '
@@ -32,7 +32,7 @@ alias r2help="r2 -q -c '?*~...' -"
 alias t="trans -speak -d en:es"
 # useful for simulating a serial port
 alias socat-pty="socat -d -d pty,rawer pty,rawer"
-alias tmp="pushd && cd /run/user/$(id -u)"
+alias tmp="pushd /run/user/$(id -u)"
 alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
 alias mc="make clean-tests"
 alias java-bytecodes="javap -c -p -verbose -s";
