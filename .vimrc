@@ -98,6 +98,7 @@ set shiftwidth=4        " Amount indentation changes on indent commands
 set expandtab           " Convert tabs to spaces on insertion
 set smarttab
 au Filetype cpp setl et ts=2 sw=2
+au Filetype snt setl et ts=2 sw=2
 
 " set textwidth=80
 set colorcolumn=80
