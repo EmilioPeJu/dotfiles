@@ -4,7 +4,6 @@
 #export SHELL="$(which zsh)"
 export PATH="$PATH:$HOME/scripts"
 export PATH="$PATH:$HOME/.local/bin"
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/.local/lib"
 export PATH="$PATH:$HOME/.node/bin:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.golang/bin:$HOME/.go/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
