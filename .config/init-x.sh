@@ -15,4 +15,4 @@ xcompmgr &
 # top bar
 $HOME/suckless/dwm/dwmbar &
 # system monitor
-# conky -d
+conky -d
