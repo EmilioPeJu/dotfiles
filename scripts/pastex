@@ -1,5 +1,5 @@
-#!/bin/bash
-name="$1"
+#!/usr/bin/env bash
+name="${1:-in}"
 
 for i in {01..99}; do
     if [[ ! -f "${name}${i}" ]]; then
