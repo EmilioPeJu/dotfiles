@@ -54,7 +54,7 @@
   # Users
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "audio" ];
+    extraGroups = [ "audio" "dialout" ];
     uid = 1001;
   };
 
