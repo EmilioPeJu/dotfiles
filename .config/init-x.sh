@@ -16,3 +16,5 @@ xcompmgr &
 $HOME/suckless/dwm/dwmbar &
 # system monitor
 conky -d
+# keyboard layout
+setxkbmap us -variant altgr-intl -option ctrl:nocaps
