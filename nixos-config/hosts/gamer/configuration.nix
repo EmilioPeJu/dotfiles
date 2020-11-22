@@ -8,14 +8,14 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
-    ../../coms.nix
+    #../../coms.nix
     ../../desktop.nix
-    # ../../music.nix
+    #../../music.nix
     ../../security.nix
-    ../../virt.nix
+    #../../virt.nix
     ../../zfs.nix
   ];
-
+  nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor = false;
@@ -41,13 +41,11 @@
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
-    interfaces.enp3s0.useDHCP = true;
-    interfaces.wlp2s0.useDHCP = true;
   };
 
   # Wireguard
   # this line is only used to easily enable/disable wireguard
-  networking.wireguard.enable = true;
+  networking.wireguard.enable = false;
   networking.wireguard.interfaces = {
     wg0 = {
       ips = [ "192.168.90.2/24" ];
@@ -87,11 +85,11 @@
       "docker"
       "dialout"
       "video"
+      "plugdev"
     ];
     packages = with pkgs; [
       discord
-      nomachine-client
-      plan9port
+      #nomachine-client
       skypeforlinux
       slack
       steam

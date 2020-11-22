@@ -8,6 +8,7 @@
     ansible
     atool
     bashmount
+    cifs-utils
     ddrescue
     direnv
     direvent
@@ -79,19 +80,26 @@
     # Monitor
     atop
     # Net
+    boringtun
     deluge
     dnsutils
+    dynamips
     filezilla
+    gns3-server
     inetutils
     iperf
     netcat-gnu
+    netsniff-ng
     nmap
     openvswitch
     proxychains
+    redsocks
     sshfs
     socat
     step-cli
     traceroute
+    ubridge
+    vpcs
     websocat
     weechat
     wireguard
@@ -117,7 +125,6 @@
     cscope
     ctags
     flex
-    yacc
     gcc
     gdb
     gitAndTools.gitFull
@@ -125,7 +132,6 @@
     kernelshark
     nodejs
     openjdk
-    openocd
     oprofile
     perf-tools
     pkgconfig
@@ -137,6 +143,8 @@
     tig
     trace-cmd
     valgrind
+    yacc
+    yasm
     yara
     zeal
     # Python
@@ -147,6 +155,7 @@
       pp.ipykernel
       pp.pip
       pp.pycodestyle
+      pp.pygame
       pp.pyzmq
       pp.setuptools
       pp.virtualenv
@@ -155,4 +164,13 @@
     metasploit
     python3Packages.binwalk-full
   ];
+
+  security.wrappers = {
+    ubridge = {
+      source = "${pkgs.ubridge}/bin/ubridge";
+      owner = "nobody";
+      group = "nobody";
+      capabilities = "cap_net_admin,cap_net_raw+ep";
+    };
+  };
 }

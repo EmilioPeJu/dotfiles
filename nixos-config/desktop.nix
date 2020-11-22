@@ -34,7 +34,6 @@
           "Ubuntu"
         ];
       })
-      corefonts
       dejavu_fonts
       emojione
       freefont_ttf
@@ -47,7 +46,6 @@
       terminus_font_ttf
       ttf_bitstream_vera
       unifont
-      xkcd-font
       xorg.fontadobe75dpi
       xorg.fontcursormisc
       xorg.fontmiscmisc
@@ -64,17 +62,18 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    # Email
-    thunderbird
     # Desktop
     anki
     bluez-tools
+    chromium
     conky
     dmenu
     dunst
     dwm
     feh
-    firefox
+    gsettings-desktop-schemas
+    hicolor-icon-theme
+    #firefox
     fontforge
     font-manager
     freerdp
@@ -112,6 +111,8 @@
     texlive.combined.scheme-basic
     texstudio
     zathura
+    # Email
+    thunderbird
     # Images
     gimp
     gphoto2
