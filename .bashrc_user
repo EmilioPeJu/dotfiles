@@ -6,11 +6,11 @@
 systemctl --user import-environment DISPLAY
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then
-    ssh-agent /usr/bin/env sway
+    ssh-agent startx
     read
     exit 0
 elif [[ "$(tty)" = "/dev/tty2" ]]; then
-    ssh-agent startx
+    ssh-agent /usr/bin/env sway
     read
     exit 0
 fi
