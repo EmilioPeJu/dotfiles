@@ -10,6 +10,7 @@
     ../../base.nix
     #../../coms.nix
     ../../desktop.nix
+    ../../monitor.nix
     #../../music.nix
     ../../security.nix
     #../../virt.nix
