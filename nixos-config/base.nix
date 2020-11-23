@@ -54,10 +54,6 @@
     gnupg
     openssl
     pinentry-curses
-    # Electronics
-    ngspice
-    pulseview
-    sigrok-cli
     # FS and disk
     gparted
     hdparm
@@ -75,8 +71,10 @@
     # Management
     calcurse
     python38Packages.bugwarrior
+    remind
     taskwarrior
     vit
+    wyrd
     # Monitor
     atop
     # Net

@@ -62,6 +62,8 @@
     };
   };
   environment.systemPackages = with pkgs; [
+    # Webcam
+    guvcview
     # Desktop
     anki
     bluez-tools
