@@ -14,6 +14,7 @@
       ../../security.nix
       ../../ssh.nix
      ../../zfs.nix
+      ../../3dprinting.nix
     ];
 
   # Use the GRUB 2 boot loader.
