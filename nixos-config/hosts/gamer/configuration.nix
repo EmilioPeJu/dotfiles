@@ -8,8 +8,9 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
-    #../../coms.nix
+    ../../coms.nix
     ../../desktop.nix
+    ../../design.nix
     ../../electronics.nix
     ../../monitor.nix
     #../../music.nix
