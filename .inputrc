@@ -2,3 +2,5 @@
 "\e[A":history-search-backward
 ## arrow down
 "\e[B":history-search-forward
+## fix del button in st
+set enable-keypad on
