@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+option=$(ls ~/scripts/fzfmenus | fzf)
+selected=~/scripts/fzfmenus/$option
+if [[ -d "$selected" ]]; then
+    while true; do
+        script=$(ls $selected | fzf)
+        if [[ -z "$script" ]]; then
+            break
+        fi
+        $selected/$script
+        read
+    done
+else
+    while true; do
+        command=$(cat "$selected" | fzf)
+        if [[ -z "$command" ]]; then
+            break
+        fi
+        $command
+        read
+    done
+fi
