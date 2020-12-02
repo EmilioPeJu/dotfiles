@@ -204,9 +204,7 @@ bindsym --locked XF86AudioPrev exec mpc prev
 #bindsym --locked Control+Shift+down exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $XDG_RUNTIME_DIR/wobpipe
 
 # Screenshots
-bindsym $mod+Print exec grim  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
-bindsym $mod+Shift+Print exec slurp | grim -g -  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
-bindsym Control+Print exec ~/scripts/capture-for-vim
+bindsym $mod+Print exec slurp | grim -g -  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
 
 # Main programs
 bindsym $mod+c exec clipman pick -t dmenu
@@ -269,9 +267,9 @@ bindsym $mod+z mode "applications"
 
 # Change keyboard layouts
 bindsym --to-code {
-    Ctrl+Mod1+1 exec setxkbmap us-mymod
-    Ctrl+Mod1+2 exec setxkbmap es
-    Ctrl+Mod1+3 exec setxkbmap ru -variant phonetic
+    Control+Shift+1 exec setxkbmap us -variant altgr-intl -option ctrl:nocaps
+    Control+Shift+2 exec setxkbmap us -variant colemak
+    Control+Shift+3 exec setxkbmap ru -variant phonetic
 }
 
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
