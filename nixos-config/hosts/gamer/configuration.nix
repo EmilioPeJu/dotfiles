@@ -18,6 +18,8 @@
     #../../virt.nix
     ../../zfs.nix
   ];
+
+  boot.kernelParams = ["zfs.zfs_arc_max=12884901888"];
   nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
