@@ -1,0 +1,31 @@
+snippet lib
+project('$1', 'c')
+inc = include_directories(['.'])
+$1 = library('$1', '$1.c', install : true)
+$1_dep = declare_dependency(link_with: $1, include_directories : inc)
+inproject_deps = [$1_dep]
+#subdir('test/unit')
+#subdir('test/system')
+endsnippet
+
+snippet bin
+project('$1', 'c')
+inc = include_directories(['.'])
+$1 = executable('$1', 'main.c', install : true)
+inproject_deps = [ ]
+#subdir('test/unit')
+#subdir('test/system')
+endsnippet
+
+snippet test
+tests = [ ]
+unity_dep = dependency('libunity')
+tests_deps = [ unity_dep ]
+tests_deps += inproject_deps
+foreach test : tests
+  exe = executable('test_@0@'.format(test),
+                   'test_@0@.c'.format(test),
+                   dependencies : tests_deps)
+  test(test, exe)
+endforeach
+endsnippet

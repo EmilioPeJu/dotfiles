@@ -1,4 +1,7 @@
 snippet main
+use std::collections::VecDeque;
+use std::io;
+
 struct Scan {
     buffer: std::collections::VecDeque<String>,
 }
@@ -6,38 +9,44 @@ struct Scan {
 impl Scan {
     fn new() -> Scan {
         Scan {
-            buffer: std::collections::VecDeque::new(),
+            buffer: VecDeque::new(),
         }
     }
 
-    fn next_line(&self) -> String {
+    fn next_line(&self) -> io::Result<String> {
         let mut line = String::new();
-        std::io::stdin().read_line(&mut line).expect("Fail to read");
-        line
+        match std::io::stdin().read_line(&mut line)? {
+            0 => Err(io::Error::new(io::ErrorKind::Other, "EOF")),
+            _ => Ok(line),
+        }
     }
 
-    fn next<T: std::str::FromStr>(&mut self) -> T {
+    fn next<T: std::str::FromStr>(&mut self) -> io::Result<T> {
         loop {
             if let Some(token) = self.buffer.pop_front() {
-                break token.parse::<T>().ok().unwrap();
+                break match token.parse::<T>() {
+                    Ok(x) => Ok(x),
+                    _ => Err(io::Error::new(io::ErrorKind::Other,
+                                            "parsing is fucked")),
+                };
             }
-            let line = self.next_line();
+            let line = self.next_line()?;
             self.buffer = line.split_whitespace().map(String::from).collect();
         }
     }
 
     fn next_n<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T> {
-        (0..n).map(|_| self.next::<T>()).collect()
+        (0..n).map(|_| self.next::<T>().unwrap()).collect()
     }
 }
 
-fn _main() -> std::io::Result<()> {
+fn _main() -> io::Result<()> {
     let mut scan = Scan::new();
     $0
     Ok(())
 }
 
-fn main() -> std::io::Result<()> {
+fn main() -> io::Result<()> {
     std::thread::Builder::new()
         .stack_size(1 << 23)
         .spawn(_main)
