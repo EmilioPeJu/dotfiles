@@ -22,6 +22,8 @@
   boot.kernelParams = ["zfs.zfs_arc_max=12884901888"];
   nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor = false;
   boot.loader.efi.canTouchEfiVariables = true;
