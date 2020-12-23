@@ -99,7 +99,7 @@
       slack
       steam
       teams
-      vscode
+      vscode-with-extensions
       zoom-us
     ];
   };
