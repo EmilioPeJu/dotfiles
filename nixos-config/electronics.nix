@@ -8,11 +8,13 @@ in
     arduino
     avrdude
     flashrom
-    #kicad
+    geda
+    kicad
     minipro
     ngspice
     picocom
     pulseview
+    #qmk_firmware
     sigrok-cli
   ];
   services.udev.packages = [ minipro ];
