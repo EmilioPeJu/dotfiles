@@ -2,6 +2,10 @@
 
 {
   documentation.dev.enable = true;
+  nixpkgs.config.packageOverrides = pkgs:
+    {
+      libunity = (pkgs.callPackage ./pkgs/libunity {});
+    };
   # Some packages like coreutils, glibc or openssh are
   # already pulled in system-path
   environment.systemPackages = with pkgs; [
@@ -128,6 +132,9 @@
     gitAndTools.gitFull
     gnumake
     kernelshark
+    libunity
+    meson
+    ninja
     nodejs
     openjdk
     oprofile
