@@ -11,9 +11,10 @@ if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
         eval "$(fasd --init auto)"
     fi
     if command -v starship &> /dev/null; then
-        source ~/.bash/autosource.sh
-        starship_precmd_user_func="autosource_hook"
         eval "$(starship init bash)"
+    fi
+    if command -v direnv &> /dev/null; then
+        eval "$(direnv hook bash)"
     fi
 fi
 

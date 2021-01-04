@@ -249,8 +249,20 @@ function tar_cwd {
     tar cvfz /tmp/${dirname}-$(date +%y-%m-%d-%H-%M-%S).tar.gz .
 }
 
-function edit_autosource {
-    local path="${HOME}/autosource${PWD}.sh"
-    mkdir -p "$(dirname $path)"
-    vim "$path"
+function entr-meson-test {
+    while true; do
+        find . -type f -not -path ./_build |  entr -d -c -s -p meson-test
+    done
+}
+
+function entr-nix-build {
+    while true; do
+        find . -type f -not -path ./result |  entr -d -c -s -p 'nix-build || notify-send "build failed"; notify-send "nix-build: finished"'
+    done
+}
+
+function entr-make {
+    while true; do
+        find . -type f |  entr -d -c -s -p 'make || notify-send "build failed"; make test || notify-send "tests failed"; notify-send "make: finished"'
+    done
 }
