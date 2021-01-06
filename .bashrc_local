@@ -1,21 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 [[ -f ~/norc ]] && return
 
 [[ -f ~/.bash/variables.sh ]] && . ~/.bash/variables.sh
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     # only for interactive bash sessions
-    command -v fortune &> /dev/null && fortune
     source ~/.bash/bindkeys.sh
-    if command -v fasd &> /dev/null; then
-        eval "$(fasd --init auto)"
-    fi
-    if command -v starship &> /dev/null; then
-        eval "$(starship init bash)"
-    fi
-    if command -v direnv &> /dev/null; then
-        eval "$(direnv hook bash)"
-    fi
+    source ~/.bash/init.sh
 fi
 
 # load helper scripts

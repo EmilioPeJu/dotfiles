@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # user functions
 
 function c {
@@ -264,5 +264,11 @@ function entr-nix-build {
 function entr-make {
     while true; do
         find . -type f |  entr -d -c -s -p 'make || notify-send "build failed"; make test || notify-send "tests failed"; notify-send "make: finished"'
+    done
+}
+
+function top-dir {
+    while [[ -d ../.git ]]; do
+        cd ..
     done
 }
