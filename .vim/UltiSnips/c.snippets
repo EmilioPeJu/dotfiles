@@ -1,5 +1,5 @@
-snippet unity
-#include "unity.h"
+snippet test
+#include <unity.h>
 
 void setUp()
 {
@@ -9,15 +9,15 @@ void tearDown()
 {
 }
 
-void test_stuff()
+void test_$1()
 {
-
+    $0
 }
 
 int main()
 {
     UNITY_BEGIN();
-    RUN_TEST(test_stuff);
+    RUN_TEST(test_$1);
     return UNITY_END();
 }
 endsnippet
