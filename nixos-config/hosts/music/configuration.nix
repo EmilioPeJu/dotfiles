@@ -13,7 +13,7 @@
       ../../music.nix
       ../../security.nix
       ../../ssh.nix
-     ../../zfs.nix
+      ../../zfs.nix
       ../../3dprinting.nix
     ];
 
