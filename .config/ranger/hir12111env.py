@@ -1,13 +1,8 @@
 import os
 import re
 
-try:
-    EPICS_BASE = os.environ["EPICS_BASE"]
-    # by convention
-    EPICS_VERSION = EPICS_BASE.split('/')[3]
-except:
-    EPICS_BASE = ""
-    EPICS_VERSION = ""
+EPICS_VERSION = "R3.14.12.7"
+
 
 if os.access('/etc/redhat-release', os.R_OK):
     rhel_release_data = open("/etc/redhat-release", "r").read()
