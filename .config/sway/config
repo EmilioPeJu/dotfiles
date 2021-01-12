@@ -240,11 +240,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "applications" {
-    bindsym 1 exec $term -e $EDITOR ~/process/system.snt,mode "default"
-    bindsym 2 exec $term -e calcurse,mode "default"
-    bindsym 3 exec $term -e vit,mode "default"
-    bindsym 4 exec $term -e $EDITOR ~/process/notes.snt,mode "default"
-    bindsym 5 exec $term -e $EDITOR ~/process/dry/$(date +%y-%m-%d).snt,mode "default"
+    bindsym 1 exec $term -e $EDITOR ~/proc/system.snt,mode "default"
+    bindsym 2 exec $term -e wyrd,mode "default"
+    bindsym 3 exec $term -e taskwarrior-tui,mode "default"
+    bindsym 4 exec $term -e $EDITOR ~/proc/notes.snt,mode "default"
+    bindsym 5 exec $term -e $EDITOR ~/proc/dry/$(date +%y-%m-%d).snt,mode "default"
     bindsym a exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
     bindsym d exec $term -e bashmount,mode "default"
     bindsym g exec select-greek-letter.sh,mode "default"
