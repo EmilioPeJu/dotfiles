@@ -13,6 +13,8 @@
     libinput.enable = true;
     wacom.enable = true;
     displayManager.startx.enable = true;
+    #displayManager.gdm.enable = true;
+    #desktopManager.gnome3.enable = true;
   };
   sound.enable = true;
   hardware.pulseaudio.enable = true;
