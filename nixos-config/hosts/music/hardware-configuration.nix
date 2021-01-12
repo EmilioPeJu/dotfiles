@@ -14,8 +14,8 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ca8f29e7-f0ab-4a18-86bc-1684f953c1a5";
-      fsType = "ext4";
+    { device = "rpool/rootfs";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
@@ -23,9 +23,7 @@
       fsType = "vfat";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/dd4b070f-571d-4fbf-a3a5-d5845553b9db"; }
-    ];
+  swapDevices = [ ];
 
   nix.maxJobs = lib.mkDefault 4;
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
