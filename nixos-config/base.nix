@@ -77,7 +77,7 @@
     python38Packages.bugwarrior
     remind
     taskwarrior
-    vit
+    taskwarrior-tui
     wyrd
     # Monitor
     atop
