@@ -155,7 +155,7 @@
     zeal
     # Python
     jupyter
-    (python3Full.withPackages (pp: [
+    (python3.withPackages (pp: [
       pp.numpy
       pp.matplotlib
       pp.ipykernel
