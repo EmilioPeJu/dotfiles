@@ -1,7 +1,6 @@
 192.168.89.1 router1.lan
-192.168.89.250 cryptkeeper.lan
 192.168.89.251 server1.lan
-192.168.89.253 music.lan
+192.168.1.214 music.lan
 192.168.89.254 gamer.lan
 192.168.1.254 isprouter1.lan
 192.168.1.244 home1.lan
