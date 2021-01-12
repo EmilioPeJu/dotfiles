@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "cpu", "temperature", "memory", "network", "pulseaudio", "battery", "clock"],
+    "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "network", "pulseaudio", "battery", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -18,26 +18,27 @@
         "tooltip": false
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "CPU {usage}%",
+        "tooltip": true
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C",
         "format": "{temperatureC}°C",
-        "format-icons": ["", "", ""]
     },
     "memory": {
-        "format": "{}% "
+        "format": "Mem {}%"
+    },
+    "disk": {
+        "interval": 5,
+        "format": "Disk {percentage_used:2}%",
+        "path": "/"
     },
     "clock": {
         "format": "{:%a %d %b %H:%M}",
         "tooltip": false
     },
     "battery": {
-        "format": "{capacity}% {icon}",
+        "format": "Bat {capacity}% {icon}",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "format-charging": "{capacity}% ",
@@ -58,7 +59,6 @@
             "ethernet": [""],
             "disconnected": [""]
         },
-        "on-click": "st -e nmtui",
         "tooltip": false
     },
     "pulseaudio": {
