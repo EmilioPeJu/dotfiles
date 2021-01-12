@@ -86,6 +86,7 @@
     deluge
     dnsutils
     dynamips
+    ethtool
     filezilla
     gns3-server
     inetutils
