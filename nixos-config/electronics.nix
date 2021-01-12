@@ -8,10 +8,14 @@ in
     arduino
     avrdude
     flashrom
+    gcc-arm-embedded
     geda
     kicad
     minipro
+    mynewt-newt
     ngspice
+    nrfutil
+    openocd
     picocom
     pulseview
     #qmk_firmware
