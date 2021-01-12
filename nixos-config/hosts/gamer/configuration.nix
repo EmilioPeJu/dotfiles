@@ -8,14 +8,10 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
-    ../../coms.nix
     ../../desktop.nix
-    ../../design.nix
     ../../electronics.nix
-    ../../monitor.nix
-    #../../music.nix
     ../../security.nix
-    #../../virt.nix
+    ../../virt.nix
     ../../zfs.nix
   ];
 
@@ -97,6 +93,7 @@
     packages = with pkgs; [
       discord
       #nomachine-client
+      openscad
       skypeforlinux
       slack
       steam
