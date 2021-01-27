@@ -78,7 +78,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("xkill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("thunderbird") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("st -e python3") },
-	{ MODKEY,                       XK_r,      spawn,          SHCMD("st -e ranger") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("telegram-desktop") },
@@ -116,13 +115,13 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_Down,   spawn,          {.v = volmute } },
 	{ ControlMask,                  XK_Down,   spawn,          {.v = voldown } },
 	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
-	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e $EDITOR ~/process/system.snt") },
+	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e $EDITOR ~/proc/system.snt") },
 	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
 	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e calcurse") },
 	{ ControlMask|ShiftMask,        XK_2,     spawn,           SHCMD("setxkbmap us -variant colemak") },
 	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e vit") },
-	{ ControlMask,                  XK_4,     spawn,           SHCMD("st -e $EDITOR ~/process/notes.snt") },
-	{ ControlMask,                  XK_5,     spawn,           SHCMD("st -e $EDITOR ~/process/dry/$(date +%y-%m-%d).snt") },
+	{ ControlMask,                  XK_4,     spawn,           SHCMD("st -e $EDITOR ~/proc/notes.snt") },
+	{ ControlMask,                  XK_5,     spawn,           SHCMD("st -e $EDITOR ~/proc/dry/$(date +%y-%m-%d).snt") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
