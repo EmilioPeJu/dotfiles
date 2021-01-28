@@ -58,7 +58,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", "-e", "tmux",  NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "125x33", "-e", "tmux-attach-or-new",  NULL };
 static const char *shutdowncmd[]  = { "shutdown", "now", NULL };
 static const char *volmute[]  = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 static const char *volup[]    = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
@@ -81,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("telegram-desktop") },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("chromium") },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e sudo nmtui-connect") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
