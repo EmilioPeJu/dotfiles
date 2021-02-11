@@ -24,7 +24,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking = {
-    hostName = "server";
+    hostName = "server1";
     hostId = "817bc811";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
