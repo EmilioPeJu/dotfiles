@@ -13,13 +13,10 @@
     libinput.enable = true;
     wacom.enable = true;
     displayManager.startx.enable = true;
-    #displayManager.gdm.enable = true;
-    #desktopManager.gnome3.enable = true;
   };
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
-  programs.sway.enable = true;
 
   # Fonts
   fonts = {
@@ -69,7 +66,7 @@
     # Desktop
     anki
     bluez-tools
-    chromium
+    clipmenu
     conky
     dmenu
     dunst
@@ -77,7 +74,7 @@
     feh
     gsettings-desktop-schemas
     hicolor-icon-theme
-    #firefox
+    firefox
     fontforge
     font-manager
     freerdp
@@ -87,16 +84,14 @@
     libnotify
     libreoffice
     maim
+    obs-studio
     pavucontrol
-    qt5.qmake
-    qt5.qtbase
-    qt5.qtwayland
-    qt5.qtwebsockets
     scrot
     slock
     slurp
     st
     sxiv
+    ums
     vym
     wob
     xchm
@@ -109,7 +104,7 @@
     xorg.xkill
     xorg.transset
     # Docs
-    fbreader
+    calibre
     mupdf
     sent
     texlive.combined.scheme-basic
@@ -117,10 +112,12 @@
     zathura
     # Email
     thunderbird
-    # Images
+    # Images and animation
+    blender
     gimp
     gphoto2
     graphviz
+    inkscape
     imagemagick
     krita
     # Keyboard
@@ -132,7 +129,8 @@
     qtox
     tdesktop
     # Media
-    olive-editor
+    audacity
+    openshot-qt
     playerctl
     # Wayland
     clipman
