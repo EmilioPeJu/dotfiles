@@ -12,6 +12,7 @@
     ansible
     atool
     bashmount
+    ccls
     cifs-utils
     ddrescue
     direnv
@@ -31,20 +32,20 @@
     manpages
     matrix-synapse
     ncdu
+    neovim
     pass
     progress
     psmisc
     pulsemixer
-    python38Packages.pyserial
+    python3Packages.pyserial
     ranger
     ripgrep
     rsync
     starship
     tmux
+    translate-shell
     tree
     ts
-    ums
-    (vimHugeX.override { python = python3; })
     watch
     wget
     youtube-dl
@@ -74,7 +75,7 @@
     usbutils
     # Management
     calcurse
-    python38Packages.bugwarrior
+    python3Packages.bugwarrior
     remind
     taskwarrior
     taskwarrior-tui
@@ -82,7 +83,6 @@
     # Monitor
     atop
     # Net
-    boringtun
     deluge
     dnsutils
     dynamips
@@ -142,6 +142,7 @@
     perf-tools
     pkgconfig
     radare2
+    rustfmt
     rustup
     sloccount
     strace
@@ -162,8 +163,11 @@
       pp.pip
       pp.pycodestyle
       pp.pygame
+      pp.pylint
       pp.pyzmq
+      pp.scapy
       pp.setuptools
+      pp.scipy
       pp.virtualenv
     ]))
     # Security
