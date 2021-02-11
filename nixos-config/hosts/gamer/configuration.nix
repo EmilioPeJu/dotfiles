@@ -26,16 +26,6 @@
 
   # Kernel
   boot.blacklistedKernelModules = [ "nvidia" "nouveau" "dvb_usb_rtl28xxu" ];
-  # Modified Linux
-  #  boot.kernelPatches = [ {
-  #    name = "debug-on";
-  #    patch = null;
-  #    extraConfig = ''
-  #      DEBUG_INFO y
-  #      KGDB y
-  #      GDB_SCRIPTS y
-  #    '';
-  #  } ];
 
   # Networking
   networking = {
@@ -44,26 +34,6 @@
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
-  };
-
-  # Wireguard
-  # this line is only used to easily enable/disable wireguard
-  networking.wireguard.enable = false;
-  networking.wireguard.interfaces = {
-    wg0 = {
-      ips = [ "192.168.90.2/24" ];
-      privateKeyFile = "/home/user/.wireguard/peerprivate";
-      peers = [{
-        publicKey = builtins.replaceStrings [ "\n" ] [ "" ]
-          (builtins.readFile /home/user/.wireguard/public);
-        presharedKeyFile = "/home/user/.wireguard/psk";
-        allowedIPs =
-          [ "192.168.89.0/24" "192.168.1.227/32" "192.168.1.228/32" ];
-        endpoint = builtins.replaceStrings [ "\n" ] [ "" ]
-          (builtins.readFile /home/user/.wireguard/endpoint);
-        persistentKeepalive = 25;
-      }];
-    };
   };
 
   # gnupg agent
@@ -82,10 +52,6 @@
     extraGroups = [
       "systemd-journal"
       "audio"
-      "libvirtd"
-      "kvm"
-      "vboxusers"
-      "docker"
       "dialout"
       "video"
       "plugdev"
