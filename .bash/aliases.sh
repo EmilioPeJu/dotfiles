@@ -1,39 +1,39 @@
 #!/usr/bin/env bash
 # user alias
+alias cat2="cat << EOF >>"
+alias ga="git add"
+alias gall="git add --all"
+alias gb="git blame"
+alias gc="git commit"
+alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
+# include-freestanding-c99 contains relevant headers
+# -nostdlib implies -nostartupfiles
+alias gcc-freestanding-c99="gcc -std=c99 -nostdinc -nostdlib -ffreestanding -I $HOME/include-freestanding-c99"
+alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
 alias gch="git checkout HEAD"
+alias gd="git diff --color=always --ws-error-highlight=all"
+alias gf="git fetch --all"
+alias gg="git gui"
+alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gp="git remote | xargs -L1 git push --all"
+alias gr="git rebase"
+alias java-bytecodes="javap -c -p -verbose -s";
+alias ls='ls --color=auto'
 alias re2pr='cp -d result $PREFIXPATH/$(basename $PWD)'
+alias remake="make clean uninstall; make"
+alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
+alias r2help="r2 -q -c '?*~...' -"
 alias se='search'
 alias see='search_edit'
 alias sec='search_content'
 alias seec='search_edit_content'
 alias secd='search_cd'
-alias remake="make clean uninstall; make"
-alias ls='ls --color=auto'
-# PS1='[\u@\h \W]\$ '
-alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
-alias cat2="cat << EOF >>"
-alias ed="$EDITOR"
-alias gf="git fetch --all"
-alias gd="git diff --color=always --ws-error-highlight=all"
-alias gc="git commit"
-alias ga="git add"
-alias gall="git add --all"
-alias gr="git rebase"
-alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gb="git blame"
-alias gg="git gui"
-alias gp="git remote | xargs -L1 git push --all"
-alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
-alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
-# include-freestanding-c99 contains relevant headers
-alias gcc-freestanding-c99="gcc -std=c99 -nostdinc -nostdlib -ffreestanding -I $HOME/include-freestanding-c99"
-alias r="remind ~/.reminders"
-alias r2help="r2 -q -c '?*~...' -"
-alias t="trans -speak -d en:es"
+alias show-device-tree="dtc -I fs -O dts /proc/device-tree"
 # useful for simulating a serial port
 alias socat-pty="socat -d -d pty,rawer pty,rawer"
+alias t="trans -speak -d en:es"
 alias tmp="pushd /run/user/$(id -u)"
-alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
-alias mc="make clean-tests"
-alias java-bytecodes="javap -c -p -verbose -s";
-alias show-device-tree="dtc -I fs -O dts /proc/device-tree"
+alias r="ranger_cd"
+alias p="python3"
+alias v="$EDITOR"
+alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
