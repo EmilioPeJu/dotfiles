@@ -20,6 +20,7 @@ in
     pulseview
     #qmk_firmware
     sigrok-cli
+    stlink
   ];
   services.udev.packages = [ minipro ];
 }
