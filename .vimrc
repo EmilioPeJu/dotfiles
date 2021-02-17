@@ -12,27 +12,35 @@ Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'python-mode/python-mode'
+Plug 'justinmk/vim-sneak'
+Plug 'mhinz/vim-startify'
+Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
-" set termguicolors
-set shell=bash
-
+set autoindent
+set autoread
+set copyindent
 set number
 set ruler
+set shell=bash
+set smartcase
+set termguicolors
 
 let mapleader = ","
+
 " coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 
 " fzf
 nnoremap <C-p> :Files<CR>
+nmap <leader>l :Blines<CR>
+nmap <leader>L :Lines<CR>
 nnoremap <leader>p :GFiles<CR>
+nnoremap <leader>P :Rg<CR>
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-l>"
@@ -40,8 +48,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-l>"
 let g:UltiSnipsJumpBackwardTrigger="<c-h>"
 
 " buffer
+nmap <leader><leader> :Buffers<CR>
 nmap <leader>d :bd!<CR>
-nmap <leader>; :ls<CR>:b<space>
 
 " window
 nnoremap <C-j> <C-W>j
@@ -54,8 +62,6 @@ nmap <leader>q :wqa!<CR>
 nmap <leader>w :w!<CR>
 nmap <leader><Esc> :q!<CR>
 
-set background=dark                         " Use dark background
-
 " Tabs
 nnoremap <C-Left> 	:tabprevious<CR>
 nnoremap <C-Right>	:tabnext<CR>
@@ -63,13 +69,8 @@ nnoremap <C-n>	:tabnew<CR>
 nnoremap <C-x>	:tabclose<CR>
 
 " Quickfix
-nnoremap <C-Up> :cp<CR>
-nnoremap <C-Down> :cn<CR>
-
-" vimdiff
-nmap <leader>r :diffg RE<CR>
-nmap <leader>b :diffg BA<CR>
-nmap <leader>l :diffg LO<CR>
+nnoremap <leader>[ :cp<CR>
+nnoremap <leader>] :cn<CR>
 
 " folding
 set foldclose=all
@@ -78,10 +79,7 @@ set foldclose=all
 "
 " Work relative to current file
 " autocmd BufEnter * :lcd %:p:h
-
-" Auto generate pdf when saving tex files
-autocmd BufWritePost *.tex !pdflatex -synctex=1 -interaction=nonstopmode %
-
+cmap cd. lcd %:p:h
 
 set list listchars=tab:»¯,trail:°,extends:»,precedes:«
 " When working with wrapped lines (:set wrap) configure line wrap char:
@@ -97,8 +95,6 @@ set softtabstop=4       " Treat <Tab> key as four spaces
 set shiftwidth=4        " Amount indentation changes on indent commands
 set expandtab           " Convert tabs to spaces on insertion
 set smarttab
-au Filetype cpp setl et ts=2 sw=2
-au Filetype snt setl et ts=2 sw=2
 
 " set textwidth=80
 set colorcolumn=80
@@ -123,9 +119,12 @@ function! QuickFix_toggle()
 endfunction
 nnoremap <F5> :call QuickFix_toggle()<cr>
 
-nmap <F2> :NERDTreeToggle<CR>
+" Tagbar
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
 
+" C/C++ Language
+"
 " ctags
 "
 " useful shortcuts: C-] to find C-x ] to autocomplete
@@ -165,11 +164,17 @@ nmap <C-@><C-@>f :vert scs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-@><C-@>i :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-@><C-@>d :vert scs find d <C-R>=expand("<cword>")<CR><CR>
 
-nmap <leader>m :make<CR>
-
 " Rust
 let g:rustfmt_autosave = 1
 
-" kind of a hack but +clipboard is not usually set
+" custom commands
+nmap <leader>m :make<CR>
+
+" Terminal
+nmap <leader>t :terminal<CR>
+
+" kind of hacky but +clipboard is not usually set
 vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
 nnoremap <leader>v :r !xclip -out -selection clipboard<CR>
+
+au BufNewFile,BufRead *.nix set filetype=nix
