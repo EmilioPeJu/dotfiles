@@ -15,3 +15,15 @@ fi
 if type -p task &> /dev/null; then
     task
 fi
+# auto cd in vim when a terminal change directory
+if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
+    function cd {
+        command cd $@
+        python <<EOF
+from pynvim import attach
+nvim = attach("socket", path="$NVIM_LISTEN_ADDRESS")
+nvim.command("cd $PWD")
+nvim.close()
+EOF
+    }
+fi
