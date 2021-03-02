@@ -19,7 +19,7 @@ fi
 if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
     function cd {
         command cd $@
-        python <<EOF
+        /run/current-system/sw/bin/python <<EOF
 from pynvim import attach
 nvim = attach("socket", path="$NVIM_LISTEN_ADDRESS")
 nvim.command("cd $PWD")
