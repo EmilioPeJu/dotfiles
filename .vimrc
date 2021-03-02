@@ -37,7 +37,7 @@ nmap <leader>gr <Plug>(coc-references)
 
 " fzf
 nnoremap <C-p> :Files<CR>
-nmap <leader>l :Blines<CR>
+nmap <leader>l :BLines<CR>
 nmap <leader>L :Lines<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>P :Rg<CR>
