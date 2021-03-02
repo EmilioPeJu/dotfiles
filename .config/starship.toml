@@ -7,8 +7,6 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$python\
-$rust\
 $nix_shell\
 $env_var\
 $cmd_duration\
@@ -18,10 +16,6 @@ $line_break\
 $jobs\
 $status\
 $character"""
-
-[character]
-# Keep it simple
-symbol = "❯"
 
 [cmd_duration]
 min_time = 3
@@ -37,5 +31,3 @@ ssh_only = true
 [status]
 disabled = false
 
-[time]
-disabled = false
