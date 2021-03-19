@@ -4,6 +4,10 @@ let
   minipro = pkgs.callPackage ./pkgs/minipro {};
 in
 {
+  services.udev.extraRules = ''
+    # st-link device
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="dialout"
+  '';
   environment.systemPackages = with pkgs; [
     arduino
     avrdude
@@ -11,6 +15,7 @@ in
     gcc-arm-embedded
     geda
     kicad
+    libftdi
     minipro
     mynewt-newt
     ngspice
