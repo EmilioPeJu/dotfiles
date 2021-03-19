@@ -41,6 +41,8 @@
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     useDHCP = false;
+    firewall.allowedTCPPorts = [ 1234 5064 6064 5065 6065 5075 6075 7011 7012 ];
+    firewall.allowedUDPPorts = [ 5064 6064 5065 6065 5076 ];
   };
 
   # gnupg agent
