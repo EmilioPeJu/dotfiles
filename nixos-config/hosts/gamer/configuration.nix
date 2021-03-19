@@ -22,11 +22,18 @@
   services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.editor = false;
+  boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Kernel
   boot.blacklistedKernelModules = [ "nvidia" "nouveau" "dvb_usb_rtl28xxu" ];
 
+  # Services
+  systemd.services.systemd-udev-settle.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
   # Networking
   networking = {
     hostName = "gamer"; # Define your hostname.
