@@ -16,6 +16,11 @@
   ];
 
   boot.kernelParams = ["zfs.zfs_arc_max=12884901888"];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.kernelModules = [ "v4l2loopback" ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback exclusive_caps=1 video_nr=10 card_label="OBS Video Source"
+  '';
   nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
   services.printing.enable = true;

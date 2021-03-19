@@ -106,6 +106,7 @@
     traceroute
     ubridge
     vpcs
+    w3m
     websocat
     weechat
     wireguard
