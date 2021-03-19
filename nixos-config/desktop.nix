@@ -85,6 +85,7 @@
     libreoffice
     maim
     obs-studio
+    obs-v4l2sink
     pavucontrol
     scrot
     slock
@@ -107,7 +108,7 @@
     calibre
     mupdf
     sent
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-full
     texstudio
     zathura
     # Email

@@ -14,6 +14,7 @@
     bashmount
     ccls
     cifs-utils
+    ctypes_sh
     ddrescue
     direnv
     direvent
@@ -83,6 +84,7 @@
     # Monitor
     atop
     # Net
+    curl
     deluge
     dnsutils
     dynamips
@@ -91,6 +93,7 @@
     gns3-server
     inetutils
     iperf
+    junkie
     netcat-gnu
     netsniff-ng
     nmap
@@ -134,6 +137,7 @@
     gnumake
     kernelshark
     libunity
+    ltrace
     meson
     ninja
     nodejs
@@ -164,6 +168,7 @@
       pp.pycodestyle
       pp.pygame
       pp.pylint
+      pp.pynvim
       pp.pyzmq
       pp.scapy
       pp.setuptools
