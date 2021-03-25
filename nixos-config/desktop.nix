@@ -9,7 +9,6 @@
   services.avahi.enable = false;
   services.xserver = {
     enable = true;
-    videoDrivers = [ "intel" ];
     libinput.enable = true;
     wacom.enable = true;
     displayManager.startx.enable = true;
