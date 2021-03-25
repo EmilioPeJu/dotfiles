@@ -10,18 +10,18 @@
     ../../base.nix
     ../../desktop.nix
     ../../electronics.nix
+    ../../music.nix
     ../../security.nix
     ../../virt.nix
-    ../../zfs.nix
   ];
-
-  boot.kernelParams = ["zfs.zfs_arc_max=12884901888"];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModprobeConfig = ''
     options v4l2loopback exclusive_caps=1 video_nr=10 card_label="OBS Video Source"
   '';
   nixpkgs.config.allowBroken = true;
+
   # Use the systemd-boot EFI boot loader.
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
@@ -39,6 +39,7 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+  services.xserver.videoDrivers = [ "amdgpu" ];
   # Networking
   networking = {
     hostName = "gamer"; # Define your hostname.
@@ -64,15 +65,16 @@
     uid = 1001;
     isNormalUser = true;
     extraGroups = [
-      "systemd-journal"
       "audio"
       "dialout"
-      "video"
+      "networkmanager"
       "plugdev"
+      "systemd-journal"
+      "video"
     ];
     packages = with pkgs; [
       discord
-      #nomachine-client
+      nomachine-client
       openscad
       skypeforlinux
       slack
