@@ -69,6 +69,8 @@
     xfsprogs
     # HW
     dmidecode
+    hddtemp
+    lm_sensors
     lshw
     pciutils
     smartmontools
