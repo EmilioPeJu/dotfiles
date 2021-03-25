@@ -88,6 +88,7 @@
     # Net
     curl
     deluge
+    dnsmasq
     dnsutils
     dynamips
     ethtool
