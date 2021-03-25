@@ -168,6 +168,7 @@
       pp.numpy
       pp.matplotlib
       pp.ipykernel
+      pp.mypy
       pp.pip
       pp.pycodestyle
       pp.pygame
