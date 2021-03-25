@@ -18,6 +18,9 @@
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
 
+  #Programs
+  programs.sway.enable = true;
+
   # Fonts
   fonts = {
     fontDir.enable = true;
@@ -91,6 +94,7 @@
     slock
     slurp
     st
+    swayidle
     sxiv
     ums
     vym
@@ -104,6 +108,7 @@
     xorg.xhost
     xorg.xkill
     xorg.transset
+    wine
     # Docs
     calibre
     mupdf
