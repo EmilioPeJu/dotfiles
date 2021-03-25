@@ -17,6 +17,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.package = pkgs.bluezFull;
 
   #Programs
   programs.sway.enable = true;
