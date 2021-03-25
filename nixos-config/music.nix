@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     # Music edition
     audacity
+    fluidsynth
     lmms
     musescore
     pianobooster
