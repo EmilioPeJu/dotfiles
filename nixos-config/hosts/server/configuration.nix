@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
-    hostName = "server2";
+    hostName = "server";
     hostId = "16ab23fb";
     extraHosts = builtins.readFile ../../extra_hosts;
     firewall.allowedTCPPorts = [ 111 2049 4045 20048 ];
