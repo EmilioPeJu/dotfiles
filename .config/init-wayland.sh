@@ -15,3 +15,5 @@ echo connect EB:06:EF:1D:A2:F5 | bluetoothctl
 one-instance mpd
 # notification daemon
 mako &
+# lock when suspended
+one-instance swayidle -w before-sleep 'swaylock -f -c 000000' &
