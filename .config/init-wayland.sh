@@ -15,5 +15,3 @@ echo connect EB:06:EF:1D:A2:F5 | bluetoothctl
 one-instance mpd
 # notification daemon
 mako &
-mkfifo $XDG_RUNTIME_DIR/wobpipe
-{ tail -f $XDG_RUNTIME_DIR/wobpipe | wob ; } &
