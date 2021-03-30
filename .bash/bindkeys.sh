@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-
-bind '"\e[1;5D" backward-word'
-bind '"\e[1;5C" forward-word'
 bind '"\e;":"nvim +term +star\C-m"'
 bind '"\ei":"search_edit\C-m"'
 bind '"\eo":"ranger_cd\C-m"'
