@@ -18,11 +18,13 @@ set $right l
 set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_run
+# wallpaper
+set $wallpaper ~/backgrounds/sunset.jpg
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/backgrounds/sunset.jpg fill
+output * bg $wallpaper fill
 #
 # Example configuration:
 #
@@ -208,11 +210,6 @@ bindsym $mod+Print exec slurp | grim -g -  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png
 
 # Main programs
 bindsym $mod+c exec clipman pick -t dmenu
-bindsym $mod+Shift+a exec $term -e pulsemixer,mode "default"
-bindsym $mod+Shift+p exec $term -e python3,mode "default"
-bindsym $mod+Shift+r exec $term -e ranger-open,mode "default"
-bindsym $mod+Shift+t exec $term,mode "default"
-bindsym $mod+Shift+w exec chromium,mode "default"
 
 # Resizing containers:
 #
@@ -247,7 +244,6 @@ mode "applications" {
     bindsym 5 exec $term -e $EDITOR ~/proc/dry/$(date +%y-%m-%d).snt,mode "default"
     bindsym a exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
     bindsym d exec $term -e bashmount,mode "default"
-    bindsym g exec select-greek-letter.sh,mode "default"
     bindsym k exec xkill,mode "default"
     bindsym m exec thunderbird,mode "default"
     bindsym p exec passmenu,mode "default"
@@ -255,7 +251,7 @@ mode "applications" {
     bindsym s exec select-symbol.sh,mode "default"
     bindsym t exec telegram-desktop,mode "default"
     bindsym Shift+t exec deluge-gtk,mode "default"
-    bindsym w exec $term -e sudo nmtui-connect,mode "default"
+    bindsym w exec firefox,mode "default"
     bindsym z exec zeal,mode "default"
 
     bindsym q mode "default"
@@ -265,16 +261,9 @@ mode "applications" {
 
 bindsym $mod+z mode "applications"
 
-# Change keyboard layouts
-bindsym --to-code {
-    Control+Shift+1 exec setxkbmap us -variant altgr-intl -option ctrl:nocaps
-    Control+Shift+2 exec setxkbmap us -variant colemak
-    Control+Shift+3 exec setxkbmap ru -variant phonetic
-}
-
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
 mode "$mode_system" {
-    bindsym l exec $lock, mode "default"
+    bindsym l exec swaylock -c 000000, mode "default"
     bindsym e exit
     bindsym s exec systemctl suspend, mode "default"
     bindsym r exec systemctl reboot, mode "default"
@@ -287,7 +276,16 @@ mode "$mode_system" {
 }
 bindsym $mod+Shift+e mode "$mode_system"
 
-bindsym $mod+x exec swaylock -c 000000
+mode "config" {
+    bindsym 1 exec setxkbmap us -variant altgr-intl -option ctrl:nocaps, mode "default"
+    bindsym 2 exec setxkbmap us -variant colemak, mode "default"
+    bindsym 3 exec setxkbmap ru -variant phonetic, mode "default"
+    bindsym a exec $term -e pulsemixer, mode "default"
+    bindsym q mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "config"
 
 #
 # Status Bar:
