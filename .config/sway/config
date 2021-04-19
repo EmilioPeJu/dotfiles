@@ -49,7 +49,9 @@ output eDP-1 resolution 1920x1080 position 1920,0
 #
 # Input configuration
 input type:keyboard {
-    xkb_layout us-mymod
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+    xkb_options "ctrl:nocaps"
 }
 
 input "18003:1:foostan_Corne" {
