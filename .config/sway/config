@@ -54,11 +54,6 @@ input type:keyboard {
     xkb_options "ctrl:nocaps"
 }
 
-input "18003:1:foostan_Corne" {
-    xkb_layout "us"
-    xkb_variant "colemak"
-}
-
 input "1386:891:Wacom_One_by_Wacom_M_Pen" map_to_output HDMI-A-1
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
