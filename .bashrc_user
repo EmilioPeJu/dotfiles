@@ -5,10 +5,5 @@
 
 systemctl --user import-environment DISPLAY
 
-if type -p startx &> /dev/null; then
-    while true; do
-        [[ "$(tty)" = "/dev/tty1" ]] && ssh-agent sway
-        [[ "$(tty)" = "/dev/tty2" ]] && ssh-agent startx
-        read
-    done
-fi
+[[ "$(tty)" = "/dev/tty1" ]] && ssh-agent sway
+[[ "$(tty)" = "/dev/tty2" ]] && ssh-agent startx
