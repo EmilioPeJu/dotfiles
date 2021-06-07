@@ -12,9 +12,7 @@ fi
 if type -p remind &> /dev/null; then
     remind ~/.reminders
 fi
-if type -p task &> /dev/null; then
-    task
-fi
+
 # auto cd in vim when a terminal change directory
 if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
     function cd {
