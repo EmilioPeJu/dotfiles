@@ -8,7 +8,6 @@ export PATH="$PATH:$HOME/.node/bin:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.golang/bin:$HOME/.go/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export GOPATH="$HOME/.go"
-export EDITOR="nvim"
 export TERMINAL="alacritty"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
@@ -20,3 +19,9 @@ fi
 # Fix misbehaving java applications in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# prioritize neovim over vim
+if type -p nvim &> /dev/null; then
+    export EDITOR="nvim"
+else
+    export EDITOR="vim"
+fi
