@@ -2,6 +2,7 @@
 
 let 
   minipro = pkgs.callPackage ./pkgs/minipro {};
+  ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom {};
 in
 {
   services.udev.extraRules = ''
@@ -14,23 +15,32 @@ in
     ATTR{idVendor}=="0403", GROUP="dialout"
   '';
   environment.systemPackages = with pkgs; [
+    arachne-pnr
     arduino
     avrdude
+    blackmagic
     flashrom
+    ftdi_eeprom
     gcc-arm-embedded
     geda
+    ghdl
+    gtkwave
+    icestorm
     kicad
-    libftdi
+    libftdi1
     minipro
     mynewt-newt
     ngspice
-    nrfutil
+    #nrfutil
     openocd
     picocom
-    pulseview
+    (python3Packages.callPackage ./pkgs/hdl_checker {})
+    #pulseview
     #qmk_firmware
     sigrok-cli
     stlink
+    yosys
+    yosys-ghdl
   ];
   services.udev.packages = [ minipro ];
 }
