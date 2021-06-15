@@ -7,6 +7,11 @@ in
   services.udev.extraRules = ''
     # st-link device
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="dialout"
+    # Xilinx FTDI
+    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Xilinx", GROUP="dialout"
+    # Diligent USB
+    ATTR{idVendor}=="1443", GROUP="dialout"
+    ATTR{idVendor}=="0403", GROUP="dialout"
   '';
   environment.systemPackages = with pkgs; [
     arduino
