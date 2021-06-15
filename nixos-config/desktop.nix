@@ -11,7 +11,9 @@
     enable = true;
     libinput.enable = true;
     wacom.enable = true;
-    displayManager.startx.enable = true;
+    #displayManager.startx.enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -78,7 +80,6 @@
     gsettings-desktop-schemas
     hicolor-icon-theme
     firefox
-    fontforge
     font-manager
     freerdp
     grim
@@ -95,6 +96,7 @@
     slurp
     st
     swayidle
+    swt
     sxiv
     ums
     vym
@@ -119,7 +121,7 @@
     # Email
     thunderbird
     # Images and animation
-    blender
+    #blender
     gimp
     gphoto2
     graphviz

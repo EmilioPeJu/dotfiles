@@ -14,7 +14,7 @@
     bashmount
     ccls
     cifs-utils
-    ctypes_sh
+    clamav
     ddrescue
     direnv
     direvent
@@ -25,13 +25,12 @@
     gtk3
     htop
     iftop
+    indent
     iotop
     jq
     killall
     lsof
-    mako
     manpages
-    matrix-synapse
     ncdu
     neovim
     pass
@@ -49,6 +48,7 @@
     ts
     watch
     wget
+    xcftools
     youtube-dl
     # Compression
     archivemount
@@ -77,11 +77,8 @@
     udev
     usbutils
     # Management
-    calcurse
-    python3Packages.bugwarrior
     remind
-    taskwarrior
-    taskwarrior-tui
+    timetrap
     wyrd
     # Monitor
     atop
@@ -92,7 +89,6 @@
     dnsutils
     dynamips
     ethtool
-    filezilla
     gns3-server
     inetutils
     iperf
@@ -132,6 +128,7 @@
     # Programming/Debugging/Tracing
     automake
     binutils
+    config.boot.kernelPackages.perf
     cscope
     ctags
     flex
@@ -139,14 +136,15 @@
     gdb
     gitAndTools.gitFull
     gnumake
-    kernelshark
+    #kernelshark
+    kexectools
     libunity
+    linuxPackages.bpftrace
     ltrace
     meson
     ninja
     nodejs
     openjdk
-    oprofile
     perf-tools
     pkgconfig
     radare2
@@ -154,7 +152,6 @@
     rustup
     sloccount
     strace
-    swt
     tig
     trace-cmd
     valgrind
@@ -174,6 +171,7 @@
       pp.pygame
       pp.pylint
       pp.pynvim
+      pp.pyserial
       pp.pyzmq
       pp.scapy
       pp.setuptools
