@@ -1,5 +1,7 @@
 192.168.89.246 gamer.lan
 192.168.89.1 router.lan
+192.168.88.1 router2.lan
+192.168.88.253 arm1.lan
 192.168.89.248 server.lan
 192.168.1.254 isprouter.lan
 192.168.1.214 music.lan
