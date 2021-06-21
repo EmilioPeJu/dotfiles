@@ -17,8 +17,7 @@ def main():
         # H = code (e.g KEY_A)
         # I = value (e.g 0 for release, 1 for press)
         result = struct.unpack("4IHHi", data)
-        if result[5] == 1:
-            print(result)
+        print(result)
 
 
 if __name__ == "__main__":
