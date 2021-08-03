@@ -89,7 +89,6 @@
     libreoffice
     maim
     obs-studio
-    obs-v4l2sink
     pavucontrol
     scrot
     slock
