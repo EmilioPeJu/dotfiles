@@ -3,7 +3,7 @@ use std::collections::VecDeque;
 use std::io;
 
 struct Scan {
-    buffer: std::collections::VecDeque<String>,
+    buffer: VecDeque<String>,
 }
 
 impl Scan {
@@ -15,7 +15,7 @@ impl Scan {
 
     fn next_line(&self) -> io::Result<String> {
         let mut line = String::new();
-        match std::io::stdin().read_line(&mut line)? {
+        match io::stdin().read_line(&mut line)? {
             0 => Err(io::Error::new(io::ErrorKind::Other, "EOF")),
             _ => Ok(line),
         }
@@ -111,7 +111,7 @@ impl Uf {
 endsnippet
 
 snippet ts
-let ts: usize = scan.next();
+let ts: usize = scan.next().unwrap();
 for _ in 0..ts {
     $0
 }
