@@ -10,7 +10,7 @@ if type -p direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
 if type -p remind &> /dev/null; then
-    remind ~/.reminders
+    remind ~/proc/remind/top.rem
 fi
 
 # auto cd in vim when a terminal change directory
