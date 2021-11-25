@@ -12,8 +12,9 @@ export TERMINAL="alacritty"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
 export NIX_PATH="$HOME/.nix-defexpr-user:$NIX_PATH"
-if type -p find-dls-epics-base &> /dev/null; then
-    export EPICS_BASE=$(find-dls-epics-base)
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+if type -p caget &> /dev/null; then
+    export EPICS_BASE=$(readlink -f $(which caget))/../../
     export EPICS_CA_MAX_ARRAY_BYTES=15000000
 fi
 # Fix misbehaving java applications in dwm
