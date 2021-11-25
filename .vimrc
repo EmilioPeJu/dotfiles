@@ -1,3 +1,4 @@
+set notitle
 set clipboard=unnamedplus
 let mapleader = ","
 
@@ -17,7 +18,7 @@ Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
 call plug#end()
@@ -36,6 +37,7 @@ let mapleader = ","
 " coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+nmap <F6> :CocDiagnostics<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -174,6 +176,7 @@ nmap <leader>m :make<CR>
 
 " Terminal
 nmap <leader>t :terminal<CR>
+tnoremap <leader><ESC> <C-\><C-n>
 
 " kind of hacky but +clipboard is not usually set
 vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
