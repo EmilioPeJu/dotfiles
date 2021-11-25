@@ -4,23 +4,22 @@
 
 { config, pkgs, ... }:
 
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../base.nix
-      ../../desktop.nix
-      ../../music.nix
-      ../../security.nix
-      ../../ssh.nix
-      ../../zfs.nix
-      ../../3dprinting.nix
-    ];
+let dirty = (import ../../dirty.nix { });
+in {
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../base.nix
+    ../../desktop.nix
+    ../../security.nix
+    ../../ssh.nix
+  ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "nodev";
+  boot.supportedFilesystems = [ "ntfs" "zfs" ];
+
   # this laptop has coreboot with grub2 as payload and
   # it loads the configuration file at /boot/loader.cfg
   system.activationScripts = {
@@ -28,7 +27,7 @@
       text = ''
         cp -f /boot/grub/grub.cfg /boot/loader.cfg
       '';
-      deps = [];
+      deps = [ ];
     };
   };
   # boot.loader.grub.efiSupport = true;
@@ -37,13 +36,10 @@
   # Define on which hard drive you want to install Grub.
 
   networking = {
-    hostName = "music";
+    hostName = "laptop2";
     hostId = "f36d99d7";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
-    useDHCP = false;
-    interfaces.enp0s25.useDHCP = true;
-    interfaces.wlp2s0.useDHCP = true;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
@@ -53,10 +49,14 @@
   # List services that you want to enable:
 
   # Users
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = [ "audio" "dialout" ];
-    uid = 1001;
+  users.users = {
+    user = {
+      isNormalUser = true;
+      hashedPassword = dirty.userHash;
+      extraGroups = [ "audio" "dialout" "networkmanager" ];
+      uid = 1001;
+    };
+    root = { hashedPassword = dirty.rootHash; };
   };
 
   # This value determines the NixOS release from which the default

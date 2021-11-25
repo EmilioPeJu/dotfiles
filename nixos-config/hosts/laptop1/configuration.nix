@@ -4,52 +4,53 @@
 
 { config, pkgs, ... }:
 
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./../../base.nix
-      ./../../desktop.nix
-      ./../../security.nix
-      ./../../ssh.nix
-    ];
+let dirty = (import ../../dirty.nix { });
+in {
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./../../base.nix
+    ./../../desktop.nix
+    ./../../security.nix
+    ./../../ssh.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" "zfs" ];
 
-  # Set your time zone.
   time.timeZone = "Europe/London";
 
   networking = {
-    hostName = "travel";
+    hostName = "laptop1";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
-    useDHCP = false;
-    interfaces = {
-      eno1.useDHCP = true;
-      wlp3s0.useDHCP = true;
-    };
+    hostId = "4e28bfaf";
   };
 
-  users.users.user = {
-    uid = 1001;
-    isNormalUser = true;
-    extraGroups = [
-      "audio"
-      "dialout"
-      "networkmanager"
-      "plugdev"
-      "systemd-journal"
-      "video"
-    ];
-    packages = with pkgs; [
-      nomachine-client
-      slack
-      teams
-      vscode-with-extensions
-      zoom-us
-    ];
+  users.users = {
+    user = {
+      uid = 1001;
+      isNormalUser = true;
+      hashedPassword = dirty.userHash;
+      extraGroups = [
+        "audio"
+        "dialout"
+        "networkmanager"
+        "plugdev"
+        "systemd-journal"
+        "video"
+      ];
+      packages = with pkgs; [
+        nomachine-client
+        skypeforlinux
+        slack
+        #teams
+        vscode-with-extensions
+        zoom-us
+      ];
+    };
+    root = { hashedPassword = dirty.rootHash; };
   };
   nixpkgs.config.allowUnfree = true;
 
@@ -59,7 +60,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "21.05"; # Did you read the comment?
 
 }
 
