@@ -5,14 +5,10 @@ stdenv.mkDerivation rec {
   version = "2.5.1";
   src = fetchgit {
     url = "https://github.com/ThrowTheSwitch/Unity";
-    rev ="v${version}";
+    rev = "v${version}";
     sha256 = "068wfsnbmli9hxg94j8928niy6lia12918i1k3nfgc967m7bcj9a";
   };
-  buildInputs = [
-    pkg-config
-    meson
-    ninja
-  ];
+  buildInputs = [ pkg-config meson ninja ];
   phases = [ "unpackPhase" "buildPhase" "installPhase" ];
   buildPhase = ''
     meson _build

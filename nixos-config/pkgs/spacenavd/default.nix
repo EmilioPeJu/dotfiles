@@ -1,4 +1,4 @@
-{fetchgit, stdenv, xorg}:
+{ fetchgit, stdenv, xorg }:
 
 stdenv.mkDerivation rec {
   name = "spacenavd";

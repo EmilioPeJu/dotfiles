@@ -4,13 +4,11 @@
   # Some packages like coreutils, glibc or openssh are
   # already pulled in system-path
   nixpkgs.overlays = [
-    (self: super:
-      {
-        gnuradio = (super.gnuradio.override {
-          python = (super.python2.withPackages (pp: [ pp.pygtk ]));
-        });
-      }
-    )
+    (self: super: {
+      gnuradio = (super.gnuradio.override {
+        python = (super.python2.withPackages (pp: [ pp.pygtk ]));
+      });
+    })
   ];
 
   # udev rules for rtl-sdr

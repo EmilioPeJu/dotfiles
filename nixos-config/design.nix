@@ -1,15 +1,13 @@
 { config, pkgs, ... }:
 
-let 
-  spacenavd = pkgs.callPackage ./pkgs/spacenavd {};
-  libspnav = pkgs.callPackage ./pkgs/libspnav {};
-in
-{
+let
+  spacenavd = pkgs.callPackage ./pkgs/spacenavd { };
+  libspnav = pkgs.callPackage ./pkgs/libspnav { };
+in {
   environment.systemPackages = with pkgs; [
     # freecad with 3D mouse support
-    (freecad.overrideAttrs (oldAttrs: {
-      buildInputs = oldAttrs.buildInputs ++ [libspnav];
-    }))
+    (freecad.overrideAttrs
+      (oldAttrs: { buildInputs = oldAttrs.buildInputs ++ [ libspnav ]; }))
     # openscad with 3D mouse support
     (openscad.overrideAttrs (oldAttrs: {
       buildInputs = oldAttrs.buildInputs ++ [ libspnav ];

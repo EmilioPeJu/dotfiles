@@ -1,4 +1,4 @@
-{stdenv, git, libusb, pkg-config, which}:
+{ stdenv, git, libusb, pkg-config, which }:
 
 stdenv.mkDerivation rec {
   name = "minipro";
@@ -7,9 +7,6 @@ stdenv.mkDerivation rec {
     ref = "refs/tags/0.5";
   };
   patches = [ ./default_udev_dir.patch ];
-  makeFlags = [
-    "PREFIX=$(out)"
-    "UDEV_DIR=$(out)/lib/udev"
-  ];
+  makeFlags = [ "PREFIX=$(out)" "UDEV_DIR=$(out)/lib/udev" ];
   buildInputs = [ git libusb pkg-config which ];
 }
