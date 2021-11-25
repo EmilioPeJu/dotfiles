@@ -1,10 +1,9 @@
 { config, pkgs, ... }:
 
-let 
-  minipro = pkgs.callPackage ./pkgs/minipro {};
-  ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom {};
-in
-{
+let
+  minipro = pkgs.callPackage ./pkgs/minipro { };
+  ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom { };
+in {
   services.udev.extraRules = ''
     # st-link device
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="dialout"
@@ -26,19 +25,20 @@ in
     ghdl
     gtkwave
     icestorm
-    kicad
+    #kicad
     libftdi1
     minipro
-    mynewt-newt
+    #mynewt-newt
     ngspice
     #nrfutil
     openocd
     picocom
-    (python3Packages.callPackage ./pkgs/hdl_checker {})
+    #(python3Packages.callPackage ./pkgs/hdl_checker { })
     #pulseview
     #qmk_firmware
     sigrok-cli
     stlink
+    #uhubctl
     yosys
     yosys-ghdl
   ];

@@ -11,9 +11,7 @@
     enable = true;
     libinput.enable = true;
     wacom.enable = true;
-    #displayManager.startx.enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.startx.enable = true;
   };
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -21,7 +19,7 @@
   hardware.bluetooth.package = pkgs.bluezFull;
 
   #Programs
-  programs.sway.enable = true;
+  programs.slock.enable = true;
 
   # Fonts
   fonts = {
@@ -73,6 +71,7 @@
     bluez-tools
     clipmenu
     conky
+    dfeet
     dmenu
     dunst
     dwm
@@ -90,10 +89,12 @@
     maim
     obs-studio
     pavucontrol
+    SDL2
     scrot
     slock
     slurp
     st
+    steam-run
     swayidle
     swt
     sxiv
@@ -139,13 +140,5 @@
     audacity
     openshot-qt
     playerctl
-    # Wayland
-    clipman
-    gammastep
-    wl-clipboard
-    waybar
-    wob
   ];
-
-  security.wrappers.slock.source = "${pkgs.slock.out}/bin/slock";
 }

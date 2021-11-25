@@ -48,6 +48,7 @@
     manpages
     ncdu
     neovim
+    neovim-remote
     pass
     progress
     psmisc
@@ -61,6 +62,8 @@
     translate-shell
     tree
     ts
+    vis
+    #tuna
     watch
     wget
     xcftools
@@ -143,6 +146,7 @@
     # Programming/Debugging/Tracing
     automake
     binutils
+    bpftool
     config.boot.kernelPackages.perf
     cscope
     ctags
@@ -154,7 +158,7 @@
     #kernelshark
     kexectools
     libunity
-    linuxPackages.bpftrace
+    config.boot.kernelPackages.bpftrace
     ltrace
     meson
     ninja
@@ -177,6 +181,7 @@
     # Python
     jupyter
     (python3.withPackages (pp: [
+      pp.beautifulsoup4
       pp.numpy
       pp.matplotlib
       pp.ipykernel
@@ -187,7 +192,9 @@
       pp.pylint
       pp.pynvim
       pp.pyserial
+      pp.pytest
       pp.pyzmq
+      pp.requests
       pp.scapy
       pp.setuptools
       pp.scipy
