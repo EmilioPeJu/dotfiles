@@ -2,10 +2,25 @@
 
 {
   documentation.dev.enable = true;
-  nixpkgs.config.packageOverrides = pkgs:
-    {
-      libunity = (pkgs.callPackage ./pkgs/libunity {});
-    };
+  nixpkgs.config.packageOverrides = pkgs: {
+    libunity = (pkgs.callPackage ./pkgs/libunity { });
+    slock = (pkgs.slock.override {
+      conf = builtins.readFile ./slock/config.h;
+    }).overrideAttrs
+      (oldAttrs: { patches = [ ./slock/slock-unlock_screen-1.4.diff ]; });
+    dwm = (pkgs.dwm.override {
+      conf = builtins.readFile ./dwm/config.h;
+      patches = [ ./dwm/dwm-scratchpad-6.2.diff ];
+    });
+    st = (pkgs.st.override {
+      conf = builtins.readFile ./st/config.h;
+      patches = [
+        ./st/st-alpha-0.8.2.diff
+        ./st/st-externalpipe-0.8.4.diff
+        ./st/st-scrollback-20200419-72e3f6c.diff
+      ];
+    });
+  };
   # Some packages like coreutils, glibc or openssh are
   # already pulled in system-path
   environment.systemPackages = with pkgs; [
