@@ -8,4 +8,4 @@ for line in sys.stdin:
     try:
         print("\n".join(shlex.split(line)))
     except Exception:
-        print(line, end="")
+        print("\n".join(line.split()))

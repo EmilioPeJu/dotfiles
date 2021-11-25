@@ -90,8 +90,6 @@ hide_edge_borders smart
     # reload the configuration file
     bindsym $mod+Shift+c reload
 
-    # exit sway (logs you out of your wayland session)
-    #bindsym $mod+Shift+e exit
 #
 # Moving around:
 #
@@ -237,15 +235,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "applications" {
-    bindsym 1 exec $term -e $EDITOR ~/proc/system.snt,mode "default"
-    bindsym 2 exec $term -e wyrd,mode "default"
-    bindsym 3 exec $term -e taskwarrior-tui,mode "default"
     bindsym 4 exec $term -e $EDITOR ~/proc/notes.snt,mode "default"
     bindsym 5 exec $term -e $EDITOR ~/proc/dry/$(date +%y-%m-%d).snt,mode "default"
-    bindsym a exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
+    bindsym a exec $term -e pulsemixer,mode "default"
+    bindsym m exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
     bindsym d exec $term -e bashmount,mode "default"
     bindsym k exec xkill,mode "default"
-    bindsym m exec thunderbird,mode "default"
     bindsym p exec passmenu,mode "default"
     bindsym r exec $term -e atop,mode "default"
     bindsym s exec select-symbol.sh,mode "default"
@@ -261,14 +256,15 @@ mode "applications" {
 
 bindsym $mod+z mode "applications"
 
-set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown, (R) UEFI
+set $mode_system System: (l) lock, (e) exit, (s) suspend, (r) reboot, (S) shutdown, (t) terminate, (R) UEFI
 mode "$mode_system" {
     bindsym l exec swaylock -c 000000, mode "default"
     bindsym e exit
     bindsym s exec systemctl suspend, mode "default"
-    bindsym r exec systemctl reboot, mode "default"
-    bindsym Shift+s exec systemctl poweroff -i, mode "default"
-    bindsym Shift+r exec systemctl reboot --firmware-setup, mode "default"
+    bindsym r exec systemctl reboot
+    bindsym Shift+r exec systemctl reboot --firmware-setup
+    bindsym Shift+s exec systemctl poweroff -i
+    bindsym t exec loginctl terminate-session ''
 
     # return to default mode
     bindsym Return mode "default"
