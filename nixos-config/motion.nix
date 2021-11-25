@@ -1,19 +1,19 @@
 { config, lib, pkgs, ... }:
 
-let motionConfig = builtins.toFile "motion.conf" ''
-  videodevice /dev/video0
-  width 640
-  height 480
-  framerate 5
-  output_normal off
-  ffmpeg_video_codec mpeg4
-  target_dir /home/user/motion
-  text_event %Y-%m-%d %H:%M:%S event%v
-  on_event_start /home/user/motion/on_event_start %C
-  on_event_end /home/user/motion/on_event_end %C
-'';
-in
-{
+let
+  motionConfig = builtins.toFile "motion.conf" ''
+    videodevice /dev/video0
+    width 640
+    height 480
+    framerate 5
+    output_normal off
+    ffmpeg_video_codec mpeg4
+    target_dir /home/user/motion
+    text_event %Y-%m-%d %H:%M:%S event%v
+    on_event_start /home/user/motion/on_event_start %C
+    on_event_end /home/user/motion/on_event_end %C
+  '';
+in {
   environment.systemPackages = with pkgs; [ motion ];
   systemd.services."custom-motion" = {
     enable = true;
@@ -29,6 +29,6 @@ in
       ExecStart = "${pkgs.motion}/bin/motion -c ${motionConfig}";
       User = "user";
     };
-    wantedBy = [  "multi-user.target" ];
+    wantedBy = [ "multi-user.target" ];
   };
 }
