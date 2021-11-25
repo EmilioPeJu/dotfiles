@@ -272,3 +272,11 @@ function top-dir {
         cd ..
     done
 }
+
+function v {
+    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+      nvr --remote-tab "$@"
+    else
+      $EDITOR "$@"
+    fi
+}
