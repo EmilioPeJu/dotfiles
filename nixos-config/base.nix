@@ -206,6 +206,12 @@
     python3Packages.binwalk-full
   ];
 
+  # gnupg agent
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+  };
+
   security.wrappers = {
     ubridge = {
       source = "${pkgs.ubridge}/bin/ubridge";

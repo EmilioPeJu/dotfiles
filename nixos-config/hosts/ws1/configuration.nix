@@ -73,12 +73,6 @@ in {
     firewall.allowedUDPPorts = [ 5064 6064 5065 6065 5076 ];
   };
 
-  # gnupg agent
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "gnome3";
-  };
-
   # Set your time zone.
   time.timeZone = "Europe/London";
 
