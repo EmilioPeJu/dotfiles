@@ -5,7 +5,7 @@ dunst &
 # compositor
 xcompmgr &
 # top bar
-$HOME/suckless/dwm/dwmbar &
+~/scripts/dwmbar &
 # system monitor
 conky -d
 # keyboard layout
