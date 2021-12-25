@@ -89,6 +89,7 @@
     maim
     obs-studio
     pavucontrol
+    pcmanfm
     SDL2
     scrot
     slock

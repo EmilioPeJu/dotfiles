@@ -25,7 +25,7 @@ in {
     ghdl
     gtkwave
     icestorm
-    #kicad
+    kicad
     libftdi1
     minipro
     #mynewt-newt

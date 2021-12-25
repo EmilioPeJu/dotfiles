@@ -68,14 +68,15 @@
     wget
     xcftools
     youtube-dl
+    zellij
     # Compression
     archivemount
     gzip
     p7zip
+    unrar
     unzip
     zip
     # Encryption
-    gnupg
     openssl
     pinentry-curses
     # FS and disk
