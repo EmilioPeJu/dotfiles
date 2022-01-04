@@ -11,7 +11,6 @@ export GOPATH="$HOME/.go"
 export TERMINAL="alacritty"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
-export NIX_PATH="$HOME/.nix-defexpr-user:$NIX_PATH"
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 if type -p caget &> /dev/null; then
     export EPICS_BASE=$(readlink -f $(which caget))/../../
