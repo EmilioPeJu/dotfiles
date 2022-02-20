@@ -130,8 +130,8 @@ static const char *colorname[] = {
  */
 unsigned int defaultfg = 7;
 unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultcs = 256;
+unsigned int defaultrcs = 257;
 
 /*
  * Default shape of cursor
@@ -191,8 +191,6 @@ static MouseShortcut mshortcuts[] = {
 
 static char *copystringcmd[] = { "/bin/sh", "-c", "st-copystring",
                                  "externalpipe", NULL };
-static char *runcmd[] = { "/bin/sh", "-c", "st-run",
-                          "externalpipe", NULL };
 static char *copyoutcmd[] = { "/bin/sh", "-c", "st-copyout",
                               "externalpipe", NULL };
 
@@ -206,14 +204,13 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Prior,       zoom,           {.f = +1} },
 	{ TERMMOD,              XK_Next,        zoom,           {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
-	{ MODKEY,               XK_c,           clipcopy,       {.i =  0} },
-	{ MODKEY,               XK_v,           clippaste,      {.i =  0} },
+	{ TERMMOD,              XK_c,           clipcopy,       {.i =  0} },
+	{ TERMMOD,              XK_v,           clippaste,      {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ TERMMOD,              XK_Y,           externalpipe,   {.v = copystringcmd } },
-	{ TERMMOD,              XK_R,           externalpipe,   {.v = runcmd } },
 	{ TERMMOD,              XK_O,           externalpipe,   {.v = copyoutcmd } },
 };
 
