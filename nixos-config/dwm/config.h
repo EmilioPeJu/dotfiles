@@ -36,6 +36,8 @@ static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] 
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
+
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
@@ -67,11 +69,12 @@ static const char *voldown[]  = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,                            XK_Print,  spawn,          SHCMD("maim $(date +%y%m%d-%H%M-%S).png") },
-	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
+	{ 0,                            XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
+	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpc -h 127.0.0.1 -p 6600") },
+	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("st -e bashmount") },
 	{ MODKEY,                       XK_g,      spawn,          SHCMD("select-greek-letter.sh") },
@@ -82,7 +85,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("telegram-desktop") },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e sudo nmtui-connect") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("slock") },
 	{ MODKEY,                       XK_z,      spawn,          SHCMD("zeal") },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
@@ -115,13 +117,11 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_Down,   spawn,          {.v = volmute } },
 	{ ControlMask,                  XK_Down,   spawn,          {.v = voldown } },
 	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
-	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e $EDITOR ~/proc/system.snt") },
+	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e wyrd") },
 	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
-	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e calcurse") },
-	{ ControlMask|ShiftMask,        XK_2,     spawn,           SHCMD("setxkbmap us -variant colemak") },
-	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e vit") },
-	{ ControlMask,                  XK_4,     spawn,           SHCMD("st -e $EDITOR ~/proc/notes.snt") },
-	{ ControlMask,                  XK_5,     spawn,           SHCMD("st -e $EDITOR ~/proc/dry/$(date +%y-%m-%d).snt") },
+	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/notes.txt") },
+	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
+	{ ControlMask|ShiftMask,        XK_5,     spawn,           SHCMD("randomlist.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
