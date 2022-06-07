@@ -10,18 +10,6 @@ if type -p direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
 if type -p remind &> /dev/null; then
-    remind ~/proc/remind/top.rem
+    remind ~/.reminders
 fi
 
-# auto cd in vim when a terminal change directory
-if [[ -n "$NVIM_LISTEN_ADDRESS" ]]; then
-    function cd {
-        command cd $@
-        /run/current-system/sw/bin/python <<EOF
-from pynvim import attach
-nvim = attach("socket", path="$NVIM_LISTEN_ADDRESS")
-nvim.command("cd $PWD")
-nvim.close()
-EOF
-    }
-fi

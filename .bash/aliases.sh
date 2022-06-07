@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # user alias
 alias cat2="cat << EOF >>"
+alias ju="cd ~/notes && jupyter lab"
 alias ga="git add"
 alias gall="git add --all"
 alias gb="git blame"
@@ -19,7 +20,6 @@ alias gp="git remote | xargs -L1 git push --all"
 alias gr="git rebase"
 alias java-bytecodes="javap -c -p -verbose -s";
 alias ls='ls --color=auto'
-alias re2pr='cp -d result $PREFIXPATH/$(basename $PWD)'
 alias remake="make clean uninstall; make"
 alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
 alias r2help="r2 -q -c '?*~...' -"
@@ -33,10 +33,9 @@ alias show-device-tree="dtc -I fs -O dts /proc/device-tree"
 alias socat-pty="socat -d -d pty,rawer pty,rawer"
 alias t="trans -speak -d en:es"
 alias tmp="pushd /run/user/$(id -u)"
-alias ty="ts youtube-dl"
+alias ty="ts log_command yt-dlp"
 alias r="ranger_cd"
 alias p="python3"
 alias v="$EDITOR"
-alias youtube-dl="youtube-dl --exec 'notify-send {} finished'"
 alias ze="zellij"
 alias zl="zellij --layout"
