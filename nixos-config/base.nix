@@ -15,9 +15,9 @@
     st = (pkgs.st.override {
       conf = builtins.readFile ./st/config.h;
       patches = [
-        ./st/st-alpha-0.8.2.diff
+        ./st/st-alpha-20220206-0.8.5.diff
         ./st/st-externalpipe-0.8.4.diff
-        ./st/st-scrollback-20200419-72e3f6c.diff
+        ./st/st-scrollback-20210507-4536f46.diff
       ];
     });
   };
