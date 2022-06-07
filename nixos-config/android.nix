@@ -6,8 +6,7 @@
     abootimg
     android-studio
     apktool
-    heimdall
-    heimdall-gui
+    jdk11
   ];
   services.udev.packages = [ pkgs.android-udev-rules ];
   users.users.user.extraGroups = [ "adbusers" ];
