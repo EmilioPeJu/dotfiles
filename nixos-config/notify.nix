@@ -7,7 +7,7 @@ let
   dirty = (import ./dirty.nix { });
 in {
   environment.etc."hirnoty/config.py".source = pkgs.writeText "config" ''
-    TOKEN = ${dirty.botToken};
+    TOKEN = "${dirty.botToken}";
     ACL = [ ${dirty.userID} ]
     SCRIPT_DIR = "/home/user/.config/hirnoty/scripts"
     INDEX_DIR = "/home/user/.config/hirnoty/index"
@@ -21,7 +21,6 @@ in {
     serviceConfig.Type = "oneshot";
     serviceConfig.User = "user";
     script = ''
-      #!/run/current-system/sw/bin/bash
       export PATH=/run/current-system/sw/bin
       export USER=user
       export HOME=/home/user
