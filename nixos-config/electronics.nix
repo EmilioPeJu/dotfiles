@@ -3,6 +3,7 @@
 let
   minipro = pkgs.callPackage ./pkgs/minipro { };
   ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom { };
+  pynus = (pkgs.python3Packages.callPackage ./pkgs/pynus {});
 in {
   services.udev.extraRules = ''
     # st-link device
@@ -12,35 +13,44 @@ in {
     # Diligent USB
     ATTR{idVendor}=="1443", GROUP="dialout"
     ATTR{idVendor}=="0403", GROUP="dialout"
+    # Segger
+    ATTR{idVendor}=="1366", GROUP="dialout"
+    # ST-Link
+    ATTR{idVendor}=="0483", GROUP="dialout"
   '';
   environment.systemPackages = with pkgs; [
-    arachne-pnr
+    #arachne-pnr
     arduino
     avrdude
-    blackmagic
+    #blackmagic
     flashrom
     ftdi_eeprom
     gcc-arm-embedded
     geda
     ghdl
     gtkwave
-    icestorm
+    #icestorm
     kicad
     libftdi1
     minipro
     #mynewt-newt
     ngspice
     #nrfutil
-    openocd
+    #openocd
     picocom
-    #(python3Packages.callPackage ./pkgs/hdl_checker { })
+    (python3Packages.callPackage ./pkgs/hdl_checker {
+        pygls = (python3Packages.callPackage ./pkgs/oldpygls {});
+    })
     #pulseview
     #qmk_firmware
+    pynus
     sigrok-cli
     stlink
+    stm32flash
+    stm32loader
     #uhubctl
-    yosys
-    yosys-ghdl
+    #yosys
+    #yosys-ghdl
   ];
   services.udev.packages = [ minipro ];
 }

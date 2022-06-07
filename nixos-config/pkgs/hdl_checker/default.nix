@@ -1,5 +1,5 @@
-{ buildPythonPackage, fetchPypi, bottle, six, requests, tabulate, pygls
-, prettytable, typing, argcomplete, waitress }:
+{ buildPythonPackage, fetchPypi, fetchFromGitHub, bottle, six, requests
+, tabulate, pygls, prettytable, typing, argcomplete, waitress }:
 
 buildPythonPackage rec {
   pname = "hdl_checker";
@@ -28,5 +28,6 @@ buildPythonPackage rec {
       	sed -i '/typing/d' setup.py
       	sed -i '/argparse/d' setup.py
       	sed -i '/future/d' setup.py
+      	sed -i 's/pygls==0.9.1/pygls/g' setup.py
       '';
 }

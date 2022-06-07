@@ -15,8 +15,11 @@
   };
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.package = pkgs.bluezFull;
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluezFull;
+    disabledPlugins = [ "sap" ];
+  };
 
   #Programs
   programs.slock.enable = true;
@@ -76,6 +79,7 @@
     dunst
     dwm
     feh
+    gammastep
     gsettings-desktop-schemas
     hicolor-icon-theme
     firefox
@@ -95,8 +99,6 @@
     slock
     slurp
     st
-    steam-run
-    swayidle
     swt
     sxiv
     ums
@@ -113,10 +115,10 @@
     xorg.transset
     wine
     # Docs
-    calibre
+    #calibre
     mupdf
     sent
-    texlive.combined.scheme-full
+    texlive.combined.scheme-medium
     texstudio
     zathura
     # Email
@@ -128,7 +130,6 @@
     graphviz
     inkscape
     imagemagick
-    krita
     # Keyboard
     xorg.setxkbmap
     xorg.xev

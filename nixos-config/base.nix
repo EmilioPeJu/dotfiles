@@ -3,7 +3,7 @@
 {
   documentation.dev.enable = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    libunity = (pkgs.callPackage ./pkgs/libunity { });
+    #libunity = (pkgs.callPackage ./pkgs/libunity { });
     slock = (pkgs.slock.override {
       conf = builtins.readFile ./slock/config.h;
     }).overrideAttrs
@@ -35,6 +35,8 @@
     direvent
     entr
     espeak
+    expect
+    fakeroot
     file
     fzf
     gtk3
@@ -42,18 +44,19 @@
     iftop
     indent
     iotop
+    ipmitool
     jq
     killall
     lsof
-    manpages
+    man-pages
     ncdu
     neovim
-    neovim-remote
+    openipmi
     pass
     progress
     psmisc
+    powertop
     pulsemixer
-    python3Packages.pyserial
     ranger
     ripgrep
     rsync
@@ -67,7 +70,7 @@
     watch
     wget
     xcftools
-    youtube-dl
+    yt-dlp
     zellij
     # Compression
     archivemount
@@ -122,17 +125,17 @@
     socat
     step-cli
     traceroute
+    tunctl
     ubridge
+    vde2
     vpcs
     w3m
     websocat
     weechat
-    wireguard
     wireshark
     wol
     wpa_supplicant
     # NIX related
-    cachix
     nixfmt
     nixpkgs-fmt
     nixpkgs-lint
@@ -148,6 +151,9 @@
     automake
     binutils
     bpftool
+    config.boot.kernelPackages.bpftrace
+    config.boot.kernelPackages.cpupower
+    clang-tools
     config.boot.kernelPackages.perf
     cscope
     ctags
@@ -156,22 +162,26 @@
     gdb
     gitAndTools.gitFull
     gnumake
+    julia-bin
     #kernelshark
     kexectools
     libunity
-    config.boot.kernelPackages.bpftrace
     ltrace
     meson
     ninja
     nodejs
     openjdk
     perf-tools
+    pforth
     pkgconfig
     radare2
+    #riscv-toolchain
     rustfmt
     rustup
+    scilab-bin
     sloccount
     strace
+    swiProlog
     tig
     trace-cmd
     valgrind
@@ -180,18 +190,22 @@
     yara
     zeal
     # Python
-    jupyter
     (python3.withPackages (pp: [
       pp.beautifulsoup4
+      pp.dbus-python
+      pp.jupyterlab
+      pp.jupyter-packaging
+      pp.jupytext
       pp.numpy
       pp.matplotlib
-      pp.ipykernel
       pp.mypy
       pp.pip
       pp.pycodestyle
+      pp.pydbus
       pp.pygame
       pp.pylint
       pp.pynvim
+      pp.pygobject3
       pp.pyserial
       pp.pytest
       pp.pyzmq

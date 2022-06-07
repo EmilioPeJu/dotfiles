@@ -9,9 +9,12 @@ in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../base.nix
+    ./../../coms.nix
     ./../../desktop.nix
+    ./../../electronics.nix
     ./../../security.nix
     ./../../ssh.nix
+    ./../../virt.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -43,7 +46,6 @@ in {
       ];
       packages = with pkgs; [
         nomachine-client
-        skypeforlinux
         slack
         #teams
         vscode-with-extensions
@@ -52,6 +54,7 @@ in {
     };
     root = { hashedPassword = dirty.rootHash; };
   };
+
   nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default

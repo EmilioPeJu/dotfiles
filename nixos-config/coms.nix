@@ -1,24 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  # Some packages like coreutils, glibc or openssh are
-  # already pulled in system-path
-  nixpkgs.overlays = [
-    (self: super: {
-      gnuradio = (super.gnuradio.override {
-        python = (super.python2.withPackages (pp: [ pp.pygtk ]));
-      });
-    })
-  ];
-
   # udev rules for rtl-sdr
   services.udev.packages = [ pkgs.rtl-sdr ];
 
   environment.systemPackages = with pkgs; [
     # Radio
-    gnuradio-with-packages
-    gr-osmosdr
+    gnuradio
     gqrx
+    inspectrum
     rtl-sdr
     # VOIP
     linphone

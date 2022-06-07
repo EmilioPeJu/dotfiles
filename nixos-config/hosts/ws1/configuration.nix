@@ -8,8 +8,8 @@ let dirty = (import ../../dirty.nix { });
 in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../android.nix
     ../../base.nix
+    ../../coms.nix
     ../../desktop.nix
     ../../electronics.nix
     ../../security.nix
@@ -37,12 +37,6 @@ in {
   '';
   boot.supportedFilesystems = [ "ntfs" "zfs" ];
   nixpkgs.config.allowBroken = true;
-
-  fileSystems."/ext/media" = {
-    device = "192.168.88.253:/mnt";
-    fsType = "nfs";
-    options = [ "defaults" "rw" "soft" ];
-  };
 
   services.printing.enable = true;
   services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
@@ -85,22 +79,16 @@ in {
       extraGroups = [
         "audio"
         "dialout"
-        "networkmanager"
         "plugdev"
         "systemd-journal"
-        "vboxuser"
         "video"
       ];
       packages = with pkgs; [
         discord
         nomachine-client
-        openscad
-        skypeforlinux
+        #skypeforlinux
         slack
-        #steam
-        teams
         vscode-with-extensions
-        zoom-us
       ];
     };
     root = { hashedPassword = dirty.rootHash; };

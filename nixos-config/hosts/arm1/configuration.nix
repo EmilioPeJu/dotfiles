@@ -26,6 +26,12 @@ in {
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
+  hardware.bluetooth = {
+    enable = true;
+    package = pkgs.bluezFull;
+    disabledPlugins = [ "sap" ];
+  };
+
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
 
@@ -92,7 +98,7 @@ in {
     trace-cmd
     valgrind
     yacc
-    yara
+    weechat
     zeal
   ];
 
