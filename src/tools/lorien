@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+$SRCPATH/Lorien/run.sh "$@"
