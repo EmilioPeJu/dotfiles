@@ -3,7 +3,5 @@
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
-systemctl --user import-environment DISPLAY
-
-[[ "$(tty)" = "/dev/tty1" ]] && ssh-agent sway
-[[ "$(tty)" = "/dev/tty2" ]] && ssh-agent startx
+# Start dwm only if gdm is not used
+type -p gdm &> /dev/null || [[ "$(tty)" = "/dev/tty1" ]] && ssh-agent startx
