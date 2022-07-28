@@ -10,6 +10,7 @@ set background=dark
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fannheyward/coc-pyright',
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'SirVer/ultisnips'
@@ -21,6 +22,7 @@ Plug 'tpope/vim-fugitive'
 " Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'rhysd/vim-clang-format'
 call plug#end()
 
 set autoindent
