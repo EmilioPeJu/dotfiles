@@ -11,13 +11,16 @@ if [[ -e "$INCLUDE_FILE" ]]; then
     cp -rf "$INCLUDE_FILE" .
 fi
 mkdir -p {proc,sys,etc,etc/init.d}
+ln -s sbin/init
 # Boot script SysV style
 # create single mode startup script
 # which is the default mode if there is
 # no inittab
 cat > etc/init.d/rcS <<EOF
-mount -t proc proc /proc
-mount -t sysfs sys /sys
+echo "Init started"
+mount -t proc none /proc
+mount -t sysfs none /sys
+mount -t debugfs none /sys/kernel/debug
 mount -t devtmpfs dev /dev
 # default inittab try to use the following non-existant devices
 ln -s /dev/null /dev/tty2
