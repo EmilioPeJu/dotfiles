@@ -5,7 +5,7 @@ dunst &
 # compositor
 xcompmgr &
 # top bar
-~/scripts/dwmbar &
+~/tools/dwmbar &
 # system monitor
 conky -d
 # keyboard layout
