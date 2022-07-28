@@ -182,4 +182,19 @@ tnoremap <leader><ESC> <C-\><C-n>
 vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
 nnoremap <leader>v :r !xclip -out -selection clipboard<CR>
 
+" Nix related
 au BufNewFile,BufRead *.nix set filetype=nix
+
+" Python related
+au BufNewFile,BufRead *.py call ConfigForPython()
+
+function ConfigForPython()
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set textwidth=79
+    set expandtab
+    set autoindent
+    set fileformat=unix
+    setlocal formatoptions+=cro
+endfunction
