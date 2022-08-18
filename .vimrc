@@ -23,6 +23,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rhysd/vim-clang-format'
+Plug 'cpiger/NeoDebug'
+Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
 set autoindent
