@@ -38,10 +38,17 @@ set termguicolors
 
 let mapleader = ","
 
+" Function Keys
+nmap <F2> :NvimTreeToggle<CR>
+nmap <leader><F2> :TagbarToggle<CR>
+nnoremap <F3> :call QuickFix_toggle()<cr>
+nnoremap <leader><F3> :CocDiagnostics<CR>
+nmap <F4> :NeoDebug<CR>
+nmap <leader><F4> :NeoDebugStop<CR>
+
 " coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
-nmap <F6> :CocDiagnostics<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -125,13 +132,8 @@ function! QuickFix_toggle()
         endfor
     copen
 endfunction
-nnoremap <F5> :call QuickFix_toggle()<cr>
-
-" nvim-tree
-nmap <F2> :NvimTreeToggle<CR>
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 
 " C/C++ Language
