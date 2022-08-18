@@ -127,6 +127,9 @@ function! QuickFix_toggle()
 endfunction
 nnoremap <F5> :call QuickFix_toggle()<cr>
 
+" nvim-tree
+nmap <F2> :NvimTreeToggle<CR>
+
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
@@ -202,3 +205,5 @@ function ConfigForPython()
     set fileformat=unix
     setlocal formatoptions+=cro
 endfunction
+
+luafile ~/.vim/lua/init.lua
