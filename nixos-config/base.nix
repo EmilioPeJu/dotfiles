@@ -94,9 +94,6 @@
     inetutils
     iperf
     junkie
-    netcat-gnu
-    netsniff-ng
-    nmap
     openvswitch
     proxychains
     redsocks
