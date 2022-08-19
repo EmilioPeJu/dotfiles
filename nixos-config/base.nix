@@ -141,7 +141,6 @@
     gdb
     gitAndTools.gitFull
     gnumake
-    julia-bin
     #kernelshark
     kexectools
     libunity
