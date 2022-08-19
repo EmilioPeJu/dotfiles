@@ -15,11 +15,9 @@ in {
   networking.networkmanager.enable = false;
   # users
   users.users = {
-    user = {
-      isNormalUser = true;
+    nixos = {
       uid = 1001;
       extraGroups = [ "dialout" ];
-      hashedPassword = dirty.userHash;
     };
     root = { hashedPassword = dirty.rootHash; };
   };
