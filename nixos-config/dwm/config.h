@@ -71,7 +71,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("st -e tmux") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpc -h 127.0.0.1 -p 6600") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
@@ -121,7 +121,7 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
 	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/notes.txt") },
 	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
-	{ ControlMask|ShiftMask,        XK_5,     spawn,           SHCMD("randomlist.sh") },
+	{ ControlMask,                  XK_4,     spawn,           SHCMD("randomlist.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
