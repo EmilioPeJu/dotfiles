@@ -15,3 +15,11 @@ set breakpoint pending on
 # gef config mmregs.enable False
 # gef config mmregs.n 3
 set auto-load safe-path ~/src/linux
+
+define make
+    shell make
+    python gdb.execute("file " + gdb.current_progspace().filename)
+    # clear cache
+    directory
+    refresh
+end
