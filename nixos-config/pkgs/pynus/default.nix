@@ -3,9 +3,6 @@
 buildPythonPackage rec {
   pname = "pynus";
   version = "v0.1";
-  propagatedBuildInputs = [
-    dbus-python
-    pygobject3
-  ];
+  propagatedBuildInputs = [ dbus-python pygobject3 ];
   src = ./.;
 }

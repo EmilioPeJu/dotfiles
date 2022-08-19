@@ -4,14 +4,15 @@
 
 { config, pkgs, ... }:
 
-let dirty = (import ../../dirty.nix { });
-in {
+{
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
     ../../desktop.nix
-    ../../security.nix
+    ../../overrides.nix
+    ../../security-options.nix
     ../../ssh.nix
+    ../../user.nix
   ];
 
   powerManagement.cpuFreqGovernor = "powersave";
@@ -48,18 +49,7 @@ in {
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # List services that you want to enable:
-
-  # Users
-  users.users = {
-    user = {
-      isNormalUser = true;
-      hashedPassword = dirty.userHash;
-      extraGroups = [ "audio" "dialout" "networkmanager" ];
-      uid = 1001;
-    };
-    root = { hashedPassword = dirty.rootHash; };
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

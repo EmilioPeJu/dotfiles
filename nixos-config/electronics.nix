@@ -3,7 +3,7 @@
 let
   minipro = pkgs.callPackage ./pkgs/minipro { };
   ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom { };
-  pynus = (pkgs.python3Packages.callPackage ./pkgs/pynus {});
+  pynus = (pkgs.python3Packages.callPackage ./pkgs/pynus { });
 in {
   services.udev.extraRules = ''
     # st-link device
@@ -39,7 +39,7 @@ in {
     #openocd
     picocom
     (python3Packages.callPackage ./pkgs/hdl_checker {
-        pygls = (python3Packages.callPackage ./pkgs/oldpygls {});
+      pygls = (python3Packages.callPackage ./pkgs/oldpygls { });
     })
     #pulseview
     #qmk_firmware

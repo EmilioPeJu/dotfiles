@@ -1,11 +1,5 @@
-{ lib
-, buildPythonPackage
-, isPy3k
-, fetchFromGitHub
-, mock
-, pytest-asyncio
-, pytestCheckHook
-}:
+{ lib, buildPythonPackage, isPy3k, fetchFromGitHub, mock, pytest-asyncio
+, pytestCheckHook }:
 
 buildPythonPackage rec {
   pname = "pygls";
@@ -22,7 +16,8 @@ buildPythonPackage rec {
   checkInputs = [ mock pytest-asyncio pytestCheckHook ];
 
   meta = with lib; {
-    description = "Pythonic generic implementation of the Language Server Protocol";
+    description =
+      "Pythonic generic implementation of the Language Server Protocol";
     homepage = "https://github.com/openlawlibrary/pygls";
     license = licenses.asl20;
     maintainers = with maintainers; [ metadark ];

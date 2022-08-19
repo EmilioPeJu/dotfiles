@@ -4,16 +4,18 @@
 
 { config, pkgs, ... }:
 
-let dirty = (import ../../dirty.nix { });
-in {
+{
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./../../base.nix
     ./../../coms.nix
     ./../../desktop.nix
-    ./../../electronics.nix
+    #./../../electronics.nix
+    ./../../overrides.nix
     ./../../security.nix
-    ./../../ssh.nix
+    ./../../security-options.nix
+    #./../../ssh.nix
+    ./../../user.nix
     ./../../virt.nix
   ];
 
@@ -29,30 +31,6 @@ in {
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     hostId = "4e28bfaf";
-  };
-
-  users.users = {
-    user = {
-      uid = 1001;
-      isNormalUser = true;
-      hashedPassword = dirty.userHash;
-      extraGroups = [
-        "audio"
-        "dialout"
-        "networkmanager"
-        "plugdev"
-        "systemd-journal"
-        "video"
-      ];
-      packages = with pkgs; [
-        nomachine-client
-        slack
-        #teams
-        vscode-with-extensions
-        zoom-us
-      ];
-    };
-    root = { hashedPassword = dirty.rootHash; };
   };
 
   nixpkgs.config.allowUnfree = true;

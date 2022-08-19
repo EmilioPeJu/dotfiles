@@ -4,15 +4,16 @@
 
 { config, pkgs, ... }:
 
-let dirty = (import ../../dirty.nix { });
-in {
+{
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
     ../../coms.nix
     ../../desktop.nix
     ../../electronics.nix
-    ../../security.nix
+    ../../overrides.nix
+    ../../security-options.nix
+    ../../user.nix
     ../../virt.nix
   ];
 
@@ -69,32 +70,6 @@ in {
 
   # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # User
-  users.users = {
-    user = {
-      uid = 1001;
-      isNormalUser = true;
-      hashedPassword = dirty.userHash;
-      extraGroups = [
-        "audio"
-        "dialout"
-        "plugdev"
-        "systemd-journal"
-        "video"
-      ];
-      packages = with pkgs; [
-        discord
-        nomachine-client
-        #skypeforlinux
-        slack
-        vscode-with-extensions
-      ];
-    };
-    root = { hashedPassword = dirty.rootHash; };
-  };
-  # discord, vscode ... require it
-  nixpkgs.config.allowUnfree = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

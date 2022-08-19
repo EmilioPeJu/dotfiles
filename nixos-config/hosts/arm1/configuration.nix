@@ -2,8 +2,13 @@
 
 let dirty = (import ../../dirty.nix { });
 in {
-  imports =
-    [ ./../../ssh.nix ./../../notify.nix ./../../hass.nix ./../../wifi.nix ];
+  imports = [
+    ../../ssh.nix
+    ../../notify.nix
+    ../../hass.nix
+    ../../overrides.nix
+    ../../wifi.nix
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;

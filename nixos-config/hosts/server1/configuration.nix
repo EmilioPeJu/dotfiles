@@ -10,13 +10,14 @@ let
     ${pkgs.ethtool}/bin/ethtool -s enp2s0 wol g
     ${pkgs.ethtool}/bin/ethtool -s enp3s0 wol g
   '';
-  dirty = (import ../../dirty.nix { });
 in {
   imports = [
     ./hardware-configuration.nix
     ../../base.nix
-    ../../security.nix
+    ../../overrides.nix
+    ../../security-options.nix
     ../../ssh.nix
+    ../../user.nix
   ];
 
   boot.supportedFilesystems = [ "zfs" ];
@@ -62,17 +63,6 @@ in {
       ExecStart = "${wolScript}";
     };
     wantedBy = [ "multi-user.target" ];
-  };
-
-  # users
-  users.users = {
-    user = {
-      isNormalUser = true;
-      uid = 1001;
-      extraGroups = [ "dialout" ];
-      hashedPassword = dirty.userHash;
-    };
-    root = { hashedPassword = dirty.rootHash; };
   };
 
   environment.systemPackages = with pkgs; [ printrun ];
