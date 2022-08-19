@@ -1,0 +1,26 @@
+pp:
+with pp; [
+  beautifulsoup4
+  dbus-python
+  #jupyterlab
+  #jupyter-packaging
+  numpy
+  matplotlib
+  mypy
+  pip
+  pudb
+  pycodestyle
+  pydbus
+  pygame
+  pylint
+  pynvim
+  pygobject3
+  pyserial
+  pytest
+  pyzmq
+  requests
+  scapy
+  setuptools
+  scipy
+  virtualenv
+]

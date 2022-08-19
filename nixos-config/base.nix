@@ -190,34 +190,7 @@
     yara
     zeal
     # Python
-    (python3.withPackages (pp: [
-      pp.beautifulsoup4
-      pp.dbus-python
-      pp.jupyterlab
-      pp.jupyter-packaging
-      pp.jupytext
-      pp.numpy
-      pp.matplotlib
-      pp.mypy
-      pp.pip
-      pp.pycodestyle
-      pp.pydbus
-      pp.pygame
-      pp.pylint
-      pp.pynvim
-      pp.pygobject3
-      pp.pyserial
-      pp.pytest
-      pp.pyzmq
-      pp.requests
-      pp.scapy
-      pp.setuptools
-      pp.scipy
-      pp.virtualenv
-    ]))
-    # Security
-    metasploit
-    python3Packages.binwalk-full
+    (python3.withPackages (import ./python-packages.nix))
   ];
 
   # gnupg agent
