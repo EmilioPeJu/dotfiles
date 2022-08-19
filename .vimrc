@@ -21,9 +21,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
 " Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'cpiger/NeoDebug'
 Plug 'kyazdani42/nvim-tree.lua'
 call plug#end()
 
