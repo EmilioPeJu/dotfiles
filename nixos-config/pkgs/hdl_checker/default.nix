@@ -29,5 +29,5 @@ buildPythonPackage rec {
       	sed -i '/argparse/d' setup.py
       	sed -i '/future/d' setup.py
       	sed -i 's/pygls==0.9.1/pygls/g' setup.py
-      '';
+  '';
 }
