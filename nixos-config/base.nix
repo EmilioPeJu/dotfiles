@@ -148,6 +148,7 @@
     openjdk
     perf-tools
     pforth
+    pmbootstrap
     pkgconfig
     radare2
     #riscv-toolchain
