@@ -115,8 +115,9 @@
     xorg.transset
     wine
     # Docs
-    #calibre
+    calibre
     mupdf
+    okular
     sent
     texlive.combined.scheme-medium
     texstudio
@@ -126,6 +127,7 @@
     # Images and animation
     #blender
     gimp
+    godot
     gphoto2
     graphviz
     inkscape
