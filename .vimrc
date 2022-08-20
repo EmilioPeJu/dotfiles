@@ -32,7 +32,9 @@ set number
 set ruler
 set shell=bash
 set smartcase
-set termguicolors
+if has('nvim')
+    set termguicolors
+endif
 
 let mapleader = ","
 
@@ -182,8 +184,10 @@ let g:rustfmt_autosave = 1
 nmap <leader>m :make<CR>
 
 " Terminal
-nmap <leader>t :terminal<CR>
-tnoremap <leader><ESC> <C-\><C-n>
+if has('nvim')
+    nmap <leader>t :terminal<CR>
+    tnoremap <leader><ESC> <C-\><C-n>
+endif
 
 " kind of hacky but +clipboard is not usually set
 vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
