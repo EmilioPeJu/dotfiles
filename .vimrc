@@ -5,8 +5,8 @@ let mapleader = ","
 " change backup dir
 set backupdir-=.
 set backupdir^=~/tmp,/tmp
-
 set background=dark
+let g:coc_disable_startup_warning = 1
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
