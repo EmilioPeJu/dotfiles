@@ -210,4 +210,6 @@ function ConfigForPython()
     setlocal formatoptions+=cro
 endfunction
 
-luafile ~/.vim/lua/init.lua
+if has('nvim')
+    luafile ~/.vim/lua/init.lua
+endif
