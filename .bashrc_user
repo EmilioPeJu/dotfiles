@@ -4,4 +4,4 @@
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 # Start dwm only if gdm is not used
-type -p gdm &> /dev/null || [[ "$(tty)" = "/dev/tty1" ]] && ssh-agent startx
+type -p gdm &> /dev/null || { [[ "$(tty)" = "/dev/tty1" ]] && ssh-agent startx; }
