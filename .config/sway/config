@@ -76,7 +76,7 @@ hide_edge_borders smart
 
     # start your launcher
     bindsym $mod+d exec rofi_run
-    bindsym $mod+Shift+d exec dmenu_run
+    bindsym $mod+Shift+d exec rofi_clip_run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -204,7 +204,7 @@ bindsym --locked XF86AudioPrev exec mpc prev
 bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 
 # Main programs
-bindsym $mod+c exec clipman pick -t dmenu
+bindsym $mod+c exec clipman pick -t rofi
 
 # Resizing containers:
 #

@@ -1,0 +1,4 @@
+configuration {
+  font: "monospace bold 14";
+}
+@theme "Monokai"

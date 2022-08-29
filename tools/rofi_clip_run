@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rofi -modes clip_run:~/tools/clip_run -show clip_run

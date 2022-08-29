@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import json
+import subprocess
+import sys
+
+
+def main():
+    if len(sys.argv) > 1:
+        subprocess.run(['rifle', sys.argv[1]])
+        sys.exit(0)
+
+    clip_data = subprocess.check_output(['clipman', 'show-history'])
+    entries = json.loads(clip_data)
+    for entry in reversed(entries):
+        print(entry)
+
+
+if __name__ == "__main__":
+    main()
