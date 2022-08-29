@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+wl-paste -t image/png > "$1"

@@ -15,7 +15,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term st
 # Your preferred application launcher
 set $menu dmenu_run
 # wallpaper
@@ -59,7 +59,7 @@ input "1386:891:Wacom_One_by_Wacom_M_Pen" map_to_output HDMI-A-1
 seat * hide_cursor 8000
 
 # Fonts
-font pango: OpenDyslexicMono Regular 10
+font pango:monospace Regular 10
 
 # Window borders
 default_border pixel 1
@@ -70,9 +70,7 @@ hide_edge_borders smart
 # Basics:
 #
     # start a terminal
-    bindsym $mod+Return exec $term
-    bindsym Control+$mod+Return exec $term -e tmux
-    bindsym Control+$mod+shift+Return exec $term -e tmux attach
+    bindsym $mod+Return exec $term -e tmux
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -171,7 +169,7 @@ hide_edge_borders smart
     bindsym $mod+a focus parent
 
     # focus the child container
-    bindsym $mod+Shift+d focus child
+    bindsym $mod+Shift+a focus child
 #
 # Scratchpad:
 #
@@ -204,7 +202,7 @@ bindsym --locked XF86AudioPrev exec mpc prev
 #bindsym --locked Control+Shift+down exec amixer sset Master toggle | sed -En '/\[on\]/ s/.*\[([0-9]+)%\].*/\1/ p; /\[off\]/ s/.*/0/p' | head -1 > $XDG_RUNTIME_DIR/wobpipe
 
 # Screenshots
-bindsym $mod+Print exec slurp | grim -g -  ~/scrn-$(date +%Y-%m-%d-%H-%M-%S).png,mode "default"
+bindsym Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
 
 # Main programs
 bindsym $mod+c exec clipman pick -t dmenu
@@ -288,7 +286,7 @@ bindsym $mod+x mode "config"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    swaybar_command waybar
+    swaybar_command swaybar
 }
 
 focus_follows_mouse yes
