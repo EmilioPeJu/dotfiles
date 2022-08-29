@@ -25,7 +25,7 @@
   };
 
   #Programs
-  programs.slock.enable = true;
+  programs.sway.enable = true;
 
   # Fonts
   fonts = {
@@ -75,12 +75,11 @@
     # Desktop
     anki
     bluez-tools
-    clipmenu
+    clipman
     conky
     dfeet
-    dmenu
+    dmenu-wayland
     dunst
-    dwm
     feh
     gammastep
     gsettings-desktop-schemas
@@ -94,12 +93,12 @@
     libnotify
     libreoffice
     maim
+    mako
     obs-studio
     pavucontrol
     pcmanfm
     SDL2
     scrot
-    slock
     slurp
     st
     swt
@@ -117,6 +116,7 @@
     xorg.xkill
     xorg.transset
     wine
+    wl-clipboard
     # Docs
     calibre
     mupdf
@@ -133,7 +133,7 @@
     godot
     gphoto2
     graphviz
-    inkscape
+    #inkscape
     imagemagick
     # Keyboard
     xorg.setxkbmap
