@@ -28,6 +28,7 @@
     killall
     lsof
     man-pages
+    mutt
     ncdu
     neovim
     openipmi
@@ -58,6 +59,7 @@
     unrar
     unzip
     zip
+    zsh
     # Encryption
     openssl
     pinentry-curses
@@ -133,6 +135,7 @@
     config.boot.kernelPackages.perf
     cscope
     ctags
+    factor-lang
     flex
     gcc
     gdb
