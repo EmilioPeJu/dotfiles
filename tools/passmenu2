@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+passmenu
+sleep 10
+echo "[]" > ~/.local/share/clipman.json

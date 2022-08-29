@@ -239,7 +239,7 @@ mode "applications" {
     bindsym m exec $term -e ncmpc -h 127.0.0.1 -p 6600,mode "default"
     bindsym d exec $term -e bashmount,mode "default"
     bindsym k exec xkill,mode "default"
-    bindsym p exec passmenu,mode "default"
+    bindsym p exec passmenu2,mode "default"
     bindsym r exec $term -e atop,mode "default"
     bindsym s exec select-symbol.sh,mode "default"
     bindsym t exec telegram-desktop,mode "default"
