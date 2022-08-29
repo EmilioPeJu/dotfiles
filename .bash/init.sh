@@ -9,7 +9,3 @@ fi
 if type -p direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
-if type -p remind &> /dev/null; then
-    remind ~/.reminders
-fi
-

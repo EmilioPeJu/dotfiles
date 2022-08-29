@@ -1,7 +1,6 @@
-bindkey -e # emacs gagnang style
-bindkey '\e[B'      history-search-forward    # down arrow
-bindkey '\e[A' history-search-backward        # up arrow
-bindkey '\eo'   cd-ranger
+bindkey -e
+bindkey '\e[B' history-search-forward    # down arrow
+bindkey '\e[A' history-search-backward   # up arrow
 bindkey '\e#' comment
 
 autoload -U edit-command-line

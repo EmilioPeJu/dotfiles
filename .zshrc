@@ -11,12 +11,10 @@ fi
 
 # prompt zefram
 
+source ~/.zsh/init.zsh
 source ~/.zsh/setopt.zsh
-source ~/.zsh/aliases.zsh
 source ~/.zsh/functions.zsh
 source ~/.zsh/bindkeys.zsh
-
-eval "$(fasd --init auto)"
 
 # Plugins and Frameworks
 
@@ -24,7 +22,7 @@ eval "$(fasd --init auto)"
 export ZSH=~"/.zsh/oh-my-zsh"
 export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 
-ZSH_THEME="lukerandall-mod"
+#ZSH_THEME="lukerandall-mod"
 
 plugins=(zsh-autosuggestions git dirhistory zsh-syntax-highlighting)
 
