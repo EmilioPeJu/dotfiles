@@ -191,6 +191,8 @@ static MouseShortcut mshortcuts[] = {
 
 static char *copystringcmd[] = { "/bin/sh", "-c", "st-copystring",
                                  "externalpipe", NULL };
+static char *copylinecmd[] = { "/bin/sh", "-c", "st-copystring",
+                               "externalpipe", NULL };
 static char *copyoutcmd[] = { "/bin/sh", "-c", "st-copyout",
                               "externalpipe", NULL };
 
@@ -210,8 +212,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ TERMMOD,              XK_Y,           externalpipe,   {.v = copystringcmd } },
+	{ TERMMOD,              XK_L,           externalpipe,   {.v = copylinecmd } },
 	{ TERMMOD,              XK_O,           externalpipe,   {.v = copyoutcmd } },
+	{ TERMMOD,              XK_Y,           externalpipe,   {.v = copystringcmd } },
 };
 
 /*
