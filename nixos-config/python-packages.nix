@@ -7,6 +7,7 @@ with pp; [
   numpy
   matplotlib
   mypy
+  nose
   pip
   pudb
   pycodestyle
