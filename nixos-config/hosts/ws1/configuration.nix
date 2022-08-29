@@ -17,6 +17,8 @@
     ../../virt.nix
   ];
 
+  nixpkgs.config.allowUnfree = true;
+
   # Kernel
   boot.blacklistedKernelModules = [ "nvidia" "nouveau" "dvb_usb_rtl28xxu" ];
   boot.kernelParams = [
