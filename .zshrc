@@ -27,5 +27,3 @@ export ZSH_CUSTOM=~"/.zsh/oh-my-zsh-custom"
 plugins=(zsh-autosuggestions git dirhistory zsh-syntax-highlighting)
 
 source ~/.zsh/oh-my-zsh/oh-my-zsh.sh
-
-export TERM=xterm-256color
