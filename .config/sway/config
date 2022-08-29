@@ -15,7 +15,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term st
+set $term alacritty
 # Your preferred application launcher
 set $menu dmenu_run
 # wallpaper
@@ -70,7 +70,7 @@ hide_edge_borders smart
 # Basics:
 #
     # start a terminal
-    bindsym $mod+Return exec $term -e tmux
+    bindsym $mod+Return exec SHELL=zsh $term -e tmux
 
     # kill focused window
     bindsym $mod+Shift+q kill
@@ -189,7 +189,6 @@ hide_edge_borders smart
 #
 ## Notifications
 bindsym Control+Space exec makoctl dismiss
-bindsym Control+Shift+Space exec makoctl dismiss --all
 
 ## Audio control
 bindsym --locked XF86AudioPlay exec mpc play
