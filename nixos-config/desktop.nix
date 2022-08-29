@@ -115,6 +115,7 @@
     xorg.xhost
     xorg.xkill
     xorg.transset
+    waybar
     wine
     wl-clipboard
     # Docs
