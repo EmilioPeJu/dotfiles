@@ -97,6 +97,7 @@
     obs-studio
     pavucontrol
     pcmanfm
+    rofi
     SDL2
     scrot
     slurp
