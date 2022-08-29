@@ -16,8 +16,6 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-# Your preferred application launcher
-set $menu dmenu_run
 # wallpaper
 set $wallpaper ~/backgrounds/sunset.jpg
 
@@ -77,7 +75,8 @@ hide_edge_borders smart
     bindsym $mod+Shift+q kill
 
     # start your launcher
-    bindsym $mod+d exec dmenu_run
+    bindsym $mod+d exec rofi_run
+    bindsym $mod+Shift+d exec dmenu_run
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
