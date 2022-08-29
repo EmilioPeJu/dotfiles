@@ -77,7 +77,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("st -e bashmount") },
-	{ MODKEY,                       XK_g,      spawn,          SHCMD("select-greek-letter.sh") },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("xkill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("thunderbird") },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("st -e python3") },
@@ -119,7 +118,7 @@ static Key keys[] = {
 	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
 	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e wyrd") },
 	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
-	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/notes.txt") },
+	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/notes.md") },
 	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
 	{ ControlMask,                  XK_4,     spawn,           SHCMD("randomlist.sh") },
 	TAGKEYS(                        XK_1,                      0)
