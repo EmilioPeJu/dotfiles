@@ -1,17 +1,18 @@
 { config, pkgs, lib, ... }:
 
-{
+let dirty = (import ./dirty.nix { });
+in {
   networking.firewall.allowedTCPPorts = [ 8123 ];
   services.home-assistant = {
     enable = true;
-    port = 8123;
     config = {
       homeassistant = {
+        http.server_port = 8123;
         name = "Home";
         time_zone = "Europe/London";
-        latitude = 1;
-        longitude = 1;
-        elevation = 1;
+        latitude = dirty.latitude;
+        longitude = dirty.longitude;
+        elevation = dirty.elevation;
         unit_system = "metric";
         temperature_unit = "C";
       };

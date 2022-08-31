@@ -24,7 +24,7 @@ in {
       export PATH=/run/current-system/sw/bin
       export USER=user
       export HOME=/home/user
-      remind /mnt/proc/remind/top.rem '*3' | hirnoty-send -t sched
+      remind /home/user/remind/top.rem '*1' | hirnoty-send -t sched
     '';
   };
   systemd.services."hirnoty" = {

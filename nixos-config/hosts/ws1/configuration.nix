@@ -70,6 +70,17 @@
     firewall.allowedUDPPorts = [ 5064 6064 5065 6065 5076 ];
   };
 
+  # Packages
+  users.users.user.packages = [
+    #discord
+    #nomachine-client
+    #skypeforlinux
+    slack
+    steam
+    #vscode-with-extensions
+    #zoom-us
+  ];
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 

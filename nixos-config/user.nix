@@ -15,15 +15,6 @@ in {
         "systemd-journal"
         "video"
       ];
-      packages = with pkgs; [
-        #discord
-        nomachine-client
-        #skypeforlinux
-        slack
-        steam
-        vscode-with-extensions
-        zoom-us
-      ];
     };
     root = { hashedPassword = dirty.rootHash; };
   };

@@ -3,10 +3,11 @@
 let dirty = (import ../../dirty.nix { });
 in {
   imports = [
-    ../../ssh.nix
-    ../../notify.nix
     ../../hass.nix
+    ../../notify.nix
     ../../overrides.nix
+    ../../ssh.nix
+    ../../user.nix
     ../../wifi.nix
   ];
 
@@ -28,14 +29,8 @@ in {
     enable = true;
     version = 4;
   };
-  boot.loader.grub.enable = false;
-  boot.loader.generic-extlinux-compatible.enable = true;
 
-  hardware.bluetooth = {
-    enable = true;
-    package = pkgs.bluezFull;
-    disabledPlugins = [ "sap" ];
-  };
+  boot.loader.grub.enable = false;
 
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
@@ -68,29 +63,26 @@ in {
   '';
 
   environment.systemPackages = with pkgs; [
-    pulsemixer
-    bashmount
-    neovim
     automake
+    bashmount
     binutils
     file
     flex
     gcc
     gdb
-    gitAndTools.gitFull
+    git
     gnumake
     home-assistant-cli
     kernelshark
     meson
-    mpd
-    mpc_cli
+    neovim
     ncmpc
     ninja
     nmap
     oprofile
     perf-tools
     pkgconfig
-    python3
+    pulsemixer
     radare2
     ranger
     remind
@@ -105,21 +97,14 @@ in {
     yacc
     weechat
     zeal
+    # Python
+    (python3.withPackages (import ./../../python-packages.nix))
   ];
 
-  users = {
-    mutableUsers = false;
-    users.root = { hashedPassword = dirty.rootHash; };
-    users.user = {
-      uid = 1001;
-      isNormalUser = true;
-      extraGroups = [ "video" "audio" ];
-      hashedPassword = dirty.userHash;
-    };
-  };
+  users.users.user.openssh.authorizedKeys.keys = [ dirty.publicKey2 ];
 
   nix = {
-    autoOptimiseStore = true;
+    settings.auto-optimise-store = true;
     gc = {
       automatic = true;
       dates = "weekly";
@@ -146,7 +131,7 @@ in {
   };
 
   nixpkgs.config = { allowUnfree = true; };
-  # I got some funny issue in which system get hung
+  # I got some funny issue in which the system get hung
   #powerManagement.cpuFreqGovernor = "ondemand";
   system.stateVersion = "20.09";
 }
