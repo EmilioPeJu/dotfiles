@@ -9,6 +9,8 @@
 
     #libunity = (pkgs.callPackage ./pkgs/libunity { });
 
+    noip2 = (pkgs.callPackage ./pkgs/noip2 {});
+
     slock = (pkgs.slock.override {
       conf = builtins.readFile ./slock/config.h;
     }).overrideAttrs

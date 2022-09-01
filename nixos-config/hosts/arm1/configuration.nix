@@ -78,6 +78,7 @@ in {
     neovim
     ncmpc
     ninja
+    noip2
     nmap
     oprofile
     perf-tools
@@ -97,11 +98,27 @@ in {
     yacc
     weechat
     zeal
+    zsh
     # Python
     (python3.withPackages (import ./../../python-packages.nix))
   ];
 
   users.users.user.openssh.authorizedKeys.keys = [ dirty.publicKey2 ];
+
+  systemd.services."noip2" = {
+    enable = true;
+    unitConfig = {
+      Requires = "network-online.target";
+      After = "network-online.target";
+    };
+    serviceConfig = {
+      Type = "simple";
+      # I created noip2.conf by running noip2 -C -c noip2.conf
+      ExecStart = "${pkgs.noip2}/bin/noip2 -c /home/user/noip2.conf";
+      User = "user";
+    };
+    wantedBy = [ "multi-user.target" ];
+  };
 
   nix = {
     settings.auto-optimise-store = true;
