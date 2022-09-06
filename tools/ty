@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+ts log_command yt-dlp "$@"
