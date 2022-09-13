@@ -6,6 +6,10 @@ function c {
     cd "$query"
 }
 
+function man2 {
+    curl cht.sh/${1} 2>/dev/null | less -r
+}
+
 function ranger_cd {
     local tmp=$(mktemp)
     ranger --choosedir="$tmp"
