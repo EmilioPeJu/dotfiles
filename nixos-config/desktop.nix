@@ -73,6 +73,7 @@
     # Webcam
     guvcview
     # Desktop
+    alacritty
     anki
     bluez-tools
     clipman
@@ -115,7 +116,6 @@
     xlsfonts
     xorg.xhost
     xorg.xkill
-    xorg.transset
     waybar
     wine
     wl-clipboard
