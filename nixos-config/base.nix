@@ -31,6 +31,7 @@
     mutt
     ncdu
     neovim
+    nvme-cli
     openipmi
     pass
     progress
@@ -132,15 +133,19 @@
     config.boot.kernelPackages.bpftrace
     config.boot.kernelPackages.cpupower
     clang-tools
+    clisp
     config.boot.kernelPackages.perf
     cscope
     ctags
     factor-lang
     flex
+    flyctl
     gcc
     gdb
     gitAndTools.gitFull
+    gitui
     gnumake
+    julia-bin
     #kernelshark
     kexectools
     libunity
@@ -185,5 +190,10 @@
       group = "nobody";
       capabilities = "cap_net_admin,cap_net_raw+ep";
     };
+  };
+
+  programs.atop = {
+    enable = true;
+    netatop.enable = true;
   };
 }
