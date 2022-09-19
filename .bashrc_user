@@ -3,5 +3,10 @@
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
-# Start sway only if gdm is not used
-type -p gdm &> /dev/null || { [[ "$(tty)" = "/dev/tty1" ]] && ssh-agent sway; }
+if ! type -p gdm &> /dev/null && [[ "$(tty)" = "/dev/tty1" ]]; then
+    if type -p sway &> /dev/null; then
+        ssh-agent sway
+    else
+        ssh-agent startx
+    fi
+fi
