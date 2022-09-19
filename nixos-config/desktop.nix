@@ -24,9 +24,6 @@
     disabledPlugins = [ "sap" ];
   };
 
-  #Programs
-  programs.sway.enable = true;
-
   # Fonts
   fonts = {
     fontDir.enable = true;
@@ -34,12 +31,9 @@
     fonts = with pkgs; [
       (nerdfonts.override {
         fonts = [
-          "BigBlueTerminal"
           "BitstreamVeraSansMono"
-          "DroidSansMono"
           "FiraCode"
           "SourceCodePro"
-          "Ubuntu"
         ];
       })
       dejavu_fonts
@@ -69,18 +63,13 @@
       allowBitmaps = true;
     };
   };
+
   environment.systemPackages = with pkgs; [
-    # Webcam
-    guvcview
     # Desktop
     alacritty
     anki
     bluez-tools
-    clipman
-    conky
     dfeet
-    dmenu-wayland
-    dunst
     feh
     gammastep
     gsettings-desktop-schemas
@@ -88,37 +77,26 @@
     firefox
     font-manager
     freerdp
-    grim
-    i3status
-    joplin-desktop
+    #joplin-desktop
     libnotify
     libreoffice
-    maim
-    mako
     obs-studio
-    pavucontrol
     pcmanfm
     rofi
     SDL2
     scrot
-    slurp
     st
     swt
     sxiv
-    ums
+    #ums
     vym
     wob
     xchm
     xclip
-    xcompmgr
     xdotool
     xfontsel
     xlsfonts
-    xorg.xhost
-    xorg.xkill
-    waybar
     wine
-    wl-clipboard
     # Docs
     calibre
     mupdf
@@ -143,11 +121,13 @@
     xorg.xkbcomp
     xorg.xmodmap
     # Messaging
-    qtox
+    #qtox
     tdesktop
     # Media
     audacity
-    openshot-qt
-    playerctl
+    #openshot-qt
+    #playerctl
+    # Webcam
+    guvcview
   ];
 }

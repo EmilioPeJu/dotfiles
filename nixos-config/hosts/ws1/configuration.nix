@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
     ../../base.nix
     ../../coms.nix
-    ../../desktop.nix
+    ../../desktop-way.nix
     ../../electronics.nix
     ../../overrides.nix
     ../../security-options.nix

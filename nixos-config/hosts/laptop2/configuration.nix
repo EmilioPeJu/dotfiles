@@ -8,7 +8,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ../../base.nix
-    ../../desktop.nix
+    ../../desktop-way.nix
     ../../overrides.nix
     ../../security-options.nix
     ../../ssh.nix
