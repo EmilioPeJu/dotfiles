@@ -12,6 +12,7 @@
     slock
     xcompmgr
     xorg.xhost
+    xorg.xinit
     xorg.xkill
   ];
 }
