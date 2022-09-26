@@ -3,6 +3,7 @@
 let dirty = (import ../../dirty.nix { });
 in {
   imports = [
+    ../../base.nix
     ../../hass.nix
     ../../notify.nix
     ../../overrides.nix
@@ -63,44 +64,10 @@ in {
   '';
 
   environment.systemPackages = with pkgs; [
-    automake
-    bashmount
-    binutils
-    file
-    flex
-    gcc
-    gdb
-    git
-    gnumake
     home-assistant-cli
-    kernelshark
-    meson
-    neovim
-    ncmpc
-    ninja
     noip2
     nmap
-    oprofile
-    perf-tools
-    pkgconfig
-    pulsemixer
     radare2
-    ranger
-    remind
-    rustfmt
-    rustup
-    sloccount
-    strace
-    tig
-    tmux
-    trace-cmd
-    valgrind
-    yacc
-    weechat
-    zeal
-    zsh
-    # Python
-    (python3.withPackages (import ./../../python-packages.nix))
   ];
 
   users.users.user.openssh.authorizedKeys.keys = [ dirty.publicKey2 ];

@@ -71,13 +71,13 @@
   };
 
   # Packages
-  users.users.user.packages = [
+  users.users.user.packages = with pkgs; [
     #discord
     #nomachine-client
     #skypeforlinux
     slack
     steam
-    #vscode-with-extensions
+    vscode-with-extensions
     #zoom-us
   ];
 

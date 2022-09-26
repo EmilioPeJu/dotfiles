@@ -80,7 +80,9 @@
     #joplin-desktop
     libnotify
     libreoffice
+    nodejs
     obs-studio
+    openjdk
     pcmanfm
     rofi
     SDL2
@@ -105,6 +107,7 @@
     texlive.combined.scheme-medium
     texstudio
     zathura
+    zeal
     # Email
     thunderbird
     # Images and animation

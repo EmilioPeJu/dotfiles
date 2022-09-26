@@ -2,8 +2,7 @@ pp:
 with pp; [
   beautifulsoup4
   dbus-python
-  #jupyterlab
-  #jupyter-packaging
+  #ipykernel
   numpy
   matplotlib
   mypy

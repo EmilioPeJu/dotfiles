@@ -18,7 +18,6 @@
     fakeroot
     file
     fzf
-    gtk3
     htop
     iftop
     indent
@@ -52,7 +51,6 @@
     wget
     xcftools
     yt-dlp
-    zellij
     # Compression
     archivemount
     gzip
@@ -83,9 +81,6 @@
     # Management
     remind
     timetrap
-    wyrd
-    # Monitor
-    atop
     # Net
     curl
     deluge
@@ -129,15 +124,11 @@
     # Programming/Debugging/Tracing
     automake
     binutils
-    bpftool
-    config.boot.kernelPackages.bpftrace
-    config.boot.kernelPackages.cpupower
     clang-tools
-    clisp
-    config.boot.kernelPackages.perf
+    #clisp
     cscope
     ctags
-    factor-lang
+    #factor-lang
     flex
     flyctl
     gcc
@@ -145,34 +136,27 @@
     gitAndTools.gitFull
     gitui
     gnumake
-    julia-bin
-    #kernelshark
+    #julia-bin
     kexectools
     libunity
-    ltrace
+    #ltrace
     meson
     ninja
-    nodejs
-    openjdk
     perf-tools
     pforth
     pmbootstrap
     pkgconfig
     radare2
-    #riscv-toolchain
     rustfmt
     rustup
-    scilab-bin
+    #scilab-bin
     sloccount
     strace
     swiProlog
-    tig
-    trace-cmd
     valgrind
     yacc
     yasm
     yara
-    zeal
     # Python
     (python3.withPackages (import ./python-packages.nix))
   ];
