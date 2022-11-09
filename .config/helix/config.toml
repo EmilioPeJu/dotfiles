@@ -1,0 +1,5 @@
+[editor]
+line-number = "relative"
+
+[keys.normal]
+"backspace" = { s = [":w", ":config-reload"] }
