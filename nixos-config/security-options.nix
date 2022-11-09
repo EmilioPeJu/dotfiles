@@ -5,9 +5,9 @@
   security.sudo.enable = true;
   security.sudo.configFile = ''
     user ALL=(ALL) NOPASSWD:/run/current-system/sw/bin/systemctl suspend
-    user ALL=(ALL) NOPASSWD:/run/wrappers/bin/mount -t nfs -o rw\,soft 192.168.89.248\:/rpool/user /ext/server
+    user ALL=(ALL) NOPASSWD:/run/wrappers/bin/mount -t nfs -o rw\,soft server1\:/rpool/user /ext/server
     user ALL=(ALL) NOPASSWD:/run/wrappers/bin/umount /ext/server
-    user ALL=(ALL) NOPASSWD:/run/wrappers/bin/mount -t nfs -o rw\,soft 192.168.88.253\:/mnt /ext/media
+    user ALL=(ALL) NOPASSWD:/run/wrappers/bin/mount -t nfs -o rw\,soft arm1\:/mnt /ext/media
     user ALL=(ALL) NOPASSWD:/run/wrappers/bin/umount /ext/media
   '';
   security.audit = {
