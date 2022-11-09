@@ -9,7 +9,6 @@ in {
     ../../overrides.nix
     ../../ssh.nix
     ../../user.nix
-    ../../wifi.nix
   ];
 
   boot = {
@@ -26,12 +25,8 @@ in {
     ];
   };
 
-  boot.loader.raspberryPi = {
-    enable = true;
-    version = 4;
-  };
-
   boot.loader.grub.enable = false;
+  boot.loader.generic-extlinux-compatible.enable = true;
 
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
@@ -51,16 +46,10 @@ in {
     firewall.allowedUDPPorts = [ 111 2049 4045 1900 20048 ];
   };
 
-  sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
-
   # NFS server
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''
-    /mnt 192.168.88.0/24(rw,sync,no_subtree_check)
+    /mnt 192.168.0.16/32(rw,sync,no_subtree_check)
   '';
 
   environment.systemPackages = with pkgs; [
@@ -79,7 +68,8 @@ in {
       After = "network-online.target";
     };
     serviceConfig = {
-      Type = "simple";
+      Type = "forking";
+      Restart = "always";
       # I created noip2.conf by running noip2 -C -c noip2.conf
       ExecStart = "${pkgs.noip2}/bin/noip2 -c /home/user/noip2.conf";
       User = "user";
