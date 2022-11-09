@@ -70,6 +70,7 @@
     anki
     bluez-tools
     dfeet
+    evince
     feh
     gammastep
     gsettings-desktop-schemas

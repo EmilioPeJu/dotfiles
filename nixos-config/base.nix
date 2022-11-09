@@ -89,7 +89,6 @@
     dynamips
     ethtool
     gns3-server
-    inetutils
     iperf
     junkie
     openvswitch
@@ -119,12 +118,14 @@
     ffmpeg-full
     mpd
     mpc_cli
-    mpv-with-scripts
+    mpv
     ncmpc
     # Programming/Debugging/Tracing
     automake
     binutils
+    bison
     clang-tools
+    cmake
     #clisp
     cscope
     ctags
@@ -145,16 +146,14 @@
     perf-tools
     pforth
     pmbootstrap
-    pkgconfig
+    pkg-config
     radare2
-    rustfmt
     rustup
     #scilab-bin
     sloccount
     strace
-    swiProlog
+    #swiProlog
     valgrind
-    yacc
     yasm
     yara
     # Python

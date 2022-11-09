@@ -12,11 +12,13 @@
     ../../desktop-way.nix
     ../../electronics.nix
     ../../overrides.nix
+    ../../security.nix
     ../../security-options.nix
     ../../user.nix
     ../../virt.nix
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nixpkgs.config.allowUnfree = true;
 
   # Kernel
@@ -41,8 +43,8 @@
   boot.supportedFilesystems = [ "ntfs" "zfs" ];
   nixpkgs.config.allowBroken = true;
 
-  services.printing.enable = true;
-  services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
+  #services.printing.enable = true;
+  #services.printing.drivers = [ pkgs.hplip pkgs.brlaser pkgs.brgenml1lpr ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -73,7 +75,8 @@
   # Packages
   users.users.user.packages = with pkgs; [
     #discord
-    #nomachine-client
+    freerdp
+    nomachine-client
     #skypeforlinux
     slack
     steam
