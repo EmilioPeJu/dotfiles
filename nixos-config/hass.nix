@@ -6,21 +6,9 @@ in {
   services.home-assistant = {
     enable = true;
     config = {
-      homeassistant = {
-        http.server_port = 8123;
-        name = "Home";
-        time_zone = "Europe/London";
-        latitude = dirty.latitude;
-        longitude = dirty.longitude;
-        elevation = dirty.elevation;
-        unit_system = "metric";
-        temperature_unit = "C";
-      };
-      # Enable the frontend
-      frontend = { };
-      http = { };
+      default_config = {};
       # Smart bulbs
-      lifx.light = [{ broadcast = "192.168.100.2"; }];
+      #lifx.light = [{ broadcast = "192.168.100.2"; }];
     };
   };
 }
