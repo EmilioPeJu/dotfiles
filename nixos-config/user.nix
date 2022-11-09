@@ -6,6 +6,7 @@ in {
     user = {
       uid = 1001;
       isNormalUser = true;
+      initialHashedPassword = dirty.userHash;
       hashedPassword = dirty.userHash;
       extraGroups = [
         "audio"
@@ -16,7 +17,10 @@ in {
         "video"
       ];
     };
-    root = { hashedPassword = dirty.rootHash; };
+    root = {
+      initialHashedPassword = dirty.rootHash;
+      hashedPassword = dirty.rootHash;
+    };
   };
 
   # discord, vscode ... require it
