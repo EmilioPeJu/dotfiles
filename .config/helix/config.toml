@@ -3,6 +3,15 @@ theme = "dracula_at_night"
 [editor]
 line-number = "relative"
 rulers = [80]
+cursorline = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
 
 [editor.whitespace.render]
 space = "all"
@@ -14,6 +23,10 @@ space = "·"
 newline = "⏎"
 tab = "→"
 tabpad = "·"
+
+[editor.file-picker]
+git-ignore = true
+hidden = false
 
 [keys.normal]
 "backspace" = { s = [":w", ":config-reload"] }
