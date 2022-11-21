@@ -1,5 +1,17 @@
 [editor]
 line-number = "relative"
+rulers = [80]
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.whitespace.characters]
+space = "·"
+newline = "⏎"
+tab = "→"
+tabpad = "·"
 
 [keys.normal]
 "backspace" = { s = [":w", ":config-reload"] }
