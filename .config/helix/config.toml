@@ -1,3 +1,5 @@
+theme = "dracula_at_night"
+
 [editor]
 line-number = "relative"
 rulers = [80]
