@@ -33,21 +33,19 @@ in {
     kicad
     libftdi1
     minipro
-    #mynewt-newt
     ngspice
     #nrfutil
-    #openocd
+    openocd
     picocom
-    (python3Packages.callPackage ./pkgs/hdl_checker {
-      pygls = (python3Packages.callPackage ./pkgs/oldpygls { });
-    })
-    #pulseview
+    #(python3Packages.callPackage ./pkgs/hdl_checker {
+    #  pygls = (python3Packages.callPackage ./pkgs/oldpygls { });
+    #})
+    pulseview
+    pyocd
     #qmk_firmware
     pynus
     sigrok-cli
     stlink
-    stm32flash
-    stm32loader
     #uhubctl
     #yosys
     #yosys-ghdl
