@@ -68,8 +68,6 @@
     useDHCP = false;
     interfaces.enp4s0.useDHCP = true;
     interfaces.enp2s0f0u5.useDHCP = true;
-    firewall.allowedTCPPorts = [ 1234 5064 6064 5065 6065 5075 6075 7011 7012 ];
-    firewall.allowedUDPPorts = [ 5064 6064 5065 6065 5076 ];
   };
 
   # Set your time zone.
