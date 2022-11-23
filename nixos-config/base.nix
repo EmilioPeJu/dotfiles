@@ -18,8 +18,10 @@
     fakeroot
     file
     fzf
+    helix
     htop
     iftop
+    inetutils
     indent
     iotop
     ipmitool
@@ -37,6 +39,7 @@
     psmisc
     powertop
     pulsemixer
+    qemu
     ranger
     ripgrep
     rsync
