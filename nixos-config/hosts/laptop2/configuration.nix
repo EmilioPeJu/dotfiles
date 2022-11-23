@@ -13,6 +13,7 @@
     ../../security-options.nix
     ../../ssh.nix
     ../../user.nix
+    ../../work.nix
   ];
 
   powerManagement.cpuFreqGovernor = "powersave";
