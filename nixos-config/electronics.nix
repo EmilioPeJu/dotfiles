@@ -35,6 +35,7 @@ in {
     minipro
     ngspice
     #nrfutil
+    openboardview
     openocd
     picocom
     #(python3Packages.callPackage ./pkgs/hdl_checker {
