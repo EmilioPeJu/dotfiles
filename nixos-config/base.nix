@@ -54,6 +54,7 @@
     wget
     xcftools
     yt-dlp
+    zsh
     # Compression
     archivemount
     gzip
@@ -61,7 +62,6 @@
     unrar
     unzip
     zip
-    zsh
     # Encryption
     openssl
     pinentry-curses
@@ -132,7 +132,6 @@
     #clisp
     cscope
     ctags
-    #factor-lang
     flex
     flyctl
     gcc
@@ -140,7 +139,6 @@
     gitAndTools.gitFull
     gitui
     gnumake
-    #julia-bin
     kexectools
     libunity
     #ltrace
