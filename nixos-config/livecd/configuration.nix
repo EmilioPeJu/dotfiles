@@ -8,8 +8,38 @@ in {
     # Provide an initial copy of the NixOS channel so that the user
     # doesn't need to run "nix-channel --update" first.
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
-    ./../base.nix
-    ./../desktop.nix
+  ];
+  environment.systemPackages = with pkgs; [
+    curl
+    diskscan
+    ddrescue
+    dhcpcd
+    dmidecode
+    ethtool
+    file
+    gnufdisk
+    hddtemp
+    hdparm
+    htop
+    inetutils
+    iproute2
+    lshw
+    lsof
+    ncdu
+    pciutils
+    python3
+    radare2
+    ranger
+    smartmontools
+    tmux
+    udev
+    usbutils
+    watch
+    wol
+    wpa_supplicant
+    # Compression
+    gzip
+    unzip
   ];
   networking.hostName = "machine";
   networking.networkmanager.enable = false;
@@ -17,7 +47,7 @@ in {
   users.users = {
     nixos = {
       uid = 1001;
-      extraGroups = [ "dialout" ];
+      extraGroups = [ "dialout" "wheel" ];
     };
     root = { hashedPassword = dirty.rootHash; };
   };
