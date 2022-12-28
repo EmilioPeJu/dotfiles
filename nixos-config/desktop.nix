@@ -70,20 +70,23 @@
     openjdk
     pcmanfm
     rofi
+    sage
     SDL2
     scrot
     st
     swt
     sxiv
+    #tor-browser-bundle-bin
     #ums
     vym
+    wine
     wob
+    wxmaxima
     xchm
     xclip
     xdotool
     xfontsel
     xlsfonts
-    wine
     # Docs
     calibre
     mupdf
