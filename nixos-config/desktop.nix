@@ -24,11 +24,10 @@
     disabledPlugins = [ "sap" ];
   };
 
-  # Fonts
   fonts = {
     fontDir.enable = true;
-    enableDefaultFonts = false;
     fonts = with pkgs; [
+      dejavu_fonts
       (nerdfonts.override {
         fonts = [
           "BitstreamVeraSansMono"
@@ -36,28 +35,13 @@
           "SourceCodePro"
         ];
       })
-      dejavu_fonts
-      emojione
-      freefont_ttf
-      gyre-fonts
-      hack-font
-      liberation_ttf
-      noto-fonts-emoji
-      open-dyslexic
-      redhat-official-fonts
-      terminus_font_ttf
-      ttf_bitstream_vera
       unifont
-      xorg.fontadobe75dpi
-      xorg.fontcursormisc
-      xorg.fontmiscmisc
     ];
     fontconfig = {
       defaultFonts = {
         serif = [ "DejaVu Serif" ];
         sansSerif = [ "DejaVu Sans" ];
         monospace = [ "DejaVu Sans Mono" ];
-        emoji = [ "Noto Color Emoji" ];
       };
       allowType1 = true;
       allowBitmaps = true;
