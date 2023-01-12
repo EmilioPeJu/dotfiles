@@ -10,6 +10,7 @@
     gqrx
     inspectrum
     rtl-sdr
+    rtl_433
     # VOIP
     linphone
     sipp

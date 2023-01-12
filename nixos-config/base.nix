@@ -26,9 +26,11 @@
     iotop
     ipmitool
     jq
+    joshuto
     killall
     lsof
     man-pages
+    mdcat
     mutt
     ncdu
     neovim

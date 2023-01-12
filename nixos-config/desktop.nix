@@ -54,6 +54,7 @@
     anki
     bluez-tools
     dfeet
+    discord
     evince
     feh
     gammastep
@@ -67,8 +68,12 @@
     libreoffice
     nodejs
     obs-studio
+    # requires to symlink libwlrobs.so
+    # to ~/.config/obs-studio/plugins/wlrobs/bin/64bit
+    obs-studio-plugins.wlrobs
     openjdk
     pcmanfm
+    qFlipper
     rofi
     sage
     SDL2
