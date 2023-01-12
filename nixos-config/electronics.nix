@@ -23,6 +23,7 @@ in {
     arduino
     avrdude
     #blackmagic
+    dfu-util
     flashrom
     ftdi_eeprom
     gcc-arm-embedded
@@ -41,7 +42,7 @@ in {
     #(python3Packages.callPackage ./pkgs/hdl_checker {
     #  pygls = (python3Packages.callPackage ./pkgs/oldpygls { });
     #})
-    pulseview
+    #pulseview
     pyocd
     #qmk_firmware
     pynus
