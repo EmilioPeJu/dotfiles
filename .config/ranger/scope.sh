@@ -92,6 +92,8 @@ handle_extension() {
         h5)
             h5dump -pH "${FILE_PATH}" && exit 5
             ;;
+        md)
+            mdcat "${FILE_PATH}" && exit 5
     esac
 }
 
