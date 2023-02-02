@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  minipro = pkgs.callPackage ./pkgs/minipro { };
   ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom { };
   pynus = (pkgs.python3Packages.callPackage ./pkgs/pynus { });
 in {
