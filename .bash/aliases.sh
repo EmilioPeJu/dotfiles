@@ -37,3 +37,5 @@ alias r="ranger_cd"
 alias p="python3"
 alias ze="zellij"
 alias zl="zellij --layout"
+alias todrive='rclone sync -i "/home/user/drive" "google-drive:"'
+alias fromdrive='rclone sync -i "google-drive:" "/home/user/drive"'
