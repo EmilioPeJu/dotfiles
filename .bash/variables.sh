@@ -22,9 +22,7 @@ export GPG_TTY=$TTY
 # Fix misbehaving java applications in dwm
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-if type -p hx &> /dev/null; then
-    export EDITOR="hx"
-elif type -p nvim &> /dev/null; then
+if type -p nvim &> /dev/null; then
     export EDITOR="nvim"
 else
     export EDITOR="vim"
