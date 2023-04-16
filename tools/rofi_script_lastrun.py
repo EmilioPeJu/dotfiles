@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 HISTORY_PATH = os.path.expanduser("~/.lastrun_history")
-MAX_HISTORY = 3
+MAX_HISTORY = 14
 
 
 def get_history():
@@ -32,7 +32,6 @@ def save_command(line):
         fhandle.write(line)
         fhandle.write('\n')
         fhandle.write('\n'.join(history))
-        fhandle.write('\n')
 
 
 def start_tmux_session():
