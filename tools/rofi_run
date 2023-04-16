@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-rofi -modes combi -show combi -combi-modes drun,ssh,run
