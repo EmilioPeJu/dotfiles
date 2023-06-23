@@ -6,7 +6,7 @@ snippet ifmain
 def main():
     $0
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 endsnippet
 
@@ -15,4 +15,60 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument($0)
     return parser.parse_args()
+endsnippet
+
+snippet tcp_client
+#!/usr/bin/env python
+import socket
+RECV_SIZE = 512
+
+def send(sock, cmd, recv=False):
+    print('Sent: {}'.format(repr(cmd)))
+    sock.send(cmd)
+    if recv:
+        print('Recv: {}'.format(sock.recv(RECV_SIZE)))
+
+
+def tcp_client():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect(('$1', $2))
+    $0
+    sock.close()
+endsnippet
+
+snippet tcp_server
+#!/usr/bin/env python
+import socket
+import threading
+RECV_SIZE = 512
+
+
+def send(sock, cmd, recv=False):
+    print('Sent: {}'.format(repr(cmd)))
+    sock.send(cmd)
+    if recv:
+        print('Recv: {}'.format(sock.recv(RECV_SIZE)))
+
+
+def client_handler(sock, addr):
+    while True:
+        data = sock.recv(RECV_SIZE)
+        if not len(data):
+            print(f'Closed {addr}')
+            sock.close()
+            return
+        $0
+
+
+def tcp_server():
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    sock.bind(('', $1))
+    sock.listen(5)
+    while True:
+        client_sock, client_addr = sock.accept()
+        print(f'Got client {client_addr}')
+        threading.Thread(target=client_handler,
+                         args=(client_sock, client_addr)).start()
+    sock.close()
 endsnippet
