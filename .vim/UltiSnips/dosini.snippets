@@ -1,0 +1,18 @@
+
+snippet "off(\-?\d+)" "offset time" rb
+`!p
+import re
+off = int(match.group(1))
+new_lines = []
+
+for line in snip.v.text.split('\n'):
+    t_match = re.match(r'\s*(\d+)', line)
+    if t_match:
+        t = int(t_match.group(1)) + off
+        new_lines.append(re.sub(r'^\s*(\d+)', str(t), line, 1))
+    else:
+        new_lines.append(line)
+
+snip.rv = '\n'.join(new_lines)
+`
+endsnippet
