@@ -17,7 +17,7 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # wallpaper
-set $wallpaper ~/backgrounds/star.jpg
+set $wallpaper ~/backgrounds/board1.jpg
 
 ### Output configuration
 #
@@ -309,7 +309,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 default_border pixel 1
-set $opacity 0.632
+set $opacity 0.9
 for_window [class=".*"] opacity $opacity
 for_window [app_id=".*"] opacity $opacity
 
