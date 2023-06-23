@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# script to start a program and kill it when EOF is detected
+cpid=$$
+{
+    "$@"
+    kill $cpid
+} &
+cat
+kill %1
