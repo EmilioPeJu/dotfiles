@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script to read serial port in raw mode and outputting in stdout
+
+port=${1:-/dev/ttyUSB0}
+baudrate=${2:-115200}
+stty -F "$port" cs8 -cstopb "$baudrate"
+cat < "$port"
