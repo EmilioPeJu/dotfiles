@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+import argparse
+import mmap
+import os
+import sys
+import time
+FLUSH_TIMEOUT = 16
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filepath')
+    parser.add_argument('size', type=int)
+    return parser.parse_args()
+
+
+def main():
+    args = parse_args()
+    fd = os.open(args.filepath, os.O_RDWR | os.O_CREAT)
+    os.truncate(fd, args.size)
+    mm = mmap.mmap(fd, args.size)
+    os.close(fd)
+    wr_index = 0
+    full = False
+    last_ts = time.time()
+    while True:
+        try:
+            data = sys.stdin.buffer.read(1)
+        except KeyboardInterrupt:
+            break
+
+        if data == b'':
+            break
+
+        mm[wr_index:wr_index + 1] = data
+        wr_index += 1
+        if wr_index >= args.size:
+            wr_index = 0
+            full = True
+
+        ts = time.time()
+        if last_ts + FLUSH_TIMEOUT >= ts:
+            last_ts = ts
+            mm.flush()
+
+    if full:
+        newdata = mm[wr_index:] + mm[:wr_index]
+        mm[:] = newdata
+        mm.close()
+    else:
+        mm.close()
+        os.truncate(args.filepath, wr_index)
+
+
+if __name__ == "__main__":
+    main()
