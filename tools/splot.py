@@ -22,6 +22,7 @@ def parse_args():
     arg_parser.add_argument("--ylabel", default=None)
     arg_parser.add_argument("--intmode", action="store_true")
     arg_parser.add_argument("--save", default=None)
+    arg_parser.add_argument("--skip", type=int, default=0)
     return arg_parser.parse_args()
 
 
@@ -29,7 +30,7 @@ def main():
     args = parse_args()
     data = sys.stdin.read()
     cast = int if args.intmode else float
-    yvals = [cast(item) for item in data.split() if is_number(item)]
+    yvals = [cast(item) for item in data.split() if is_number(item)][args.skip:]
     xvals = [cast(item) for item in args.xvals] if args.xvals \
         else [cast(item) for item in range(0, len(yvals))]
     print(f"x: {repr(xvals)}")
