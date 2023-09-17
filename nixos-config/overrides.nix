@@ -3,6 +3,7 @@
 {
   nixpkgs.config.packageOverrides = pkgs: {
     adsb_deku = (pkgs.callPackage ./pkgs/adsb_deku { });
+    dump1090_rs = (pkgs.callPackage ./pkgs/dump1090_rs { });
     dwm = (pkgs.dwm.override {
       conf = builtins.readFile ./dwm/config.h;
       patches = [ ./dwm/dwm-scratchpad-6.2.diff ];
