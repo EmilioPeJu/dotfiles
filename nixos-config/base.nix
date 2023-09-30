@@ -3,7 +3,7 @@
 {
   documentation.dev.enable = true;
   environment.systemPackages = with pkgs; [
-    ansible
+    #ansible
     atool
     bashmount
     ccls
@@ -16,7 +16,9 @@
     espeak
     expect
     fakeroot
+    fdupes
     file
+    fq
     fzf
     helix
     htop
@@ -34,18 +36,23 @@
     mutt
     ncdu
     neovim
+    nftables
     nvme-cli
     openipmi
     pass
+    poke
     progress
     psmisc
     powertop
     pulsemixer
     qemu
     ranger
+    rclone
     ripgrep
     rsync
+    sleuthkit
     starship
+    tio
     tmux
     translate-shell
     tree
@@ -54,6 +61,7 @@
     #tuna
     watch
     wget
+    wyrd
     xcftools
     yt-dlp
     zsh
@@ -93,7 +101,8 @@
     dnsutils
     dynamips
     ethtool
-    gns3-server
+    #gns3-gui
+    #gns3-server
     iperf
     junkie
     openvswitch
