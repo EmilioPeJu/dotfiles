@@ -6,13 +6,13 @@ in {
   networking.firewall.allowedTCPPorts = [ 1026 ];
   services.openssh = {
     enable = true;
-    forwardX11 = true;
     ports = [ 1026 ];
-    passwordAuthentication = false;
+    settings = {
+        X11Forwarding = true;
+        PasswordAuthentication = false;
+    };
     extraConfig = ''
-      MaxSessions 1
       AuthenticationMethods publickey
-      MaxAuthTries 2
     '';
   };
 
