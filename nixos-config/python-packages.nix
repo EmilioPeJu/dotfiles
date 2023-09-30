@@ -2,7 +2,7 @@ pp:
 with pp; [
   beautifulsoup4
   dbus-python
-  #ipykernel
+  #genanki
   numpy
   matplotlib
   mypy
@@ -14,9 +14,11 @@ with pp; [
   pygame
   pylint
   pynvim
-  pygobject3
+  #pygobject3
   pyserial
   pytest
+  pyusb
+  #pyu2f
   pyzmq
   requests
   scapy
