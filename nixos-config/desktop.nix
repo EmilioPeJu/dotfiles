@@ -9,12 +9,6 @@
 
   sound.enable = true;
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    alsa.support32Bit = true;
-  };
 
   security.rtkit.enable = true;
 
@@ -26,7 +20,7 @@
 
   fonts = {
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       dejavu_fonts
       (nerdfonts.override {
         fonts = [
