@@ -9,7 +9,3 @@ fi
 if type -p direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
-if type -p atuin &> /dev/null; then
-    source ~/.bash/bash-preexec.sh
-    eval "$(atuin init bash)"
-fi
