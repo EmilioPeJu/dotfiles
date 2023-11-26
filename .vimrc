@@ -6,7 +6,6 @@ let mapleader = ","
 set backupdir-=.
 set backupdir^=~/tmp,/tmp
 set background=dark
-let g:coc_disable_startup_warning = 1
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -19,7 +18,6 @@ Plug 'tpope/vim-commentary'
 Plug 'majutsushi/tagbar'
 Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/vim-clang-format'
 Plug 'kyazdani42/nvim-tree.lua'
@@ -43,12 +41,23 @@ nmap <F2> :NvimTreeToggle<CR>
 nmap <leader><F2> :TagbarToggle<CR>
 nnoremap <F3> :call QuickFix_toggle()<cr>
 nnoremap <leader><F3> :CocDiagnostics<CR>
-nmap <F4> :NeoDebug<CR>
-nmap <leader><F4> :NeoDebugStop<CR>
+" nmap <F4> :NeoDebug<CR>
+" nmap <leader><F4> :NeoDebugStop<CR>
 
 " coc
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -57,14 +66,8 @@ nmap <leader>L :Lines<CR>
 nnoremap <leader>p :GFiles<CR>
 nnoremap <leader>P :Rg<CR>
 
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-l>"
-let g:UltiSnipsJumpBackwardTrigger="<c-h>"
-
 " buffer
 nmap <leader><leader> :Buffers<CR>
-nmap <leader>d :bd!<CR>
 
 " window
 nnoremap <C-j> <C-W>j
@@ -210,6 +213,19 @@ function ConfigForPython()
     setlocal formatoptions+=cro
 endfunction
 
-if has('nvim')
-    luafile ~/.vim/lua/init.lua
-endif
+" coc related
+let g:coc_disable_startup_warning = 1
+inoremap <silent><expr> <C-l>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><c-h> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" email
+autocmd BufNewFile,BufRead /tmp/neomutt* set noautoindent filetype=mail wm=0 tw=78 nonumber digraph nolist nopaste
