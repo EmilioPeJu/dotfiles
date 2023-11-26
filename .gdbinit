@@ -1,8 +1,8 @@
 set disassembly-flavor intel
-# Workaround tui problem
-# define hook-next
-# 	refresh
-# end
+# workarount tui problem
+define hook-next
+    refresh
+end
 # program output in another tty
 # tty /dev/pts/1
 # attach to child processes too
@@ -15,11 +15,6 @@ set breakpoint pending on
 # gef config mmregs.enable False
 # gef config mmregs.n 3
 set auto-load safe-path ~/src/linux
-
-define make
-    shell make
-    python gdb.execute("file " + gdb.current_progspace().filename)
-    # clear cache
-    directory
-    refresh
-end
+tui new-layout default regs 1 {-horizontal src 1 asm 1} 2 status 0 cmd 1
+tui layout default
+tui enable
