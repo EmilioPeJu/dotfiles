@@ -1,6 +1,6 @@
 vim.cmd[[
-set runtimepath^=~/.vim
-let &packpath = &runtimepath
+"set runtimepath^=~/.vim
+"let &packpath = &runtimepath
 source ~/.vimrc
 ]]
 

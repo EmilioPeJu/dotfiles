@@ -106,7 +106,7 @@ snippet flake
       in {
         packages = rec {
           $2 = callPackage ./default.nix {};
-          default = example;
+          default = $2;
         };
       });
 }

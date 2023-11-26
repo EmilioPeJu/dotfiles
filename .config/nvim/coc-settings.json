@@ -1,0 +1,33 @@
+{
+    "python.pythonPath": "/run/current-system/sw/bin/python",
+    "diagnostic.checkCurrentLine": true,
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [ "c", "cc", "cpp" ],
+            "rootPatterns": [".ccls", "compile_commands.json"],
+            "initializationOptions": {
+                "cache": {
+                  "directory": "/tmp/ccls"
+                }
+            }
+        },
+        "hdlChecker": {
+            "command": "hdl_checker",
+            "args": [
+                "--lsp"
+            ],
+            "filetypes": [
+                "vhdl",
+                "verilog",
+                "systemverilog"
+            ]
+        },
+        "xor-lsp": {
+            "command": "xor-lsp",
+            "filetypes": [
+                "asm"
+            ]
+        }
+    }
+}

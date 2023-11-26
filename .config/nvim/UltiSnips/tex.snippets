@@ -1,0 +1,36 @@
+snippet main
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\title{$1}
+\author{$2}
+\begin{document}
+    \maketitle
+    $0
+\end{document}
+endsnippet
+
+snippet img
+\includegraphics[width=12cm]{$0} \\
+endsnippet
+
+snippet list
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet tab
+\begin{tabular}{|c|c|}
+1 & 2 \\
+$0
+\end{tabular}
+endsnippet
+
+snippet code
+\begin{verbatim}
+$0
+\end{verbatim}
+endsnippet

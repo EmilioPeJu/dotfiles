@@ -1,4 +1,39 @@
+snippet thread
+fn main() {
+    std::thread::Builder::new()
+        .stack_size(1 << 23)
+        .spawn(_main)
+        .unwrap()
+        .join()
+        .unwrap();
+}
+endsnippet
+
 snippet main
+fn main() -> io::Result<()> {
+    let mut scan = Scan::new();
+    $0
+    Ok(())
+}
+endsnippet
+
+snippet solve1
+fn solve1(scan: &mut Scan) -> io::Result<()> {
+    $0
+    Ok(())
+}
+
+fn main() -> io::Result<()> {
+    let mut scan = Scan::new();
+    let ts: usize = scan.next();
+    for _ in 0..ts {
+        solve1(&mut scan)?;
+    }
+    Ok(())
+}
+endsnippet
+
+snippet Scan
 use std::collections::VecDeque;
 use std::io;
 
@@ -21,40 +56,27 @@ impl Scan {
         }
     }
 
-    fn next<T: std::str::FromStr>(&mut self) -> io::Result<T> {
+    fn next<T: std::str::FromStr>(&mut self) -> T {
         loop {
             if let Some(token) = self.buffer.pop_front() {
-                break match token.parse::<T>() {
-                    Ok(x) => Ok(x),
-                    _ => Err(io::Error::new(io::ErrorKind::Other,
-                                            "parsing is fucked")),
-                };
+                match token.parse() {
+                    Ok(x) => {
+                        return x;
+                    }
+                    _ => {
+                        panic!("parse");
+                    }
+                }
             }
-            let line = self.next_line()?;
+            let line = self.next_line().unwrap();
             self.buffer = line.split_whitespace().map(String::from).collect();
         }
     }
-
-    fn next_n<T: std::str::FromStr>(&mut self, n: usize) -> Vec<T> {
-        (0..n).map(|_| self.next::<T>().unwrap()).collect()
-    }
 }
+endsnippet
 
-fn _main() -> io::Result<()> {
-    let mut scan = Scan::new();
-    $0
-    Ok(())
-}
-
-fn main() -> io::Result<()> {
-    std::thread::Builder::new()
-        .stack_size(1 << 23)
-        .spawn(_main)
-        .unwrap()
-        .join()
-        .unwrap()?;
-    Ok(())
-}
+snippet next_n
+(0..$1).map(|_| scan.next()).collect()
 endsnippet
 
 snippet factorial
@@ -110,11 +132,8 @@ impl Uf {
 }
 endsnippet
 
-snippet ts
-let ts: usize = scan.next().unwrap();
-for _ in 0..ts {
-    $0
-}
+snippet #[derive(Ord
+#[Derive(Ord, Eq, PartialOrd, PartialEq)]
 endsnippet
 
 snippet .u "unwrap" i

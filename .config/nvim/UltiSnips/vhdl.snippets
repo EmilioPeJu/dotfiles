@@ -1,0 +1,50 @@
+snippet main
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity $1 is
+    Port (
+        $2
+    );
+end;
+
+architecture rtl of $1 is
+begin
+    $0
+end;
+endsnippet
+
+snippet test
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity $1_tb is
+end $1_tb;
+
+architecture Behavioral of $1_tb is
+begin
+    $1_uut : entity work.$1 port map ($2);
+    process begin
+        $0
+        report "End of $1_tb";
+        wait;
+    end process;
+end;
+endsnippet
+
+snippet clk_proc
+     clk_proc: process
+     begin
+         loop
+             clk <= not clk; -- after 2 ns;
+             wait for 1 ns;
+             if done_clk = '1' then
+                 exit;
+             end if;
+         end loop;
+         report "End of clock";
+         wait;
+     end process;
+endsnippet
