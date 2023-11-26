@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# script to plot a list of integers from standard input
 import argparse
 import sys
 import matplotlib.pyplot as plt
