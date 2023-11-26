@@ -39,7 +39,8 @@ def start_tmux_session():
 
 
 def execute_command(line):
-    subprocess.run(['tmux', 'send-keys', '-t', 'lastrun', line, 'ENTER'])
+    subprocess.run(
+        ['tmux', 'send-keys', '-t', 'lastrun', f"( {line} ) &", 'ENTER'])
 
 
 def main():
