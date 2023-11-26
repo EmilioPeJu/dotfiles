@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-$SRCPATH/Lorien/run.sh "$@"
+cd $SRCPATH/Lorien/lorien
+godot3 Main.gd "$@"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+name="${1:-in}"
+
+for i in {01..99}; do
+    path="/home/user/problems/${name}${i}"
+    if [[ ! -f "${path}" ]]; then
+        xclip -selection clipboard -o > "${path}"
+        notify-send "Pasted file ${name}${i}"
+        break
+    fi
+done

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+SRC="$(find -name '*.rs' -printf '%T+ %p\n' | sort -r \
+    | head -n 1 | cut -d ' ' -f 2)"
+BIN="${SRC%*.rs}.out"
+rustc -g -o $BIN $SRC && $BIN

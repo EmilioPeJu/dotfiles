@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+name="${1:-in}"
+
+for i in {01..99}; do
+    path="/home/user/problems/${name}${i}"
+    if [[ -f "${path}" ]]; then
+        rm "${path}"
+    else
+        notify-send "Input files cleaned"
+        exit 0
+    fi
+done

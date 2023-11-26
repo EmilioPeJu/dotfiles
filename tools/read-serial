@@ -3,5 +3,5 @@
 
 port=${1:-/dev/ttyUSB0}
 baudrate=${2:-115200}
-stty -F "$port" cs8 -cstopb "$baudrate"
+stty -F "$port" raw "$baudrate"
 cat < "$port"

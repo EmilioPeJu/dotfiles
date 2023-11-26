@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-name="${1:-in}"
-
-for i in {01..99}; do
-    if [[ ! -f "${name}${i}" ]]; then
-        xclip -selection clipboard -o > "${name}${i}"
-        break
-    fi
-done
