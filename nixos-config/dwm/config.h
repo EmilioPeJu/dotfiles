@@ -59,6 +59,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *roficmd[] = { "rofi-last", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "125x33", NULL };
 static const char *shutdowncmd[]  = { "shutdown", "now", NULL };
@@ -71,11 +72,11 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
-	{ MODKEY,                       XK_Return, spawn,          SHCMD("st -e tmux") },
+	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpc -h 127.0.0.1 -p 6600") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("st -e bashmount") },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("xkill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("thunderbird") },
