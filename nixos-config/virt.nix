@@ -1,16 +1,14 @@
 { config, lib, pkgs, ... }:
 
 {
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
   virtualisation.docker.enable = true;
   virtualisation.docker.enableOnBoot = false;
-  users.users.user.extraGroups = [ "docker" "vboxusers" ];
+  users.users.user.extraGroups = [ "docker" "libvirtd" ];
   environment.systemPackages = with pkgs; [
-    #containerd
-    #firecracker
+    #distrobox
     #firectl
-    #ignite
-    #nerdctl
-    #runc
+    virt-manager
   ];
 }
