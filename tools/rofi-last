@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+rofi -modes last:~/tools/rofi_script_lastrun.py,run,drun -show last
