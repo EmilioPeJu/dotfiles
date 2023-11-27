@@ -4,15 +4,25 @@
   imports = [ ./desktop.nix ];
 
   #Programs
-  programs.sway.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     clipman
     dmenu-wayland
+    eww-wayland
     grim
+    kitty
     mako
+    nwg-bar
     slurp
-    waybar
+    swayidle
+    swaylock
     wl-clipboard
+    wofi
+    swww
+    waybar
   ];
 }
