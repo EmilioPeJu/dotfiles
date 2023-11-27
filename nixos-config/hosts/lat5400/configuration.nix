@@ -7,7 +7,6 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../android.nix
     ../../base.nix
     ../../coms.nix
     ../../desktop-x.nix
@@ -16,7 +15,6 @@
     ../../kernel-pkgs.nix
     ../../music.nix
     ../../overrides.nix
-    #../../samba.nix
     ../../security.nix
     ../../security-options.nix
     ../../user.nix
