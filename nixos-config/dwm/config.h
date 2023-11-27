@@ -60,7 +60,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "125x33", "-e", "attach-or-new",  NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "125x33", NULL };
 static const char *shutdowncmd[]  = { "shutdown", "now", NULL };
 static const char *volmute[]  = {"pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL};
 static const char *volup[]    = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL};
@@ -118,9 +118,8 @@ static Key keys[] = {
 	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
 	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e wyrd") },
 	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
-	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/notes.md") },
-	{ ControlMask,                  XK_3,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
-	{ ControlMask,                  XK_4,     spawn,           SHCMD("randomlist.sh") },
+	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
+	{ ControlMask,                  XK_3,     spawn,           SHCMD("randomlist.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -131,7 +130,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_c,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("systemctl suspend; slock") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("slock & sleep 1 && systemctl suspend") },
 };
 
 /* button definitions */

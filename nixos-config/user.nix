@@ -14,6 +14,7 @@ in {
         "networkmanager"
         "plugdev"
         "systemd-journal"
+        "tty"
         "video"
       ];
     };

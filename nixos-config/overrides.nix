@@ -6,7 +6,9 @@
     dump1090_rs = (pkgs.callPackage ./pkgs/dump1090_rs { });
     dwm = (pkgs.dwm.override {
       conf = builtins.readFile ./dwm/config.h;
-      patches = [ ./dwm/dwm-scratchpad-6.2.diff ];
+      patches = [
+        ./dwm/dwm-scratchpad.diff
+      ];
     });
 
     #libunity = (pkgs.callPackage ./pkgs/libunity { });
@@ -15,8 +17,7 @@
 
     slock = (pkgs.slock.override {
       conf = builtins.readFile ./slock/config.h;
-    }).overrideAttrs
-      (oldAttrs: { patches = [ ./slock/slock-unlock_screen-1.4.diff ]; });
+    });
 
     st = (pkgs.st.override {
       conf = builtins.readFile ./st/config.h;

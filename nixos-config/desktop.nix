@@ -9,28 +9,14 @@
 
   sound.enable = true;
 
-
   security.rtkit.enable = true;
 
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluezFull;
     disabledPlugins = [ "sap" ];
   };
 
   fonts = {
-    fontDir.enable = true;
-    packages = with pkgs; [
-      dejavu_fonts
-      (nerdfonts.override {
-        fonts = [
-          "BitstreamVeraSansMono"
-          "FiraCode"
-          "SourceCodePro"
-        ];
-      })
-      unifont
-    ];
     fontconfig = {
       defaultFonts = {
         serif = [ "DejaVu Serif" ];
@@ -40,6 +26,12 @@
       allowType1 = true;
       allowBitmaps = true;
     };
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      font-awesome
+      fira-code
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -47,6 +39,8 @@
     alacritty
     anki
     bluez-tools
+    clibt
+    dbeaver
     dfeet
     discord
     evince
@@ -55,6 +49,7 @@
     gsettings-desktop-schemas
     hicolor-icon-theme
     firefox
+    nur.repos.wolfangaukang.vdhcoapp
     font-manager
     freerdp
     #joplin-desktop
@@ -69,7 +64,7 @@
     pcmanfm
     qFlipper
     rofi
-    sage
+    #sage
     SDL2
     scrot
     st
@@ -77,6 +72,7 @@
     sxiv
     #tor-browser-bundle-bin
     #ums
+    #vscode-fhs
     vym
     wine
     wob
@@ -86,13 +82,14 @@
     xdotool
     xfontsel
     xlsfonts
+    xdg-user-dirs
     # Docs
     calibre
     mupdf
     okular
     sent
     texlive.combined.scheme-medium
-    texstudio
+    #texstudio
     zathura
     zeal
     # Email
@@ -100,10 +97,10 @@
     # Images and animation
     #blender
     gimp
-    godot
+    #godot3
     gphoto2
     graphviz
-    #inkscape
+    inkscape
     imagemagick
     # Keyboard
     xorg.setxkbmap

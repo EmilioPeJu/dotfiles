@@ -5,20 +5,20 @@
 
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+    displayManager.startx.enable = true;
   };
 
+  programs.slock.enable = true;
+
   environment.systemPackages = with pkgs; [
+    conky
     dmenu
     dunst
     dwm
-    i3status
+    eww
     maim
-    slock
     xcompmgr
     xorg.xhost
-    xorg.xinit
     xorg.xkill
   ];
 }
