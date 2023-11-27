@@ -8,6 +8,7 @@
     dsniff
     elfutils
     exploitdb
+    #ghidra
     hashcat
     #hotpatch
     hping
@@ -15,7 +16,7 @@
     john
     lynis
     macchanger
-    metasploit
+    #metasploit
     ncrack
     ndisc6
     netcat-gnu
@@ -23,6 +24,7 @@
     nikto
     nmap
     nuclei
+    #ostinato
     proxychains-ng
     pwnat
     python3Packages.binwalk-full
@@ -42,7 +44,7 @@
     usb-modeswitch
     wapiti
     # fuzzer
-    afl
+    #afl
     ffuf
     honggfuzz
     radamsa
@@ -55,7 +57,7 @@
     photon
     sherlock
     subfinder
-    theharvester
+    #theharvester
     # wifi
     #aircrack-ng
   ];
