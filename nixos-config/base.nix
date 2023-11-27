@@ -5,7 +5,10 @@
   environment.systemPackages = with pkgs; [
     #ansible
     atool
+    atuin
     bashmount
+    broot
+    buku
     ccls
     cifs-utils
     clamav
@@ -20,25 +23,28 @@
     file
     fq
     fzf
-    helix
     htop
     iftop
     inetutils
     indent
     iotop
     ipmitool
+    ispell
     jq
     joshuto
     killall
+    libu2f-host
+    lf
     lsof
     man-pages
     mdcat
-    mutt
+    neomutt
     ncdu
     neovim
     nftables
     nvme-cli
     openipmi
+    pam_u2f
     pass
     poke
     progress
@@ -53,10 +59,12 @@
     sleuthkit
     starship
     tio
+    tmsu
     tmux
     translate-shell
     tree
     ts
+    unixtools.xxd
     vis
     #tuna
     watch
@@ -147,10 +155,13 @@
     flyctl
     gcc
     gdb
+    gef
     gitAndTools.gitFull
+    git-repo
     gitui
     gnumake
     kexectools
+    lazygit
     libunity
     #ltrace
     meson
@@ -160,6 +171,7 @@
     pmbootstrap
     pkg-config
     radare2
+    rr
     rustup
     #scilab-bin
     sloccount
