@@ -11,6 +11,7 @@
   programs.slock.enable = true;
 
   environment.systemPackages = with pkgs; [
+    autocutsel
     conky
     dmenu
     dunst

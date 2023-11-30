@@ -22,9 +22,10 @@
     st = (pkgs.st.override {
       conf = builtins.readFile ./st/config.h;
       patches = [
-        ./st/st-alpha-20220206-0.8.5.diff
-        ./st/st-externalpipe-0.8.4.diff
-        ./st/st-scrollback-20210507-4536f46.diff
+        ./st/st-alpha.diff
+        ./st/st-externalpipe.diff
+        ./st/st-scrollback.diff
+        ./st/st-clipboard.diff
       ];
     });
 
