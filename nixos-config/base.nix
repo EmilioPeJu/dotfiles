@@ -193,8 +193,8 @@
   security.wrappers = {
     ubridge = {
       source = "${pkgs.ubridge}/bin/ubridge";
-      owner = "nobody";
-      group = "nobody";
+      owner = "root";
+      group = "root";
       capabilities = "cap_net_admin,cap_net_raw+ep";
     };
   };
