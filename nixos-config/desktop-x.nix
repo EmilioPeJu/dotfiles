@@ -19,6 +19,7 @@
     dwm
     eww
     maim
+    rofi
     xcompmgr
     xorg.xhost
     xorg.xkill

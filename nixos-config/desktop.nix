@@ -63,7 +63,6 @@
     openjdk
     pcmanfm
     qFlipper
-    rofi
     #sage
     SDL2
     scrot
