@@ -6,6 +6,7 @@
   services.xserver = {
     enable = true;
     displayManager.startx.enable = true;
+    wacom.enable = true;
   };
 
   programs.slock.enable = true;
