@@ -191,7 +191,7 @@ static MouseShortcut mshortcuts[] = {
 
 static char *copystringcmd[] = { "/bin/sh", "-c", "st-copystring",
                                  "externalpipe", NULL };
-static char *copylinecmd[] = { "/bin/sh", "-c", "st-copystring",
+static char *copylinecmd[] = { "/bin/sh", "-c", "st-copyline",
                                "externalpipe", NULL };
 static char *copyoutcmd[] = { "/bin/sh", "-c", "st-copyout",
                               "externalpipe", NULL };
