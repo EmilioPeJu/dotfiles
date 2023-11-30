@@ -14,3 +14,6 @@ setxkbmap us -variant altgr-intl -option ctrl:nocaps
 clipmenud &
 # set background
 ~/.fehbg &
+# synchronize clipboard and primary buffer
+autocutsel -selection CLIPBOARD &
+autocutsel -selection PRIMARY &
