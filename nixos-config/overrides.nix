@@ -13,6 +13,10 @@
 
     #libunity = (pkgs.callPackage ./pkgs/libunity { });
 
+    neovim = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
+      python3 = pkgs.python3.withPackages(ps: with ps; [ tiktoken ]);
+    });
+
     noip2 = (pkgs.callPackage ./pkgs/noip2 { });
 
     slock = (pkgs.slock.override {

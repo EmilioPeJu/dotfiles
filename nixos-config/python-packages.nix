@@ -25,4 +25,5 @@ with pp; [
   setuptools
   scipy
   virtualenv
+  z3
 ]

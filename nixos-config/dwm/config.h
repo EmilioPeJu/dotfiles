@@ -72,15 +72,18 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ 0,                            XK_Print,  spawn,          SHCMD("maim -s $(date +%y%m%d-%H%M-%S).png") },
 	{ShiftMask,                     XK_Print,  spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          SHCMD("st -e wyrd") },
 	{ MODKEY,                       XK_Return, spawn,          SHCMD("st") },
 	{ MODKEY,                       XK_a,      spawn,          SHCMD("st -e pulsemixer") },
 	{ MODKEY|ShiftMask,             XK_a,      spawn,          SHCMD("st -e ncmpc -h 127.0.0.1 -p 6600") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("clipmenu") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = roficmd } },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          SHCMD("st -e bashmount") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("st -e bashmount") },
 	{ MODKEY|ShiftMask,             XK_k,      spawn,          SHCMD("xkill") },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          SHCMD("thunderbird") },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("st -e python3") },
+	{ MODKEY,                       XK_p,      spawn,          SHCMD("st -e python3") },
+	{ MODKEY,                       XK_r,      spawn,          SHCMD("randomlist.sh") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e htop") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          SHCMD("telegram-desktop") },
@@ -117,10 +120,6 @@ static Key keys[] = {
 	{ ControlMask|ShiftMask,        XK_Down,   spawn,          {.v = volmute } },
 	{ ControlMask,                  XK_Down,   spawn,          {.v = voldown } },
 	{ ControlMask,                  XK_Up,     spawn,          {.v = volup } },
-	{ ControlMask,                  XK_1,     spawn,           SHCMD("st -e wyrd") },
-	{ ControlMask|ShiftMask,        XK_1,     spawn,           SHCMD("setxkbmap us -variant altgr-intl -option ctrl:nocaps") },
-	{ ControlMask,                  XK_2,     spawn,           SHCMD("st -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md") },
-	{ ControlMask,                  XK_3,     spawn,           SHCMD("randomlist.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

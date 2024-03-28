@@ -16,6 +16,8 @@ in {
     ATTR{idVendor}=="1366", GROUP="dialout"
     # ST-Link
     ATTR{idVendor}=="0483", GROUP="dialout"
+    # Voyager
+    ATTRS{idVendor}=="3297", GROUP="plugdev", MODE="0660", SYMLINK+="ignition_dfu"
   '';
   environment.systemPackages = with pkgs; [
     #arachne-pnr
@@ -30,6 +32,7 @@ in {
     ghdl
     gtkwave
     #icestorm
+    keymapp
     kicad
     libftdi1
     minipro
@@ -43,6 +46,7 @@ in {
     #})
     #pulseview
     pyocd
+    qmk
     #qmk_firmware
     pynus
     sigrok-cli

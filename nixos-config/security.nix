@@ -15,7 +15,6 @@
     httpx
     john
     lynis
-    macchanger
     #metasploit
     ncrack
     ndisc6
@@ -31,6 +30,7 @@
     python3Packages.scapy
     radare2
     redsocks
+    scalpel
     snmpcheck
     snort
     sslscan

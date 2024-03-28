@@ -15,6 +15,9 @@
         #DEBUG_INFO = yes;
         #DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT = yes;
         #GDB_SCRIPTS = yes;
+        IOMMU_DEBUGFS = yes;
+        INTEL_IOMMU_DEBUGFS = yes;
+        GENERIC_IRQ_DEBUGFS = yes;
         # Let me access /dev/mem properly
         STRICT_DEVMEM = no;
         # PCIe related

@@ -8,6 +8,7 @@
     atuin
     bashmount
     broot
+    btop
     buku
     ccls
     cifs-utils
