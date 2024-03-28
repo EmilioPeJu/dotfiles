@@ -23,6 +23,10 @@ Plug 'rhysd/vim-clang-format'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim', {'branch': 'release'}
+Plug 'dpayne/CodeGPT.nvim'
+Plug 'github/copilot.vim', {'branch': 'release'}
 call plug#end()
 
 set autoindent
