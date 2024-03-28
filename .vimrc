@@ -21,6 +21,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/vim-clang-format'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 call plug#end()
 
 set autoindent
