@@ -38,9 +38,9 @@ let mapleader = ","
 
 " Function Keys
 nmap <F2> :NvimTreeToggle<CR>
-nmap <leader><F2> :TagbarToggle<CR>
 nnoremap <F3> :call QuickFix_toggle()<cr>
-nnoremap <leader><F3> :CocDiagnostics<CR>
+nmap <F4> :TagbarToggle<CR>
+nnoremap <F5> :CocDiagnostics<CR>
 " nmap <F4> :NeoDebug<CR>
 " nmap <leader><F4> :NeoDebugStop<CR>
 
@@ -144,7 +144,7 @@ let g:tagbar_autofocus = 1
 " ctags
 "
 " useful shortcuts: C-] to find C-x ] to autocomplete
-set tags=./ctags.out,ctags.out;
+set tags=./tags
 " cscope
 " Extracted from cscope_maps.vim
 " Symbols
