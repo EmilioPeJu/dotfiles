@@ -49,7 +49,6 @@
     gsettings-desktop-schemas
     hicolor-icon-theme
     firefox
-    nur.repos.wolfangaukang.vdhcoapp
     font-manager
     freerdp
     #joplin-desktop
