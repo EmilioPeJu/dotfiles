@@ -1,6 +1,10 @@
 vim.cmd[[
 "set runtimepath^=~/.vim
 "let &packpath = &runtimepath
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
+colorscheme industry
 source ~/.vimrc
 ]]
 
@@ -9,10 +13,10 @@ require'nvim-treesitter.configs'.setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<C-space>",
-      node_incremental = "<C-space>",
+      init_selection = "<CR>",
+      node_incremental = "<TAB>",
       scope_incremental = false,
-      node_decremental = "<bs>",
+      node_decremental = "<S-TAB>",
     },
   },
   textobjects = {
@@ -20,6 +24,7 @@ require'nvim-treesitter.configs'.setup {
       enable = true,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
+        ["]a"] = { query = "@parameter.inner", desc = "Next argument start" },
         ["]f"] = { query = "@call.outer", desc = "Next function call start" },
         ["]m"] = { query = "@function.outer", desc = "Next method/function def start" },
         ["]c"] = { query = "@class.outer", desc = "Next class start" },
@@ -29,6 +34,7 @@ require'nvim-treesitter.configs'.setup {
         ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
       },
       goto_next_end = {
+        ["]A"] = { query = "@parameter.inner", desc = "Next argument end" },
         ["]F"] = { query = "@call.outer", desc = "Next function call end" },
         ["]M"] = { query = "@function.outer", desc = "Next method/function def end" },
         ["]C"] = { query = "@class.outer", desc = "Next class end" },
@@ -36,6 +42,7 @@ require'nvim-treesitter.configs'.setup {
         ["]L"] = { query = "@loop.outer", desc = "Next loop end" },
       },
       goto_previous_start = {
+        ["[a"] = { query = "@parameter.inner", desc = "prev argument start" },
         ["[f"] = { query = "@call.outer", desc = "Prev function call start" },
         ["[m"] = { query = "@function.outer", desc = "Prev method/function def start" },
         ["[c"] = { query = "@class.outer", desc = "Prev class start" },
@@ -43,6 +50,7 @@ require'nvim-treesitter.configs'.setup {
         ["[l"] = { query = "@loop.outer", desc = "Prev loop start" },
       },
       goto_previous_end = {
+        ["[A"] = { query = "@parameter.inner", desc = "prev argument end" },
         ["[F"] = { query = "@call.outer", desc = "Prev function call end" },
         ["[M"] = { query = "@function.outer", desc = "Prev method/function def end" },
         ["[C"] = { query = "@class.outer", desc = "Prev class end" },

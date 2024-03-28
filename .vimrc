@@ -27,6 +27,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim', {'branch': 'release'}
 Plug 'dpayne/CodeGPT.nvim'
 Plug 'github/copilot.vim', {'branch': 'release'}
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }
 call plug#end()
 
 set autoindent
@@ -47,8 +49,6 @@ nmap <F2> :NvimTreeToggle<CR>
 nnoremap <F3> :call QuickFix_toggle()<cr>
 nmap <F4> :TagbarToggle<CR>
 nnoremap <F5> :CocDiagnostics<CR>
-" nmap <F4> :NeoDebug<CR>
-" nmap <leader><F4> :NeoDebugStop<CR>
 
 " coc
 nmap <leader>gd <Plug>(coc-definition)
@@ -65,15 +65,12 @@ function! ShowDocumentation()
   endif
 endfunction
 
-" fzf
-nnoremap <C-p> :Files<CR>
-nmap <leader>l :BLines<CR>
-nmap <leader>L :Lines<CR>
-nnoremap <leader>p :GFiles<CR>
-nnoremap <leader>P :Rg<CR>
-
-" buffer
-nmap <leader><leader> :Buffers<CR>
+" search
+nnoremap <leader>f :Telescope find_files<CR>
+nnoremap <leader>h :Telescope help_tags<CR>
+nmap <leader><leader> :Telescope buffers<CR>
+nmap <leader>. :Telescope treesitter<CR>
+nmap <leader>/ :Telescope live_grep<CR>
 
 " window
 nnoremap <C-j> <C-W>j
@@ -95,9 +92,6 @@ nnoremap <C-x>	:tabclose<CR>
 " Quickfix
 nnoremap <leader>[ :cp<CR>
 nnoremap <leader>] :cn<CR>
-
-" folding
-set foldclose=all
 
 " Stuff from mga83
 "
