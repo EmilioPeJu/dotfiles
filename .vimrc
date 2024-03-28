@@ -21,7 +21,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-startify'
 Plug 'rhysd/vim-clang-format'
 Plug 'kyazdani42/nvim-tree.lua'
-Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim', {'branch': 'release'}
@@ -68,9 +68,13 @@ endfunction
 " search
 nnoremap <leader>f :Telescope find_files<CR>
 nnoremap <leader>h :Telescope help_tags<CR>
-nmap <leader><leader> :Telescope buffers<CR>
-nmap <leader>. :Telescope treesitter<CR>
-nmap <leader>/ :Telescope live_grep<CR>
+nnoremap <leader><leader> :Telescope buffers<CR>
+nnoremap <leader>. :Telescope treesitter<CR>
+nnoremap <leader>/ :Telescope live_grep<CR>
+nnoremap <leader>c :Copilot<CR>
+nnoremap <leader>o :Chat 
+vnoremap <leader>c :Copilot<CR>
+vnoremap <leader>o :Chat 
 
 " window
 nnoremap <C-j> <C-W>j
@@ -191,10 +195,6 @@ if has('nvim')
     nmap <leader>t :terminal<CR>
     tnoremap <leader><ESC> <C-\><C-n>
 endif
-
-" kind of hacky but +clipboard is not usually set
-vnoremap <leader>c :w !xclip -in -selection clipboard<CR><CR>
-nnoremap <leader>v :r !xclip -out -selection clipboard<CR>
 
 " Nix related
 au BufNewFile,BufRead *.nix set filetype=nix
