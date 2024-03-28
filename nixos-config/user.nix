@@ -6,7 +6,6 @@ in {
     user = {
       uid = 1001;
       isNormalUser = true;
-      initialHashedPassword = dirty.userHash;
       hashedPassword = dirty.userHash;
       extraGroups = [
         "audio"
@@ -19,7 +18,6 @@ in {
       ];
     };
     root = {
-      initialHashedPassword = dirty.rootHash;
       hashedPassword = dirty.rootHash;
     };
   };
