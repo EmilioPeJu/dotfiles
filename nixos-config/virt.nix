@@ -7,7 +7,7 @@
   virtualisation.docker.enableOnBoot = false;
   users.users.user.extraGroups = [ "docker" "libvirtd" ];
   environment.systemPackages = with pkgs; [
-    #distrobox
+    distrobox
     #firectl
     virt-manager
   ];

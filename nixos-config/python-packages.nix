@@ -1,17 +1,22 @@
 pp:
 with pp; [
   beautifulsoup4
+  bitstring
+  bleak
   dbus-python
   #genanki
   numpy
   matplotlib
   mypy
   nose
+  pandas
+  pexpect
   pip
   pudb
   pycodestyle
   pydbus
   pygame
+  pygatt
   pylint
   pynvim
   #pygobject3
@@ -22,6 +27,8 @@ with pp; [
   pyzmq
   requests
   scapy
+  scikit-learn
+  seaborn
   setuptools
   scipy
   virtualenv

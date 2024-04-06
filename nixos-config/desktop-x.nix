@@ -13,13 +13,17 @@
 
   environment.systemPackages = with pkgs; [
     autocutsel
+    bspwm
     conky
     dmenu
     dunst
     dwm
     eww
     maim
+    polybar
     rofi
+    sxhkd
+    tdrop
     xcompmgr
     xorg.xhost
     xorg.xkill
