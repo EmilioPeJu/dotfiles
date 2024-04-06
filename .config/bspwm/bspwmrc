@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Fix java applications
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+let i=1
+for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
+    bspc monitor "$monitor" -d $i $((i+1)) $((i+2)) $((i+3)) $((i+4))
+    MONITOR=$monitor polybar -r main &
+    let i+=5
+done
+
+bspc config border_width              1
+bspc config window_gap                2
+
+bspc config split_ratio               0.52
+bspc config single_monocle            true
+bspc config borderless_monocle        true
+
+bspc config focus_follows_pointer     true
+
+# Rules
+bspc rule -a scratch state=floating
+
+sxhkd &
+xsetroot -cursor_name left_ptr

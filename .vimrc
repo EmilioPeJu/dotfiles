@@ -71,10 +71,15 @@ nnoremap <leader>h :Telescope help_tags<CR>
 nnoremap <leader><leader> :Telescope buffers<CR>
 nnoremap <leader>. :Telescope treesitter<CR>
 nnoremap <leader>/ :Telescope live_grep<CR>
+
+" Copilot
 nnoremap <leader>c :Copilot<CR>
 nnoremap <leader>o :Chat 
 vnoremap <leader>c :Copilot<CR>
 vnoremap <leader>o :Chat 
+let g:copilot_filetypes = {
+    \ 'markdown': v:false
+    \ }
 
 " window
 nnoremap <C-j> <C-W>j
