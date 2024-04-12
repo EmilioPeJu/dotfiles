@@ -20,4 +20,5 @@ bspc config focus_follows_pointer     true
 bspc rule -a scratch state=floating
 
 sxhkd &
+watchudev.py &
 xsetroot -cursor_name left_ptr
