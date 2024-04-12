@@ -23,7 +23,11 @@ export GPG_TTY=$TTY
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 if type -p nvim &> /dev/null; then
-    export EDITOR="nvim"
-else
+    if [ -n "$NVIM" ]; then
+        export EDITOR="nvr"
+    else
+        export EDITOR="nvim"
+    fi
+elif type -p vim &> /dev/null; then
     export EDITOR="vim"
 fi

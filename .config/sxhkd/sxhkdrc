@@ -3,7 +3,7 @@
 
 # terminal emulator
 super + alt + t
-	$TERMINAL
+	$TERMINAL -e nvim +start +term
 
 # audio mixer
 super + alt + a
