@@ -4,6 +4,7 @@ with pp; [
   bitstring
   bleak
   dbus-python
+  jupyter
   #genanki
   numpy
   matplotlib
@@ -24,6 +25,7 @@ with pp; [
   pytest
   pyusb
   #pyu2f
+  pyudev
   pyzmq
   requests
   scapy

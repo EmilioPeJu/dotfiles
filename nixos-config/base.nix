@@ -7,6 +7,7 @@
     atool
     atuin
     bashmount
+    bpftrace
     broot
     btop
     buku
@@ -42,6 +43,7 @@
     neomutt
     ncdu
     neovim
+    neovim-remote
     nftables
     nvme-cli
     openipmi
