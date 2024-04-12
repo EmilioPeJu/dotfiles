@@ -18,6 +18,8 @@ bspc config focus_follows_pointer     true
 
 # Rules
 bspc rule -a scratch state=floating
+bspc rule -a edm state=floating
+bspc rule -a cs-studio state=floating
 
 sxhkd &
 watchudev.py &
