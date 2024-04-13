@@ -7,7 +7,6 @@ return {
     },
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
-        lazy = false,
         opts = {
             highlight = { enable = true },
             ensure_installed = {
