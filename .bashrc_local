@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 [[ -f ~/norc ]] && return
 
-[[ -f ~/.bash/variables.sh ]] && . ~/.bash/variables.sh
+. ~/.config/bash/variables.sh
 
 if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
-    # only for interactive bash sessions
-    source ~/.bash/init.sh
-    source ~/.bash/bindkeys.sh
+    for script in "init" "bindkeys" "functions" "aliases"; do
+        . ~/.config/bash/${script}.sh
+    done
 fi
 
-# load helper scripts
-for script in "functions" "aliases" "stage"; do
-    [[ -f ~/.bash/${script}.sh ]] && . ~/.bash/${script}.sh
-done
+[[ -f ~/.config/bash/stage.sh ]] && . ~/.config/bash/stage.sh
