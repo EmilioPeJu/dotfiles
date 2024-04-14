@@ -8,6 +8,8 @@
     # Make the width 3740 (3840 - 100), have 50 left margin and 95 above
     geometry = "3740x5-50+95"
 
+    follow = keyboard
+
     # Show multiple notifications in the same box
     separator_height = 0
 
