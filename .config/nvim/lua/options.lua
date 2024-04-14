@@ -22,6 +22,7 @@ opt.listchars = {
 }
 opt.colorcolumn = '80'
 opt.wrap = true
+vim.cmd('colorscheme wal')
 
 -- Tab settings
 opt.tabstop = 4
