@@ -5,6 +5,10 @@
 super + alt + t
 	$TERMINAL -e withbashrc.sh nvim +start +term
 
+# editor
+super + alt + v
+	$TERMINAL -e withbashrc.sh nvim
+
 # audio mixer
 super + alt + a
 	$TERMINAL -e withbashrc.sh pulsemixer
