@@ -1,4 +1,5 @@
+@import "~/.cache/wal/colors-rofi-dark"
+
 configuration {
   font: "monospace bold 14";
 }
-@theme "Monokai"

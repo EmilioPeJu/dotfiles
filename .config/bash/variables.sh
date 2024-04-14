@@ -31,3 +31,8 @@ if type -p nvim &> /dev/null; then
 elif type -p vim &> /dev/null; then
     export EDITOR="vim"
 fi
+
+# Set terminal colors
+(
+  [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
+) &

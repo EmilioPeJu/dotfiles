@@ -3,30 +3,30 @@
 
 # terminal emulator
 super + alt + t
-	$TERMINAL -e nvim +start +term
+	$TERMINAL -e withbashrc.sh nvim +start +term
 
 # audio mixer
 super + alt + a
-	$TERMINAL -e pulsemixer
+	$TERMINAL -e withbashrc.sh pulsemixer
 
 super + alt + b
-	$TERMINAL -e bashmount
+	$TERMINAL -e withbashrc.sh bashmount
 
 super + alt + d
-	$TERMINAL -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md
+	$TERMINAL -e withbashrc.sh $EDITOR ~/remind/dry/$(date +%y-%m-%d).md
 
 super + alt + e
 	tdrop -a -m -w 1000 -h 500 -y 10% -x 25% --class scratch $TERMINAL --class scratch
 
 # music player
 super + alt + m
-	$TERMINAL -e ncmpc -h 127.0.0.1 -p 6600
+	$TERMINAL -e withbashrc.sh ncmpc -h 127.0.0.1 -p 6600
 
 super + alt + p
-	$TERMINAL -e python3
+	$TERMINAL -e withbashrc.sh python3
 
 super + alt + r
-	$TERMINAL -e ranger
+	$TERMINAL -e withbashrc.sh ranger
 
 # web browser
 super + alt + w
