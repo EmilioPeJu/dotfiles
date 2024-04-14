@@ -1,0 +1,1 @@
+../../.cache/wal/colors-conky.lua
