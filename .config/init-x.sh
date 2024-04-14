@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 . ~/.config/init-common.sh
+# compositor
+picom -b
 # notification daemon
 dunst &
-# compositor
-xcompmgr &
 # system monitor
 conky -d
 # keyboard layout
