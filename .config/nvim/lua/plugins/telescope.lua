@@ -44,6 +44,13 @@ return {
                 function()
                     require('telescope.builtin').live_grep()
                 end)
+            map('n', '<leader>l',
+                function()
+                    require('telescope.builtin').live_grep({
+                        prompt_title = 'Grep buffers',
+                        grep_open_files = true,
+                    })
+                end)
         end,
         dependencies = {
             {
