@@ -2,7 +2,8 @@ return {
     {
         'NvChad/nvim-colorizer.lua',
         config = function()
-            vim.opt.termguicolors = true
+            -- Enable termguicolors to make this plugin work
+            --vim.opt.termguicolors = true
             require('colorizer').setup()
         end,
     }

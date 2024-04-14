@@ -5,9 +5,9 @@ return {
         config = function()
             local g = vim.g
             g.coc_global_extensions = {
-                'coc-python',
                 'coc-rust-analyzer',
                 'coc-pyright',
+                'coc-sh'
             }
             g.coc_snippet_next = '<tab>'
             g.coc_snippet_prev = '<s-tab>'
