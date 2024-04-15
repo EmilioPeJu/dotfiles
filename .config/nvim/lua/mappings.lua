@@ -4,6 +4,8 @@ map('n', '<ESC>', ':nohl<CR>')
 -- Terminal
 map('n', '<leader>t', ':terminal<CR>')
 map('t', '<leader><ESC>', '<C-\\><C-n>', { noremap = true })
+map('t', '<leader><leader>', '<C-\\><C-n>:Telescope buffers<CR>',
+    { noremap = true })
 
 -- Function keys
 map('n', '<F2>', ':NvimTreeToggle<CR>')
