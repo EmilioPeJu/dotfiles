@@ -19,7 +19,7 @@ return {
             ensure_installed = {
                 'c', 'cpp', 'java', 'python', 'lua', 'bash',
                 'json', 'yaml', 'toml',
-                'vimdoc', 'dockerfile', 'regex', 'nix'
+                'vimdoc', 'dockerfile', 'regex', 'nix', 'query'
             },
             incremental_selection = {
                 enable = true,
