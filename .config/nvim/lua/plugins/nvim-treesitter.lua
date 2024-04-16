@@ -6,13 +6,20 @@ return {
         build = ':TSUpdate'
     },
     {
+        -- TODO: remove this when neovim 0.10 is released
+        'nvim-treesitter/playground',
+        version = false,
+        lazy = false,
+        build = ':TSUpdate'
+    },
+    {
         'nvim-treesitter/nvim-treesitter-textobjects',
         opts = {
             highlight = { enable = true },
             ensure_installed = {
                 'c', 'cpp', 'java', 'python', 'lua', 'bash',
                 'json', 'yaml', 'toml',
-                'vimdoc', 'dockerfile', 'regex'
+                'vimdoc', 'dockerfile', 'regex', 'nix'
             },
             incremental_selection = {
                 enable = true,
