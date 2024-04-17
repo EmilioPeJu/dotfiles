@@ -24,7 +24,8 @@ map('t', '<C-h>', '<C-\\><C-n><C-W>h', { noremap = true })
 map('t', '<C-l>', '<C-\\><C-n><C-W>l', { noremap = true })
 
 -- Buffer
-map('n', '<leader>q', ':bd<CR>')
+map('n', '<leader>d', ':bn<CR>:bd!#<CR>')
+map('n', '<leader>q', ':q<CR>')
 map('n', '<leader>w', ':w<CR>')
 
 -- Quickfix
