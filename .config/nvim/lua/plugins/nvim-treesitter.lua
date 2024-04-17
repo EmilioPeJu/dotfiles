@@ -18,7 +18,7 @@ return {
             highlight = { enable = true },
             ensure_installed = {
                 'c', 'cpp', 'java', 'python', 'lua', 'bash',
-                'json', 'yaml', 'toml',
+                'json', 'yaml', 'toml', 'xml',
                 'vimdoc', 'dockerfile', 'regex', 'nix', 'query'
             },
             incremental_selection = {
