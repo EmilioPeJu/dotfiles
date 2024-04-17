@@ -18,6 +18,10 @@ map('n', '<C-j>', '<C-W>j', { noremap = true })
 map('n', '<C-k>', '<C-W>k', { noremap = true })
 map('n', '<C-h>', '<C-W>h', { noremap = true })
 map('n', '<C-l>', '<C-W>l', { noremap = true })
+map('t', '<C-j>', '<C-\\><C-n><C-W>j', { noremap = true })
+map('t', '<C-k>', '<C-\\><C-n><C-W>k', { noremap = true })
+map('t', '<C-h>', '<C-\\><C-n><C-W>h', { noremap = true })
+map('t', '<C-l>', '<C-\\><C-n><C-W>l', { noremap = true })
 
 -- Buffer
 map('n', '<leader>q', ':bd<CR>')
