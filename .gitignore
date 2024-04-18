@@ -3,6 +3,7 @@
 !.config/**
 .config/.*
 .config/Code
+.config/Microsoft
 .config/Slack
 .config/bash/stage.sh
 .config/coc
