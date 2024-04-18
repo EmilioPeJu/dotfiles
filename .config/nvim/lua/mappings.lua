@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 map('n', '<ESC>', ':nohl<CR>')
+map('n', 'Y', 'yy')
 
 -- Terminal
 map('n', '<leader>t', ':terminal<CR>')
