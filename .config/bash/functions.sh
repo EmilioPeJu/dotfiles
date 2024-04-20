@@ -277,10 +277,8 @@ function top-dir {
     done
 }
 
-function v {
-    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-      nvr --remote-tab "$@"
-    else
-      $EDITOR "$@"
-    fi
+function cdt {
+    while [[ ! -d .git ]]; do
+        cd ..
+    done
 }
