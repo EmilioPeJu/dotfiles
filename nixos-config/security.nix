@@ -8,7 +8,7 @@
     dsniff
     elfutils
     exploitdb
-    #ghidra
+    ghidra
     hashcat
     #hotpatch
     hping
@@ -26,8 +26,6 @@
     #ostinato
     proxychains-ng
     pwnat
-    python3Packages.binwalk-full
-    python3Packages.scapy
     radare2
     redsocks
     scalpel

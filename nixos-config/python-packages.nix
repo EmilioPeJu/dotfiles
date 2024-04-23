@@ -1,6 +1,7 @@
 pp:
 with pp; [
   beautifulsoup4
+  binwalk-full
   bitstring
   bleak
   dbus-python

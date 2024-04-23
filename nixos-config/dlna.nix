@@ -5,7 +5,7 @@
   services.minidlna = {
     enable = true;
     settings.media_dir = [
-      "V,/mnt/media"
+      "V,/scratch/Downloads"
     ];
     openFirewall = true;
   };

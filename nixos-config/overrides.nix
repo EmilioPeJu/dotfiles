@@ -33,6 +33,16 @@
       ];
     });
 
+    pywalfox-native = (pkgs.pywalfox-native.overrideAttrs (oldAttrs: {
+        postInstall = ''
+            cat <<EOF > $out/bin/pywalfox-start
+            #!/usr/bin/env bash
+            pywalfox start
+            EOF
+            chmod +x $out/bin/pywalfox-start
+        '';
+    }));
+
     nur = import (builtins.fetchTarball
       "https://github.com/nix-community/NUR/archive/master.tar.gz") {
         inherit pkgs;

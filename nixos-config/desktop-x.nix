@@ -7,6 +7,11 @@
     enable = true;
     displayManager.startx.enable = true;
     wacom.enable = true;
+    xkb = {
+      layout = "us";
+      variant = "altgr-intl";
+      options = "ctrl:nocaps";
+    };
   };
 
   programs.slock.enable = true;
@@ -17,9 +22,9 @@
     conky
     dmenu
     dunst
-    dwm
     eww
     maim
+    picom
     polybar
     rofi
     sxhkd

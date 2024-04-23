@@ -14,6 +14,7 @@
     ccls
     cifs-utils
     clamav
+    diffsitter
     ddrescue
     direnv
     direvent
@@ -38,8 +39,10 @@
     libu2f-host
     lf
     lsof
+    lua
     man-pages
     mdcat
+    neofetch
     neomutt
     ncdu
     neovim
@@ -66,6 +69,7 @@
     tmux
     translate-shell
     tree
+    tree-sitter
     ts
     unixtools.xxd
     vis
@@ -188,10 +192,7 @@
   ];
 
   # gnupg agent
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "curses";
-  };
+  programs.gnupg.agent.enable = true;
 
   security.wrappers = {
     ubridge = {

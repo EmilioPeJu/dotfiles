@@ -47,7 +47,6 @@ in {
     #pulseview
     pyocd
     qmk
-    #qmk_firmware
     pynus
     sigrok-cli
     stlink

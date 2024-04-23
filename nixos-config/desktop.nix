@@ -42,12 +42,11 @@
 
   environment.systemPackages = with pkgs; [
     # Desktop
-    alacritty
     anki
     bluez-tools
     clibt
     dbeaver
-    dfeet
+    d-spy
     discord
     evince
     feh
@@ -58,6 +57,7 @@
     font-manager
     freerdp
     #joplin-desktop
+    kitty
     libnotify
     libreoffice
     nodejs
@@ -67,6 +67,8 @@
     obs-studio-plugins.wlrobs
     openjdk
     pcmanfm
+    pywal
+    pywalfox-native
     qFlipper
     #sage
     SDL2
@@ -119,6 +121,7 @@
     #openshot-qt
     #playerctl
     # Webcam
+    gnome.cheese
     guvcview
   ];
 }
