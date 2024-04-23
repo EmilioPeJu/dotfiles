@@ -23,6 +23,7 @@ opt.listchars = {
 opt.colorcolumn = '80'
 opt.wrap = true
 vim.cmd('colorscheme wal')
+opt.termguicolors = true;
 
 -- Tab settings
 opt.tabstop = 4

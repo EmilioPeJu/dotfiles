@@ -4,9 +4,5 @@
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
 if ! type -p gdm &> /dev/null && [[ "$(tty)" = "/dev/tty1" ]]; then
-    if type -p Hyprland &> /dev/null; then
-        ssh-agent Hyprland
-    else
-        ssh-agent startx
-    fi
+    ssh-agent startx
 fi

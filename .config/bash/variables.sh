@@ -7,7 +7,7 @@ export PATH="$PATH:$HOME/.node/bin:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.golang/bin:$HOME/.go/bin"
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export GOPATH="$HOME/.go"
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
 export PATH="$PATH:$SRCPATH/tools"
@@ -31,8 +31,3 @@ if type -p nvim &> /dev/null; then
 elif type -p vim &> /dev/null; then
     export EDITOR="vim"
 fi
-
-# Set terminal colors
-(
-  [[ -f ~/.cache/wal/sequences ]] && cat ~/.cache/wal/sequences
-) &

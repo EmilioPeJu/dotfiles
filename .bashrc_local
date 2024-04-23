@@ -7,6 +7,6 @@ if [[ ! -z "$PS1" ]] && [[ -n "$BASH_VERSION" ]]; then
     for script in "init" "bindkeys" "functions" "aliases"; do
         . ~/.config/bash/${script}.sh
     done
+    [[ -f ~/.config/bash/stage.sh ]] && . ~/.config/bash/stage.sh
 fi
 
-[[ -f ~/.config/bash/stage.sh ]] && . ~/.config/bash/stage.sh
