@@ -2,7 +2,7 @@
 #
 
 # terminal emulator
-super + alt + t
+super + Return
 	$TERMINAL -e nvim +start +term
 
 # editor
