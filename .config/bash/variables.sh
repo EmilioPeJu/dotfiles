@@ -24,7 +24,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 if type -p nvim &> /dev/null; then
     if [ -n "$NVIM" ]; then
-        export EDITOR="nvr"
+        export EDITOR="nvr --remote-wait"
     else
         export EDITOR="nvim"
     fi
