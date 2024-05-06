@@ -29,6 +29,12 @@ return {
                 function()
                     require('telescope.builtin').find_files()
                 end)
+            map('n', '<C-p>',
+                function()
+                    require('telescope.builtin').find_files({
+                        hidden = true,
+                    })
+                end)
             map('n', '<leader>h',
                 function()
                     require('telescope.builtin').help_tags()

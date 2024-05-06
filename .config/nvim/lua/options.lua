@@ -20,6 +20,7 @@ opt.listchars = {
     extends = '»',
     precedes = '«'
 }
+opt.list = true;
 opt.colorcolumn = '80'
 opt.wrap = true
 vim.cmd('colorscheme wal')
