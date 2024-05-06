@@ -3,12 +3,23 @@
 !.config/**
 .config/.*
 .config/Code
+.config/GIMP
+.config/GNU\ Radio
+.config/Joplin
 .config/Microsoft
+.config/Readarr
+.config/SEGGER
+.config/Simplenote
 .config/Slack
+.config/VirtualBox
 .config/bash/stage.sh
+.config/broot
+.config/calcurse
 .config/coc
 .config/chromium
 .config/containers
+.config/deluge
+.config/discord
 .config/gcloud
 .config/gnome*
 .config/gitlab
@@ -18,7 +29,12 @@
 .config/kicad
 .config/libreoffice
 .config/menus
+.config/mpd
+.config/mutt
+.config/neofetch
 .config/obs-studio
+.config/pulse
+.config/skypeforlinux
 .config/teams
 !tools/
 !tools/**
