@@ -67,6 +67,7 @@
     obs-studio-plugins.wlrobs
     openjdk
     pcmanfm
+    pyspread
     pywal
     pywalfox-native
     qFlipper
