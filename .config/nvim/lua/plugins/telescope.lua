@@ -45,7 +45,7 @@ return {
                 end)
             map('n', '<leader>.',
                 function()
-                    require('telescope.builtin').treesitter()
+                    require('telescope.builtin').tags()
                 end)
             map('n', '<leader>g',
                 function()
