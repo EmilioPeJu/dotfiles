@@ -205,19 +205,14 @@ function activate_null_sink_a() {
     pactl unload-module module-null-sink
 }
 
-function csc {
+function csctags {
     find $PWD/ -name '*.c' -o -name '*.cpp' -o -name '*.h' > $PWD/cscope.files
     cscope -b
     export CSCOPE_DB="$PWD/cscope.files"
 }
 
-function cta {
-    ctags --tag-relative=yes -R -f ctags.out .
-}
-
 function tags {
-    cta
-    csc
+    ctags -R -f ./.git/tags .
 }
 
 function ebpfprog() {

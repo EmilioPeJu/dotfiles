@@ -5,7 +5,7 @@ opt.backupdir = vim.fn.stdpath('data') .. '/backup'
 opt.smartcase = true
 opt.shell = 'bash'
 opt.hidden = true
-opt.tags = './tags'
+opt.tags = './.git/tags;'
 
 -- Appearance
 opt.background = 'dark'
