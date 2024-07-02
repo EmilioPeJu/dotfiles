@@ -266,14 +266,13 @@ function entr-make {
     done
 }
 
-function top-dir {
-    while [[ -d ../.git ]]; do
-        cd ..
-    done
-}
-
 function cdt {
     while [[ ! -d .git ]]; do
         cd ..
     done
+}
+
+function wal1 {
+    f=$(find ~/wallpapers | sort -R | head -n1)
+    wal -i "$f" && walogram && pywalfox update
 }

@@ -40,5 +40,4 @@ alias zl="zellij --layout"
 alias todrive='rclone sync "/home/user/drive" "google-drive:"'
 alias fromdrive='rclone sync "google-drive:" "/home/user/drive"'
 alias lg="lazygit"
-alias w="wal -i ~/wallpapers && walogram && pywalfox update"
 alias v="$EDITOR"

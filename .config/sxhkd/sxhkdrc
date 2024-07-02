@@ -3,7 +3,7 @@
 
 # terminal emulator
 super + Return
-	$TERMINAL -e nvim +start +term
+	$TERMINAL -e tmux
 
 # editor
 super + alt + v
@@ -18,6 +18,9 @@ super + alt + b
 
 super + alt + d
 	$TERMINAL -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md
+
+super + alt + f
+	pcmanfm
 
 # music player
 super + alt + m
