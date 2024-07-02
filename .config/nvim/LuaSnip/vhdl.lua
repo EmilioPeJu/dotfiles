@@ -44,26 +44,64 @@ return {
     ),
     s(
         { trig = "inst" },
-        fmt([[
-            {}_inst : entity work.{} port map (
-                {}
-            );
-        ]], {rep(1), i(1), i(0)})
+        c(1, {
+            fmt([[
+                {}_inst : entity work.{} port map (
+                    {}
+                );
+            ]], {rep(1), i(1), i(2)}),
+            fmt([[
+                {}_inst : entity work.{} generic map (
+                    {}
+                ) port map (
+                    {}
+                );
+            ]], {rep(1), i(1), i(2), i(3)})
+        })
     ),
     s(
        { trig = "if" },
-       fmt("if {} then\n{}\nend if;", {i(1), i(0)})
+       c(1, {
+            fmt([[
+                if {} then
+                    {}
+                end if;]], {r(1, 'cond'), i(2)}),
+            fmt([[
+                if {} then
+                    {}
+                else
+                    {}
+                end if;]], {r(1, 'cond'), i(2), i(3)}),
+            fmt([[
+                if {} then
+                    {}
+                elsif {} then
+                    {}
+                end if;]], {r(1, 'cond'), i(2), i(3), i(4)}),
+       })
+    ),
+    s(
+       { trig = "case" },
+       fmt([[
+            case {} is
+                {}
+            end case;
+        ]], {i(1), i(2)})
     ),
     s(
         { trig = "(ot" },
         t("(others => '0')")
     ),
     s(
-        { trig = "s" },
+        { trig = "sl" },
         t("std_logic")
     ),
     s(
         { trig = "slv" },
         t("std_logic_vector")
+    ),
+    s(
+        { trig = "w" },
+        fmt("when {} else", {i(1)})
     ),
 }
