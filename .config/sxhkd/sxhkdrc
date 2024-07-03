@@ -5,6 +5,9 @@
 super + Return
 	$TERMINAL -e tmux
 
+super + shift + Return
+	$TERMINAL -e tmux attach
+
 # editor
 super + alt + v
 	$TERMINAL -e nvim
