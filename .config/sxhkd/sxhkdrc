@@ -43,6 +43,9 @@ super + alt + w
 super + d
 	rofi-last
 
+super + shift + d
+	rofi -modes window -show window
+
 Print
 	maim -s | xclip -selection clipboard -t image/png
 
