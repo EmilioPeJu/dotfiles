@@ -21,6 +21,7 @@ bspc rule -a scratch state=floating
 bspc rule -a edm state=floating
 bspc rule -a cs-studio state=floating
 bspc rule -a Conky state=floating
+bspc rule -a zoom state=floating
 
 # set wallpaper and colors
 wal -q -R
