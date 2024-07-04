@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+name=$(basename $PWD)
+if ! tmux has -t "$name"; then
+    tmux new -s "$name" -d \
+        \; send -t "$name" '[ -f w11 ] && . w11' ENTER
+
+    [ -f w12 ] && tmux splitw -t "$name" -v -p 25 \
+        \; send -t "$name" '. w12' ENTER \
+        \; lastp -t "$name"
+
+    [ -f w21 ] && tmux neww -t "$name" \
+        \; send -t "$name" '. w21' ENTER
+
+    [ -f w21 ] && [ -f w22 ] && tmux splitw -t "$name" -v -p 25 \
+        \; send -t "$name" '. w22' ENTER \
+        \; lastp -t "$name"
+
+    tmux last -t "$name"
+    tmux switchc -t "$name" \
+        \; kill-session -t $(tmux display -p '#S')
+fi
