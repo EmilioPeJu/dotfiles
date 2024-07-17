@@ -1,19 +1,34 @@
 #!/usr/bin/env bash
+# Script to create a tmux workspace with 2 panes a 1 extra window
+# usage:
+# in your project directory create a ws script with the following functions:
+# main -> function executed in main pane
+# bot -> function executed in botton pane
+# aux -> function executed in new window
+#
+# then run ws(current script) which will use ws in current directory
+
+fn_exists() {
+    declare -F "$1" > /dev/null;
+}
+
+main() {
+    :
+}
+
+. $PWD/ws
+
 name=$(basename $PWD)
 if ! tmux has -t "$name"; then
     tmux new -s "$name" -d \
-        \; send -t "$name" '[ -f w11 ] && . w11' ENTER
+        \; send -t "$name" '. $PWD/ws; main' ENTER
 
-    [ -f w12 ] && tmux splitw -t "$name" -v -p 25 \
-        \; send -t "$name" '. w12' ENTER \
+    fn_exists bot && tmux splitw -t "$name" -v -p 25 \
+        \; send -t "$name" '. $PWD/ws; bot' ENTER \
         \; lastp -t "$name"
 
-    [ -f w21 ] && tmux neww -t "$name" \
-        \; send -t "$name" '. w21' ENTER
-
-    [ -f w21 ] && [ -f w22 ] && tmux splitw -t "$name" -v -p 25 \
-        \; send -t "$name" '. w22' ENTER \
-        \; lastp -t "$name"
+    fn_exists aux && tmux neww -t "$name" \
+        \; send -t "$name" '. $PWD/ws; aux' ENTER
 
     tmux last -t "$name"
     tmux switchc -t "$name" \
