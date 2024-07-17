@@ -15,8 +15,8 @@ return {
                 port (
                     {}
                 );
-            end {};
-        ]], {i(1), i(0), rep(1)})
+            end;
+        ]], {i(1), i(0)})
     ),
     s(
         { trig = "arch" },
@@ -24,7 +24,7 @@ return {
             architecture rtl of {} is
             begin
                 {}
-            end rtl;
+            end;
         ]], {i(1), i(0)})
     ),
     s(
