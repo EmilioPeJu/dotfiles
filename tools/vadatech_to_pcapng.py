@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import argparse
-import binascii
 import struct
 import sys
 
