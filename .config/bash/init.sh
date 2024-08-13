@@ -9,3 +9,7 @@ fi
 if type -p direnv &> /dev/null; then
     eval "$(direnv hook bash)"
 fi
+
+if type -p podman &> /dev/null; then
+    eval "$(podman completion bash)"
+fi
