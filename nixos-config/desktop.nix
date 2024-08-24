@@ -1,26 +1,19 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-
   # Services
   services.avahi.enable = false;
-  sound.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   services.udisks2.enable = true;
-
   hardware.bluetooth = {
     enable = true;
-    disabledPlugins = [ "sap" ];
+    powerOnBoot = true;
   };
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+  };
+  services.blueman.enable = true;
 
   fonts = {
     fontconfig = {
@@ -95,8 +88,8 @@
     mupdf
     okular
     sent
-    texlive.combined.scheme-medium
-    #texstudio
+    texliveFull
+    texstudio
     zathura
     zeal
     # Email
@@ -122,7 +115,6 @@
     #openshot-qt
     #playerctl
     # Webcam
-    gnome.cheese
     guvcview
   ];
 }

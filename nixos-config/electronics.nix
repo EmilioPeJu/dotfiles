@@ -32,6 +32,8 @@ in {
     ghdl
     gtkwave
     #icestorm
+    logisim
+    logisim-evolution
     keymapp
     kicad
     libftdi1
@@ -48,6 +50,7 @@ in {
     pyocd
     qmk
     pynus
+    saleae-logic-2
     sigrok-cli
     stlink
     #uhubctl
