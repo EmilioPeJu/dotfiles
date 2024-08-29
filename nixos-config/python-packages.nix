@@ -1,0 +1,39 @@
+pp:
+with pp; [
+  beautifulsoup4
+  binwalk-full
+  bitstring
+  bleak
+  dbus-python
+  jupyter
+  #genanki
+  numpy
+  matplotlib
+  mypy
+  nose
+  pandas
+  pexpect
+  pip
+  pudb
+  pycodestyle
+  pydbus
+  pygame
+  pygatt
+  pylint
+  pynvim
+  #pygobject3
+  pyserial
+  pytest
+  pyusb
+  #pyu2f
+  pyudev
+  pyzmq
+  requests
+  scapy
+  scikit-learn
+  seaborn
+  setuptools
+  scipy
+  virtualenv
+  z3
+]
