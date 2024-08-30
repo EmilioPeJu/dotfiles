@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import argparse
 import mmap
+import numpy
 import os
 import struct
 
@@ -11,6 +12,7 @@ def parse_args():
     parser.add_argument('--offset', type=int_or_hex, default=0)
     parser.add_argument('--value', type=int_or_hex_or_string, default=None,
                         nargs='+')
+    parser.add_argument('--n', type=int, default=1)
     return parser.parse_args()
 
 
@@ -35,16 +37,15 @@ def main():
     os.close(fd)
     # workaround for nasty bug in python
     # see https://github.com/python/cpython/issues/87297
-    mv = memoryview(mm).cast('I')
-    if args.value is not None:
-        # write if a value was passed
-        for val in args.value:
-            mv[args.offset // 4] = val
-    else:
-        mm.seek(args.offset)
-        data = mm.read(4)
-        value = struct.unpack('I', data)[0]
-        print('0x{:08x} ({})'.format(value, repr(data)[1:]))
+    mv = numpy.frombuffer(mm, dtype=numpy.uint32)
+
+    for _ in range(args.n):
+        if args.value is not None:
+            # write if a value was passed
+            for val in args.value:
+                mv[args.offset // 4] = val
+        else:
+            print('0x{:08x}'.format(mv[args.offset // 4]))
 
 
 if __name__ == '__main__':
