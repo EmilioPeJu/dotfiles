@@ -1,0 +1,20 @@
+--- a/configure/CONFIG.gnuCommon	1970-01-01 01:00:01.000000000 +0100
++++ b/configure/CONFIG.gnuCommon	2020-05-30 03:49:35.368196463 +0100
+@@ -17,12 +17,12 @@
+ GNU_BIN = $(GNU_DIR)/bin
+ GNU_LIB = $(GNU_DIR)/lib
+ 
+-CC = $(GNU_BIN)/$(CMPLR_PREFIX)gcc$(CMPLR_SUFFIX)
+-CCC = $(GNU_BIN)/$(CMPLR_PREFIX)g++$(CMPLR_SUFFIX)
+-AR = $(GNU_BIN)/$(CMPLR_PREFIX)ar$(CMPLR_SUFFIX) -rc
+-LD = $(GNU_BIN)/$(CMPLR_PREFIX)ld$(CMPLR_SUFFIX) -r
++CC = $(CMPLR_PREFIX)gcc$(CMPLR_SUFFIX)
++CCC =$(CMPLR_PREFIX)g++$(CMPLR_SUFFIX)
++AR = $(CMPLR_PREFIX)ar$(CMPLR_SUFFIX) -rc
++LD = $(CMPLR_PREFIX)ld$(CMPLR_SUFFIX) -r
+ CPP = $(CC) -x c -E
+-RANLIB = $(GNU_BIN)/$(CMPLR_PREFIX)ranlib$(CMPLR_SUFFIX)
++RANLIB = $(CMPLR_PREFIX)ranlib$(CMPLR_SUFFIX)
+ 
+ # Requires at least GCC 4.8 or LLVM (clang) 3.1
+ ASAN_FLAGS_YES = -fsanitize=address

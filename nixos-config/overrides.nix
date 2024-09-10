@@ -11,6 +11,8 @@
       ];
     });
 
+    epics-base = (pkgs.callPackage ./pkgs/epics/base { });
+
     #libunity = (pkgs.callPackage ./pkgs/libunity { });
 
     neovim = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
