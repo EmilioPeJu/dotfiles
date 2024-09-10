@@ -14,6 +14,7 @@
     ccls
     cifs-utils
     clamav
+    copier
     diffsitter
     ddrescue
     direnv
