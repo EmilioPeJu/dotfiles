@@ -6,10 +6,14 @@ return {
         lazy = false,
         keys = {
             '<leader>f',
+            '<leader>F',
+            '<leader>g',
             '<leader>h',
+            '<leader>l',
             '<leader><leader>',
             '<leader>.',
-            '<leader>g',
+            '<leader>/',
+            '<C-p>',
         },
         opts = {
             extensions = {
@@ -27,13 +31,13 @@ return {
             local map = vim.keymap.set
             map('n', '<leader>f',
                 function()
-                    require('telescope.builtin').find_files()
-                end)
-            map('n', '<C-p>',
-                function()
                     require('telescope.builtin').find_files({
                         hidden = true,
                     })
+                end)
+            map('n', '<C-p>',
+                function()
+                    require('telescope.builtin').git_files()
                 end)
             map('n', '<leader>h',
                 function()
@@ -46,6 +50,10 @@ return {
             map('n', '<leader>.',
                 function()
                     require('telescope.builtin').tags()
+                end)
+            map('n', '<leader>/',
+                function()
+                    require('telescope.builtin').treesitter()
                 end)
             map('n', '<leader>g',
                 function()
