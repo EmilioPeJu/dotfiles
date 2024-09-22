@@ -10,17 +10,18 @@
       ./hardware-configuration.nix
       ../../base.nix
       ../../desktop-x.nix
-      ../../electronics.nix
-      ../../kernel-mod.nix
+      #../../electronics.nix
+      #../../kernel-mod.nix
       ../../overrides.nix
       ../../security-options.nix
       #../../ssh.nix
       ../../user.nix
     ];
 
+  #boot.kernelPackages = pkgs.linuxPackages_6_8;
   powerManagement = {
     cpuFreqGovernor = "performance";
-    cpufreq.max = 3600000;
+    cpufreq.max = 3800000;
   };
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
@@ -39,8 +40,8 @@
   '';
 
   networking = {
-    hostName = "ryzen5-3600_a520m-k";
-    hostId = "a38d89e0";
+    hostName = "ryzen7-7840hs-trigkey-s7";
+    hostId = "0ed59dab";
     networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
   };
@@ -48,15 +49,6 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-  };
-
-  hardware.graphics = {
-    ## radv: an open-source Vulkan driver from freedesktop
-    enable32Bit = true;
-
-    ## amdvlk: an open-source Vulkan driver from AMD
-    extraPackages = [ pkgs.amdvlk ];
-    extraPackages32 = [ pkgs.driversi686Linux.amdvlk ];
   };
 
   environment.systemPackages = with pkgs; [
