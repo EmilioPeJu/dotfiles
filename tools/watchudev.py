@@ -1,18 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/env pythonu
 import subprocess
 import pyudev
 
-
-def keyboard_hook(device):
-    if device.get('ID_SERIAL') == 'ZSA_Technology_Labs_Voyager':
-        subprocess.run(['setmylayout.sh'])
+from watchudevserials import serial2script
 
 
 def main():
     monitor = pyudev.Monitor.from_netlink(pyudev.Context())
     for device in iter(monitor.poll, None):
-        if device.action == 'add' and 'ID_INPUT_KEYBOARD' in device.properties:
-            keyboard_hook(device)
+        print(dict(device.properties))
+        if device.action == 'add' and 'ID_SERIAL' in device.properties:
+            serial = device.get('ID_SERIAL')
+            script = serial2script.get(serial)
+            if script is not None:
+                print(f'Serial: {serial}, Script: {script}')
+                subprocess.run([script])
 
 
 if __name__ == '__main__':
