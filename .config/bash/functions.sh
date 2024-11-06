@@ -276,3 +276,50 @@ function wal1 {
     f=$(find ~/wallpapers | sort -R | head -n1)
     wal -i "$f" && walogram && pywalfox update
 }
+
+# qemu helpers
+function qemu-initrd {
+    qemu-system-x86_64 \
+        -kernel $SRCPATH/linux/arch/x86_64/boot/bzImage \
+        -initrd $SRCPATH/busybox/initramfs.img \
+        -s -nographic \
+        "$@"
+}
+
+function gdb-qemu {
+    pushd $SRCPATH/linux || return 1
+    expect -f <(cat <<'EOF'
+        spawn gdb "vmlinux"
+        send "target remote localhost:1234\n"
+        interact
+EOF
+    )
+    popd
+}
+
+function prepare-initrd {
+    pushd $SRCPATH/busybox/_install/ || return 1
+    mkdir -p {proc,sys,etc,etc/init.d}
+    ln -sf sbin/init
+    if [[ ! -e "etc/init.d/rcS" ]]; then
+        cat > etc/init.d/rcS <<'EOF'
+            echo "Init started"
+            mount -t proc none /proc
+            mount -t sysfs none /sys
+            mount -t debugfs none /sys/kernel/debug
+            mount -t devtmpfs dev /dev
+            # default inittab try to use the following non-existant devices
+            ln -s /dev/null /dev/tty2
+            ln -s /dev/null /dev/tty3
+            ln -s /dev/null /dev/tty4
+            ln -s /dev/null /dev/tty5
+            mdev -s
+            /bin/sh
+EOF
+        chmod +x etc/init.d/rcS
+    fi
+    fakeroot chown root bin/busybox
+    fakeroot chmod +s bin/busybox
+    find . | fakeroot cpio -o --format=newc > ../initramfs.img
+    popd
+}
