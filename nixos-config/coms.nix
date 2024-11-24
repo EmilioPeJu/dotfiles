@@ -3,6 +3,10 @@
 {
   hardware.hackrf.enable = true;
   environment.systemPackages = with pkgs; [
-    gnuradio
+    audacity
+    gnuradioMinimal
+    inspectrum
+    rtl_433
+    urh
   ];
 }
