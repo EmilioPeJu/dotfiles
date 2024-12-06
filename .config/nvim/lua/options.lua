@@ -1,7 +1,7 @@
 local g = vim.g
 local opt = vim.opt
 opt.clipboard = 'unnamedplus'
-opt.backupdir = vim.fn.stdpath('data') .. '/backup'
+--opt.backupdir = vim.fn.stdpath('data') .. '/backup'
 opt.smartcase = true
 opt.shell = 'bash'
 opt.hidden = true
@@ -23,7 +23,7 @@ opt.listchars = {
 opt.list = true;
 opt.colorcolumn = '80'
 opt.wrap = true
-vim.cmd('colorscheme wal')
+vim.cmd('colorscheme murphy')
 opt.termguicolors = true;
 
 -- Tab settings
@@ -42,3 +42,7 @@ opt.foldlevel = 99
 
 -- Search
 opt.ignorecase = true
+
+-- Spell
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
