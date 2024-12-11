@@ -31,3 +31,5 @@ if type -p nvim &> /dev/null; then
 elif type -p vim &> /dev/null; then
     export EDITOR="vim"
 fi
+
+export VISUAL=ewrap

@@ -18,31 +18,6 @@ function ranger_cd {
     cd "$dir"
 }
 
-function search {
-    local query=$(find . 2>/dev/null | fzf -1 --query "$1")
-    if [[ -n "$query" ]]; then
-        if [[ -d "$query" ]]; then
-            cd "$query"
-        else
-            rifle "$query"
-        fi
-    fi
-}
-
-function search_cd {
-    local query=$(find . -type d 2>/dev/null | fzf -1 --query "$1")
-    if [[ -n "$query" ]]; then
-        cd "$query"
-    fi
-}
-
-function search_edit {
-    local query=$(fzf)
-    if [[ -n "$query" ]]; then
-        $EDITOR "$query"
-    fi
-}
-
 function file_by_content {
     # $1 initial query
     RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
@@ -56,15 +31,6 @@ function search_edit_content() {
     local query=$(file_by_content | cut -d ":" -f 1-2 | sed "s/:/ +/")
     if [[ -n "$query" ]]; then
         $EDITOR $query
-    fi
-}
-
-function search_content {
-    local query=$(file_by_content | cut -d ':' -f 1)
-    if [[ -d "$query" ]]; then
-        cd "$query"
-    else
-        rifle "$query"
     fi
 }
 

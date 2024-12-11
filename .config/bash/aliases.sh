@@ -20,6 +20,7 @@ alias gp="git remote | xargs -L1 git push --all"
 alias gr="git rebase"
 alias java-bytecodes="javap -c -p -verbose -s";
 alias ls='ls --color=auto'
+alias n='nnn -e'
 alias remake="make clean uninstall; make"
 alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
 alias r2help="r2 -q -c '?*~...' -"
