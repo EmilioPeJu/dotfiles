@@ -49,6 +49,7 @@
     neovim
     neovim-remote
     nftables
+    nnn
     nvme-cli
     openipmi
     pam_u2f
