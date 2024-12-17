@@ -1,7 +1,6 @@
 pp:
 with pp; [
   beautifulsoup4
-  binwalk-full
   bitstring
   bleak
   dbus-python
@@ -10,7 +9,6 @@ with pp; [
   numpy
   matplotlib
   mypy
-  nose
   pandas
   pexpect
   pip

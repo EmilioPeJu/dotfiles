@@ -9,11 +9,9 @@
     enable = true;
     powerOnBoot = true;
   };
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull;
-  };
+  services.pipewire.pulse.enable = true;
   services.blueman.enable = true;
+  services.pcscd.enable = true;
 
   fonts = {
     fontconfig = {
@@ -37,10 +35,8 @@
     # Desktop
     anki
     bluez-tools
-    clibt
-    dbeaver
+    dbeaver-bin
     d-spy
-    discord
     evince
     feh
     gammastep
@@ -58,17 +54,13 @@
     # requires to symlink libwlrobs.so
     # to ~/.config/obs-studio/plugins/wlrobs/bin/64bit
     obs-studio-plugins.wlrobs
-    openjdk
     pcmanfm
     pyspread
     pywal
     pywalfox-native
-    qFlipper
     #sage
-    SDL2
     scrot
     st
-    swt
     sxiv
     #tor-browser-bundle-bin
     #ums
@@ -88,8 +80,8 @@
     mupdf
     okular
     sent
-    texliveFull
-    texstudio
+    #texliveFull
+    #texstudio
     zathura
     zeal
     # Email

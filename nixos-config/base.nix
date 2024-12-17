@@ -2,10 +2,10 @@
 
 {
   documentation.dev.enable = true;
+  networking.networkmanager.enable = true;
   environment.systemPackages = with pkgs; [
     #ansible
     atool
-    atuin
     bashmount
     bpftrace
     broot
@@ -41,7 +41,6 @@
     lf
     lsof
     lua
-    man-pages
     mdcat
     neofetch
     neomutt
@@ -52,7 +51,6 @@
     nnn
     nvme-cli
     openipmi
-    pam_u2f
     pass
     poke
     progress
@@ -116,13 +114,13 @@
     deluge
     dnsmasq
     dnsutils
-    dynamips
+    #dynamips
     ethtool
     #gns3-gui
     #gns3-server
     iperf
     junkie
-    openvswitch
+    #openvswitch
     proxychains
     redsocks
     sshfs
@@ -140,10 +138,7 @@
     wol
     wpa_supplicant
     # NIX related
-    nixfmt
-    nixpkgs-fmt
-    nixpkgs-lint
-    nix-universal-prefetch
+    nixfmt-rfc-style
     patchelf
     # Players
     ffmpeg-full
@@ -169,9 +164,8 @@
     git-repo
     gitui
     gnumake
-    kexectools
+    kexec-tools
     lazygit
-    libunity
     #ltrace
     meson
     ninja

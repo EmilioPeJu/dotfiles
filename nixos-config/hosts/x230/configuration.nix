@@ -32,10 +32,6 @@
       deps = [ ];
     };
   };
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
 
   networking = {
     hostName = "x230";
