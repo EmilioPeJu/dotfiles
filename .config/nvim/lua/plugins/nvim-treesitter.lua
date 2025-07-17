@@ -10,7 +10,7 @@ return {
         opts = {
             highlight = { enable = true },
             ensure_installed = {
-                'c', 'cpp', 'java', 'python', 'lua', 'bash',
+                'c', 'cpp', 'java', 'python', 'lua', 'bash', 'rust',
                 'json', 'yaml', 'toml', 'xml',
                 'vimdoc', 'dockerfile', 'regex', 'nix', 'query'
             },

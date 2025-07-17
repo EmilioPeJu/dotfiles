@@ -1,1 +1,1 @@
-../../../remind/dry-template.lua
+../../../system/dry-template.lua

@@ -1,14 +1,21 @@
 return {
     {
-        'github/copilot.vim',
-        branch = 'release',
-        config = function(_, _)
-            vim.cmd[[
-                let g:copilot_filetypes = {
-                    \ 'markdown': v:false,
-                    \ 'text': v:false
-                    \ }
-            ]]
+        'zbirenbaum/copilot.lua',
+        config = function(_, opts)
+            require('copilot').setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+                filetypes = {
+                    bitbake = true,
+                    c = true,
+                    cpp = true,
+                    nix = true,
+                    python = true,
+                    systemd = true,
+                    vhdl = true,
+                    ["*"] = false,
+                },
+            })
         end
     }
 }

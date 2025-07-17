@@ -33,18 +33,3 @@ begin
     end process;
 end;
 endsnippet
-
-snippet clk_proc
-     clk_proc: process
-     begin
-         loop
-             clk <= not clk; -- after 2 ns;
-             wait for 1 ns;
-             if done_clk = '1' then
-                 exit;
-             end if;
-         end loop;
-         report "End of clock";
-         wait;
-     end process;
-endsnippet

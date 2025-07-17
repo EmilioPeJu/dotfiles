@@ -23,7 +23,7 @@ opt.listchars = {
 opt.list = true;
 opt.colorcolumn = '80'
 opt.wrap = true
-vim.cmd('colorscheme murphy')
+vim.cmd('colorscheme retrobox')
 opt.termguicolors = true;
 
 -- Tab settings
@@ -46,3 +46,5 @@ opt.ignorecase = true
 -- Spell
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+-- Recommended by avante
+vim.opt.laststatus = 3

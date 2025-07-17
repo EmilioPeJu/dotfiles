@@ -104,4 +104,12 @@ return {
         { trig = "w" },
         fmt("when {} else", {i(1)})
     ),
+    s(
+        { trig = "for" },
+        fmt([[
+            for {} generate
+                {}
+            end generate;
+        ]], {i(1), i(0)})
+    ),
 }

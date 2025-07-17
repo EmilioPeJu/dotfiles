@@ -1,6 +1,7 @@
 local map = vim.keymap.set
 map('n', '<ESC>', ':nohl<CR>')
 map('n', 'Y', 'yy')
+map('n', '<leader>p', ":let @+=expand('%:p')<CR>")
 
 -- Terminal
 map('n', '<leader>t', ':terminal<CR>')
@@ -10,9 +11,8 @@ map('t', '<leader><leader>', '<C-\\><C-n>:Telescope buffers<CR>',
 
 -- Function keys
 map('n', '<F2>', ':NvimTreeToggle<CR>')
-map('n', '<F3>', ':call QuickFix_toggle()<CR>')
 map('n', '<F4>', ':TagbarToggle<CR>')
-map('n', '<F5>', ':CocDiagnostics<CR>')
+map('n', '<F5>', ':Copilot panel<CR>')
 
 -- Window
 map('n', '<C-j>', '<C-W>j', { noremap = true })

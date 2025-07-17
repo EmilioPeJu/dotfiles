@@ -3,29 +3,28 @@ return {
         'hrsh7th/nvim-cmp',
         config = function()
             local cmp = require('cmp')
+            local luasnip = require('luasnip')
             cmp.setup {
                 snippet = {
                     expand = function(args)
-                        require('luasnip').lsp_expand(args.body)
+                        luasnip.lsp_expand(args.body)
                     end,
                 },
                 mapping = cmp.mapping.preset.insert({
+                    ["<C-k>"] = cmp.mapping.select_prev_item(),
+                    ["<C-j>"] = cmp.mapping.select_next_item(),
                     ['<ESC>'] = cmp.mapping.close(),
-                    ['<Tab>'] = cmp.mapping(function(fallback)
+                    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                    ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                    ['<C-l>'] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.mapping.confirm({ select = true, })(fallback)
-                        elseif require('luasnip').expand_or_jumpable() then
-                            require('luasnip').expand_or_jump()
-                        else
-                            fallback()
-                        end
-                    end, {
-                        'i',
-                        's',
-                    }),
-                    ['<S-Tab>'] = cmp.mapping(function(fallback)
-                        if require('luasnip').jumpable(-1) then
-                            require('luasnip').jump(-1)
+                        elseif luasnip.expandable() then
+                            luasnip.expand()
+                        elseif luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
+                        elseif require("copilot.suggestion").is_visible() then
+                            require("copilot.suggestion").accept()
                         else
                             fallback()
                         end
@@ -35,9 +34,10 @@ return {
                     }),
                 }),
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     { name = 'path' },
+                    { name = 'copilot' },
+                    { name = 'nvim_lsp' },
                 }, {
                     { name = 'buffer' },
                 }),
@@ -48,7 +48,7 @@ return {
                 'hrsh7th/cmp-nvim-lsp',
             },
             {
-                'L3MON4D3/LuaSnip',
+                'zbirenbaum/copilot-cmp',
             },
             {
                 'saadparwaiz1/cmp_luasnip',
