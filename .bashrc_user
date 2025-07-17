@@ -3,6 +3,7 @@
 [[ -f "$HOME/.nix-profile/etc/profile.d/nix.sh" ]] && \
     . $HOME/.nix-profile/etc/profile.d/nix.sh
 
+
 if ! type -p gdm &> /dev/null && [[ "$(tty)" = "/dev/tty1" ]]; then
-    ssh-agent startx
+    ssh-agent hyprland
 fi

@@ -3,17 +3,17 @@
     "position": "top",
     "height": 25,
 
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "network", "pulseaudio", "battery", "clock"],
-    "sway/mode": {
+    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "network", "wireplumber", "battery", "clock"],
+    "hyprland/mode": {
         "format": " {}"
     },
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "format": "{name}",
         "disable-scroll": true
     },
-    "sway/window": {
+    "hyprland/window": {
         "max-length": 80,
         "tooltip": false
     },
@@ -61,24 +61,18 @@
         },
         "tooltip": false
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+    "wireplumber": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "default": ["󰖀","󰕾",""]
         },
-        "on-click": "st -e pulsemixer"
+        "on-click": "kitty -e pulsemixer",
+        "scroll-step": 1
     },
     "tray": {
         "icon-size": 18
