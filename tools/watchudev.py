@@ -1,4 +1,4 @@
-#!/usr/bin/env pythonu
+#!/usr/bin/env python
 import subprocess
 import pyudev
 
