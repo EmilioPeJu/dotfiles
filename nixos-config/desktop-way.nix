@@ -10,18 +10,20 @@
   };
 
   environment.systemPackages = with pkgs; [
-    clipman
+    cliphist
     dmenu-wayland
-    eww-wayland
+    eww
     grim
+    hypridle
+    hyprpaper
     kitty
     mako
     nwg-bar
+    rofi
     slurp
     swayidle
     swaylock
     wl-clipboard
-    wofi
     swww
     waybar
   ];

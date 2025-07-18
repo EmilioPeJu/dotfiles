@@ -11,6 +11,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  virtualisation.docker.storageDriver = "zfs";
 
   fileSystems."/" = {
     device = "rpool/rootfs";

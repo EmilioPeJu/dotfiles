@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  ftdi_eeprom = pkgs.callPackage ./pkgs/ftdi_eeprom { };
-  pynus = (pkgs.python3Packages.callPackage ./pkgs/pynus { });
-in {
+{
   services.udev.extraRules = ''
     # st-link device
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="dialout"
@@ -20,42 +17,48 @@ in {
     ATTRS{idVendor}=="3297", GROUP="plugdev", MODE="0660", SYMLINK+="ignition_dfu"
   '';
   environment.systemPackages = with pkgs; [
-    #arachne-pnr
     arduino
     avrdude
     #blackmagic
     dfu-util
-    flashrom
-    ftdi_eeprom
+    flashprog
+    #flashrom
+    #ftdi_eeprom
     gcc-arm-embedded
     geda
-    ghdl
     gtkwave
-    #icestorm
+    iverilog
     logisim
     logisim-evolution
     keymapp
     kicad
+    klayout
     libftdi1
+    magic-vlsi
     minipro
     ngspice
     #nrfutil
     openboardview
     openocd
     picocom
-    #(python3Packages.callPackage ./pkgs/hdl_checker {
-    #  pygls = (python3Packages.callPackage ./pkgs/oldpygls { });
-    #})
     #pulseview
     pyocd
     qmk
-    pynus
+    #pynus
     saleae-logic-2
+    sby
     sigrok-cli
     stlink
     #uhubctl
-    #yosys
-    #yosys-ghdl
+    # ======================== FPGA ========================
+    #arachne-pnr
+    #icestorm
+    ghdl
+    nvc
+    vhdeps
+    #yices
+    #(yosys.withPlugins (with yosys.allPlugins; [
+    #    ghdl
+    #]))
   ];
-  services.udev.packages = [ minipro ];
 }

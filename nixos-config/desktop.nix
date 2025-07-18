@@ -9,10 +9,26 @@
     enable = true;
     powerOnBoot = true;
   };
-  services.pipewire.pulse.enable = true;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+  };
   services.blueman.enable = true;
   services.pcscd.enable = true;
-
+  # Printer support
+  services.printing = {
+    enable = true;
+    drivers = [
+        pkgs.cups-filters
+        pkgs.brlaser
+    ];
+  };
+  # I want to enable it manually
+  systemd.services.cups.wantedBy = lib.mkForce [ ];
   fonts = {
     fontconfig = {
       defaultFonts = {
@@ -34,9 +50,11 @@
   environment.systemPackages = with pkgs; [
     # Desktop
     anki
+    anydesk
     bluez-tools
     dbeaver-bin
     d-spy
+    element-desktop
     evince
     feh
     gammastep
@@ -45,16 +63,22 @@
     firefox
     font-manager
     freerdp
-    #joplin-desktop
+    #gpredict
+    hardinfo2
+    joplin
+    joplin-desktop
     kitty
     libnotify
     libreoffice
+    liferea
+    lorien
+    mcomix
     nodejs
     obs-studio
     # requires to symlink libwlrobs.so
     # to ~/.config/obs-studio/plugins/wlrobs/bin/64bit
     obs-studio-plugins.wlrobs
-    pcmanfm
+    qpwgraph
     pyspread
     pywal
     pywalfox-native
@@ -65,22 +89,24 @@
     #tor-browser-bundle-bin
     #ums
     #vscode-fhs
+    #ventoy-full
+    vdhcoapp
     vym
     wine
     wob
     wxmaxima
     xchm
     xclip
+    xdg-user-dirs
     xdotool
     xfontsel
     xlsfonts
-    xdg-user-dirs
+    xsane
     # Docs
     calibre
     mupdf
-    okular
     sent
-    #texliveFull
+    texliveFull
     #texstudio
     zathura
     zeal
@@ -94,18 +120,13 @@
     graphviz
     inkscape
     imagemagick
-    # Keyboard
-    xorg.setxkbmap
-    xorg.xev
-    xorg.xkbcomp
-    xorg.xmodmap
     # Messaging
     #qtox
     tdesktop
     # Media
     audacity
+    #kdenlive
     #openshot-qt
-    #playerctl
     # Webcam
     guvcview
   ];

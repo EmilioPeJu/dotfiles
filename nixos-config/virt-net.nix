@@ -14,8 +14,7 @@
   services.nfs.server = {
     enable = true;
     exports = ''
-      /nix 172.16.0.0/16(rw,sync,no_subtree_check)
-      /home/user/src 172.16.0.0/16(rw,sync,no_subtree_check)
+      /nix 172.16.0.0/16(ro,sync,no_subtree_check)
     '';
     lockdPort = 4001;
   };

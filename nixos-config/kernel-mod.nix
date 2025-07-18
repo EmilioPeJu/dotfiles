@@ -4,9 +4,13 @@
   #boot.kernelPackages = pkgs.linuxPackages-rt;
   boot.kernelPackages = pkgs.linuxModPackages;
   environment.systemPackages = [ pkgs.linuxModPackages.kernel.dev ];
+  boot.kernelParams = [
+    #"amd_iommu=off"
+    "debug"
+  ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    linuxModPackages = pkgs.linuxPackagesFor (pkgs.linux.override {
+    linuxModPackages = pkgs.linuxPackagesFor (pkgs.linux_6_11.override {
       features = {
         debug = true;
       };

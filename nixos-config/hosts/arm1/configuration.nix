@@ -33,7 +33,6 @@ in {
 
   networking = {
     hostName = "arm1";
-    networkmanager.enable = false;
     useDHCP = false;
     interfaces.eth0.useDHCP = true;
     interfaces.wlan0 = {

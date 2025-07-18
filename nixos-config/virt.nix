@@ -2,16 +2,36 @@
 
 {
   virtualisation.libvirtd.enable = true;
-  programs.dconf.enable = true; # virt-manager requires dconf to remember settings
-  virtualisation.docker.enable = true;
-  virtualisation.docker.enableOnBoot = false;
+  # virt-manager requires dconf to remember settings
+  programs.dconf.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    enableOnBoot = false;
+  };
   users.users.user.extraGroups = [ "docker" "libvirtd" ];
-  virtualisation.docker.storageDriver = "zfs";
+  #networking.firewall.allowedTCPPorts = [
+  #  6443 # k3s API server
+  #];
+  #services.k3s = {
+  #  enable = true;
+  #  role = "server";
+  #  extraFlags = toString [
+  #    #"--debug"
+  #  ];
+  #};
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "user" ];
   environment.systemPackages = with pkgs; [
     devcontainer
     distrobox
-    #firectl
-    virt-manager
     docker-compose
+    #firectl
+    #kind
+    kubectl
+    #kubernetes-helm
+    minikube
+    podman
+    virt-manager
+    virtiofsd
   ];
 }

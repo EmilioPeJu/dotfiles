@@ -10,9 +10,9 @@
     ../../base.nix
     ../../desktop-x.nix
     ../../overrides.nix
-    ../../security-options.nix
     ../../ssh.nix
     ../../user.nix
+    ../../virt.nix
   ];
 
   powerManagement.cpuFreqGovernor = "powersave";
@@ -36,7 +36,6 @@
   networking = {
     hostName = "x230";
     hostId = "f36d99d7";
-    networkmanager.enable = true;
     extraHosts = builtins.readFile ../../extra_hosts;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };

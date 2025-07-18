@@ -1,7 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
   environment.systemPackages = with pkgs; [
     bashmount
     file
@@ -51,12 +54,12 @@
     dnsutils
     ethtool
     iperf
+    iwd
     socat
     traceroute
     weechat
     wireshark
     wol
-    wpa_supplicant
     radare2
     strace
     valgrind

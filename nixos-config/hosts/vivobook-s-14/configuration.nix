@@ -2,45 +2,50 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, epnix, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../android.nix
       ../../base.nix
       ../../comm.nix
-      ../../desktop-x.nix
+      ../../desktop-way.nix
       ../../electronics.nix
       ../../erp.nix
-      ../../kernel-mod.nix
       ../../kernel-pkgs.nix
-      ../../music.nix
-      ../../overrides.nix
-      ../../radicle.nix
-      ../../security.nix
       ../../ssh.nix
+      ../../overrides.nix
       ../../user.nix
       ../../work.nix
       ../../virt.nix
     ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_6_11;
-  powerManagement = {
-    cpuFreqGovernor = "performance";
-    cpufreq.max = 3800000;
-  };
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
-
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" "zfs" ];
 
-  boot.supportedFilesystems = [ "nfs" "ntfs" "zfs" "bcachefs" ];
+  # Reduce maximum CPU frequency to improve reliability and CPU life
+  powerManagement = {
+    cpuFreqGovernor = "performance";
+    cpufreq.max = 3500000;
+  };
+
+  # Stop charging battery at 80% to prolong battery life.
+  systemd.tmpfiles.rules = [
+    "w /sys/class/power_supply/BAT1/charge_control_end_threshold - - - - 80"
+  ];
+
+  networking = {
+    hostName = "vivobook-s-14";
+    hostId = "24ab83ff";
+  };
 
   security.pam = {
-    services.i3lock = {
+    #u2f.settings.debug = true;
+    services.swaylock = {
       unixAuth = true;
       u2fAuth = true;
     };
@@ -56,6 +61,7 @@
       u2fAuth = true;
     };
   };
+
   # speed up boot a bit
   systemd.services.systemd-udev-settle.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -63,27 +69,14 @@
     DefaultTimeoutStopSec=10s
   '';
 
-  networking = {
-    hostName = "ryzen7-7840hs-trigkey-s7";
-    hostId = "0ed59dab";
-    extraHosts = builtins.readFile ../../extra_hosts;
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    discord
-    eclipses.eclipse-java
-    jdk11
-    tor-browser
-    # weka
-  ];
-
   # Set your time zone.
   time.timeZone = "Europe/London";
+
+  # Packages
+  environment.systemPackages = [
+    epnix.packages.x86_64-linux.epics-base
+  ];
+
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
   #
@@ -104,3 +97,4 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
+

@@ -2,10 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
+    openfortivpn
     nomachine-client
     slack
-    vscode-with-extensions
+    #vscode-with-extensions
     zoom-us
   ];
-  #nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 }

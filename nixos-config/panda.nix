@@ -1,0 +1,52 @@
+{ config, lib, pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    autoconf
+    automake
+    bash
+    bc
+    binutils
+    bison
+    expat
+    fakeroot
+    flex
+    fontconfig
+    freetype
+    gcc
+    git
+    glib
+    glibc
+    gnumake
+    gnutar
+    gsettings-desktop-schemas
+    gtk2
+    gtk3
+    git
+    hicolor-icon-theme
+    libffi
+    libtool
+    libuuid
+    libxcrypt-legacy
+    libyaml
+    ncurses5
+    openssl
+    perl
+    readline
+    rst2pdf
+    swt
+    which
+    #xilinx-bootgen
+    xorg.libSM
+    xorg.libICE
+    xorg.libxcb
+    xorg.libXrender
+    xorg.libX11
+    xorg.libXft
+    xorg.libXi
+    xorg.libXinerama
+    xorg.libXext
+    xorg.libXtst
+    zlib
+  ];
+}

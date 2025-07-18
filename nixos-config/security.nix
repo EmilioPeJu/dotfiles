@@ -2,25 +2,25 @@
 
 {
   environment.systemPackages = with pkgs; [
-    arp-scan
+    aide
     #burpsuite
-    dnsx
-    dsniff
+    cutter
+    #dsniff
     elfutils
     exploitdb
     ghidra
-    hashcat
     #hotpatch
     hping
-    httpx
-    john
+    iaito
+    imhex
+    #john
     lynis
     #metasploit
-    ncrack
-    ndisc6
+    #ncrack
+    #ndisc6
     netcat-gnu
-    netsniff-ng
-    nikto
+    #netsniff-ng
+    #nikto
     nmap
     nuclei
     #ostinato
@@ -28,33 +28,33 @@
     pwnat
     radare2
     redsocks
+    rizin
     scalpel
     snmpcheck
-    snort
+    #snort
     sslscan
     ssldump
     stunnel
     sqlmap
     tcpreplay
     testdisk
-    thc-ipv6
-    thc-hydra
-    usb-modeswitch
-    wapiti
+    #thc-ipv6
+    #thc-hydra
+    #usb-modeswitch
+    #wapiti
     # fuzzer
     #afl
-    ffuf
-    honggfuzz
-    radamsa
-    python3Packages.wfuzz
-    zzuf
+    #ffuf
+    #honggfuzz
+    #radamsa
+    #zzuf
     #wpscan
-    yersinia
+    #yersinia
     # osint
-    amass
-    photon
-    sherlock
-    subfinder
+    #amass
+    #photon
+    #sherlock
+    #subfinder
     #theharvester
     # wifi
     #aircrack-ng

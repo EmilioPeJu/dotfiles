@@ -2,9 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Music edition
     audacity
-    tuxguitar
+    gmetronome
+    lingot
     lmms
+    tuxguitar
   ];
 }

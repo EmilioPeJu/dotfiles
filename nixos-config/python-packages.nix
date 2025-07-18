@@ -3,16 +3,22 @@ with pp; [
   beautifulsoup4
   bitstring
   bleak
+  cocotb
+  cocotb-bus
   dbus-python
-  jupyter
+  jinja2
+  #jupyter
+  #ipywidgets
   #genanki
-  numpy
+  marimo
   matplotlib
   mypy
+  numpy
   pandas
   pexpect
   pip
   pudb
+  pwntools
   pycodestyle
   pydbus
   pygame
@@ -21,17 +27,29 @@ with pp; [
   pynvim
   #pygobject3
   pyserial
+  pysmt
   pytest
   pyusb
   #pyu2f
   pyudev
   pyzmq
   requests
+  #rfcat
   scapy
   scikit-learn
   seaborn
+  selenium
   setuptools
   scipy
+  snakeviz
+  sphinx
+  sphinx_rtd_theme
+  umodbus
   virtualenv
   z3
+  # AI
+  onnx
+  onnxruntime
+  pytorch
+  torchbench
 ]

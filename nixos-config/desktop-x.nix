@@ -23,6 +23,8 @@
     dmenu
     dunst
     eww
+    i3lock
+    libvibrant
     maim
     picom
     polybar
@@ -30,7 +32,13 @@
     sxhkd
     tdrop
     xcompmgr
+    xorg.xgamma
     xorg.xhost
     xorg.xkill
+    # Keyboard
+    xorg.setxkbmap
+    xorg.xev
+    xorg.xkbcomp
+    xorg.xmodmap
   ];
 }
