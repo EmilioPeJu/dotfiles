@@ -32,4 +32,4 @@ elif type -p vim &> /dev/null; then
     export EDITOR="vim"
 fi
 
-export VISUAL=ewrap
+#export VISUAL=ewrap

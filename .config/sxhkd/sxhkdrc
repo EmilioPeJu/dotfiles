@@ -20,7 +20,7 @@ super + alt + b
 	$TERMINAL -e bashmount
 
 super + alt + d
-	$TERMINAL -e $EDITOR ~/remind/dry/$(date +%y-%m-%d).md
+	$TERMINAL -e $EDITOR ~/system/dry/$(date +%y-%m-%d).md
 
 super + alt + f
 	pcmanfm

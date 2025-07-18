@@ -239,7 +239,8 @@ function cdt {
 }
 
 function wal1 {
-    f=$(find ~/wallpapers | sort -R | head -n1)
+    random_choice="$(find ~/wallpapers | sort -R | head -n1)"
+    f="${1:-random_choice}"
     wal -i "$f" && walogram && pywalfox update
 }
 
@@ -288,4 +289,12 @@ EOF
     fakeroot chmod +s bin/busybox
     find . | fakeroot cpio -o --format=newc > ../initramfs.img
     popd
+}
+
+function test-nvme-read {
+    path="${1:-/dev/nvme0n1}"
+    sudo fio --readonly --name=onessd --filename="$path" --filesize=100g \
+        --rw=randread --bs=1m  --direct=1 --overwrite=0 --numjobs=8 \
+        --iodepth=32 --time_based=1 --runtime=60 --ioengine=io_uring \
+        --registerfiles --fixedbufs    --gtod_reduce=1 --group_reporting
 }
