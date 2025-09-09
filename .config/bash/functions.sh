@@ -1,9 +1,29 @@
 #!/usr/bin/env bash
 # user functions
 
+function aider-summary {
+    # Provided by mccormix
+    aider --detect-urls --no-git --no-auto-commits --yes --message "Please summarize the documentation at the following URL into a concise form suitable for giving an LLM context about a project. Write the summary as Markdown into a .md file with a relevant short kebab-case name like 'technology-name.md'. Where appropriate make sure you include a suite of relevant code examples to help the LLM write code in the suggested style of the project. The result will be concatenated with summaries of other technologies so it should have a clear h1 header indicating the content of this markdown section/file. $*"
+}
+
 function c {
     local query=$(find .  -maxdepth 1 -type d | fzf -1 --query "$1")
     cd "$query"
+}
+
+function dr {
+    local url="ghcr.io/pandablocks/pandablocks-dev-container"
+    local image="${1:-$url}"
+    docker run \
+        -v /dls_sw:/dls_sw \
+        -v /scratch:/scratch \
+        -v /home:/home \
+        -v /build:/build \
+        -u $(id -u):$(id -g) \
+        -w $PWD \
+        -e HOME \
+        -it \
+        "$image"
 }
 
 function man2 {
@@ -193,6 +213,10 @@ function ebpfcc() {
         llc -march=bpf -filetype=obj -o "`basename $1 .c`.o"
 }
 
+function exe_notify() {
+    "$@"; notify-send "Done: $* (exit code $?)"
+}
+
 function remote_dd_gzip() {
     local host="$1"
     local IF="$2"
@@ -240,17 +264,21 @@ function cdt {
 
 function wal1 {
     random_choice="$(find ~/wallpapers | sort -R | head -n1)"
-    f="${1:-random_choice}"
-    wal -i "$f" && walogram && pywalfox update
+    f="${1:-$random_choice}"
+    wal -i "$f"
+    hyprctl hyprpaper reload ,"$f"
 }
 
 # qemu helpers
 function qemu-initrd {
-    qemu-system-x86_64 \
+    $QEMU \
         -kernel $SRCPATH/linux/arch/x86_64/boot/bzImage \
         -initrd $SRCPATH/busybox/initramfs.img \
-        -s -nographic \
+        -netdev bridge,id=netbrvirt,br=brvirt,helper=/run/wrappers/bin/qemu-bridge-helper \
+        -device virtio-net-pci,netdev=netbrvirt \
+        -nographic -append "console=ttyS0" \
         "$@"
+    # -s -S for debugging
 }
 
 function gdb-qemu {
@@ -268,23 +296,53 @@ function prepare-initrd {
     pushd $SRCPATH/busybox/_install/ || return 1
     mkdir -p {proc,sys,etc,etc/init.d}
     ln -sf sbin/init
-    if [[ ! -e "etc/init.d/rcS" ]]; then
-        cat > etc/init.d/rcS <<'EOF'
-            echo "Init started"
-            mount -t proc none /proc
-            mount -t sysfs none /sys
-            mount -t debugfs none /sys/kernel/debug
-            mount -t devtmpfs dev /dev
-            # default inittab try to use the following non-existant devices
-            ln -s /dev/null /dev/tty2
-            ln -s /dev/null /dev/tty3
-            ln -s /dev/null /dev/tty4
-            ln -s /dev/null /dev/tty5
-            mdev -s
-            /bin/sh
+    cat > etc/init.d/rcS <<'EOF'
+        SERVER=172.18.0.1
+        echo "Init started"
+        mount -t proc none /proc
+        mount -t sysfs none /sys
+        mount -t debugfs none /sys/kernel/debug
+        mount -t devtmpfs dev /dev
+        mkdir /dev/pts
+        mount -t devpts devpts /dev/pts
+        mdev -s
+        mkdir -p /usr/share/udhcpc/
+        echo '#!/bin/sh' > /usr/share/udhcpc/default.script
+        echo 'ip addr add $ip/24 dev $interface' >> /usr/share/udhcpc/default.script
+        chmod +x /usr/share/udhcpc/default.script
+        ip link set lo up
+        for eth in eth0 eth1; do
+            random_mac=00:$(cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 200 | md5sum | sed -r 's/^(.{10}).*$/\1/;s/([0-9a-f]{2})/\1:/g; s/:$//;')
+            ip link set $eth down 2>/dev/null && \
+            ip link set dev $eth address $random_mac &&
+            ip link set $eth up &&
+            udhcpc -i $eth
+        done
+        if ping -c 1 -W 1 $SERVER &> /dev/null; then
+            mkdir -p /nix /scratch/src /run/current-system
+            mount -t nfs -o nolock $SERVER:/nix /nix
+            mount -t nfs -o nolock $SERVER:/scratch/src /scratch/src
+            mount -t nfs -o nolock $SERVER:/run/current-system /run/current-system
+            export PATH=$PATH:/run/current-system/sw/bin
+            mkdir -p /root/.ssh /etc/ssh /var/empty
+            # /etc/passwd
+            echo 'root::0:0:System administrator:/root:/run/current-system/sw/bin/bash' > /etc/passwd
+            echo 'sshd:x:992:990:SSH privilege separation user:/var/empty:/run/current-system/sw/bin/nologin' >> /etc/passwd
+            # /etc/hosts
+            echo '127.0.0.1 localhost' > /etc/hosts
+            export HOME=/root
+            # /etc/ssh
+            echo 'AddressFamily inet' >> /etc/ssh/sshd_config
+            echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+            echo 'AuthenticationMethods publickey' >> /etc/ssh/sshd_config
+            ssh_bindir=$(dirname $(readlink -f $(which sshd)))
+            echo "Subsystem sftp $(dirname ${ssh_bindir})/libexec/sftp-server" >> /etc/ssh/sshd_config
+            ssh-keygen -A
+            /run/current-system/sw/bin/sshd
+        fi
+        /bin/sh +m
 EOF
-        chmod +x etc/init.d/rcS
-    fi
+    chmod +x etc/init.d/rcS
     fakeroot chown root bin/busybox
     fakeroot chmod +s bin/busybox
     find . | fakeroot cpio -o --format=newc > ../initramfs.img
