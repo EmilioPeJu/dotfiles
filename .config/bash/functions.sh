@@ -191,14 +191,9 @@ function activate_null_sink_a() {
     pactl unload-module module-null-sink
 }
 
-function csctags {
-    find $PWD/ -name '*.c' -o -name '*.cpp' -o -name '*.h' > $PWD/cscope.files
-    cscope -b
-    export CSCOPE_DB="$PWD/cscope.files"
-}
-
 function tags {
     ctags -R -f ./.git/tags .
+    cscope -b -R -p10 -f ./.git/cscope.out
 }
 
 function ebpfprog() {
@@ -271,14 +266,28 @@ function wal1 {
 
 # qemu helpers
 function qemu-initrd {
+    ts=$(date +%s)
+    nsock="$(mktemp)"
+    csock="$(mktemp)"
+    virtiofsd --socket-path=$nsock --shared-dir=/nix --tag nix &
+    virtiofsd --socket-path=$csock --shared-dir=/run/current-system --tag current-system &
+    sleep 1
     $QEMU \
+        -enable-kvm -m 512M \
         -kernel $SRCPATH/linux/arch/x86_64/boot/bzImage \
         -initrd $SRCPATH/busybox/initramfs.img \
         -netdev bridge,id=netbrvirt,br=brvirt,helper=/run/wrappers/bin/qemu-bridge-helper \
         -device virtio-net-pci,netdev=netbrvirt \
-        -nographic -append "console=ttyS0" \
+        -chardev socket,id=nixsock,path=$nsock \
+        -device vhost-user-fs-pci,queue-size=1024,chardev=nixsock,tag=nix \
+        -chardev socket,id=currentsystemsock,path=$csock \
+        -device vhost-user-fs-pci,queue-size=1024,chardev=currentsystemsock,tag=current-system \
+        -object memory-backend-file,id=mem,size=512M,mem-path=/dev/shm,share=on \
+        -numa node,memdev=mem \
+        -nographic -append "console=ttyS0 ip=172.18.0.147" \
         "$@"
-    # -s -S for debugging
+    # Example of passthrough: -device vfio-pci,host=65:00.3
+    # For debuging: -s -S
 }
 
 function gdb-qemu {
@@ -297,7 +306,6 @@ function prepare-initrd {
     mkdir -p {proc,sys,etc,etc/init.d}
     ln -sf sbin/init
     cat > etc/init.d/rcS <<'EOF'
-        SERVER=172.18.0.1
         echo "Init started"
         mount -t proc none /proc
         mount -t sysfs none /sys
@@ -306,40 +314,48 @@ function prepare-initrd {
         mkdir /dev/pts
         mount -t devpts devpts /dev/pts
         mdev -s
+        echo 5 > /proc/sys/kernel/panic
         mkdir -p /usr/share/udhcpc/
         echo '#!/bin/sh' > /usr/share/udhcpc/default.script
         echo 'ip addr add $ip/24 dev $interface' >> /usr/share/udhcpc/default.script
         chmod +x /usr/share/udhcpc/default.script
+        eth=eth0
+        random_mac=00:$(cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 200 | md5sum | sed -r 's/^(.{10}).*$/\1/;s/([0-9a-f]{2})/\1:/g; s/:$//;')
+        ip link set $eth down 2>/dev/null &&
+        ip link set dev $eth address $random_mac &&
         ip link set lo up
-        for eth in eth0 eth1; do
-            random_mac=00:$(cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 200 | md5sum | sed -r 's/^(.{10}).*$/\1/;s/([0-9a-f]{2})/\1:/g; s/:$//;')
-            ip link set $eth down 2>/dev/null && \
-            ip link set dev $eth address $random_mac &&
+        if grep 'ip=' /proc/cmdline >/dev/null; then
+            ip=$(cat /proc/cmdline | sed -r 's/.*ip=([^ ]+).*/\1/')
+            echo "Setting static IP: $ip"
+            ip addr add $ip/24 dev $eth
+            ip link set $eth up
+        else
+            echo "Using DHCP"
             ip link set $eth up &&
             udhcpc -i $eth
-        done
-        if ping -c 1 -W 1 $SERVER &> /dev/null; then
-            mkdir -p /nix /scratch/src /run/current-system
-            mount -t nfs -o nolock $SERVER:/nix /nix
-            mount -t nfs -o nolock $SERVER:/scratch/src /scratch/src
-            mount -t nfs -o nolock $SERVER:/run/current-system /run/current-system
-            export PATH=$PATH:/run/current-system/sw/bin
-            mkdir -p /root/.ssh /etc/ssh /var/empty
-            # /etc/passwd
-            echo 'root::0:0:System administrator:/root:/run/current-system/sw/bin/bash' > /etc/passwd
-            echo 'sshd:x:992:990:SSH privilege separation user:/var/empty:/run/current-system/sw/bin/nologin' >> /etc/passwd
-            # /etc/hosts
-            echo '127.0.0.1 localhost' > /etc/hosts
-            export HOME=/root
-            # /etc/ssh
-            echo 'AddressFamily inet' >> /etc/ssh/sshd_config
-            echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-            echo 'AuthenticationMethods publickey' >> /etc/ssh/sshd_config
-            ssh_bindir=$(dirname $(readlink -f $(which sshd)))
-            echo "Subsystem sftp $(dirname ${ssh_bindir})/libexec/sftp-server" >> /etc/ssh/sshd_config
-            ssh-keygen -A
-            /run/current-system/sw/bin/sshd
         fi
+        mkdir -p /nix /run/current-system
+        mount -t virtiofs nix /nix
+        mount -t virtiofs current-system /run/current-system
+        export PATH=/run/current-system/sw/bin:$PATH
+        mkdir -p /root/.ssh /etc/ssh /var/empty
+        echo 'export PATH=/run/current-system/sw/bin:$PATH' >> /etc/profile
+        echo 'export PATH=/run/current-system/sw/bin:$PATH' >> /root/.bashrc
+        # /etc/passwd
+        echo 'root::0:0:System administrator:/root:/run/current-system/sw/bin/bash' > /etc/passwd
+        echo 'sshd:x:992:990:SSH privilege separation user:/var/empty:/run/current-system/sw/bin/nologin' >> /etc/passwd
+        # /etc/hosts
+        echo '127.0.0.1 localhost' > /etc/hosts
+        export HOME=/root
+        # /etc/ssh
+        echo 'AddressFamily inet' >> /etc/ssh/sshd_config
+        echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
+        echo 'AuthenticationMethods publickey' >> /etc/ssh/sshd_config
+        echo 'AllowTcpForwarding yes' >> /etc/ssh/sshd_config
+        ssh_bindir=$(dirname $(readlink -f $(which sshd)))
+        echo "Subsystem sftp $(dirname ${ssh_bindir})/libexec/sftp-server" >> /etc/ssh/sshd_config
+        ssh-keygen -A &&
+            /run/current-system/sw/bin/sshd
         /bin/sh +m
 EOF
     chmod +x etc/init.d/rcS

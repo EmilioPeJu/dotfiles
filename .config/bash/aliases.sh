@@ -2,11 +2,6 @@
 # user alias
 alias br='broot'
 alias cat2="cat << EOF >>"
-alias ju="cd ~/notes && jupyter lab"
-alias ga="git add"
-alias gall="git add --all"
-alias gb="git blame"
-alias gc="git commit"
 alias gcc-dump="gcc -fdump-tree-all -fdump-ipa-all -fdump-rtl-all"
 # include-freestanding-c99 contains relevant headers
 # -nostdlib implies -nostartupfiles
@@ -15,10 +10,7 @@ alias gcc-unsafe="gcc -fno-stack-protector -z execstack"
 alias gch="git checkout HEAD"
 alias gd="git diff --color=always --ws-error-highlight=all"
 alias gf="git fetch --all"
-alias gg="git gui"
 alias gl="git log --color=always --graph --branches --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gp="git remote | xargs -L1 git push --all"
-alias gr="git rebase"
 alias java-bytecodes="javap -c -p -verbose -s";
 alias lg="lazygit"
 alias ls='ls --color=auto'
@@ -27,7 +19,6 @@ alias rename-latin1-to-utf8="convmv -f iso-8859-15 -t utf-8 --notest -r ."
 alias r2help="r2 -q -c '?*~...' -"
 alias se='search'
 alias see='search_edit'
-alias sec='search_content'
 alias seec='search_edit_content'
 alias secd='search_cd'
 alias show-device-tree="dtc -I fs -O dts /proc/device-tree"
@@ -36,10 +27,14 @@ alias socat-pty="socat -d -d pty,rawer pty,rawer"
 alias tmp="pushd /run/user/$(id -u)"
 alias todrive='rclone sync "/home/user/drive" "google-drive:"'
 alias fromdrive='rclone sync "google-drive:" "/home/user/drive"'
+alias linux-shell="nix-shell -E 'with import <nixpkgs> {}; linux.overrideAttrs (o: {nativeBuildInputs=o.nativeBuildInputs ++ [ pkg-config ncurses ];})'"
+alias busybox-shell="nix-shell -E 'with import <nixpkgs> {}; busybox.overrideAttrs (o: {nativeBuildInputs=[ pkg-config ncurses ];})'"
 
 # One letter aliases
-alias b='sudo bpftrace'
-alias j='journalctl'
+alias a='aichat'
+alias b='bashmount'
+alias c='cscope -d -f .git/cscope.out'
+alias g='exe_notify git clone "$(wl-paste)"'
 alias k='kubectl'
 alias m='make'
 alias n='nnn -e'
@@ -49,3 +44,4 @@ alias s='systemctl'
 alias t="trans -speak -d en:es"
 alias u='udevadm'
 alias v="$EDITOR"
+alias y='exe_notify yt-dlp --cookies-from-browser firefox "$(wl-paste)"'

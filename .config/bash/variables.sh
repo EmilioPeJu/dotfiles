@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 
 # user environment variables
+# PATH
 export PATH="$PATH:$HOME/tools"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.node/bin:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.golang/bin:$HOME/.go/bin"
+export PATH="$PATH:$SRCPATH/tools"
+
 export NODE_PATH="$NODE_PATH:$HOME/.node/lib/node_modules"
 export GOPATH="$HOME/.go"
-export TERMINAL="kitty"
 export PREFIXPATH="$HOME/prefix"
 export SRCPATH="$HOME/src"
-export PATH="$PATH:$SRCPATH/tools"
+
+export R2_RCFILE=/home/user/.config/radare2/radare2rc
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+export TERMINAL="kitty"
+export QEMU=qemu-system-x86_64
+
 if type -p caget &> /dev/null; then
-    export EPICS_BASE=$(readlink -f $(which caget))/../../
+    export EPICS_BASE=$(dirname $(dirname $(readlink -f $(which caget))))
     export EPICS_CA_MAX_ARRAY_BYTES=15000000
 fi
 
