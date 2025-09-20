@@ -23,8 +23,6 @@ return {
                             luasnip.expand()
                         elseif luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
-                        elseif require("copilot.suggestion").is_visible() then
-                            require("copilot.suggestion").accept()
                         else
                             fallback()
                         end
@@ -36,7 +34,6 @@ return {
                 sources = cmp.config.sources({
                     { name = 'luasnip' },
                     { name = 'path' },
-                    { name = 'copilot' },
                     { name = 'nvim_lsp' },
                 }, {
                     { name = 'buffer' },

@@ -2,12 +2,25 @@ local map = vim.keymap.set
 map('n', '<ESC>', ':nohl<CR>')
 map('n', 'Y', 'yy')
 map('n', '<leader>p', ":let @+=expand('%:p')<CR>")
+map('i', '<C-l>',
+  function ()
+    vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+  end,
+  { desc = 'Copilot Accept', noremap = true, silent = true })
 
 -- Terminal
-map('n', '<leader>t', ':terminal<CR>')
+map('n', '<leader>t', ':ToggleTerm<CR>')
 map('t', '<leader><ESC>', '<C-\\><C-n>', { noremap = true })
 map('t', '<leader><leader>', '<C-\\><C-n>:Telescope buffers<CR>',
     { noremap = true })
+
+-- Git fugitive
+map('n', '<leader>gb', ":Git blame<CR>")
+map('n', '<leader>gc', ":Gclog<CR>")
+map('n', '<leader>gd', ":Git difftool<CR>")
+map('n', '<leader>gm', ":Git mergetool<CR>")
+map('n', '<leader>gl', ":Git log<CR>")
+map('n', '<leader>gs', ":Gdiffsplit<CR>")
 
 -- Function keys
 map('n', '<F2>', ':NvimTreeToggle<CR>')
@@ -27,7 +40,7 @@ map('t', '<C-l>', '<C-\\><C-n><C-W>l', { noremap = true })
 -- Buffer
 map('n', '<leader>d', ':bn<CR>:bd!#<CR>')
 map('n', '<leader>q', ':q<CR>')
-map('n', '<leader>w', ':w<CR>')
+map('n', '<leader>w', ':xa<CR>')
 
 -- Quickfix
 map('n', '<leader>[', ':cp<CR>')
@@ -47,5 +60,10 @@ map('c', 'cdt',
     end
 )
 
--- Build helpers
+-- With leader key
 map('n', '<leader>m', ':make<CR>')
+map('n', '<leader>r', ':Ranger<CR>')
+
+-- Tab
+map('n', '<C-Left>', ':tabprevious<CR>')
+map('n', '<C-Right>', ':tabnext<CR>')

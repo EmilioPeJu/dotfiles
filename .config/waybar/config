@@ -4,15 +4,13 @@
     "height": 25,
     "reload_style_on_change": true,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    "modules-left": ["hyprland/workspaces", "custom/reminders"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "network", "wireplumber", "battery", "clock"],
-    "hyprland/mode": {
-        "format": " {}"
-    },
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "disable-scroll": true
+    "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "battery", "clock"],
+    "custom/reminders": {
+        "exec": "rem | tail -n +3 | grep '[[:graph:]]' | paste -sd ';'",
+        "format": " {} ",
+        "interval": 600
     },
     "hyprland/window": {
         "max-length": 80,
@@ -49,31 +47,6 @@
             "critical": 10
         },
         "tooltip": false
-    },
-    "network": {
-        "format": "{ifname} {ipaddr}/{cidr}",
-        "format-wifi": "{essid} ({signalStrength}%)",
-        "format-alt": "{ipaddr}/{cidr} {icon}",
-        // "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "tooltip": false
-    },
-    "wireplumber": {
-        "format": "{icon}",
-        "format-bluetooth": "󰂰",
-        "nospacing": 1,
-        "tooltip-format": "Volume : {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "headphone": "",
-            "default": ["󰖀","󰕾",""]
-        },
-        "on-click": "kitty -e pulsemixer",
-        "scroll-step": 1
     },
     "tray": {
         "icon-size": 18

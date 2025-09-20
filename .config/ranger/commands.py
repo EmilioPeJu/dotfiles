@@ -5,7 +5,7 @@
 # commands when upgrading ranger.
 
 # You always need to import ranger.api.commands here to get the Command class:
-from ranger.api.commands import *
+from ranger.api.commands import Command
 from ranger.container import directory
 from ranger.core.loader import CommandLoader
 from ranger.ext.shell_escape import shell_quote
@@ -15,12 +15,9 @@ from ranger.ext.shell_escape import shell_quote
 
 # You can import any python module as needed.
 import os
-import re
 import subprocess
 
 from random import randint
-
-from hir12111env import *
 
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
@@ -81,15 +78,16 @@ class select_random(Command):
         return None
 
 
-class goto_file(Command):
+class next_file(Command):
     def execute(self):
         for index,thefile in enumerate(self.fm.thisdir.files):
             if thefile.is_file:
                 self.fm.move(to=index)
                 return
-    
+
     def tab(self):
         self.execute()
+
 
 class sed(Command):
     """:sed <EXPRESION>
@@ -120,26 +118,6 @@ class sed(Command):
         return None
 
 
-class z(Command):
-    def execute(self):
-        dir_obtained = self.get_dirs()
-        if dir_obtained:
-            dir_obtained = dir_obtained[0]
-            self.fm.thistab.enter_dir(dir_obtained)
-
-    def tab(self, arg):
-        for dir_item in self.get_dirs():
-            self.fm.thistab.enter_dir(dir_item)
-            yield "z " + dir_item
-
-    def get_dirs(self):
-        dir_list = subprocess.check_output(["/usr/bin/env", "fasd", "-l -d",
-                                            self.rest(1)]).decode("utf-8")
-        if not dir_list:
-            return []
-        return dir_list.split("\n")
-
-
 class command_filter(Command):
     def execute(self):
         if len(self.args) < 2:
@@ -148,6 +126,7 @@ class command_filter(Command):
             directory.command_filter = self.args[1:]
         self.fm.thisdir.refilter()
 
+
 class tag_filter(Command):
     def execute(self):
         if len(self.args) < 2:
@@ -155,25 +134,8 @@ class tag_filter(Command):
         else:
             # argument is used for specifying tag, TODO: support tag selection
             directory.tag_filter = self.args[1:] 
+
         self.fm.thisdir.refilter()
-
-
-class dls_go(Command, dls_tree_helper):
-        def execute(self):
-            if self.arg(1):
-                selected_folder = self.get_dir(self.arg(1))
-                self.fm.notify("Entering {}".format(selected_folder))
-                self.fm.thistab.enter_dir(selected_folder)
-            else:
-                self.fm.thistab.enter_dir(self.ROOT)
-
-
-class p(dls_go, dls_prod_tree_helper):
-    pass
-
-
-class w(dls_go, dls_work_tree_helper):
-    pass
 
 
 class bulk_command(Command):
@@ -182,42 +144,16 @@ class bulk_command(Command):
             from ranger.container.file import File
             from ranger.ext.shell_escape import shell_escape as esc
             cmdfile = tempfile.NamedTemporaryFile()
-            script_files = ["#!/bin/bash"]
-            script_files.extend(self.rest(1).format(fn=esc(f.relative_path)) for f in self.fm.thistab.get_selection())
-            script_files.append("echo FINISHED; read")
-            cmdfile.write("\n".join(script_files))
-            cmdfile.flush()
+            with open(cmdfile.name, 'w') as f:
+                f.write('#!/usr/bin/env bash\n')
+                for sel in self.fm.thistab.get_selection():
+                    f.write(self.rest(1).format(esc(sel.relative_path)))
+                    f.write('\n')
+
+                f.write('echo FINISHED; read\n')
+
             self.fm.execute_file([File(cmdfile.name)], app='editor')
             self.fm.run(['/bin/sh', cmdfile.name], flags='w')
-            cmdfile.close()
-
-
-class download(Command):
-    """
-    :download [filename]
-    Download uri in X clipboard using wget
-    """
-    command = 'wget --content-disposition --trust-server-names "`xclip -o`"'
-
-    def execute(self):
-        if self.rest(1):
-            self.command += ' -O ' + shell_quote(self.rest(1))
-        action = ['/bin/sh', '-c', self.command]
-        self.fm.execute_command(action)
-
-
-class download_video(Command):
-    """
-    :download [filename]
-    Download uri in X clipboard using youtube-dl
-    """
-    command = 'youtube-dl "`xclip -o`"'
-
-    def execute(self):
-        if self.rest(1):
-            self.command += ' -o ' + shell_quote(self.rest(1))
-        action = ['/bin/sh', '-c', self.command]
-        self.fm.execute_command(action)
 
 
 class pasta(Command):
@@ -230,29 +166,9 @@ class pasta(Command):
         from os.path import join, expanduser
 
         filename = join(self.fm.thisdir.path, expanduser(self.rest(1)))
-        self.fm.execute_command('xclip -o > "' + filename + '"')
-
-
-class md(Command):
-    """
-    :md <dirname>
-    Creates a directory with the name <dirname> and cd to it.
-    """
-
-    def execute(self):
-        from os.path import join, lexists
-        from os import makedirs
-
-        dirname = join(self.fm.thisdir.path, self.rest(1))
-        if not lexists(dirname):
-            makedirs(dirname)
-        self.fm.thisdir.load_content(schedule=False)
-        self.fm.select_file(dirname)
-        self.fm.cd(dirname)
+        self.fm.execute_command('wl-paste > "' + filename + '"')
 
 
 class diff(Command):
-    # vimdiff selected files
     def execute(self):
-        self.fm.execute_console('shell vimdiff %s')
-
+        self.fm.execute_console('shell nvim -d %s')

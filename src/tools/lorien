@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-cd $SRCPATH/Lorien/lorien
-godot3 Main.gd "$@"

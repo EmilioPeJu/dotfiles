@@ -7,7 +7,7 @@ return {
         keys = {
             '<leader>f',
             '<leader>F',
-            '<leader>g',
+            --'<leader>g',
             '<leader>h',
             '<leader>l',
             '<leader><leader>',
@@ -55,10 +55,10 @@ return {
                 function()
                     require('telescope.builtin').treesitter()
                 end)
-            map('n', '<leader>g',
-                function()
-                    require('telescope.builtin').live_grep()
-                end)
+            -- map('n', '<leader>g',
+            --     function()
+            --         require('telescope.builtin').live_grep()
+            --     end)
             map('n', '<leader>l',
                 function()
                     require('telescope.builtin').live_grep({

@@ -24,6 +24,10 @@ min_time = 3
 truncation_length = 5
 format = "[$path]($style) [$read_only]($read_only_style) "
 
+[env_var.nr_open]
+format = " in virtme-ng ($style) "
+variable = 'nr_open'
+
 [hostname]
 # Hide hostname unless accessing via SSH
 ssh_only = true
