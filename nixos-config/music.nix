@@ -5,7 +5,9 @@
     audacity
     gmetronome
     lingot
-    lmms
-    tuxguitar
+    #lmms
+    mixxx
+    #supercollider-with-plugins
+    #tuxguitar
   ];
 }

@@ -15,12 +15,15 @@
     ATTR{idVendor}=="0483", GROUP="dialout"
     # Voyager
     ATTRS{idVendor}=="3297", GROUP="plugdev", MODE="0660", SYMLINK+="ignition_dfu"
+    # OpenMoko: Cynthion and Scopefun
+    ATTRS{idVendor}=="1d50", GROUP="plugdev", MODE="0660"
   '';
   environment.systemPackages = with pkgs; [
     arduino
     avrdude
     #blackmagic
     dfu-util
+    esptool
     flashprog
     #flashrom
     #ftdi_eeprom
@@ -50,7 +53,8 @@
     sigrok-cli
     stlink
     #uhubctl
-    # ======================== FPGA ========================
+
+    # FPGA
     #arachne-pnr
     #icestorm
     ghdl
@@ -60,5 +64,9 @@
     #(yosys.withPlugins (with yosys.allPlugins; [
     #    ghdl
     #]))
+
+    # USB
+    cynthion
+    packetry
   ];
 }

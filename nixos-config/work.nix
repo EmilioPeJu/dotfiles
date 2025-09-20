@@ -1,7 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
+  networking.networkmanager.plugins = [
+    pkgs.networkmanager-fortisslvpn
+  ];
   environment.systemPackages = with pkgs; [
+    github-runner
     openfortivpn
     nomachine-client
     slack

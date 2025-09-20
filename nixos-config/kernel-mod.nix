@@ -10,7 +10,7 @@
   ];
 
   nixpkgs.config.packageOverrides = pkgs: {
-    linuxModPackages = pkgs.linuxPackagesFor (pkgs.linux_6_11.override {
+    linuxModPackages = pkgs.linuxPackagesFor (pkgs.linux_6_15.override {
       features = {
         debug = true;
       };
@@ -20,7 +20,7 @@
         #DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT = yes;
         #GDB_SCRIPTS = yes;
         IOMMU_DEBUGFS = yes;
-        INTEL_IOMMU_DEBUGFS = yes;
+        #INTEL_IOMMU_DEBUGFS = yes;
         GENERIC_IRQ_DEBUGFS = yes;
         # Let me access /dev/mem properly
         STRICT_DEVMEM = no;

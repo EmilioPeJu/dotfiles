@@ -8,30 +8,28 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../3dprinting.nix
+      #../../android.nix
       ../../base.nix
       ../../comm.nix
-      ../../desktop-x.nix
+      ../../desktop-way.nix
       ../../electronics.nix
-      ../../erp.nix
       ../../kernel-mod.nix
-      ../../kernel-pkgs.nix
       ../../music.nix
       ../../overrides.nix
-      ../../radicle.nix
       ../../security.nix
       ../../ssh.nix
       ../../user.nix
-      ../../work.nix
       ../../virt.nix
+      ../../virt-net.nix
+      ../../yggdrasil.nix
     ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_6_11;
+  #boot.kernelPackages = pkgs.linuxPackages_6_15;
   powerManagement = {
     cpuFreqGovernor = "performance";
     cpufreq.max = 3800000;
   };
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowBroken = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -59,9 +57,6 @@
   # speed up boot a bit
   systemd.services.systemd-udev-settle.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
 
   networking = {
     hostName = "ryzen7-7840hs-trigkey-s7";
@@ -69,17 +64,12 @@
     extraHosts = builtins.readFile ../../extra_hosts;
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-  };
-
   environment.systemPackages = with pkgs; [
     discord
-    eclipses.eclipse-java
-    jdk11
+    element-desktop
+    steam
+    tdesktop
     tor-browser
-    # weka
   ];
 
   # Set your time zone.

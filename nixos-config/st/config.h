@@ -5,9 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:size=12";
+static char *font = "monospace:size=18";
 static int borderpx = 2;
-float alpha = 0.8;
 
 /*
  * What program is execed by st depends of these precedence rules:

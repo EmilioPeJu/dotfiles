@@ -8,10 +8,10 @@
     #dsniff
     elfutils
     exploitdb
+    frida-tools
     ghidra
     #hotpatch
     hping
-    iaito
     imhex
     #john
     lynis

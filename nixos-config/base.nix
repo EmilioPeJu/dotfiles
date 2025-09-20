@@ -2,9 +2,12 @@
 
 {
   documentation.dev.enable = true;
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd";
+  networking = {
+    hostFiles = [ ./extra_hosts ];
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
   };
   hardware.enableAllFirmware = true;
   services.sysstat.enable = true;
@@ -13,7 +16,9 @@
     aria2
     asciinema_3
     asciinema-agg
+    asciinema-scenario
     atool
+    autojump
     awscli2
     bashmount
     bat
@@ -33,6 +38,7 @@
     ddrescue
     direnv
     direvent
+    dmtx-utils
     entr
     espeak
     exfat
@@ -55,10 +61,12 @@
     iotop
     ipmitool
     ispell
+    iw
     jq
     joshuto
     ki
     killall
+    libfido2
     libu2f-host
     lf
     lsof
@@ -85,17 +93,21 @@
     powertop
     pulsemixer
     pyright
-    qemu
+    qrrs
+    qrscan
+    qrtool
     ranger
     rclone
     ripgrep
     rsync
+    sc-im
     sleuthkit
     snapraid
     solo2-cli
     sosreport
     starship
     stress-ng
+    tdf
     tio
     tmsu
     tmux
@@ -190,17 +202,22 @@
     clang-tools
     cmake
     #clisp
+    codespell
     cscope
     ctags
+    debootstrap
+    devmem2
     flex
     flyctl
     gcc
     gdb
     gef
     gitAndTools.gitFull
+    git-filter-repo
     git-repo
     gitui
     gnumake
+    kas
     kexec-tools
     lazygit
     #ltrace
@@ -208,6 +225,7 @@
     meson
     msr-tools
     ninja
+    paxtest
     perf-tools
     pforth
     pmbootstrap
@@ -217,20 +235,21 @@
     rizin
     rr
     ruff
-    rust-analyzer
+    #rust-analyzer
     rustup
     #scilab-bin
     strace
     #swiProlog
     sysstat
     valgrind
+    virtme-ng
     yasm
     yara
     # Python
     (python3.withPackages (import ./python-packages.nix))
     # AI
     aichat
-    aider-chat
+    aider-chat-full
     onnxruntime
     plandex
     plandex-server
@@ -249,10 +268,5 @@
       group = "root";
       capabilities = "cap_net_admin,cap_net_raw+ep";
     };
-  };
-
-  programs.atop = {
-    enable = true;
-    netatop.enable = true;
   };
 }

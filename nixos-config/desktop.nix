@@ -2,9 +2,9 @@
 
 {
   # Services
-  services.avahi.enable = false;
   security.rtkit.enable = true;
   services.udisks2.enable = true;
+  hardware.graphics.enable32Bit = true;
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
@@ -29,6 +29,11 @@
   };
   # I want to enable it manually
   systemd.services.cups.wantedBy = lib.mkForce [ ];
+  #services.silverbullet = {
+  #  enable = true;
+  #  user = "user";
+  #  spaceDir = "/home/user/notes";
+  #};
   fonts = {
     fontconfig = {
       defaultFonts = {
@@ -54,25 +59,28 @@
     bluez-tools
     dbeaver-bin
     d-spy
-    element-desktop
     evince
     feh
     gammastep
     gsettings-desktop-schemas
     hicolor-icon-theme
+    iaito
     firefox
     font-manager
     freerdp
     #gpredict
     hardinfo2
+    hexchat
     joplin
     joplin-desktop
     kitty
     libnotify
     libreoffice
     liferea
+    litemdview
     lorien
     mcomix
+    networkmanagerapplet
     nodejs
     obs-studio
     # requires to symlink libwlrobs.so
@@ -87,6 +95,7 @@
     st
     sxiv
     #tor-browser-bundle-bin
+    toxic
     #ums
     #vscode-fhs
     #ventoy-full
@@ -109,7 +118,8 @@
     texliveFull
     #texstudio
     zathura
-    zeal
+    #commented until vulnerability is fixed
+    #zeal
     # Email
     thunderbird
     # Images and animation
@@ -122,7 +132,6 @@
     imagemagick
     # Messaging
     #qtox
-    tdesktop
     # Media
     audacity
     #kdenlive

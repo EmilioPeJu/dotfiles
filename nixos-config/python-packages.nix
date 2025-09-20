@@ -3,20 +3,22 @@ with pp; [
   beautifulsoup4
   bitstring
   bleak
-  cocotb
-  cocotb-bus
   dbus-python
+  frida-python
+  gitpython
   jinja2
   #jupyter
   #ipywidgets
   #genanki
-  marimo
+  #marimo
   matplotlib
+  mistune
   mypy
   numpy
   pandas
   pexpect
   pip
+  ply
   pudb
   pwntools
   pycodestyle
@@ -33,8 +35,8 @@ with pp; [
   #pyu2f
   pyudev
   pyzmq
+  r2pipe
   requests
-  #rfcat
   scapy
   scikit-learn
   seaborn
@@ -47,9 +49,18 @@ with pp; [
   umodbus
   virtualenv
   z3
+
   # AI
   onnx
   onnxruntime
   pytorch
   torchbench
+  west
+
+  # Electronics
+  cocotb
+  cocotb-bus
+  cynthion
+  facedancer
+  #rfcat
 ]

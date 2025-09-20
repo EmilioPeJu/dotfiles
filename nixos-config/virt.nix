@@ -1,36 +1,42 @@
 { config, lib, pkgs, ... }:
 
 {
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    allowedBridges = [ "brvirt" ];
+  };
+  virtualisation.spiceUSBRedirection.enable = true;
   # virt-manager requires dconf to remember settings
   programs.dconf.enable = true;
   virtualisation.docker = {
     enable = true;
     enableOnBoot = false;
   };
-  users.users.user.extraGroups = [ "docker" "libvirtd" ];
-  #networking.firewall.allowedTCPPorts = [
-  #  6443 # k3s API server
-  #];
-  #services.k3s = {
-  #  enable = true;
-  #  role = "server";
-  #  extraFlags = toString [
-  #    #"--debug"
-  #  ];
-  #};
-  #virtualisation.virtualbox.host.enable = true;
-  #users.extraGroups.vboxusers.members = [ "user" ];
+  users.users.user.extraGroups = [
+    "docker"
+    "libvirtd"
+    "kvm"
+    "qemu-libvirtd"
+  ];
+  # VFIO for PCIe passthrough
+  boot.kernelModules = [ "vfio-pci" ];
+  boot.kernelParams = [
+    "amd_iommu=on"
+  ];
+  services.udev.extraRules = ''
+    SUBSYSTEM=="vfio", GROUP="kvm", MODE="0770"
+  '';
   environment.systemPackages = with pkgs; [
     devcontainer
     distrobox
     docker-compose
     #firectl
-    #kind
+    #kind  # alternative to k3s(lighter)
     kubectl
+    kvmtool
     #kubernetes-helm
     minikube
-    podman
+    #podman
     virt-manager
     virtiofsd
   ];

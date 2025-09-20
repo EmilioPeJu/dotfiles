@@ -8,24 +8,26 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../android.nix
       ../../base.nix
-      ../../comm.nix
       ../../desktop-way.nix
       ../../electronics.nix
       ../../erp.nix
       ../../kernel-pkgs.nix
+      ../../security.nix
       ../../ssh.nix
       ../../overrides.nix
       ../../user.nix
       ../../work.nix
       ../../virt.nix
+      ../../virt-net.nix
+      ../../yggdrasil.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" "zfs" ];
+  boot.supportedFilesystems = [ "ext4" "ntfs" "zfs" ];
 
   # Reduce maximum CPU frequency to improve reliability and CPU life
   powerManagement = {
@@ -33,8 +35,8 @@
     cpufreq.max = 3500000;
   };
 
-  # Stop charging battery at 80% to prolong battery life.
   systemd.tmpfiles.rules = [
+    # Stop charging battery at 80% to prolong battery life.
     "w /sys/class/power_supply/BAT1/charge_control_end_threshold - - - - 80"
   ];
 
@@ -65,9 +67,6 @@
   # speed up boot a bit
   systemd.services.systemd-udev-settle.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
 
   # Set your time zone.
   time.timeZone = "Europe/London";

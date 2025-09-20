@@ -11,7 +11,7 @@ in
     #bpftool
     config.boot.kernelPackages.bpftrace
     config.boot.kernelPackages.cpupower
-    config.boot.kernelPackages.lkrg
+    #config.boot.kernelPackages.lkrg
     config.boot.kernelPackages.perf
     showcr
     syzkaller

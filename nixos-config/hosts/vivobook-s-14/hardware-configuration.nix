@@ -25,6 +25,18 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  # TODO: finish this attempt to have encrypted credentials
+  #boot.initrd = {
+  #  systemd.enable = true;
+  #  luks.devices.kstr.device = "/dev/zvol/pool/kstr";
+  #};
+
+  #fileSystems."/etc" = {
+  #  device = "/dev/mapper/kstr";
+  #  fsType = "ext4";
+  #  neededForBoot = true;
+  #};
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

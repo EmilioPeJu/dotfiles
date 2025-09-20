@@ -1,15 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, modulesPath, ... }:
 
 {
   imports = [
-    <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix>
-
-    # Provide an initial copy of the NixOS channel so that the user
-    # doesn't need to run "nix-channel --update" first.
-    <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
-
-    ../minimal-base.nix
-    ../user.nix
+    (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
+    ../../minimal-base.nix
+    ../../user.nix
   ];
   networking.hostName = "livecd";
 }

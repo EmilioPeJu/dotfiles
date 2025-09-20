@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
+    klipper
     openscad
     printrun
-    slic3r
+    #slic3r
   ];
 }

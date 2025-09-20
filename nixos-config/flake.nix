@@ -16,6 +16,20 @@
           ./hosts/vivobook-s-14/configuration.nix
         ];
       };
+      livecd = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+           { _module.args = inputs; }
+          ./hosts/livecd/configuration.nix
+        ];
+      };
+      trigkey = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+           { _module.args = inputs; }
+          ./hosts/trigkey-s7/configuration.nix
+        ];
+      };
     };
   };
 }

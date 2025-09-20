@@ -28,10 +28,16 @@
           }));
         };
     });
+    #radare2 = (pkgs.radare2.overrideAttrs (oldAttrs: {
+    #  src = /home/user/work/src/radare2;
+    #  preBuild = "";
+    #}));
+    #silverbullet = (pkgs.silverbullet.overrideAttrs (final: prev: {
+    #  src = /home/user/src/silverbullet;
+    #}));
     st = (pkgs.st.override {
       conf = builtins.readFile ./st/config.h;
       patches = [
-        ./st/st-alpha.diff
         ./st/st-externalpipe.diff
         ./st/st-scrollback.diff
         ./st/st-clipboard.diff
@@ -51,5 +57,6 @@
         inherit pkgs;
     };
     vhdeps = (pkgs.python3Packages.callPackage ./pkgs/vhdeps { });
+    virtme-ng = (pkgs.python3Packages.callPackage ./pkgs/virtme-ng { });
   };
 }
