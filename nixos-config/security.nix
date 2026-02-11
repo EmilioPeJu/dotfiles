@@ -9,7 +9,7 @@
     elfutils
     exploitdb
     frida-tools
-    ghidra
+    #ghidra
     #hotpatch
     hping
     imhex
@@ -40,6 +40,7 @@
     testdisk
     #thc-ipv6
     #thc-hydra
+    tor
     #usb-modeswitch
     #wapiti
     # fuzzer

@@ -5,7 +5,8 @@
     pkgs.networkmanager-fortisslvpn
   ];
   environment.systemPackages = with pkgs; [
-    github-runner
+    #act
+    #github-runner
     openfortivpn
     nomachine-client
     slack

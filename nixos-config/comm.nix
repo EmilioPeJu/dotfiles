@@ -8,7 +8,7 @@
   environment.systemPackages = with pkgs; [
     audacity
     chirp
-    gnuradio
+    #gnuradio
     grig
     gqrx
     inspectrum

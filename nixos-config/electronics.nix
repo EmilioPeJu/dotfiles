@@ -28,8 +28,9 @@
     #flashrom
     #ftdi_eeprom
     gcc-arm-embedded
-    geda
+    #geda
     gtkwave
+    i2c-tools
     iverilog
     logisim
     logisim-evolution
@@ -37,22 +38,29 @@
     kicad
     klayout
     libftdi1
-    magic-vlsi
-    minipro
+    #minipro
     ngspice
+    #nrf-command-line-tools
     #nrfutil
+    #nrf5-sdk
     openboardview
     openocd
     picocom
     #pulseview
     pyocd
+    renode-bin
     qmk
     #pynus
     saleae-logic-2
     sby
     sigrok-cli
     stlink
-    #uhubctl
+    surfer
+
+    # ASICs
+    magic-vlsi
+    xschem
+    verilator
 
     # FPGA
     #arachne-pnr
@@ -68,5 +76,6 @@
     # USB
     cynthion
     packetry
+    #uhubctl
   ];
 }

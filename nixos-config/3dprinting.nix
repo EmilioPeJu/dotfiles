@@ -3,8 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
     klipper
+    octoprint
     openscad
+    orca-slicer
     printrun
-    #slic3r
   ];
 }

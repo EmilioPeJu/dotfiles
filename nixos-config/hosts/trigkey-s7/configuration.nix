@@ -14,18 +14,18 @@
       ../../comm.nix
       ../../desktop-way.nix
       ../../electronics.nix
-      ../../kernel-mod.nix
-      ../../music.nix
+      #../../kernel-mod.nix
+      #../../music.nix
       ../../overrides.nix
       ../../security.nix
       ../../ssh.nix
       ../../user.nix
       ../../virt.nix
       ../../virt-net.nix
-      ../../yggdrasil.nix
+      #../../yggdrasil.nix
+      ../../zfs-compatible-kernel.nix
     ];
 
-  #boot.kernelPackages = pkgs.linuxPackages_6_15;
   powerManagement = {
     cpuFreqGovernor = "performance";
     cpufreq.max = 3800000;
@@ -35,23 +35,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.supportedFilesystems = [ "nfs" "ntfs" "zfs" "bcachefs" ];
+  boot.supportedFilesystems = [ "nfs" "ntfs" "zfs" ];
 
   security.pam = {
-    services.i3lock = {
-      unixAuth = true;
-      u2fAuth = true;
-    };
-    services.login = {
-      unixAuth = true;
-      u2fAuth = true;
-    };
     services.sshd = {
       googleAuthenticator.enable = true;
-    };
-    services.sudo = {
-      unixAuth = true;
-      u2fAuth = true;
     };
   };
   # speed up boot a bit
@@ -68,8 +56,10 @@
     discord
     element-desktop
     steam
-    tdesktop
+    telegram-desktop
+    thunderbird
     tor-browser
+    #zoom-us
   ];
 
   # Set your time zone.

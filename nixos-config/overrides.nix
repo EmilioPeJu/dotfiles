@@ -11,21 +11,30 @@
         ./dwm/dwm-scratchpad.diff
       ];
     });
+    hev-socks5-tunnel = (pkgs.callPackage ./pkgs/hev-socks5-tunnel { });
     neovim = pkgs.neovim.overrideAttrs (finalAttrs: previousAttrs: {
       python3 = pkgs.python3.withPackages(ps: with ps; [ tiktoken ]);
     });
     noip2 = (pkgs.callPackage ./pkgs/noip2 { });
     python3 = (pkgs.python3.override {
-        packageOverrides = prev: final: {
-          cocotb = (final.cocotb.overrideAttrs (oldAttrs: {
+        packageOverrides = pyself: pysuper: {
+          cocotb = (pysuper.cocotb.overrideAttrs (oldAttrs: {
             src = /home/user/work/src/cocotb;
             patches = [];
             doCheck = false;
             preCheck = "";
           }));
-          cocotb-bus = (final.cocotb-bus.overrideAttrs (oldAttrs: {
+          cocotb-bus = (pysuper.cocotb-bus.overrideAttrs (oldAttrs: {
             src = /home/user/work/src/cocotb-bus;
           }));
+          cocotbext-axi = (pysuper.buildPythonPackage rec {
+            pname = "cocotbext-axi";
+            version = "v0.1.26dev";
+            pyproject = true;
+            build-system = [ pysuper.setuptools ];
+            propagatedBuildInputs = [ pyself.cocotb pyself.cocotb-bus ];
+            src = /home/user/work/src/cocotbext-axi;
+          });
         };
     });
     #radare2 = (pkgs.radare2.overrideAttrs (oldAttrs: {

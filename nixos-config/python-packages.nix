@@ -7,9 +7,7 @@ with pp; [
   frida-python
   gitpython
   jinja2
-  #jupyter
-  #ipywidgets
-  #genanki
+  jsonschema
   #marimo
   matplotlib
   mistune
@@ -27,7 +25,6 @@ with pp; [
   pygatt
   pylint
   pynvim
-  #pygobject3
   pyserial
   pysmt
   pytest
@@ -45,21 +42,23 @@ with pp; [
   scipy
   snakeviz
   sphinx
-  sphinx_rtd_theme
+  sphinx-rtd-theme
+  textual
   umodbus
   virtualenv
-  z3
+  z3-solver
 
   # AI
   onnx
   onnxruntime
-  pytorch
+  torch
   torchbench
   west
 
   # Electronics
   cocotb
   cocotb-bus
+  cocotbext-axi
   cynthion
   facedancer
   #rfcat

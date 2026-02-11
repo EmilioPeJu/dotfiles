@@ -20,10 +20,10 @@
       ../../work.nix
       ../../virt.nix
       ../../virt-net.nix
-      ../../yggdrasil.nix
+      #../../yggdrasil.nix
+      ../../zfs-compatible-kernel.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_15;
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -46,21 +46,8 @@
   };
 
   security.pam = {
-    #u2f.settings.debug = true;
-    services.swaylock = {
-      unixAuth = true;
-      u2fAuth = true;
-    };
-    services.login = {
-      unixAuth = true;
-      u2fAuth = true;
-    };
     services.sshd = {
       googleAuthenticator.enable = true;
-    };
-    services.sudo = {
-      unixAuth = true;
-      u2fAuth = true;
     };
   };
 
@@ -72,8 +59,10 @@
   time.timeZone = "Europe/London";
 
   # Packages
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
     epnix.packages.x86_64-linux.epics-base
+    hev-socks5-tunnel
+    telegram-desktop
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,

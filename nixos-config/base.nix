@@ -6,7 +6,7 @@
     hostFiles = [ ./extra_hosts ];
     networkmanager = {
       enable = true;
-      wifi.backend = "iwd";
+      #wifi.backend = "iwd";
     };
   };
   hardware.enableAllFirmware = true;
@@ -22,7 +22,8 @@
     awscli2
     bashmount
     bat
-    bcachefs-tools
+    #bcachefs-tools
+    bluetuith
     bpftrace
     brightnessctl
     broot
@@ -30,7 +31,7 @@
     buku
     ccls
     cifs-utils
-    clamav
+    #clamav
     clibt
     copier
     cryptsetup
@@ -38,7 +39,7 @@
     ddrescue
     direnv
     direvent
-    dmtx-utils
+    #dmtx-utils
     entr
     espeak
     exfat
@@ -52,8 +53,8 @@
     fzf
     gcalcli
     gh
-    gocryptfs
-    goofys
+    #gocryptfs
+    #goofys
     htop
     iftop
     inetutils
@@ -94,7 +95,7 @@
     pulsemixer
     pyright
     qrrs
-    qrscan
+    #qrscan
     qrtool
     ranger
     rclone
@@ -103,7 +104,7 @@
     sc-im
     sleuthkit
     snapraid
-    solo2-cli
+    #solo2-cli
     sosreport
     starship
     stress-ng
@@ -117,11 +118,9 @@
     ts
     unar
     unixtools.xxd
-    vis
     #tuna
     watch
     wget
-    wyrd
     #xcftools
     yt-dlp
     zsh
@@ -155,9 +154,6 @@
     smartmontools
     udev
     usbutils
-    # Management
-    remind
-    timetrap
     # Net
     curl
     deluge
@@ -186,13 +182,13 @@
     weechat
     wireshark
     wol
-    # NIX related
-    nixfmt-rfc-style
+    # nix related
+    nixfmt
     patchelf
     # Players
     ffmpeg-full
     mpd
-    mpc_cli
+    mpc
     mpv
     ncmpc
     # Programming/Debugging/Tracing
@@ -212,11 +208,13 @@
     gcc
     gdb
     gef
-    gitAndTools.gitFull
+    gitFull
     git-filter-repo
     git-repo
     gitui
+    git-worktree-switcher
     gnumake
+    jdk8
     kas
     kexec-tools
     lazygit
@@ -225,9 +223,10 @@
     meson
     msr-tools
     ninja
-    paxtest
+    #paxtest
     perf-tools
     pforth
+    pmccabe
     pmbootstrap
     pkg-config
     radare2
@@ -256,6 +255,17 @@
     # Security
     libu2f-host
     pam_u2f
+    # Productivity
+    remind
+    tasksh
+    taskwarrior3
+    timetrap
+    timewarrior
+    vit
+    wyrd
+    # Typing
+    smassh
+    ttyper
   ];
 
   # gnupg agent

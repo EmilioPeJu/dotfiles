@@ -17,7 +17,6 @@
     hypridle
     hyprpaper
     hyprsunset
-    kitty
     mako
     nwg-bar
     rofi

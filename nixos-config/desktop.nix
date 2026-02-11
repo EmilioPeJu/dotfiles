@@ -45,19 +45,24 @@
       allowBitmaps = true;
     };
     packages = with pkgs; [
-      noto-fonts
-      noto-fonts-emoji
+      iosevka
+      dejavu_fonts
+      noto-fonts-color-emoji
       font-awesome
-      fira-code
+      unifont
     ];
   };
 
   environment.systemPackages = with pkgs; [
+    # Terminal emulator
+    alacritty
+    kitty
     # Desktop
     anki
     anydesk
     bluez-tools
     dbeaver-bin
+    dotool
     d-spy
     evince
     feh
@@ -73,11 +78,10 @@
     hexchat
     joplin
     joplin-desktop
-    kitty
     libnotify
     libreoffice
     liferea
-    litemdview
+    #litemdview
     lorien
     mcomix
     networkmanagerapplet
@@ -92,6 +96,7 @@
     pywalfox-native
     #sage
     scrot
+    simple-scan
     st
     sxiv
     #tor-browser-bundle-bin
@@ -100,6 +105,7 @@
     #vscode-fhs
     #ventoy-full
     vdhcoapp
+    vscode-with-extensions
     vym
     wine
     wob
@@ -107,7 +113,6 @@
     xchm
     xclip
     xdg-user-dirs
-    xdotool
     xfontsel
     xlsfonts
     xsane
@@ -121,7 +126,6 @@
     #commented until vulnerability is fixed
     #zeal
     # Email
-    thunderbird
     # Images and animation
     #blender
     gimp
