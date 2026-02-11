@@ -4,34 +4,44 @@ format = """
 $username\
 $hostname\
 $directory\
-$git_branch\
-$git_commit\
-$git_state\
 $nix_shell\
 $env_var\
 $cmd_duration\
 $custom\
 $time\
+$git_commit\
+$git_state\
+$git_branch\
 $line_break\
 $jobs\
 $status\
 $character"""
 
 [cmd_duration]
-min_time = 3
+format = '[$duration]($style) '
+show_milliseconds = true
+min_time = 100
 
 [directory]
-truncation_length = 5
+truncation_length = 6
 format = "[$path]($style) [$read_only]($read_only_style) "
 
 [env_var.nr_open]
 format = " in virtme-ng ($style) "
 variable = 'nr_open'
 
+[git_branch]
+format = '''[$symbol$branch(:$remote_branch)]($style)
+'''
+ignore_branches = ['master', 'main']
+symbol = '🌱 '
+
 [hostname]
 # Hide hostname unless accessing via SSH
 ssh_only = true
 
+[line_break]
+disabled = true
+
 [status]
 disabled = false
-

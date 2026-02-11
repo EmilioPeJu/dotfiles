@@ -284,7 +284,7 @@ function qemu-initrd {
         -device vhost-user-fs-pci,queue-size=1024,chardev=currentsystemsock,tag=current-system \
         -object memory-backend-file,id=mem,size=512M,mem-path=/dev/shm,share=on \
         -numa node,memdev=mem \
-        -nographic -append "console=ttyS0 ip=172.18.0.147" \
+        -nographic -append "console=ttyS0 ip=172.18.0.147 nokaslr" \
         "$@"
     # Example of passthrough: -device vfio-pci,host=65:00.3
     # For debuging: -s -S

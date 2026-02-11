@@ -4,11 +4,16 @@
     "height": 25,
     "reload_style_on_change": true,
 
-    "modules-left": ["hyprland/workspaces", "custom/reminders"],
+    "modules-left": ["hyprland/workspaces", "custom/reminders", "custom/level"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "cpu", "temperature", "memory", "disk", "battery", "clock"],
     "custom/reminders": {
         "exec": "rem | tail -n +3 | grep '[[:graph:]]' | paste -sd ';'",
+        "format": " {} ",
+        "interval": 600
+    },
+    "custom/level": {
+        "exec": "cat /home/user/system/.task/counters/all",
         "format": " {} ",
         "interval": 600
     },
