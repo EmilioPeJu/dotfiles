@@ -6,6 +6,7 @@ with pp; [
   dbus-python
   frida-python
   gitpython
+  inotify-simple
   jinja2
   jsonschema
   #marimo

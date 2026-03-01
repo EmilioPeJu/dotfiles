@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+# My script to start doing a competitive programming problem
+import json
+import os
+import re
+import shutil
+import socket
+import subprocess
+
+from collections import OrderedDict
+from dataclasses import dataclass
+from inotify_simple import INotify, flags
+from pathlib import Path
+
+problems_dir = Path('/home/user/problems/')
+extension = 'rs'
+template = problems_dir / 'template.rs'
+start_command = ['tmux', 'split-w', 'nvim', '{PROBLEM_SRC}']
+build_command = ['rustc', '{PROBLEM_SRC}', '-o', '{PROBLEM_BIN}']
+
+
+def run(command_list, problem_src='', problem_bin=''):
+    replaced_command_list = [
+        part.format(PROBLEM_SRC=str(problem_src), PROBLEM_BIN=str(problem_bin))
+            for part in command_list]
+    return subprocess.run(replaced_command_list, stderr=subprocess.STDOUT)
+
+
+def format_name(name):
+    return name.lower().replace(' ', '_') \
+        .replace('.', '') \
+        .replace("'", '')
+
+
+def run_test(problem_bin, test_input, expected_output):
+    result = subprocess.run([str(problem_bin.resolve())],
+                            input=test_input.encode(),
+                            stdout=subprocess.PIPE,
+                            stderr=subprocess.STDOUT)
+    output = result.stdout.decode()
+    soutput = output.strip()
+    sexpected = expected_output.strip()
+    return (soutput == sexpected or sexpected == '', output)
+
+
+@dataclass
+class TestData:
+    input: str
+    expected_output: str
+
+
+def main():
+    os.chdir(problems_dir)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind(('localhost', 1327))
+    sock.listen(1)
+    print('Waiting for a problem...')
+    client, addr = sock.accept()
+    all_data = bytearray()
+    while True:
+        data = client.recv(1024)
+        if data == b'':
+            break
+        all_data.extend(data)
+
+    print('Received problem data, writing to file...')
+    problem = json.loads(all_data.decode().split('\n')[-1])
+    name = format_name(problem['name'])
+    problem_src_path = Path(f'{name}.{extension}')
+    problem_bin_path = Path(f'{name}')
+    shutil.copy(template, problem_src_path)
+    tests = OrderedDict()
+    for i, test in enumerate(problem['tests']):
+        test_input_name = f'{name}.{i + 1}'
+        test_output_name = f'{name}.{i + 1}.exp'
+        with open(test_input_name, 'w') as f:
+            f.write(test['input'])
+        with open(test_output_name, 'w') as f:
+            f.write(test['output'])
+
+        tests[i + 1] = TestData(test['input'], test['output'])
+
+    run(start_command, problem_src=problem_src_path,
+        problem_bin=problem_bin_path)
+    inotify = INotify()
+    watch_flags = flags.MODIFY | flags.CREATE | flags.CLOSE_WRITE
+    inotify.add_watch(problems_dir, watch_flags)
+    print('Waiting for file to be modified...')
+    while True:
+        need_build = False
+        code_built = False
+        tests_to_run = []
+        for event in inotify.read():
+            if event.name == problem_src_path.name \
+                    and event.mask & flags.MODIFY:
+                print(f'{problem_src_path} modified, rebuilding...')
+                need_build = True
+            elif name == event.name and event.mask & flags.CLOSE_WRITE:
+                print('Built finished')
+                code_built = True
+            else:
+                match = re.match(rf'{name}\.(\d+)(\.exp)?$', event.name)
+                if match is None:
+                    continue
+                is_output = match.group(2) is not None
+                test_num = int(match.group(1))
+                test = tests.setdefault(test_num, TestData('', ''))
+                if is_output:
+                    test.expected_output = (Path(event.name).read_text())
+                else:
+                    test.input = (Path(event.name).read_text())
+
+        if need_build:
+            result = run(build_command, problem_src=problem_src_path,
+                         problem_bin=problem_bin_path)
+            if result.returncode != 0:
+                print(f'Build failed, rc = {result.returncode}')
+
+        if code_built:
+            tests_to_run = list(tests.keys())
+
+        for test_num in tests_to_run:
+            test = tests[test_num]
+            print(f'TEST {test_num} INPUT')
+            print(test.input)
+            print(f'TEST {test_num} EXPECTED')
+            print(test.expected_output)
+            ok, output = run_test(problem_bin_path, test.input,
+                                  test.expected_output)
+            if ok:
+                print(f'TEST {test_num} PASSED')
+            else:
+                print(f'TEST {test_num} FAILED WITH OUTPUT')
+                print(output)
+
+
+if __name__ == '__main__':
+    main()
