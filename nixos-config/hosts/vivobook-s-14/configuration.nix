@@ -22,6 +22,7 @@
       ../../virt-net.nix
       #../../yggdrasil.nix
       ../../zfs-compatible-kernel.nix
+      ../../3dprinting.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -57,6 +58,16 @@
 
   # Set your time zone.
   time.timeZone = "Europe/London";
+
+  # NFS server
+  services.nfs.server.enable = true;
+  services.nfs.server.exports = ''
+    /home/user/work 192.168.2.0/24(rw,sync,no_subtree_check)
+    /home/user/dotfiles 192.168.2.0/24(rw,sync,no_subtree_check)
+  '';
+  networking.firewall.allowedTCPPorts = [ 2049 ];
+  # don't start daemon at boot time
+  systemd.services.nfs-server.wantedBy = lib.mkForce [ ];
 
   # Packages
   environment.systemPackages = with pkgs; [

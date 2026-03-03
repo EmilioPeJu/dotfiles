@@ -108,6 +108,7 @@
     sosreport
     starship
     stress-ng
+    systemd-manager-tui
     tdf
     tio
     tmsu
@@ -241,7 +242,7 @@
     #swiProlog
     sysstat
     valgrind
-    virtme-ng
+    #virtme-ng
     yasm
     yara
     # Python
@@ -249,6 +250,7 @@
     # AI
     aichat
     aider-chat-full
+    claude-code
     onnxruntime
     plandex
     plandex-server
@@ -264,8 +266,8 @@
     vit
     wyrd
     # Typing
-    smassh
-    ttyper
+    #smassh
+    #ttyper
   ];
 
   # gnupg agent

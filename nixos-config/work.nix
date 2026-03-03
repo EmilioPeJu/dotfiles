@@ -7,8 +7,9 @@
   environment.systemPackages = with pkgs; [
     #act
     #github-runner
-    openfortivpn
+    hev-socks5-tunnel
     nomachine-client
+    openfortivpn
     slack
     #vscode-with-extensions
     zoom-us

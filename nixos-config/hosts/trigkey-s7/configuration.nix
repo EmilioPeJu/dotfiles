@@ -23,6 +23,7 @@
       ../../virt.nix
       ../../virt-net.nix
       #../../yggdrasil.nix
+      ../../work.nix
       ../../zfs-compatible-kernel.nix
     ];
 
@@ -55,7 +56,6 @@
   environment.systemPackages = with pkgs; [
     discord
     element-desktop
-    steam
     telegram-desktop
     thunderbird
     tor-browser

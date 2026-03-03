@@ -1,4 +1,4 @@
-{ stdenv }:
+{ lib, stdenv, fetchFromGitHub }:
 
 stdenv.mkDerivation rec {
   name = "hev-socks5-tunnel";

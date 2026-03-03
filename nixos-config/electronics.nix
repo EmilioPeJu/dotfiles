@@ -47,7 +47,7 @@
     openocd
     picocom
     #pulseview
-    pyocd
+    #pyocd -- Broken?
     renode-bin
     qmk
     #pynus

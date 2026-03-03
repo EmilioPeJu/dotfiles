@@ -99,12 +99,12 @@
     simple-scan
     st
     sxiv
+    thunderbird
     #tor-browser-bundle-bin
     toxic
     #ums
     #vscode-fhs
     #ventoy-full
-    vdhcoapp
     vscode-with-extensions
     vym
     wine
@@ -117,7 +117,7 @@
     xlsfonts
     xsane
     # Docs
-    calibre
+    #calibre
     mupdf
     sent
     texliveFull

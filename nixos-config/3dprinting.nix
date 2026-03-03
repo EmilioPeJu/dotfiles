@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    blender
     klipper
     octoprint
     openscad
