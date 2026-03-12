@@ -35,6 +35,7 @@
     clibt
     copier
     cryptsetup
+    devenv
     diffsitter
     ddrescue
     direnv

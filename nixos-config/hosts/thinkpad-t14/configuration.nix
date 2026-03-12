@@ -11,7 +11,6 @@
       ../../base.nix
       ../../desktop-way.nix
       ../../electronics.nix
-      ../../erp.nix
       ../../kernel-pkgs.nix
       ../../security.nix
       ../../ssh.nix
@@ -31,18 +30,18 @@
   boot.supportedFilesystems = [ "ext4" "ntfs" "zfs" ];
 
   # Reduce maximum CPU frequency to improve reliability and CPU life
-  powerManagement = {
-    cpuFreqGovernor = "performance";
-    cpufreq.max = 3500000;
-  };
+  #powerManagement = {
+  #  cpuFreqGovernor = "performance";
+  #  cpufreq.max = 3500000;
+  #};
 
   systemd.tmpfiles.rules = [
     # Stop charging battery at 80% to prolong battery life.
-    "w /sys/class/power_supply/BAT1/charge_control_end_threshold - - - - 80"
+    "w /sys/class/power_supply/BAT0/charge_control_end_threshold - - - - 80"
   ];
 
   networking = {
-    hostName = "vivobook-s-14";
+    hostName = "thinkpad-t14";
     hostId = "24ab83ff";
   };
 

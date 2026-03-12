@@ -8,7 +8,7 @@ stdenv.mkDerivation rec {
     ref = "stable-1.6";
   };
   outputs = [ "out" "dev" ];
-  patches = [ ./sockaddr_unsized.patch ];
+  #patches = [ ./sockaddr_unsized.patch ];
   KERNELDIR =
     "${linuxPackages.kernel.dev}/lib/modules/${linuxPackages.kernel.modDirVersion}/build";
   preConfigure = ''

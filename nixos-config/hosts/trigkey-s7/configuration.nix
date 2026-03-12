@@ -11,9 +11,9 @@
       ../../3dprinting.nix
       #../../android.nix
       ../../base.nix
-      ../../comm.nix
+      #../../comm.nix
       ../../desktop-way.nix
-      ../../electronics.nix
+      #../../electronics.nix
       #../../kernel-mod.nix
       #../../music.nix
       ../../overrides.nix
@@ -38,11 +38,6 @@
 
   boot.supportedFilesystems = [ "nfs" "ntfs" "zfs" ];
 
-  security.pam = {
-    services.sshd = {
-      googleAuthenticator.enable = true;
-    };
-  };
   # speed up boot a bit
   systemd.services.systemd-udev-settle.enable = false;
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -56,6 +51,7 @@
   environment.systemPackages = with pkgs; [
     discord
     element-desktop
+    steam
     telegram-desktop
     thunderbird
     tor-browser

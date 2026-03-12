@@ -9,11 +9,11 @@
   outputs = inputs@{ self, nixpkgs, epnix, ... }:
   {
     nixosConfigurations = {
-      vivobook = nixpkgs.lib.nixosSystem {
+      thinkpad-t14 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
            { _module.args = inputs; }
-          ./hosts/vivobook-s-14/configuration.nix
+          ./hosts/thinkpad-t14/configuration.nix
         ];
       };
       livecd = nixpkgs.lib.nixosSystem {
@@ -23,7 +23,7 @@
           ./hosts/livecd/configuration.nix
         ];
       };
-      trigkey = nixpkgs.lib.nixosSystem {
+      trigkey-s7 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
            { _module.args = inputs; }
