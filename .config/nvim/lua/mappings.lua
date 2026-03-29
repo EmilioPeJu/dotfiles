@@ -9,7 +9,6 @@ map('i', '<C-l>',
   { desc = 'Copilot Accept', noremap = true, silent = true })
 
 -- Terminal
-map('n', '<leader>t', ':ToggleTerm<CR>')
 map('t', '<leader><ESC>', '<C-\\><C-n>', { noremap = true })
 map('t', '<leader><leader>', '<C-\\><C-n>:Telescope buffers<CR>',
     { noremap = true })

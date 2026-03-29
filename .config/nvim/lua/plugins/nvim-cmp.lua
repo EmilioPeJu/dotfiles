@@ -45,9 +45,6 @@ return {
                 'hrsh7th/cmp-nvim-lsp',
             },
             {
-                'zbirenbaum/copilot-cmp',
-            },
-            {
                 'saadparwaiz1/cmp_luasnip',
             },
             {

@@ -1,1 +1,1 @@
-../../../system/dry-template.lua
+/home/user/system/dry-template.lua

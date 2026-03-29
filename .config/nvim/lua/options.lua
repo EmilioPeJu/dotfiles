@@ -8,7 +8,7 @@ opt.hidden = true
 opt.tags = './.git/tags;'
 
 -- Appearance
-opt.background = 'dark'
+--opt.background = 'dark'
 opt.autoindent = true
 opt.copyindent = true
 opt.ruler = true
@@ -46,5 +46,6 @@ opt.ignorecase = true
 -- Spell
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
+
 -- Recommended by avante
 vim.opt.laststatus = 3

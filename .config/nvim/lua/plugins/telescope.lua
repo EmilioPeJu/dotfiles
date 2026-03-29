@@ -55,11 +55,7 @@ return {
                 function()
                     require('telescope.builtin').treesitter()
                 end)
-            -- map('n', '<leader>g',
-            --     function()
-            --         require('telescope.builtin').live_grep()
-            --     end)
-            map('n', '<leader>l',
+            map('n', '<leader>g',
                 function()
                     require('telescope.builtin').live_grep({
                         prompt_title = 'Grep buffers',

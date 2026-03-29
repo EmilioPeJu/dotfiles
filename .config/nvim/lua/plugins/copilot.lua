@@ -12,7 +12,9 @@ return {
                     \ 'c': v:true,
                     \ 'cpp': v:true,
                     \ 'nix': v:true,
+                    \ 'rust': v:true,
                     \ 'sh': v:true,
+                    \ 'systemd': v:true,
                     \ 'vhdl': v:true,
                     \ 'yaml': v:true
                     \ }
