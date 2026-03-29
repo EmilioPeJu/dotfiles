@@ -35,6 +35,7 @@ with pp; [
   pyzmq
   r2pipe
   requests
+  ruff
   scapy
   scikit-learn
   seaborn
@@ -50,11 +51,10 @@ with pp; [
   z3-solver
 
   # AI
-  onnx
-  onnxruntime
-  torch
-  torchbench
-  west
+  #onnx
+  #onnxruntime
+  #torch
+  #torchbench
 
   # Electronics
   cocotb
@@ -62,5 +62,8 @@ with pp; [
   cocotbext-axi
   cynthion
   facedancer
+  pyvisa
   #rfcat
+  usbtmc
+  west
 ]

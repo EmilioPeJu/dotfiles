@@ -78,6 +78,7 @@
     hexchat
     joplin
     joplin-desktop
+    kiro
     libnotify
     libreoffice
     liferea
@@ -118,6 +119,8 @@
     xsane
     # Docs
     #calibre
+    foliate
+    #kdePackages.okular
     mupdf
     sent
     texliveFull

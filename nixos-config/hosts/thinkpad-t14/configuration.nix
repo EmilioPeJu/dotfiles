@@ -64,7 +64,7 @@
     /home/user/work 192.168.2.0/24(rw,sync,no_subtree_check)
     /home/user/dotfiles 192.168.2.0/24(rw,sync,no_subtree_check)
   '';
-  networking.firewall.allowedTCPPorts = [ 2049 ];
+  networking.firewall.allowedTCPPorts = [ 2049 8000 9999 8888 ];
   # don't start daemon at boot time
   systemd.services.nfs-server.wantedBy = lib.mkForce [ ];
 
@@ -72,6 +72,7 @@
   environment.systemPackages = with pkgs; [
     epnix.packages.x86_64-linux.epics-base
     hev-socks5-tunnel
+    steam
     telegram-desktop
   ];
 

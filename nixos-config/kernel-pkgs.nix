@@ -15,7 +15,7 @@ in
     config.boot.kernelPackages.bpftrace
     config.boot.kernelPackages.cpupower
     #config.boot.kernelPackages.lkrg
-    etherlab
+    #etherlab
     perf
     showcr
     syzkaller
@@ -23,7 +23,7 @@ in
     #trace-cmd
   ];
   boot.extraModulePackages = with pkgs; [
-    etherlab
+    #etherlab
     showcr
   ];
 }

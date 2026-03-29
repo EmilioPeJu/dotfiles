@@ -1,11 +1,21 @@
 { config, pkgs, ... }:
 
 {
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    substituters = [ "https://nix-cache.fossi-foundation.org" ];
+    trusted-public-keys = [
+      "nix-cache.fossi-foundation.org:3+K59iFwXqKsL7BNu6Guy0v+uTlwsxYQxjspXzqLYQs="
+    ];
+  };
   services.udev.extraRules = ''
     # st-link device
     SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="dialout"
     # Xilinx FTDI
-    ACTION=="add", ATTR{idVendor}=="0403", ATTR{manufacturer}=="Xilinx", GROUP="dialout"
+    ACTION=="add", ATTR{idVendor}=="0403", GROUP="dialout"
     # Diligent USB
     ATTR{idVendor}=="1443", GROUP="dialout"
     ATTR{idVendor}=="0403", GROUP="dialout"
@@ -14,9 +24,12 @@
     # ST-Link
     ATTR{idVendor}=="0483", GROUP="dialout"
     # Voyager
-    ATTRS{idVendor}=="3297", GROUP="plugdev", MODE="0660", SYMLINK+="ignition_dfu"
+    ATTRS{idVendor}=="3297", GROUP="dialout", MODE="0660", SYMLINK+="ignition_dfu"
     # OpenMoko: Cynthion and Scopefun
-    ATTRS{idVendor}=="1d50", GROUP="plugdev", MODE="0660"
+    ATTRS{idVendor}=="1d50", GROUP="dialout"
+    # TMC USB devices
+    KERNEL=="usbtmc[0-9]*", GROUP="dialout"
+    ATTRS{idVendor}=="1ab1", GROUP="dialout"
   '';
   environment.systemPackages = with pkgs; [
     arduino
@@ -63,15 +76,16 @@
     verilator
 
     # FPGA
-    #arachne-pnr
-    #icestorm
+    arachne-pnr
+    icestorm
     ghdl
     nvc
+    openroad
     vhdeps
     #yices
-    #(yosys.withPlugins (with yosys.allPlugins; [
-    #    ghdl
-    #]))
+    (yosys.withPlugins (with yosys.allPlugins; [
+        ghdl
+    ]))
 
     # USB
     cynthion

@@ -77,7 +77,6 @@
     mdadm
     mdcat
     msr
-    neofetch
     neomutt
     nethogs
     ncdu
@@ -94,7 +93,6 @@
     psmisc
     powertop
     pulsemixer
-    pyright
     qrrs
     #qrscan
     qrtool
@@ -235,7 +233,6 @@
     rdma-core
     rizin
     rr
-    ruff
     #rust-analyzer
     rustup
     #scilab-bin
@@ -252,19 +249,22 @@
     aichat
     aider-chat-full
     claude-code
-    onnxruntime
-    plandex
-    plandex-server
+    #onnxruntime
+    #plandex
+    #plandex-server
+    #rocmPackages.amdsmi
+    #rocmPackages.rocm-smi
+    #rocmPackages.rocminfo
     # Security
     libu2f-host
     pam_u2f
     # Productivity
+    #dstask
     remind
-    tasksh
     taskwarrior3
+    taskwarrior-tui
     timetrap
     timewarrior
-    vit
     wyrd
     # Typing
     #smassh
