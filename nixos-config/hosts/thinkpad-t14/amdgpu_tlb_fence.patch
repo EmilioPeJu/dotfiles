@@ -1,0 +1,42 @@
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c
+index b89013a6aa0b6..497464f50ea7d 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.c
+@@ -1041,7 +1041,7 @@ amdgpu_vm_tlb_flush(struct amdgpu_vm_update_params *params,
+ 	}
+ 
+ 	/* Prepare a TLB flush fence to be attached to PTs */
+-	if (!params->unlocked) {
++	if (!params->unlocked && vm->need_tlb_fence) {
+ 		amdgpu_vm_tlb_fence_create(params->adev, vm, fence);
+ 
+ 		/* Makes sure no PD/PT is freed before the flush */
+@@ -2573,6 +2573,7 @@ int amdgpu_vm_init(struct amdgpu_device *adev, struct amdgpu_vm *vm,
+ 	ttm_lru_bulk_move_init(&vm->lru_bulk_move);
+ 
+ 	vm->is_compute_context = false;
++	vm->need_tlb_fence = amdgpu_userq_enabled(&adev->ddev);
+ 
+ 	vm->use_cpu_for_update = !!(adev->vm_manager.vm_update_mode &
+ 				    AMDGPU_VM_USE_CPU_FOR_GFX);
+@@ -2710,6 +2711,7 @@ int amdgpu_vm_make_compute(struct amdgpu_device *adev, struct amdgpu_vm *vm)
+ 	dma_fence_put(vm->last_update);
+ 	vm->last_update = dma_fence_get_stub();
+ 	vm->is_compute_context = true;
++	vm->need_tlb_fence = true;
+ 
+ unreserve_bo:
+ 	amdgpu_bo_unreserve(vm->root.bo);
+diff --git a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.h b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.h
+index ae9449d5b00cd..25d176d1350ef 100644
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm.h
+@@ -444,6 +444,8 @@ struct amdgpu_vm {
+ 	struct ttm_lru_bulk_move lru_bulk_move;
+ 	/* Flag to indicate if VM is used for compute */
+ 	bool			is_compute_context;
++	/* Flag to indicate if VM needs a TLB fence (KFD or KGD) */
++	bool			need_tlb_fence;
+ 
+ 	/* Memory partition number, -1 means any partition */
+ 	int8_t			mem_id;
